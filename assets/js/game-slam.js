@@ -189,7 +189,6 @@
 
   function verrou() {
     var lock = el('p', 'g__lock');
-    lock.appendChild(el('span', 'g__lock-label', 'Verbe verrouillé'));
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 24 24');
     svg.setAttribute('class', 'g__lock-icon');
@@ -197,7 +196,8 @@
     var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', 'M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v2h6V7a3 3 0 0 0-3-3zm0 9a2 2 0 0 0-1 3.7V19h2v-2.3A2 2 0 0 0 12 13z');
     svg.appendChild(path);
-    lock.appendChild(svg);
+    lock.appendChild(svg);                              // le cadenas ouvre la pastille
+    lock.appendChild(el('span', 'g__lock-label', 'Verbe verrouillé'));
     lock.appendChild(el('b', null, state.verbe ? state.verbe.inf : ''));
     return lock;
   }
@@ -255,8 +255,9 @@
     s.appendChild(verrou());
     s.appendChild(el('p', 'g__phrase', debut + '…'));
 
-    s.appendChild(el('h3', 'g__title', 'À vous de trouver la suite.'));
-    s.appendChild(el('p', 'g__text', 'Ajoutez quelques mots pour transformer cette phrase en image. Où ? Pourquoi ? Vers quoi ? Avec quelle sensation ?'));
+    s.appendChild(el('h3', 'g__title g__title--sm', 'À vous de trouver la suite.'));
+    s.appendChild(el('p', 'g__text', 'Ajoutez quelques mots pour transformer cette phrase en image.'));
+    s.appendChild(el('p', 'g__hint', 'Où ? Pourquoi ? Vers quoi ? Avec quelle sensation ?'));
 
     var form = el('form', 'g__form g__form--stack');
     form.setAttribute('autocomplete', 'off');
@@ -265,13 +266,15 @@
     label.setAttribute('for', 'slam-input');
     form.appendChild(label);
 
-    var input = document.createElement('input');
-    input.type = 'text';
+    /* Une zone de texte plutôt qu'une ligne : sur téléphone, on voit sa phrase
+       entière pendant qu'on l'écrit au lieu de la regarder défiler. */
+    var input = document.createElement('textarea');
     input.id = 'slam-input';
-    input.className = 'g__input';
+    input.className = 'g__input g__input--area';
+    input.rows = 3;
     input.placeholder = 'Continuez la phrase…';
     input.enterKeyHint = 'done';
-    input.maxLength = 120;
+    input.maxLength = 140;
     form.appendChild(input);
 
     var send = el('button', 'g__btn g__btn--send', 'Terminer ma phrase');
@@ -283,8 +286,15 @@
     flash.setAttribute('role', 'status');
     s.appendChild(flash);
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    /* Le champ grandit avec le texte, sans jamais pousser le bouton hors écran. */
+    function ajuster() {
+      input.style.height = 'auto';
+      var h = input.scrollHeight;
+      input.style.height = (h > 0 ? Math.min(h, 240) : 112) + 'px';
+    }
+    input.addEventListener('input', ajuster);
+
+    function valider() {
       var suite = String(input.value || '').replace(/^[\s.…]+/, '').trim();
       if (!suite) {
         flash.textContent = 'Écrivez quelques mots pour continuer la phrase.';
@@ -294,6 +304,25 @@
       }
       state.phrase = composer(debut, suite);
       show(screenResultat);
+    }
+
+    form.addEventListener('submit', function (e) { e.preventDefault(); valider(); });
+
+    // Entrée valide ; Maj+Entrée laisse revenir à la ligne.
+    input.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      valider();
+    });
+
+    /* Quand le clavier s'ouvre, le champ reste sous les yeux. */
+    input.addEventListener('focus', function () {
+      if (host.scrollHeight - host.clientHeight < 8) return;
+      try {
+        input.scrollIntoView({ block: 'center', behavior: reduced ? 'auto' : 'smooth' });
+      } catch (err) {
+        input.scrollIntoView(false);
+      }
     });
 
     setTimeout(function () { input.focus(); }, reduced ? 0 : 280);

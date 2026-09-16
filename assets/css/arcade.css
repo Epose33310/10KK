@@ -283,6 +283,7 @@
   font-size: clamp(16px, 3.6vw, 17px); line-height: 1.55;
   color: var(--ink-soft);
 }
+.g__title--sm { font-size: clamp(19px, 4.4vw, 24px); }
 .g__text--strong { color: var(--ink); font-weight: 600; }
 .g__hint { margin-top: 12px; font-size: 14px; color: var(--ink-mute); }
 
@@ -477,6 +478,13 @@
   background: var(--paper); color: var(--ink);
   font: inherit; font-size: 17px; font-weight: 600;
 }
+/* De quoi voir toute sa phrase en l'écrivant, au lieu d'un mot qui défile. */
+.g__input--area {
+  display: block; width: 100%;
+  min-height: 112px;
+  line-height: 1.45;
+  resize: none;
+}
 .g__input::placeholder { color: var(--ink-mute); font-weight: 400; }
 .g__input:focus { outline: 3px solid var(--periwinkle); outline-offset: 2px; }
 .g__btn--send { flex: 0 0 auto; margin-top: 0; padding: 16px 20px; border-radius: 14px; }
@@ -521,27 +529,30 @@
 .g__verb.is-picked { background: var(--turquoise); border-color: var(--ink); color: var(--ink); }
 .g__verb:disabled:not(.is-picked) { opacity: 0.28; cursor: default; }
 
+/* Une pastille, pas une bannière : elle rappelle le verbe sans manger l'écran. */
 .g__lock {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 9px 16px; margin-bottom: 22px;
+  display: inline-flex; align-items: center; gap: 8px;
+  max-width: 100%;
+  padding: 6px 14px; margin-bottom: 16px;
   border-radius: 99px; background: var(--turquoise);
 }
 .g__lock-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; opacity: 0.7;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; opacity: 0.62;
 }
-.g__lock-icon { width: 15px; height: 15px; fill: var(--ink); flex: 0 0 auto; }
-.g__lock b { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.g__lock-icon { width: 12px; height: 12px; fill: var(--ink); flex: 0 0 auto; opacity: 0.7; }
+.g__lock b { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
 
 .g__phrase {
-  margin: 4px 0 28px;
-  padding-bottom: 20px;
+  margin: 2px 0 22px;
+  padding-bottom: 16px;
   border-bottom: 2px solid var(--ink);
-  font-size: clamp(26px, 6.4vw, 38px);
-  line-height: 1.12; letter-spacing: -0.03em; font-weight: 700;
+  font-size: clamp(22px, 5.6vw, 38px);
+  line-height: 1.14; letter-spacing: -0.03em; font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
-.g__form--stack { flex-direction: column; }
+.g__form--stack { flex-direction: column; gap: 12px; margin-top: 24px; }
 .g__form--stack .g__btn--send { width: 100%; }
 
 .g__result {
@@ -572,4 +583,48 @@
   margin-top: 22px; padding-top: 22px;
   border-top: 2px solid var(--ink);
   transition: opacity 460ms var(--ease), transform 460ms var(--ease);
+}
+
+/* ==========================================================================
+   Petits écrans — la fenêtre prend la place, le décor s'efface
+   ========================================================================== */
+
+@media (max-width: 560px) {
+  .play {
+    width: calc(100vw - 16px);
+    max-height: min(93vh, 860px);
+    max-height: min(93dvh, 860px);   /* la barre d'URL mobile ne rogne plus la fenêtre */
+    border-radius: 18px;
+  }
+  .play__head { gap: 12px; padding: 13px 16px; }
+  .play__label { font-size: 10px; letter-spacing: 0.12em; }
+  .play__title { margin-top: 2px; font-size: 19px; }
+  .play__close { width: 36px; height: 36px; }
+  .play__close span { left: 8px; top: 15px; width: 16px; }
+  .play__body { padding: 18px 16px 22px; }
+
+  .g__title { font-size: 21px; }
+  .g__title--sm { font-size: 18px; }
+  .g__text { margin-top: 10px; line-height: 1.5; }
+  .g__btn { margin-top: 20px; padding: 15px 22px; font-size: 15px; }
+
+  /* La pastille du verbe : l'icône et le mot disent déjà tout. */
+  .g__lock { gap: 6px; padding: 5px 12px; margin-bottom: 12px; }
+  .g__lock-label {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .g__lock-icon { width: 11px; height: 11px; }
+  .g__lock b { font-size: 13px; }
+
+  .g__phrase { margin-bottom: 16px; padding-bottom: 12px; }
+  .g__verbs { gap: 7px; margin-top: 18px; }
+  .g__verb { padding: 10px 14px; font-size: 14px; }
+
+  .g__form--stack { margin-top: 18px; }
+  .g__input { padding: 13px 15px; font-size: 16px; }  /* 16px : iOS ne zoome pas */
+  .g__input--area { min-height: 132px; }
+  .g__btn--send { padding: 15px 18px; }
+  .g__flash { margin-top: 10px; font-size: 15px; }
 }
