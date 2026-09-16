@@ -148,7 +148,28 @@ chrono, puis auto-évaluation. Les réponses déclenchent des techniques ciblée
 aucune note, aucun jugement. Sujets, critères, points forts et techniques sont
 quatre constantes en tête de fichier, modifiables sans toucher à la mécanique.
 
-Les trois autres jeux restent à écrire : leurs fenêtres affichent pour l'instant
+**Jeu 04, rap** (`assets/js/game-rap.js`) : un mot, 60 secondes, une rime à
+trouver. Bonne réponse, mot suivant ; mauvaise, le mot reste. Le chrono est
+ancré sur l'horloge et ne dérive pas.
+
+La validation ne compare **pas des lettres**. `tools/phonetique-fr.cjs` transcrit
+la fin prononcée d'un mot français — digrammes, nasales, semi-voyelles, « e »
+muet, consonnes finales muettes — et en extrait la rime. `tools/build-rimes.cjs`
+s'en sert **hors ligne** pour indexer un vrai lexique de 276 000 mots et n'en
+garder que ce dont le jeu a besoin :
+
+```bash
+npm install an-array-of-french-words
+node tools/build-rimes.cjs
+```
+
+Le jeu ne charge donc pas un dictionnaire de 640 Ko mais `assets/data/rimes.json`
+(97 Ko compressés), **et seulement à l'ouverture de la borne**. Un mot est accepté
+s'il figure dans le panier de rimes du mot affiché : son existence et sa rime sont
+vérifiées d'un coup, sans faux positif orthographique. Pour changer les mots
+cibles, éditez `TARGET_WORDS` dans le script et relancez-le.
+
+Les deux autres jeux restent à écrire : leurs fenêtres affichent pour l'instant
 leur emblème et une phrase d'attente. Le contenu des bornes se trouve dans
 `tools/build-demo.cjs`, dans la constante `GAMES`.
 

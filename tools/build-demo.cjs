@@ -70,7 +70,7 @@ const GAMES = [
     soon: "Une prise de parole minutée, avec la contrainte qui oblige à structurer." },
   { key: 'rap', num: '04', tag: 'Rap',
     title: 'Trouver des rimes',
-    sub: 'Le son avant le sens : chercher ce qui tombe juste à l\'oreille.',
+    sub: 'Un mot, 60 secondes. Combien de rimes trouvez-vous ?',
     soon: "Un mot à faire rimer, un compte à rebours, et la liste qui s'allonge." },
 ];
 
@@ -101,7 +101,7 @@ const dialogs = GAMES.map((g) => `
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">${g.key === 'eloquence' ? '' : `
+  <div class="play__body">${['eloquence', 'rap'].indexOf(g.key) !== -1 ? '' : `
     <div class="play__soon">
       <span class="cab__emblem" aria-hidden="true">${EMBLEMS[g.key]}
       </span>
@@ -161,7 +161,8 @@ ${dialogs}
 ${footer.replace(
   '</body>',
   '<script src="assets/js/arcade.js?v=' + v + '" defer></script>\n' +
-  '<script src="assets/js/game-eloquence.js?v=' + v + '" defer></script>\n</body>'
+  '<script src="assets/js/game-eloquence.js?v=' + v + '" defer></script>\n' +
+  '<script src="assets/js/game-rap.js?v=' + v + '" defer></script>\n</body>'
 )}`;
 
 writeFileSync(join(root, 'demo.html'), html);

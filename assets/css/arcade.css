@@ -421,3 +421,81 @@
   .g__choices { grid-template-columns: repeat(2, 1fr); }
   .g__strengths, .g__techs { gap: 14px; }
 }
+
+/* --------------------------------------------------------------------------
+   Jeu 04 — 60 secondes de rap
+   -------------------------------------------------------------------------- */
+
+.g__tip {
+  margin-top: 18px; padding: 14px 16px;
+  border-radius: 12px; background: var(--card);
+  font-size: 15px; line-height: 1.45; color: var(--ink-soft);
+}
+
+.g--play { display: flex; flex-direction: column; }
+
+.g__hud {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 16px;
+}
+.g__hud p { display: flex; flex-direction: column; gap: 2px; }
+.g__hud-score { text-align: right; }
+.g__hud-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.g__hud b {
+  font-family: var(--font-logo);
+  font-size: clamp(38px, 10vw, 52px); line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.g__hud-time.is-low b { color: #c2410c; }
+
+.g__gauge {
+  height: 6px; margin-top: 12px;
+  border-radius: 99px; background: var(--card); overflow: hidden;
+}
+.g__gauge span {
+  display: block; height: 100%; width: 100%;
+  background: var(--ink); transform-origin: 0 50%;
+  transition: transform 220ms linear;
+}
+
+.g__word {
+  margin: clamp(28px, 7vw, 44px) 0;
+  text-align: center;
+  font-size: clamp(38px, 11vw, 62px);
+  line-height: 1; letter-spacing: -0.04em; font-weight: 700;
+  text-transform: uppercase;
+}
+
+.g__form { display: flex; gap: 10px; }
+.g__input {
+  flex: 1 1 auto; min-width: 0;
+  padding: 16px 18px;
+  border: 2px solid var(--ink); border-radius: 14px;
+  background: var(--paper); color: var(--ink);
+  font: inherit; font-size: 17px; font-weight: 600;
+}
+.g__input::placeholder { color: var(--ink-mute); font-weight: 400; }
+.g__input:focus { outline: 3px solid var(--periwinkle); outline-offset: 2px; }
+.g__btn--send { flex: 0 0 auto; margin-top: 0; padding: 16px 20px; border-radius: 14px; }
+
+/* Le retour ne repose jamais sur la seule couleur : symbole et texte d'abord. */
+.g__flash {
+  min-height: 1.6em; margin-top: 14px;
+  font-size: 16px; font-weight: 600;
+}
+.g__flash.is-ok { color: #15803d; }
+.g__flash.is-ko { color: #c2410c; }
+
+.g__score {
+  margin: 10px 0 4px;
+  font-family: var(--font-logo);
+  font-size: clamp(80px, 24vw, 140px); line-height: 0.9;
+}
+
+@media (max-width: 420px) {
+  .g__form { flex-direction: column; }
+  .g__btn--send { width: 100%; }
+}
