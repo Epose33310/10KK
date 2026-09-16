@@ -1,4 +1,4 @@
-# Poetrip — site des ateliers slam
+# Esope — site des ateliers slam
 
 Site vitrine statique pour des ateliers de slam : formats d'intervention, méthode,
 agenda, témoignages, FAQ et demande de devis. Aucune dépendance, aucun build,
@@ -18,7 +18,7 @@ de traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
 | 4 | Collage + texte | Collage, puis titre, paragraphe long, bouton jaune + lien souligné |
 | 5 | Titre entouré | « Découvre l'intérieur », cercle tracé au feutre à l'arrivée à l'écran |
 | 6 | Cartes produit | Zone grise (titre, texte, bouton noir) + panneau coloré avec maquette |
-| — | Atelier express | Machine à consignes + chrono de scène de 3 min |
+| — | Mini atelier en ligne | Machine à consignes + chrono de scène de 3 min |
 | — | Agenda | Dates filtrables par catégorie |
 | 7 | Témoignages | Carrousel de cartes colorées, pastilles de pagination |
 | — | FAQ · Contact | Accordéon et formulaire de devis |
@@ -56,10 +56,17 @@ assets/js/app.js      Interactions (sans dépendance)
 
 ## Personnaliser
 
-**Les photos.** Les collages contiennent des emplacements gris marqués « votre
-photo d'atelier » (`.collage__center`). Remplacez le bloc par une balise `<img>`
-pour que le collage prenne vie : les aplats de couleur autour sont conçus pour
-encadrer une vraie photo.
+**Les photos.** Quatre fichiers de `assets/img/` sont des images de substitution :
+`atelier-1.jpg` (portrait, la plus visible), `atelier-2.jpg`, `atelier-3.jpg` et
+`ecriture-1.jpg`. **Écrasez-les par vos propres photos en gardant les mêmes noms**
+et tout se met en place : bords déchirés, teinte duotone et aplats colorés sont
+appliqués par le CSS, pas par les fichiers. Visez au moins 1 000 px de large.
+
+Pour des photos libres de droit, Unsplash et Pexels conviennent (recherchez
+« spoken word », « poetry slam », « open mic », « writing workshop »).
+
+Le duotone est obtenu en `mix-blend-mode: multiply` sur une photo désaturée
+posée sur un aplat coloré — une photo contrastée donne le meilleur résultat.
 
 **Le méga menu** est le bloc `.mega` dans `<header class="nav">`. Chaque entrée
 pointe aujourd'hui vers une ancre de la page (`#atelier-slam`, `#atelier-rap`…) :

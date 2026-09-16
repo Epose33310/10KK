@@ -245,8 +245,8 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .header__nav { display: none; }
 
-.header__cta { margin-left: auto; }
-.header__cta .btn { padding: 14px 18px; font-size: 15px; white-space: nowrap; }
+.header__cta { margin-left: auto; padding-left: 8px; }
+.header__cta .btn { padding: 14px 22px; font-size: 15px; white-space: nowrap; }
 
 /* Sous 420 px, le libellé complet ne tient pas à côté du logo et du burger. */
 .cta-long { display: none; }
@@ -257,14 +257,15 @@ input, textarea, select { font: inherit; color: inherit; }
   .header__cta .btn { padding: 15px 22px; font-size: 16px; }
 }
 @media (max-width: 419px) {
-  .header__inner { gap: 10px; }
+  .header__inner { gap: 14px; }
   .logo { font-size: 30px; }
 }
 @media (max-width: 359px) {
   :root { --gutter: 14px; }
   .logo { font-size: 26px; }
   .burger { width: 38px; }
-  .header__cta .btn { padding: 12px 14px; font-size: 14px; }
+  .header__cta { padding-left: 4px; }
+  .header__cta .btn { padding: 12px 18px; font-size: 14px; }
 }
 
 .burger {
@@ -291,29 +292,38 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .drawer {
   display: none;
-  background: var(--yellow);
-  border-top: 1px solid rgba(26, 26, 26, 0.15);
-  padding: 8px var(--gutter) 28px;
+  background: var(--paper);
+  border-top: 2px solid var(--ink);
+  padding: 4px var(--gutter) 28px;
 }
 .drawer.is-open { display: block; }
-.drawer a {
+.drawer a:not(.btn) {
   display: block;
-  padding: 15px 0;
+  padding: 16px 0;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
 }
+.drawer a:not(.btn):active { color: var(--ink-soft); }
 .drawer__group > button {
   display: flex; align-items: center; justify-content: space-between;
-  width: 100%; padding: 15px 0; border: 0; background: transparent;
+  width: 100%; padding: 16px 0; border: 0; background: transparent;
   font-size: 20px; font-weight: 600; letter-spacing: -0.02em; text-align: left;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 .drawer__sub { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
 .drawer__group > button[aria-expanded='true'] + .drawer__sub { grid-template-rows: 1fr; }
 .drawer__sub > div { overflow: hidden; }
-.drawer__sub a { font-size: 17px; font-weight: 500; padding-left: 18px; }
+.drawer__sub a:not(.btn) {
+  font-size: 17px; font-weight: 500;
+  padding-left: 16px; margin-left: 2px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid var(--yellow);
+}
 .drawer .btn { margin-top: 20px; }
 
 .caret {
@@ -335,75 +345,95 @@ input, textarea, select { font: inherit; color: inherit; }
 .hero .btn-row { margin-top: 32px; }
 
 /* --------------------------------------------------------------------------
-   Collage papier découpé
+   Collage photo : bords déchirés, duotone, bandeau et traits griffés
    -------------------------------------------------------------------------- */
 
-.collage {
+.photoset {
   position: relative;
-  margin-top: clamp(40px, 9vw, 72px);
-  aspect-ratio: 16 / 11;
-  max-width: 1000px;
   margin-inline: auto;
+  aspect-ratio: 16 / 12;
+  max-width: 560px;
 }
 
-.collage__piece {
+.photoset__item {
   position: absolute;
+  margin: 0;
   overflow: hidden;
 }
+.photoset__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-/* volet gauche, aplat duotone */
-.collage__left {
-  left: 0; top: 26%;
-  width: 40%; height: 48%;
-  background: var(--turquoise);
-  clip-path: polygon(0 4%, 100% 0, 100% 96%, 3% 100%);
-  transform: rotate(-1.2deg);
-}
-/* volet droit, feuille manuscrite */
-.collage__right {
-  right: 0; top: 6%;
-  width: 36%; height: 64%;
-  background: var(--pink);
-  clip-path: polygon(6% 0, 100% 3%, 100% 100%, 0 94%);
-  transform: rotate(1.4deg);
-}
-/* portrait central */
-.collage__center {
-  left: 27%; top: 0;
-  width: 46%; height: 84%;
-  background: var(--card);
-  border-radius: 6px;
+/* Bords déchirés : polygones irréguliers, comme un papier arraché à la main */
+.tear-a { clip-path: polygon(1% 4%, 17% 1%, 34% 5%, 51% 0, 69% 4%, 87% 1%, 100% 6%, 98% 27%, 100% 52%, 97% 76%, 99% 96%, 79% 99%, 59% 95%, 39% 100%, 19% 96%, 2% 99%, 0 74%, 2% 49%, 0 26%); }
+.tear-b { clip-path: polygon(0 3%, 20% 0, 41% 4%, 62% 1%, 82% 5%, 100% 2%, 98% 24%, 100% 48%, 97% 71%, 100% 94%, 78% 98%, 56% 94%, 34% 99%, 12% 95%, 0 98%, 3% 72%, 0 47%, 2% 25%); }
+.tear-c { clip-path: polygon(3% 0, 24% 4%, 45% 0, 66% 5%, 88% 1%, 100% 5%, 97% 28%, 100% 51%, 98% 74%, 100% 97%, 76% 100%, 54% 96%, 31% 100%, 9% 96%, 0 99%, 2% 73%, 0 50%, 3% 27%); }
+
+/* Duotone : le fond coloré transparaît dans les zones claires de la photo */
+.duo { background: var(--turquoise); }
+.duo img { filter: grayscale(1) contrast(1.16) brightness(1.04); mix-blend-mode: multiply; }
+.duo--turquoise { background: var(--turquoise); }
+.duo--pink { background: var(--pink); }
+.duo--yellow { background: var(--yellow); }
+.duo--green { background: var(--green); }
+.duo--magenta { background: var(--magenta); }
+
+/* Placement du trio */
+.photoset__item--left { left: 0; top: 26%; width: 42%; height: 48%; transform: rotate(-1.2deg); }
+.photoset__item--main { left: 26%; top: 0; width: 48%; height: 84%; }
+.photoset__item--right { right: 0; top: 5%; width: 36%; height: 64%; transform: rotate(1.4deg); }
+
+/* Bandeau déchiré en avant-plan */
+.photoset__banner {
+  position: absolute;
+  left: 3%; bottom: 0;
+  width: 94%; height: 27%;
+  background: var(--blue);
+  clip-path: polygon(0 14%, 22% 4%, 48% 0, 74% 5%, 100% 1%, 92% 62%, 86% 100%, 60% 95%, 34% 99%, 11% 93%);
   display: grid;
   place-items: center;
 }
-.collage__center::after {
-  content: attr(data-label);
-  padding: 0 16px;
-  text-align: center;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-}
-/* bandeau bleu déchiré en avant-plan */
-.collage__banner {
-  left: 4%; bottom: 0;
-  width: 92%; height: 27%;
-  background: var(--blue);
-  clip-path: polygon(0 12%, 100% 0, 88% 100%, 12% 96%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.collage__banner span {
-  font-size: clamp(22px, 5.5vw, 44px);
+.photoset__banner span {
+  font-size: clamp(22px, 6vw, 56px);
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.34);
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
 }
 
-/* traits fins griffés, réutilisés sur les panneaux */
+/* Photo seule, pour les blocs en deux colonnes */
+.photo-single {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+.photo-single__shape {
+  position: absolute;
+  left: -4%; top: -3%;
+  width: 78%; height: 62%;
+  background: var(--periwinkle);
+  clip-path: polygon(2% 6%, 28% 0, 56% 5%, 84% 1%, 100% 8%, 96% 40%, 100% 72%, 94% 100%, 66% 95%, 38% 100%, 12% 94%, 0 98%, 3% 66%, 0 34%);
+}
+.photo-single__shape--green { background: var(--green); }
+.photo-single figure {
+  position: absolute;
+  margin: 0;
+  right: 0; bottom: 0;
+  width: 88%; height: 88%;
+  overflow: hidden;
+}
+.photo-single figure img { width: 100%; height: 100%; object-fit: cover; }
+
+.photo-single__front {
+  position: absolute;
+  left: 8%; bottom: 4%;
+  width: 62%; height: 22%;
+  background: var(--blue);
+  clip-path: polygon(0 18%, 26% 6%, 54% 0, 80% 7%, 100% 2%, 94% 58%, 88% 100%, 58% 94%, 30% 99%, 8% 92%);
+}
+
+/* Traits fins griffés, partagés avec les panneaux produit */
 .scribbles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .scribbles path { fill: none; stroke: rgba(26, 26, 26, 0.35); stroke-width: 1; }
 
@@ -449,6 +479,8 @@ input, textarea, select { font: inherit; color: inherit; }
 /* --------------------------------------------------------------------------
    Cartes produit : zone grise + panneau coloré
    -------------------------------------------------------------------------- */
+
+.split { display: grid; gap: clamp(32px, 6vw, 56px); align-items: center; }
 
 .products { display: grid; gap: clamp(24px, 5vw, 40px); }
 
@@ -827,6 +859,13 @@ input, textarea, select { font: inherit; color: inherit; }
 
   .stats { grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
+  .split { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+  .split--flip > *:first-child { order: 2; }
+
+  /* Sur grand écran les photos occupent nettement plus de surface */
+  .photoset { max-width: none; aspect-ratio: 16 / 9; }
+  .photo-single { aspect-ratio: 5 / 5.4; }
+
   .product { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
   .product__text { display: flex; flex-direction: column; justify-content: center; }
   .product--flip .product__text { order: 2; }
@@ -846,7 +885,6 @@ input, textarea, select { font: inherit; color: inherit; }
   .footer__grid { grid-template-columns: repeat(4, 1fr); }
   .footer__legal { grid-template-columns: repeat(4, 1fr); }
 
-  .collage { aspect-ratio: 2 / 1; }
 }
 
 /* Méga menu (ordinateur uniquement) */

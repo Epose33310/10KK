@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Poetrip — Ateliers slam : écrire, dire, monter sur scène</title>
+<title>Esope — Ateliers slam : écrire, dire, monter sur scène</title>
 <meta name="description" content="Ateliers de slam, battle de compliments, éloquence et rap. Pour les collèges et lycées, les entreprises, les médiathèques et les collectivités. De la page blanche à la scène ouverte.">
 <meta name="theme-color" content="#fdc837">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Poetrip — Ateliers slam">
+<meta property="og:title" content="Esope — Ateliers slam">
 <meta property="og:description" content="Écrire, dire, monter sur scène. Ateliers de slam pour établissements scolaires, entreprises et collectivités.">
 <meta property="og:locale" content="fr_FR">
 
@@ -25,7 +25,7 @@
 <!-- ================= MODULE 1 — HEADER JAUNE FIXE ================= -->
 <header class="header" id="header">
   <div class="wrap header__inner">
-    <a class="logo" href="#top">poetrip</a>
+    <a class="logo" href="#top">Esope</a>
 
     <nav class="header__nav" aria-label="Navigation principale">
       <div class="header__item" data-mega>
@@ -66,7 +66,7 @@
         </div>
       </div>
 
-      <a class="header__link" href="#atelier-express">Atelier express</a>
+      <a class="header__link" href="#atelier-express">Mini atelier en ligne</a>
       <a class="header__link" href="#agenda">Agenda</a>
       <a class="header__link" href="#temoignages">Témoignages</a>
     </nav>
@@ -95,7 +95,7 @@
         <a href="#atelier-rap">Ateliers rap</a>
       </div></div>
     </div>
-    <a href="#atelier-express">Atelier express</a>
+    <a href="#atelier-express">Mini atelier en ligne</a>
     <a href="#agenda">Agenda</a>
     <a href="#temoignages">Témoignages</a>
     <a href="#faq">Questions</a>
@@ -118,16 +118,21 @@
     <a class="btn btn--yellow" href="#contact">Réserve ton atelier</a>
   </div>
 
-  <!-- Collage papier découpé : remplacer les aplats par vos photos d'atelier -->
-  <div class="collage" data-reveal aria-hidden="true">
-    <div class="collage__piece collage__left"></div>
-    <div class="collage__piece collage__right">
-      <svg class="scribbles" viewBox="0 0 200 300" preserveAspectRatio="none">
+  <!-- Collage photo : remplacez les fichiers de assets/img/ par les vôtres -->
+  <div class="photoset" data-reveal style="margin-top:clamp(40px,9vw,72px)">
+    <figure class="photoset__item photoset__item--left tear-a duo duo--turquoise">
+      <img src="assets/img/atelier-2.jpg" alt="" loading="lazy" width="900" height="820">
+    </figure>
+    <figure class="photoset__item photoset__item--main tear-b">
+      <img src="assets/img/atelier-1.jpg" alt="Un participant au micro pendant un atelier" width="1100" height="1300">
+    </figure>
+    <figure class="photoset__item photoset__item--right tear-c duo duo--pink">
+      <img src="assets/img/atelier-3.jpg" alt="" loading="lazy" width="820" height="1050">
+      <svg class="scribbles" viewBox="0 0 200 300" preserveAspectRatio="none" aria-hidden="true">
         <path d="M10 40 L190 30 M10 80 L190 72 M10 120 L150 112 M10 160 L190 150 M10 200 L160 194"/>
       </svg>
-    </div>
-    <div class="collage__piece collage__center" data-label="Votre photo d'atelier"></div>
-    <div class="collage__piece collage__banner"><span>slam</span></div>
+    </figure>
+    <div class="photoset__banner" aria-hidden="true"><span>slam</span></div>
   </div>
 </section>
 
@@ -151,17 +156,20 @@
 
 <!-- ================= MODULE 4 — COLLAGE + TEXTE LONG ================= -->
 <section class="section wrap">
-  <div class="collage" data-reveal aria-hidden="true" style="margin-top:0">
-    <div class="collage__piece collage__right" style="left:0;right:auto;background:var(--periwinkle)">
-      <svg class="scribbles" viewBox="0 0 200 300" preserveAspectRatio="none">
-        <path d="M-10 60 C60 20 140 120 210 70 M-10 150 C70 110 130 210 210 160 M40 -10 C60 100 120 200 100 310"/>
-      </svg>
+  <div class="split" data-reveal>
+    <div class="photo-single">
+      <div class="photo-single__shape" aria-hidden="true">
+        <svg class="scribbles" viewBox="0 0 200 200" preserveAspectRatio="none">
+          <path d="M-10 60 C60 20 140 120 210 70 M-10 140 C70 100 130 190 210 150 M40 -10 C60 80 120 140 100 210"/>
+        </svg>
+      </div>
+      <figure class="tear-b">
+        <img src="assets/img/ecriture-1.jpg" alt="Un atelier d'écriture en cours" loading="lazy" width="1200" height="1000">
+      </figure>
+      <div class="photo-single__front" aria-hidden="true"></div>
     </div>
-    <div class="collage__piece collage__center" data-label="Votre photo d'atelier"></div>
-    <div class="collage__piece collage__left" style="left:auto;right:0;background:var(--green)"></div>
-  </div>
 
-  <div style="max-width:760px;margin-top:clamp(40px,8vw,64px)" data-reveal>
+    <div>
     <h2 class="h2">Tout le chemin, de la page blanche au micro</h2>
     <p class="body-lg mute" style="margin-top:28px">
       La plupart des ateliers d'écriture s'arrêtent au texte. On écrit, on lit à voix basse, on range
@@ -173,6 +181,7 @@
     <div class="btn-row" style="margin-top:36px">
       <a class="btn btn--yellow" href="#contact">Réserve ton atelier</a>
       <a class="btn btn--link" href="#ateliers">En savoir plus</a>
+    </div>
     </div>
   </div>
 </section>
@@ -619,11 +628,17 @@
 
 <!-- ================= MODULE 8 — CTA FINAL ================= -->
 <section class="section wrap center">
-  <div class="collage" data-reveal aria-hidden="true" style="margin-top:0">
-    <div class="collage__piece collage__left"></div>
-    <div class="collage__piece collage__center" data-label="Votre photo de scène"></div>
-    <div class="collage__piece collage__right"></div>
-    <div class="collage__piece collage__banner"><span>ta voix</span></div>
+  <div class="photoset" data-reveal>
+    <figure class="photoset__item photoset__item--left tear-c duo duo--green">
+      <img src="assets/img/atelier-3.jpg" alt="" loading="lazy" width="820" height="1050">
+    </figure>
+    <figure class="photoset__item photoset__item--main tear-a">
+      <img src="assets/img/ecriture-1.jpg" alt="Une scène ouverte en fin d'atelier" loading="lazy" width="1200" height="1000">
+    </figure>
+    <figure class="photoset__item photoset__item--right tear-b duo duo--magenta">
+      <img src="assets/img/atelier-2.jpg" alt="" loading="lazy" width="900" height="820">
+    </figure>
+    <div class="photoset__banner" aria-hidden="true"><span>ta voix</span></div>
   </div>
 
   <div class="measure" style="margin-top:clamp(40px,9vw,64px)" data-reveal>
@@ -642,8 +657,8 @@
 <!-- ================= MODULE 9 — PIED DE PAGE NOIR ================= -->
 <footer class="footer">
   <div class="wrap">
-    <p class="footer__logo">poetrip</p>
-    <p class="footer__copy">© <span id="year">2026</span> Poetrip — Ateliers slam</p>
+    <p class="footer__logo">Esope</p>
+    <p class="footer__copy">© <span id="year">2026</span> Esope — Ateliers slam</p>
 
     <div class="footer__grid">
       <div>
@@ -667,7 +682,7 @@
       <div>
         <h3>Le projet</h3>
         <ul>
-          <li><a href="#atelier-express">Atelier express</a></li>
+          <li><a href="#atelier-express">Mini atelier en ligne</a></li>
           <li><a href="#agenda">Agenda</a></li>
           <li><a href="#temoignages">Témoignages</a></li>
           <li><a href="#faq">Questions</a></li>
