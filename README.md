@@ -15,15 +15,13 @@ traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
 | Header jaune fixe | Logo Anton, bouton noir, burger (mobile) / méga menu (ordinateur) |
 | Hero | Titre, accroche, boutons, collage photo à bords déchirés |
 | Trois piliers | Champion de France · Dans toute la France · Projets uniques |
-| Marqueurs de confiance | Agréé Éducation nationale, pass Culture, 300 ateliers, déplacements |
-| Interventions | Slam, éloquence, rap, battle de compliments + quatre formats complémentaires |
+| Chiffres clés | 5 000 participants, 300 ateliers, toute la France, tous niveaux |
+| Marqueurs de confiance | Agrément, pass Culture, distinctions |
+| Interventions | Quatre cartes menant chacune à sa page dédiée |
 | Générer de l'ambition | Bloc deux colonnes, photo et texte |
-| Ce que vos élèves y gagnent | Quatre bénéfices |
-| Les objectifs | Carrousel de cinq cartes colorées |
 | Manifeste | Bloc sombre, quatre principes |
+| Témoignages | Carrousel — **citations à remplacer par de vrais retours** |
 | Esope | Bio courte, distinctions, fenêtre parcours complet |
-| Voir et entendre | Emplacements vidéo |
-| Définitions | Slam, rap, éloquence |
 | FAQ | Six questions |
 | Dossier | Deux PDF téléchargeables |
 | Contact | Formulaire de demande |
@@ -52,20 +50,39 @@ npx serve .
 ## Structure
 
 ```
-index.html            Toute la page
+index.html            Page d'accueil
+atelier-*.html        Une page par intervention (générées)
 assets/css/style.css  Jetons de design + composants
 assets/js/app.js      Interactions (sans dépendance)
 assets/fonts/         Inter Tight et Anton, servies depuis le dépôt
 assets/img/           Photos (à remplacer)
 assets/docs/          PDF générés
-tools/                Gabarits des PDF + script de génération
+tools/                Gabarits des PDF, contenus des pages, scripts
 ```
+
+## Les pages d'atelier sont générées
+
+Les quatre pages `atelier-*.html` **ne se modifient pas à la main** : leur contenu
+vit dans `tools/build-pages.cjs`, qui réutilise le header, les fenêtres modales et
+le pied de page de `index.html`. Après toute modification du header ou du contenu
+d'un atelier :
+
+```bash
+node tools/build-pages.cjs
+```
+
+Les cinq pages restent ainsi cohérentes, sans étape de build côté visiteur : ce
+sont de simples fichiers HTML statiques.
 
 ## Les PDF téléchargeables
 
-Deux documents sont proposés au téléchargement : le **dossier de présentation**
-(5 pages) et le **parcours et distinctions** (1 page). Ils reprennent les polices
-et les couleurs du site.
+Deux documents sont proposés au téléchargement : le **dossier de diffusion**
+(5 pages) et la **fiche projet** (1 page recto).
+
+Ils ne reprennent pas le texte du site. Ils sont écrits pour être lus par une
+direction : modalités pratiques, objections courantes et réponses, calendrier
+type, financement, cadre pédagogique évaluable. Le site donne envie, les
+documents font décider.
 
 Ils sont **générés**, pas écrits à la main. Pour les régénérer après modification :
 

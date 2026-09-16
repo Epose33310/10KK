@@ -1242,3 +1242,85 @@ input, textarea, select { font: inherit; color: inherit; }
 @media (min-width: 620px) and (max-width: 899px) {
   .trust, .benefits, .defs { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* --------------------------------------------------------------------------
+   Chiffres clés
+   -------------------------------------------------------------------------- */
+
+.figures { display: grid; gap: 2px; background: var(--line); border-radius: var(--r-card); overflow: hidden; }
+.figure { background: var(--yellow); padding: 30px 24px; }
+.figure__value {
+  font-size: clamp(34px, 7vw, 46px); line-height: 1.02;
+  letter-spacing: -0.035em; font-weight: 700;
+}
+.figure__label { margin-top: 10px; font-size: 15px; font-weight: 500; }
+
+/* --------------------------------------------------------------------------
+   Pages d'atelier
+   -------------------------------------------------------------------------- */
+
+.page-hero { padding-block: clamp(36px, 7vw, 64px) clamp(32px, 6vw, 56px); }
+.page-hero__band { border-radius: var(--r-card); padding: clamp(28px, 6vw, 56px); position: relative; overflow: hidden; }
+.band--turquoise { background: var(--turquoise); }
+.band--green { background: var(--green); }
+.band--periwinkle { background: var(--periwinkle); }
+.band--magenta { background: var(--magenta); }
+.page-hero__inner { position: relative; z-index: 1; max-width: 760px; }
+.page-hero h1 { font-size: clamp(34px, 7.6vw, 62px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; }
+.page-hero p { margin-top: 20px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.45; }
+.page-hero .btn-row { margin-top: 28px; }
+
+.crumb {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 15px; font-weight: 600; margin-bottom: 20px;
+}
+.crumb .arrow { transition: transform var(--dur-fast) var(--ease); }
+.crumb:hover .arrow { transform: translateX(-5px); }
+
+.facts { display: grid; gap: 2px; background: var(--line); border-radius: var(--r-card); overflow: hidden; }
+.fact { background: var(--card); padding: 24px; }
+.fact b { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
+.fact span { font-size: clamp(17px, 3.6vw, 19px); font-weight: 600; letter-spacing: -0.01em; }
+
+.steps { display: grid; gap: 14px; counter-reset: step; }
+.step {
+  display: grid; grid-template-columns: 52px 1fr; gap: 20px;
+  background: var(--card); border-radius: 18px; padding: 24px;
+}
+.step__n {
+  counter-increment: step;
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--ink); color: var(--white); font-weight: 700; font-size: 16px;
+}
+.step__n::before { content: counter(step, decimal-leading-zero); }
+.step h3 { font-size: clamp(19px, 4vw, 22px); line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; margin-bottom: 8px; }
+.step p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
+
+.goals { display: grid; gap: 14px; }
+.goal { background: var(--card); border-radius: 18px; padding: 24px; }
+.goal b { display: block; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+.goal span { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
+
+.related { display: grid; gap: 12px; }
+.related__item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 22px; border-radius: 16px;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.related__item:hover { transform: translateX(5px); }
+.related__item b { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
+.related__item small { display: block; margin-top: 3px; font-size: 15px; opacity: 0.75; }
+.related__item .arrow { margin-left: auto; font-size: 20px; }
+
+@media (min-width: 900px) {
+  .figures { grid-template-columns: repeat(4, 1fr); }
+  .facts { grid-template-columns: repeat(4, 1fr); }
+  .goals { grid-template-columns: repeat(2, 1fr); }
+  .related { grid-template-columns: repeat(3, 1fr); }
+  .related__item:hover { transform: translateY(-5px); }
+}
+@media (min-width: 620px) and (max-width: 899px) {
+  .figures, .facts, .goals { grid-template-columns: repeat(2, 1fr); }
+}

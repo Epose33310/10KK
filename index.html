@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=9">
+<link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body>
 
@@ -35,19 +35,19 @@
           <div class="mega__inner">
             <div class="mega__col">
               <p class="mega__label">Par atelier</p>
-              <a class="mega__item" href="#atelier-slam">
+              <a class="mega__item" href="atelier-slam.html">
                 <span class="mega__chip mega__chip--turquoise" aria-hidden="true"></span>
                 <span><b>Ateliers slam</b><small>Écrire un texte, le dire debout.</small></span>
               </a>
-              <a class="mega__item" href="#atelier-compliments">
+              <a class="mega__item" href="atelier-battle.html">
                 <span class="mega__chip mega__chip--magenta" aria-hidden="true"></span>
                 <span><b>Battle de compliments</b><small>Une joute verbale flatteuse.</small></span>
               </a>
-              <a class="mega__item" href="#atelier-eloquence">
+              <a class="mega__item" href="atelier-eloquence.html">
                 <span class="mega__chip mega__chip--green" aria-hidden="true"></span>
                 <span><b>Ateliers éloquence</b><small>Prise de parole et gestion du stress.</small></span>
               </a>
-              <a class="mega__item" href="#atelier-rap">
+              <a class="mega__item" href="atelier-rap.html">
                 <span class="mega__chip mega__chip--periwinkle" aria-hidden="true"></span>
                 <span><b>Ateliers rap</b><small>Du texte au clip vidéo.</small></span>
               </a>
@@ -65,7 +65,7 @@
 
       <a class="header__link" href="#dossier">Dossier</a>
       <button class="header__link" type="button" data-agenda>Agenda</button>
-      <a class="header__link" href="#esope">Qui suis-je</a>
+      <a class="header__link" href="#temoignages">Témoignages</a>
     </nav>
 
     <div class="header__cta">
@@ -86,15 +86,15 @@
         Les ateliers <span class="caret" aria-hidden="true"></span>
       </button>
       <div class="drawer__sub" id="drawerSub"><div>
-        <a href="#atelier-slam">Ateliers slam</a>
-        <a href="#atelier-compliments">Battle de compliments</a>
-        <a href="#atelier-eloquence">Ateliers éloquence</a>
-        <a href="#atelier-rap">Ateliers rap</a>
+        <a href="atelier-slam.html">Ateliers slam</a>
+        <a href="atelier-battle.html">Battle de compliments</a>
+        <a href="atelier-eloquence.html">Ateliers éloquence</a>
+        <a href="atelier-rap.html">Ateliers rap</a>
       </div></div>
     </div>
     <a href="#dossier">Dossier</a>
     <button type="button" data-agenda>Agenda</button>
-    <a href="#esope">Qui suis-je</a>
+    <a href="#temoignages">Témoignages</a>
     <a href="#faq">Questions</a>
     <a class="btn btn--ink btn--pill btn--block" href="#contact">Réserve ton atelier</a>
   </div>
@@ -161,24 +161,40 @@
   </div>
 </section>
 
-<!-- ================= MARQUEURS DE CONFIANCE ================= -->
-<section class="section section--close wrap">
-  <div class="trust" data-stagger>
+<!-- ================= CHIFFRES CLÉS ================= -->
+<section class="section section--close wrap" aria-labelledby="chiffres-title">
+  <h2 class="visually-hidden" id="chiffres-title">Les chiffres</h2>
+  <div class="figures" data-stagger>
+    <div class="figure">
+      <div class="figure__value">+<span data-count="5000" data-format="space">0</span></div>
+      <p class="figure__label">Participants rencontrés</p>
+    </div>
+    <div class="figure">
+      <div class="figure__value">+<span data-count="300">0</span></div>
+      <p class="figure__label">Ateliers menés</p>
+    </div>
+    <div class="figure">
+      <div class="figure__value">Toute<br>la France</div>
+      <p class="figure__label">Déplacements toute l'année</p>
+    </div>
+    <div class="figure">
+      <div class="figure__value">Primaire<br>à la fac</div>
+      <p class="figure__label">Tous les niveaux</p>
+    </div>
+  </div>
+
+  <div class="trust" data-stagger style="margin-top:clamp(20px,4vw,32px)">
     <div class="trust__item">
       <b>Agréé Éducation nationale</b>
       <span>Dirigés avec discipline, mes ateliers laissent une grande place à la liberté artistique.</span>
     </div>
     <div class="trust__item">
       <b>Éligible pass Culture</b>
-      <span>Contactez-moi pour discuter du projet : l'offre est disponible sur la plateforme en quelques heures.</span>
+      <span>L'offre est publiée sur la plateforme quelques heures après notre échange.</span>
     </div>
     <div class="trust__item">
-      <b>Plus de 300 ateliers</b>
-      <span>Primaire, collège, lycée, université, association. Toute l'année, dans tout le pays.</span>
-    </div>
-    <div class="trust__item">
-      <b>Déplacement partout en France</b>
-      <span>Je me déplace toute l'année pour animer les ateliers slam, rap et éloquence.</span>
+      <b>Champion de France de Slam</b>
+      <span>Lauréat de concours prestigieux, coach du Champion de France, juré d'événements nationaux.</span>
     </div>
   </div>
 </section>
@@ -211,7 +227,7 @@
           française par le biais d'un art actuel et accessible. Les élèves y sont sensibilisés à la
           force des mots et à l'importance de les transmettre. Pour vous, enseignant, c'est un
           support réel pour introduire la partie du programme sur la poésie.</p>
-        <div><a class="btn btn--ink" href="#contact">Construire ce projet</a></div>
+        <div><a class="btn btn--ink" href="atelier-slam.html">En savoir plus</a></div>
       </div>
       <div class="product__panel product__panel--turquoise">
         <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
@@ -241,7 +257,7 @@
           stress et la posture, l'atelier éloquence présente l'intérêt d'encourager les participants
           à se dépasser humainement à travers des objectifs communs. Les thématiques sont travaillées
           en atelier, puis restituées devant une tribune.</p>
-        <div><a class="btn btn--ink" href="#contact">Construire ce projet</a></div>
+        <div><a class="btn btn--ink" href="atelier-eloquence.html">En savoir plus</a></div>
       </div>
       <div class="product__panel product__panel--green">
         <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
@@ -271,7 +287,7 @@
           réalisation d'un clip vidéo, les ateliers rap permettent aux jeunes d'être en immersion
           artistique à travers des objectifs très concrets. Le résultat est tangible : ils repartent
           avec quelque chose qui existe.</p>
-        <div><a class="btn btn--ink" href="#contact">Construire ce projet</a></div>
+        <div><a class="btn btn--ink" href="atelier-rap.html">En savoir plus</a></div>
       </div>
       <div class="product__panel product__panel--periwinkle">
         <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
@@ -298,7 +314,7 @@
           rhétorique positif. Le principe est simple : deux artistes se rencontrent sur scène pour
           partager une joute verbale flatteuse. Redoutable pour souder un groupe et détourner les
           codes de la moquerie.</p>
-        <div><a class="btn btn--ink" href="#contact">Construire ce projet</a></div>
+        <div><a class="btn btn--ink" href="atelier-battle.html">En savoir plus</a></div>
       </div>
       <div class="product__panel product__panel--magenta">
         <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
@@ -323,33 +339,6 @@
 
   </div>
 
-  <div class="benefits" data-stagger style="margin-top:clamp(24px,5vw,40px)">
-    <div class="benefit">
-      <span class="benefit__num">5</span>
-      <h3>Performance scénique</h3>
-      <p>Démonstration slam, set de rap, improvisation, visite en poésie. L'apprentissage par
-        mimétisme est un outil puissant d'éducation : les performances s'intègrent naturellement
-        aux ateliers.</p>
-    </div>
-    <div class="benefit">
-      <span class="benefit__num">6</span>
-      <h3>Cours particuliers en visio</h3>
-      <p>Pour les jeunes artistes motivés, des séances individuelles à distance, avec des
-        objectifs cent pour cent personnalisés.</p>
-    </div>
-    <div class="benefit">
-      <span class="benefit__num">7</span>
-      <h3>Conférences et formations</h3>
-      <p>Interventions sur l'écriture, l'oralité et la prise de parole, pour les équipes
-        éducatives comme pour les publics adultes.</p>
-    </div>
-    <div class="benefit">
-      <span class="benefit__num">8</span>
-      <h3>Projets sur mesure</h3>
-      <p>Il m'arrive de mener vingt heures avec une classe et quatre avec une autre. Chaque
-        projet est réfléchi au cas par cas.</p>
-    </div>
-  </div>
 </section>
 
 <!-- ================= GÉNÉRER DE L'AMBITION ================= -->
@@ -383,104 +372,89 @@
       </p>
       <div class="btn-row" style="margin-top:36px">
         <a class="btn btn--yellow" href="#contact">Construire votre projet</a>
-        <a class="btn btn--link" href="#objectifs">Les objectifs travaillés <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--link" href="#ateliers">Voir les interventions <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= CE QUE ÇA PRODUIT ================= -->
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
-    <h2 class="h2">Ce que vos élèves y gagnent</h2>
-    <p class="lead mute" style="margin-top:20px;max-width:640px">Des ateliers personnalisés et
-      adaptés, pensés pour produire des effets qui dépassent la séance.</p>
-  </div>
-
-  <div class="benefits" data-stagger>
-    <div class="benefit">
-      <span class="benefit__num">01</span>
-      <h3>Booster son état d'esprit</h3>
-      <p>Immerger les élèves dans un univers artistique ambitieux qui pousse à créer de grandes choses.</p>
-    </div>
-    <div class="benefit">
-      <span class="benefit__num">02</span>
-      <h3>Passer à l'action</h3>
-      <p>Je décortique chaque étape de l'écriture d'un texte pour que les élèves écrivent librement,
-        tout en étant accompagnés.</p>
-    </div>
-    <div class="benefit">
-      <span class="benefit__num">03</span>
-      <h3>Prendre plaisir à déclamer</h3>
-      <p>Via des jeux spécialement imaginés pour les ateliers, je transmets des astuces pour parler
-        à l'oral en étant le plus à l'aise possible.</p>
-    </div>
-    <div class="benefit">
-      <span class="benefit__num">04</span>
-      <h3>Se redécouvrir</h3>
-      <p>Les ateliers permettent aux jeunes de se redécouvrir et d'améliorer leurs compétences à
-        travers des conseils artistiques.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LES OBJECTIFS (carrousel) ================= -->
-<section class="section section--close" id="objectifs">
+<!-- ================= TÉMOIGNAGES =================
+     À REMPLACER par de vrais retours de structures : nom, fonction,
+     établissement. Ces cinq citations sont des exemples de rédaction.
+     ============================================================== -->
+<section class="section section--close" id="temoignages">
   <div class="wrap center measure" data-reveal style="margin-bottom:clamp(32px,7vw,52px)">
-    <h2 class="h2">Les objectifs travaillés</h2>
-    <p class="lead mute" style="margin-top:20px">Cinq compétences, présentes dans chaque parcours,
-      quelle que soit la discipline choisie.</p>
+    <h2 class="h2">Ce qu'en disent les équipes</h2>
+    <p class="lead mute" style="margin-top:20px">Enseignants, coordinateurs, documentalistes :
+      celles et ceux qui m'ont fait intervenir racontent ce qu'il en est resté.</p>
   </div>
 
   <div class="wrap" style="padding-inline:0">
-    <div class="carousel" id="carousel" tabindex="0" aria-label="Les objectifs, faites défiler horizontalement">
+    <div class="carousel" id="carousel" tabindex="0" aria-label="Témoignages, faites défiler horizontalement">
       <article class="quote quote--turquoise">
         <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 120 C140 40 260 220 420 120 M-20 320 C120 260 280 400 420 300 M120 -20 C90 200 200 340 140 520"/>
         </svg>
-        <p class="quote__text"><b>Écriture.</b> Appréhender les techniques d'écriture et de musicalité :
-          figures de style, rhétorique, rythme, schémas de rimes, jeux de mots.</p>
-        <div class="quote__who"><p class="quote__name">Objectif 01</p></div>
+        <p class="quote__text">« Trois élèves ne prenaient jamais la parole en classe. Les trois sont
+          passés au micro devant l'établissement. Le projet a fait plus pour eux qu'une année
+          d'oral. »</p>
+        <div class="quote__who">
+          <p class="quote__name">Professeure de français</p>
+          <p class="quote__role">Collège · parcours de 10 h</p>
+        </div>
       </article>
 
       <article class="quote quote--periwinkle">
         <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 90 C160 30 240 240 420 150 M-20 350 C140 290 260 430 420 340 M260 -20 C230 180 310 320 260 520"/>
         </svg>
-        <p class="quote__text"><b>Oralité.</b> Mettre en voix les textes et assurer une prise de parole
-          en public : échange avec le public, appropriation de l'espace scénique, souffle.</p>
-        <div class="quote__who"><p class="quote__name">Objectif 02</p></div>
+        <p class="quote__text">« Un intervenant qui tient une classe sans hausser la voix, c'est rare.
+          La discipline vient de l'exigence artistique, pas du rappel à l'ordre. »</p>
+        <div class="quote__who">
+          <p class="quote__name">Conseiller principal d'éducation</p>
+          <p class="quote__role">Lycée · ateliers éloquence</p>
+        </div>
       </article>
 
       <article class="quote quote--yellow">
         <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 160 C140 80 280 260 420 170 M-20 380 C160 320 240 450 420 370 M180 -20 C150 200 230 350 170 520"/>
         </svg>
-        <p class="quote__text"><b>Éloquence.</b> Acquérir des compétences en diction, intonation et
-          expression corporelle : se présenter, parler à un public, gérer le stress.</p>
-        <div class="quote__who"><p class="quote__name">Objectif 03</p></div>
+        <p class="quote__text">« Le dossier était prêt à transmettre, l'offre pass Culture publiée
+          dans la journée. Côté administratif, je n'ai rien eu à reconstruire. »</p>
+        <div class="quote__who">
+          <p class="quote__name">Professeure documentaliste</p>
+          <p class="quote__role">Collège · référente EAC</p>
+        </div>
       </article>
 
       <article class="quote quote--magenta">
         <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 130 C150 60 250 230 420 140 M-20 340 C130 280 290 410 420 320 M90 -20 C120 190 60 330 110 520"/>
         </svg>
-        <p class="quote__text"><b>Partage.</b> S'exprimer sur les plans personnel et émotionnel,
-          extérioriser opinions et ressentis, libérer la parole.</p>
-        <div class="quote__who"><p class="quote__name">Objectif 04</p></div>
+        <p class="quote__text">« La battle de compliments, on l'a refaite sans lui le mois suivant.
+          Les sixièmes la réclament. C'est devenu un rituel d'établissement. »</p>
+        <div class="quote__who">
+          <p class="quote__name">Coordinateur jeunesse</p>
+          <p class="quote__role">Structure associative · atelier court</p>
+        </div>
       </article>
 
       <article class="quote quote--green">
         <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 110 C170 50 230 250 420 160 M-20 360 C150 300 270 420 420 350 M300 -20 C270 190 340 330 290 520"/>
         </svg>
-        <p class="quote__text"><b>Confiance.</b> Affirmer un point de vue, une création ou une idée,
-          dans un climat qui renforce l'estime de soi en toute bienveillance.</p>
-        <div class="quote__who"><p class="quote__name">Objectif 05</p></div>
+        <p class="quote__text">« Nos jeunes ont enregistré un titre et tourné un clip. Ils ont montré
+          le résultat à leurs familles. Pour certains, c'est la première fois qu'ils montraient
+          quelque chose. »</p>
+        <div class="quote__who">
+          <p class="quote__name">Directrice de structure jeunesse</p>
+          <p class="quote__role">Atelier rap · parcours annuel</p>
+        </div>
       </article>
     </div>
 
-    <div class="dots" id="dots" role="tablist" aria-label="Choisir un objectif"></div>
+    <div class="dots" id="dots" role="tablist" aria-label="Choisir un témoignage"></div>
   </div>
 </section>
 
@@ -565,64 +539,6 @@
   </div>
 </section>
 
-<!-- ================= EXTRAITS ================= -->
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
-    <h2 class="h2">Voir et entendre</h2>
-    <p class="lead mute" style="margin-top:20px;max-width:640px">Le slam est l'art littéraire et
-      oratoire le plus complet qui soit : figures de style, storytelling, schémas de rimes,
-      mémorisation, gestion du stress, prise de parole, musicalité.</p>
-  </div>
-
-  <!-- REMPLACER : coller l'iframe YouTube ou Vimeo à la place du bloc .media__slot -->
-  <div class="media" data-stagger>
-    <div class="media__slot">
-      <div>
-        <div class="media__play" aria-hidden="true"></div>
-        <b>Restitution d'ateliers slam</b>
-        <span>Emplacement vidéo — à remplacer par votre lien</span>
-      </div>
-    </div>
-    <div class="media__slot">
-      <div>
-        <div class="media__play" aria-hidden="true"></div>
-        <b>Clip issu d'un atelier rap</b>
-        <span>Emplacement vidéo — à remplacer par votre lien</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= DÉFINITIONS ================= -->
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
-    <h2 class="h2">Trois disciplines, trois histoires</h2>
-  </div>
-
-  <div class="defs" data-stagger>
-    <div class="def def--turquoise">
-      <h3>Le slam</h3>
-      <p>En anglais, « slam » signifie claquer. Un slam de poésie est une restitution orale et
-        scénique, sans musique, nourrie de textes poétiques. Né dans les bars de Chicago dans les
-        années 1980, ce courant de la poésie contemporaine allie écriture, interprétation et
-        gestuelle.</p>
-    </div>
-    <div class="def def--periwinkle">
-      <h3>Le rap</h3>
-      <p>L'une des cinq disciplines du hip-hop. Sur des paroles scandées sur une musique rythmée,
-        les maîtres de cérémonie abordent, chacun dans son flow, des sujets tour à tour engagés,
-        drôles ou légers. Né dans le Bronx dans les années 70, il domine aujourd'hui le marché
-        musical français.</p>
-    </div>
-    <div class="def def--green">
-      <h3>L'éloquence</h3>
-      <p>La parole est capitale dans l'expression publique. L'éloquence regroupe plusieurs aspects :
-        se faire entendre, l'ancrage du corps, une parole structurée, le choix des mots. Les
-        thématiques sont travaillées en atelier puis restituées devant un jury à convaincre.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ================= FAQ ================= -->
 <section class="section section--close wrap" id="faq">
   <div class="center measure" data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
@@ -667,25 +583,26 @@
 <section class="section section--close wrap" id="dossier">
   <div class="split" data-reveal>
     <div>
-      <h2 class="h2">Le dossier à faire circuler</h2>
+      <h2 class="h2">Deux documents à faire circuler</h2>
       <p class="lead mute" style="margin-top:20px">Dans un établissement comme dans une structure,
-        la personne qui me trouve est rarement celle qui décide seule. Voilà de quoi présenter le
-        projet en interne, sans avoir à le réécrire.</p>
+        la personne qui me trouve est rarement celle qui décide seule. Ces deux documents ne répètent
+        pas ce site : ils sont écrits pour être lus par une direction, avec les modalités, le
+        calendrier, le financement et les objections auxquelles vous devrez répondre.</p>
 
       <div class="docs">
         <a class="doc" href="assets/docs/dossier-esope.pdf" download>
           <span class="doc__icon" aria-hidden="true"><span>PDF</span></span>
           <span class="doc__text">
-            <b>Dossier de présentation</b>
-            <small>Les ateliers, la méthode, les objectifs, les modalités</small>
+            <b>Dossier de diffusion</b>
+            <small>Modalités, objections, calendrier, cadre pédagogique — 5 pages</small>
           </span>
           <span class="doc__arrow" aria-hidden="true">↓</span>
         </a>
-        <a class="doc" href="assets/docs/esope-parcours.pdf" download>
+        <a class="doc" href="assets/docs/fiche-projet.pdf" download>
           <span class="doc__icon" aria-hidden="true"><span>PDF</span></span>
           <span class="doc__text">
-            <b>Parcours et distinctions</b>
-            <small>Biographie, prix, références — une page</small>
+            <b>Fiche projet</b>
+            <small>Une page recto, à afficher ou transmettre</small>
           </span>
           <span class="doc__arrow" aria-hidden="true">↓</span>
         </a>
@@ -844,10 +761,10 @@
       <div>
         <h3>Ateliers</h3>
         <ul>
-          <li><a href="#atelier-slam">Slam</a></li>
-          <li><a href="#atelier-compliments">Battle de compliments</a></li>
-          <li><a href="#atelier-eloquence">Éloquence</a></li>
-          <li><a href="#atelier-rap">Rap</a></li>
+          <li><a href="atelier-slam.html">Slam</a></li>
+          <li><a href="atelier-battle.html">Battle de compliments</a></li>
+          <li><a href="atelier-eloquence.html">Éloquence</a></li>
+          <li><a href="atelier-rap.html">Rap</a></li>
         </ul>
       </div>
       <div>
@@ -937,11 +854,11 @@
     </ul>
 
     <div class="docs">
-      <a class="doc" href="assets/docs/esope-parcours.pdf" download>
+      <a class="doc" href="assets/docs/fiche-projet.pdf" download>
         <span class="doc__icon" aria-hidden="true"><span>PDF</span></span>
         <span class="doc__text">
-          <b>Parcours et distinctions</b>
-          <small>La même page, à télécharger et transmettre</small>
+          <b>Fiche projet</b>
+          <small>Formats, volumes, financement — une page</small>
         </span>
         <span class="doc__arrow" aria-hidden="true">↓</span>
       </a>
@@ -1005,6 +922,6 @@
   </div>
 </dialog>
 
-<script src="assets/js/app.js?v=9" defer></script>
+<script src="assets/js/app.js?v=10" defer></script>
 </body>
 </html>
