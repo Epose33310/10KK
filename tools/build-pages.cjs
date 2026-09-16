@@ -123,13 +123,13 @@ for (const p of pages) {
   const goals = p.goals.map((k) => {
     const [name, text] = OBJECTIFS[k];
     return `
-      <div class="goal"><b>${name}</b><span>${text}</span></div>`;
+      <div class="goal"><em aria-hidden="true"></em><b>${name}</b><span>${text}</span></div>`;
   }).join('');
 
   const steps = p.steps.map(([t, d]) => `
       <div class="step">
         <span class="step__n" aria-hidden="true"></span>
-        <div><h3>${t}</h3><p>${d}</p></div>
+        <div class="step__body"><h3>${t}</h3><p>${d}</p></div>
       </div>`).join('');
 
   const facts = p.facts.map(([k, v]) => `
@@ -161,6 +161,7 @@ ${header}<main id="main">
     <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
       <path d="M-20 70 C120 10 260 130 420 50 M-20 200 C100 150 300 260 420 190 M90 -20 C120 120 60 200 130 320 M300 -20 C280 110 350 190 300 320"/>
     </svg>
+    <span class="page-hero__watermark" aria-hidden="true">${p.title.split(' ').pop()}</span>
     <div class="page-hero__inner">
       <h1>${p.title}</h1>
       <p>${p.baseline}</p>

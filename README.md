@@ -51,12 +51,14 @@ npx serve .
 ```
 index.html            Page d'accueil
 atelier-*.html        Une page par intervention (générées)
-demo.html             Démo en ligne : les outils d'atelier à essayer
+demo.html             Démo en ligne : quatre jeux d'atelier (générée)
 assets/css/style.css  Jetons de design + composants
 assets/js/app.js      Interactions (sans dépendance)
 assets/fonts/         Inter Tight et Anton, servies depuis le dépôt
 assets/img/           Photos (à remplacer)
 assets/docs/          PDF générés
+assets/css/arcade.css Styles de la page démo, chargés par elle seule
+assets/js/arcade.js   Ouverture des bornes de jeu
 tools/                Gabarits des PDF, contenus des pages, scripts
 ```
 
@@ -68,7 +70,8 @@ le pied de page de `index.html`. Après toute modification du header ou du conte
 d'un atelier :
 
 ```bash
-node tools/build-pages.cjs
+node tools/build-pages.cjs   # les quatre pages d'atelier
+node tools/build-demo.cjs    # la page démo
 ```
 
 Les cinq pages restent ainsi cohérentes, sans étape de build côté visiteur : ce
@@ -130,3 +133,18 @@ même hors ligne ou derrière un filtre, et les PDF sont identiques au site.
 
 N'importe quel hébergement statique. Avec GitHub Pages : *Settings → Pages*, puis
 publier depuis la branche, dossier `/root`.
+
+
+## La page démo
+
+Quatre jeux, présentés en bornes d'arcade : bord d'encre, ombre portée dure,
+emblème géométrique et gros numéro, un fond de couleur par discipline. Chaque
+borne ouvre une fenêtre contenant son jeu.
+
+Les jeux eux-mêmes restent à écrire : chaque fenêtre affiche pour l'instant son
+emblème et une phrase d'attente. Le contenu se trouve dans `tools/build-demo.cjs`,
+dans la constante `GAMES`.
+
+Les styles et le script de cette page sont dans des fichiers séparés
+(`arcade.css`, `arcade.js`) chargés uniquement par elle : le reste du site n'en
+porte pas le poids.

@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Démo en ligne — Esope</title>
-<meta name="description" content="Testez en ligne deux outils utilisés en atelier : la machine à consignes d'écriture et le chrono de scène de trois minutes.">
+<meta name="description" content="Quatre exercices d'atelier à essayer directement : métaphore, punchline, discours et rimes. Un aperçu concret de ce qui se passe en salle.">
 <meta name="theme-color" content="#fdc837">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Démo en ligne — Esope">
-<meta property="og:description" content="Deux outils d'atelier à essayer directement dans le navigateur.">
+<meta property="og:description" content="Quatre exercices d'atelier à essayer directement dans le navigateur.">
 <meta property="og:locale" content="fr_FR">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=12">
+<link rel="stylesheet" href="assets/css/style.css?v=14">
+<link rel="stylesheet" href="assets/css/arcade.css?v=14">
 </head>
 <body>
 
@@ -64,12 +65,16 @@
       <a class="header__link" href="demo.html">Démo en ligne</a>
       <button class="header__link" type="button" data-agenda>Agenda</button>
       <a class="header__link" href="index.html#temoignages">Témoignages</a>
+      <a class="header__link" href="index.html#esope">Esope</a>
+      <a class="header__link" href="index.html#faq">FAQ</a>
     </nav>
 
     <div class="header__cta">
-      <a class="btn btn--ink btn--pill" href="index.html#contact">
-        <span class="cta-long">Réserve ton atelier</span>
-        <span class="cta-short">Réserver</span>
+      <a class="btn btn--ink btn--pill header__cta-desk" href="index.html#contact">Réserve ton atelier</a>
+      <a class="btn btn--dossier btn--pill header__cta-mob" href="assets/docs/dossier-esope.pdf" download>
+        <span class="cta-long">Télécharger le dossier</span>
+        <span class="cta-short">Le dossier</span>
+        <span class="arrow" aria-hidden="true">↓</span>
       </a>
     </div>
 
@@ -93,7 +98,8 @@
     <a href="demo.html">Démo en ligne</a>
     <button type="button" data-agenda>Agenda</button>
     <a href="index.html#temoignages">Témoignages</a>
-    <a href="index.html#faq">Questions</a>
+    <a href="index.html#esope">Esope</a>
+    <a href="index.html#faq">FAQ</a>
     <a class="btn btn--ink btn--pill btn--block" href="index.html#contact">Réserve ton atelier</a>
   </div>
 </header>
@@ -104,81 +110,116 @@
 <section class="page-hero wrap">
   <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l'accueil</a>
   <div class="page-hero__band band--yellow">
-    <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M-20 70 C120 10 260 130 420 50 M-20 200 C100 150 300 260 420 190 M90 -20 C120 120 60 200 130 320 M300 -20 C280 110 350 190 300 320"/>
-    </svg>
+    <span class="page-hero__watermark" aria-hidden="true">démo</span>
     <div class="page-hero__inner">
-      <h1>Démo en ligne</h1>
-      <p>Deux outils que j'utilise en salle, à essayer tout de suite. De quoi se faire une idée
-        concrète de ce qui se passe pendant un atelier — en trois minutes, montre en main.</p>
+      <h1>Quatre exercices, à essayer tout de suite</h1>
+      <p>Le meilleur moyen de comprendre un atelier, c'est d'en faire un bout. Ces quatre jeux
+        reprennent des mécaniques que j'utilise vraiment en salle — en version courte, seul,
+        depuis votre téléphone.</p>
+      <p style="margin-top:14px"><strong>Ce ne sont que des exemples.</strong> J'en ai développé
+        des dizaines en dix ans de carrière, et chaque atelier a les siens, taillés pour le groupe,
+        son niveau et ce qu'on veut en tirer.</p>
     </div>
   </div>
 </section>
 
-<section class="section section--close wrap" id="machine">
-<div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,56px)">
-    <h2 class="h2">La machine à consignes</h2>
-    <p class="lead mute" style="margin-top:20px">Un aperçu de ce qui se passe en salle. Tirez une
-      consigne, lancez le chrono de trois minutes, écrivez sans vous relire.</p>
-  </div>
-
-  <div class="express" data-reveal>
-    <div class="express__panel">
-      <h3 class="h4">Votre consigne du moment</h3>
-
-      <div class="dials">
-        <div class="dial dial--turquoise" id="dial-objet">
-          <span class="dial__label">Un objet</span>
-          <span class="dial__value" data-dial-value>une clé</span>
-        </div>
-        <div class="dial dial--magenta" id="dial-contrainte">
-          <span class="dial__label">Une contrainte</span>
-          <span class="dial__value" data-dial-value>sans le mot « je »</span>
-        </div>
-        <div class="dial dial--periwinkle" id="dial-emotion">
-          <span class="dial__label">Une couleur</span>
-          <span class="dial__value" data-dial-value>en confidence</span>
-        </div>
-      </div>
-
-      <p class="express__prompt" id="machinePrompt" aria-live="polite">
-        Écrivez sur <b>une clé</b>, <b>sans le mot « je »</b>, <b>en confidence</b>. Sept minutes, sans vous relire.
-      </p>
-
-      <div class="btn-row">
-        <button class="btn btn--ink" type="button" id="rollBtn">Tirer une consigne</button>
-        <button class="btn btn--link" type="button" id="copyBtn">Copier <span class="arrow" aria-hidden="true">→</span></button>
-      </div>
-    </div>
-
-    <div class="timer" id="timer">
-      <div>
-        <h3 class="h4" style="color:#fff">Chrono de scène</h3>
-        <p style="margin-top:12px">La durée exacte d'un passage en scène ouverte.</p>
-      </div>
-      <div>
-        <div class="timer__display" id="timerDisplay" role="timer" aria-live="off">03:00</div>
-        <div class="timer__bar" aria-hidden="true" style="margin-top:20px"><span id="timerBar"></span></div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn--yellow" type="button" id="timerToggle">Démarrer</button>
-        <button class="btn btn--line" type="button" id="timerReset">Réinitialiser</button>
-      </div>
-    </div>
-</section>
-
-<section class="section section--close wrap" id="jeu-2">
-  <div class="center measure" data-reveal>
-    <h2 class="h2">Deuxième outil</h2>
-    <p class="lead mute" style="margin-top:20px">Un second jeu prendra place ici.</p>
+<section class="section section--close wrap">
+  <div class="arcade" data-stagger>
+      <button class="cab cab--slam" type="button" data-play="slam"
+              aria-haspopup="dialog" aria-controls="play-slam">
+        <span class="cab__top">
+          <span class="cab__num" aria-hidden="true">01</span>
+          <span class="cab__tag">Slam</span>
+        </span>
+        <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="30" cy="38" r="20" data-stroke/>
+        <path d="M74 20 l18 36 -36 0 z" data-stroke class="cab__spark"/>
+        <path d="M16 80 c10 -10 20 10 30 0 s20 -10 30 0 s20 10 28 0" data-stroke/>
+        <path d="M16 98 c10 -10 20 10 30 0 s20 -10 30 0 s20 10 28 0" data-stroke/>
+      </svg>
+        </span>
+        <span class="cab__body">
+          <span class="cab__title">Écrire une métaphore</span>
+          <span class="cab__sub">Partir d'une image, en trouver une autre, les faire tenir ensemble.</span>
+          <span class="cab__play">Jouer <span class="arrow" aria-hidden="true">→</span></span>
+        </span>
+      </button>
+      <button class="cab cab--battle" type="button" data-play="battle"
+              aria-haspopup="dialog" aria-controls="play-battle">
+        <span class="cab__top">
+          <span class="cab__num" aria-hidden="true">02</span>
+          <span class="cab__tag">Battle de compliments</span>
+        </span>
+        <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <path d="M6 20 l26 40 -26 40" data-stroke/>
+        <path d="M114 20 l-26 40 26 40" data-stroke/>
+        <path d="M64 12 l-20 44 18 0 -12 56 32 -50 -18 0 16 -50 z" data-fill class="cab__spark"/>
+      </svg>
+        </span>
+        <span class="cab__body">
+          <span class="cab__title">Faire des punchlines</span>
+          <span class="cab__sub">Le format de la battle, retourné : on frappe avec des éloges.</span>
+          <span class="cab__play">Jouer <span class="arrow" aria-hidden="true">→</span></span>
+        </span>
+      </button>
+      <button class="cab cab--eloquence" type="button" data-play="eloquence"
+              aria-haspopup="dialog" aria-controls="play-eloquence">
+        <span class="cab__top">
+          <span class="cab__num" aria-hidden="true">03</span>
+          <span class="cab__tag">Éloquence</span>
+        </span>
+        <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <g class="cab__waves">
+          <circle cx="60" cy="52" r="32" data-stroke opacity="0.55"/>
+          <circle cx="60" cy="52" r="46" data-stroke opacity="0.28"/>
+        </g>
+        <rect x="47" y="14" width="26" height="46" rx="13" data-fill class="cab__spark"/>
+        <path d="M34 54 a26 26 0 0 0 52 0" data-stroke/>
+        <path d="M60 80 v18 M42 104 h36" data-stroke/>
+      </svg>
+        </span>
+        <span class="cab__body">
+          <span class="cab__title">S'essayer au discours</span>
+          <span class="cab__sub">Un sujet, un temps imparti, et le silence à occuper.</span>
+          <span class="cab__play">Jouer <span class="arrow" aria-hidden="true">→</span></span>
+        </span>
+      </button>
+      <button class="cab cab--rap" type="button" data-play="rap"
+              aria-haspopup="dialog" aria-controls="play-rap">
+        <span class="cab__top">
+          <span class="cab__num" aria-hidden="true">04</span>
+          <span class="cab__tag">Rap</span>
+        </span>
+        <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <g class="cab__bars">
+          <rect x="10" y="40" width="14" height="52" rx="7" data-fill/>
+          <rect x="34" y="20" width="14" height="72" rx="7" data-fill/>
+          <rect x="58" y="48" width="14" height="44" rx="7" data-fill/>
+          <rect x="82" y="12" width="14" height="80" rx="7" data-fill/>
+          <rect x="106" y="56" width="10" height="36" rx="5" data-fill/>
+        </g>
+        <path d="M10 106 h44 M66 106 h44" data-stroke stroke-width="5"/>
+      </svg>
+        </span>
+        <span class="cab__body">
+          <span class="cab__title">Trouver des rimes</span>
+          <span class="cab__sub">Le son avant le sens : chercher ce qui tombe juste à l'oreille.</span>
+          <span class="cab__play">Jouer <span class="arrow" aria-hidden="true">→</span></span>
+        </span>
+      </button>
   </div>
 </section>
 
 <section class="section section--close wrap center">
   <div class="measure" data-reveal>
-    <h2 class="h2">Ça marche encore mieux en vrai</h2>
-    <p class="lead mute" style="margin-top:24px">Ce que vous venez d'essayer, c'est dix minutes d'un
-      parcours qui en dure dix heures. Décrivez-moi votre contexte, je réponds sous 48 h.</p>
+    <h2 class="h2">Et avec un groupe, c'est autre chose</h2>
+    <p class="lead mute" style="margin-top:24px">Ce que vous venez d'essayer seul prend une tout
+      autre dimension à vingt-cinq, avec le rire, l'émulation et le passage devant les autres.
+      Décrivez-moi votre contexte, je réponds sous 48 h.</p>
     <div class="btn-row btn-row--center" style="margin-top:32px">
       <a class="btn btn--yellow" href="index.html#contact">Construire votre projet</a>
       <a class="btn btn--link" href="assets/docs/dossier-esope.pdf" download>Télécharger le dossier <span class="arrow" aria-hidden="true">↓</span></a>
@@ -187,6 +228,116 @@
 </section>
 
 </main>
+
+<dialog class="play" id="play-slam" aria-labelledby="play-slam-title">
+  <div class="play__head play__head--slam">
+    <div>
+      <p class="play__label">Démo 01 · Slam</p>
+      <h2 class="play__title" id="play-slam-title">Écrire une métaphore</h2>
+    </div>
+    <button class="play__close" type="button" data-play-close aria-label="Fermer le jeu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="play__body">
+    <div class="play__soon">
+      <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="30" cy="38" r="20" data-stroke/>
+        <path d="M74 20 l18 36 -36 0 z" data-stroke class="cab__spark"/>
+        <path d="M16 80 c10 -10 20 10 30 0 s20 -10 30 0 s20 10 28 0" data-stroke/>
+        <path d="M16 98 c10 -10 20 10 30 0 s20 -10 30 0 s20 10 28 0" data-stroke/>
+      </svg>
+      </span>
+      <p>Un exercice d'association : deux mots que rien ne rapproche, et une phrase qui les relie.</p>
+      <p style="margin-top:14px;font-weight:600;color:var(--ink)">Le jeu arrive ici.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="play" id="play-battle" aria-labelledby="play-battle-title">
+  <div class="play__head play__head--battle">
+    <div>
+      <p class="play__label">Démo 02 · Battle de compliments</p>
+      <h2 class="play__title" id="play-battle-title">Faire des punchlines</h2>
+    </div>
+    <button class="play__close" type="button" data-play-close aria-label="Fermer le jeu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="play__body">
+    <div class="play__soon">
+      <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <path d="M6 20 l26 40 -26 40" data-stroke/>
+        <path d="M114 20 l-26 40 26 40" data-stroke/>
+        <path d="M64 12 l-20 44 18 0 -12 56 32 -50 -18 0 16 -50 z" data-fill class="cab__spark"/>
+      </svg>
+      </span>
+      <p>Une qualité, une image connue de tous, et la punchline se construit toute seule.</p>
+      <p style="margin-top:14px;font-weight:600;color:var(--ink)">Le jeu arrive ici.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="play" id="play-eloquence" aria-labelledby="play-eloquence-title">
+  <div class="play__head play__head--eloquence">
+    <div>
+      <p class="play__label">Démo 03 · Éloquence</p>
+      <h2 class="play__title" id="play-eloquence-title">S'essayer au discours</h2>
+    </div>
+    <button class="play__close" type="button" data-play-close aria-label="Fermer le jeu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="play__body">
+    <div class="play__soon">
+      <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <g class="cab__waves">
+          <circle cx="60" cy="52" r="32" data-stroke opacity="0.55"/>
+          <circle cx="60" cy="52" r="46" data-stroke opacity="0.28"/>
+        </g>
+        <rect x="47" y="14" width="26" height="46" rx="13" data-fill class="cab__spark"/>
+        <path d="M34 54 a26 26 0 0 0 52 0" data-stroke/>
+        <path d="M60 80 v18 M42 104 h36" data-stroke/>
+      </svg>
+      </span>
+      <p>Une prise de parole minutée, avec la contrainte qui oblige à structurer.</p>
+      <p style="margin-top:14px;font-weight:600;color:var(--ink)">Le jeu arrive ici.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="play" id="play-rap" aria-labelledby="play-rap-title">
+  <div class="play__head play__head--rap">
+    <div>
+      <p class="play__label">Démo 04 · Rap</p>
+      <h2 class="play__title" id="play-rap-title">Trouver des rimes</h2>
+    </div>
+    <button class="play__close" type="button" data-play-close aria-label="Fermer le jeu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="play__body">
+    <div class="play__soon">
+      <span class="cab__emblem" aria-hidden="true">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <g class="cab__bars">
+          <rect x="10" y="40" width="14" height="52" rx="7" data-fill/>
+          <rect x="34" y="20" width="14" height="72" rx="7" data-fill/>
+          <rect x="58" y="48" width="14" height="44" rx="7" data-fill/>
+          <rect x="82" y="12" width="14" height="80" rx="7" data-fill/>
+          <rect x="106" y="56" width="10" height="36" rx="5" data-fill/>
+        </g>
+        <path d="M10 106 h44 M66 106 h44" data-stroke stroke-width="5"/>
+      </svg>
+      </span>
+      <p>Un mot à faire rimer, un compte à rebours, et la liste qui s'allonge.</p>
+      <p style="margin-top:14px;font-weight:600;color:var(--ink)">Le jeu arrive ici.</p>
+    </div>
+  </div>
+</dialog>
 
 <!-- ================= PARCOURS — fenêtre ================= -->
 <dialog class="sheet" id="bioDialog" aria-labelledby="bioTitle">
@@ -328,6 +479,7 @@
   </div>
 </dialog>
 
-<script src="assets/js/app.js?v=12" defer></script>
+<script src="assets/js/app.js?v=14" defer></script>
+<script src="assets/js/arcade.js?v=14" defer></script>
 </body>
 </html>

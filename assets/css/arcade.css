@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Page démo — bornes d'arcade
+   Chargée uniquement par demo.html : le reste du site n'en porte pas le poids.
+   Même palette et même typographie que le site, mais une grammaire d'affiche :
+   bord d'encre, ombre portée dure, emblème géométrique, gros numéro.
+   ========================================================================== */
+
+.arcade {
+  display: grid;
+  gap: clamp(20px, 4vw, 28px);
+}
+
+/* --------------------------------------------------------------------------
+   L'affiche
+   -------------------------------------------------------------------------- */
+
+.cab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: clamp(24px, 5vw, 32px);
+  border: 2px solid var(--ink);
+  border-radius: 22px;
+  background: var(--card);
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+  overflow: hidden;
+  /* L'ombre dure, décalée, fait l'objet imprimé plutôt que l'interface. */
+  box-shadow: 7px 7px 0 var(--ink);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.cab:hover,
+.cab:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.cab:active { transform: translate(7px, 7px); box-shadow: 0 0 0 var(--ink); }
+
+.cab--slam { background: var(--turquoise); }
+.cab--battle { background: var(--magenta); }
+.cab--eloquence { background: var(--green); }
+.cab--rap { background: var(--periwinkle); }
+
+/* Trame fine : le grain d'un écran de borne, à peine perceptible. */
+.cab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.05) 0 1px,
+    transparent 1px 4px
+  );
+}
+
+.cab__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cab__num {
+  display: block;
+  font-family: var(--font-logo);
+  font-size: clamp(40px, 9vw, 58px);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+}
+
+.cab__tag {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   L'emblème : chaque jeu a son signe, dessiné dans la même grammaire
+   -------------------------------------------------------------------------- */
+
+.cab__emblem {
+  display: block;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: clamp(130px, 34vw, 176px);
+  height: clamp(130px, 34vw, 176px);
+  margin: clamp(18px, 4vw, 28px) 0;
+}
+.cab__emblem svg { width: 100%; height: 100%; overflow: visible; }
+.cab__emblem [data-stroke] {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cab__emblem [data-fill] { fill: var(--ink); }
+.cab__emblem [data-paper] { fill: var(--paper); }
+
+/* Chaque emblème a un élément qui s'anime au survol, jamais plus d'un. */
+.cab__spark { transform-origin: center; transition: transform var(--dur) var(--ease); }
+.cab:hover .cab__spark { transform: rotate(-12deg) scale(1.12); }
+
+.cab__bars rect { transform-origin: center bottom; }
+.cab:hover .cab__bars rect { animation: bars 900ms var(--ease) infinite alternate; }
+.cab:hover .cab__bars rect:nth-child(2) { animation-delay: 110ms; }
+.cab:hover .cab__bars rect:nth-child(3) { animation-delay: 220ms; }
+.cab:hover .cab__bars rect:nth-child(4) { animation-delay: 330ms; }
+.cab:hover .cab__bars rect:nth-child(5) { animation-delay: 440ms; }
+@keyframes bars { to { transform: scaleY(0.55); } }
+
+.cab__waves circle { transition: opacity var(--dur) var(--ease); }
+.cab:hover .cab__waves circle { opacity: 0.35; }
+
+/* --------------------------------------------------------------------------
+   Le pied de l'affiche
+   -------------------------------------------------------------------------- */
+
+.cab__body { display: block; position: relative; z-index: 1; margin-top: auto; }
+
+.cab__title {
+  /* Ce sont des <span> dans un <button> : sans display:block, tout s'enchaîne
+     sur une seule ligne. */
+  display: block;
+  font-size: clamp(26px, 5.6vw, 32px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+.cab__sub {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(15px, 3.4vw, 16px);
+  line-height: 1.4;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.cab__play {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 13px 22px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cab__play .arrow { transition: transform var(--dur-fast) var(--ease); }
+.cab:hover .cab__play .arrow { transform: translateX(5px); }
+
+/* --------------------------------------------------------------------------
+   La fenêtre de jeu
+   -------------------------------------------------------------------------- */
+
+.play {
+  width: min(680px, calc(100vw - 24px));
+  max-height: min(90vh, 860px);
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 22px;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+.play::backdrop { background: rgba(26, 26, 26, 0.72); }
+.play[open] { display: flex; flex-direction: column; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .play[open] { animation: play-in 300ms var(--ease); }
+}
+@keyframes play-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.play__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px clamp(20px, 4vw, 28px);
+  border-bottom: 2px solid var(--ink);
+}
+.play__head--slam { background: var(--turquoise); }
+.play__head--battle { background: var(--magenta); }
+.play__head--eloquence { background: var(--green); }
+.play__head--rap { background: var(--periwinkle); }
+
+.play__label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; opacity: 0.7;
+}
+.play__title {
+  margin-top: 4px;
+  font-size: clamp(21px, 4.6vw, 26px);
+  line-height: 1.1; letter-spacing: -0.03em; font-weight: 700;
+}
+
+.play__close {
+  flex: 0 0 auto; position: relative;
+  width: 42px; height: 42px;
+  border: 2px solid var(--ink); border-radius: 50%;
+  background: transparent; cursor: pointer;
+}
+.play__close span {
+  position: absolute; left: 10px; top: 18px;
+  width: 18px; height: 2.5px; border-radius: 2px; background: var(--ink);
+}
+.play__close span:first-child { transform: rotate(45deg); }
+.play__close span:last-child { transform: rotate(-45deg); }
+.play__close:hover { background: var(--ink); }
+.play__close:hover span { background: var(--paper); }
+
+.play__body {
+  padding: clamp(24px, 5vw, 36px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* État d'attente, le temps que le jeu soit posé */
+.play__soon { text-align: center; padding: clamp(16px, 4vw, 32px) 0; }
+.play__soon .cab__emblem { margin-inline: auto; }
+.play__soon p { margin-top: 20px; font-size: 17px; line-height: 1.5; color: var(--ink-soft); }
+
+/* --------------------------------------------------------------------------
+   Grilles
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 560px) {
+  .arcade { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .arcade { gap: 32px; }
+  .cab { min-height: 460px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cab:hover .cab__bars rect { animation: none; }
+}

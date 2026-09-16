@@ -180,7 +180,7 @@
     var mode = el.getAttribute('data-format');
     if (reduced) { el.textContent = formatNumber(target, mode); return; }
 
-    var duration = 1400;
+    var duration = 1700;
     var start = null;
     function tick(ts) {
       if (start === null) start = ts;
@@ -196,6 +196,8 @@
     var counterObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
+        var stat = entry.target.closest('.stat');
+        if (stat) stat.classList.add('is-counting');
         runCounter(entry.target);
         counterObserver.unobserve(entry.target);
       });

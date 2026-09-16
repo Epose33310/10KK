@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=12">
+<link rel="stylesheet" href="assets/css/style.css?v=14">
 </head>
 <body>
 
@@ -66,12 +66,16 @@
       <a class="header__link" href="demo.html">Démo en ligne</a>
       <button class="header__link" type="button" data-agenda>Agenda</button>
       <a class="header__link" href="#temoignages">Témoignages</a>
+      <a class="header__link" href="#esope">Esope</a>
+      <a class="header__link" href="#faq">FAQ</a>
     </nav>
 
     <div class="header__cta">
-      <a class="btn btn--ink btn--pill" href="#contact">
-        <span class="cta-long">Réserve ton atelier</span>
-        <span class="cta-short">Réserver</span>
+      <a class="btn btn--ink btn--pill header__cta-desk" href="#contact">Réserve ton atelier</a>
+      <a class="btn btn--dossier btn--pill header__cta-mob" href="assets/docs/dossier-esope.pdf" download>
+        <span class="cta-long">Télécharger le dossier</span>
+        <span class="cta-short">Le dossier</span>
+        <span class="arrow" aria-hidden="true">↓</span>
       </a>
     </div>
 
@@ -95,7 +99,8 @@
     <a href="demo.html">Démo en ligne</a>
     <button type="button" data-agenda>Agenda</button>
     <a href="#temoignages">Témoignages</a>
-    <a href="#faq">Questions</a>
+    <a href="#esope">Esope</a>
+    <a href="#faq">FAQ</a>
     <a class="btn btn--ink btn--pill btn--block" href="#contact">Réserve ton atelier</a>
   </div>
 </header>
@@ -135,20 +140,23 @@
 </section>
 
 <!-- ================= CHIFFRES ================= -->
-<section class="section wrap" aria-labelledby="chiffres-title">
+<section class="section section--xl wrap" aria-labelledby="chiffres-title">
   <h2 class="visually-hidden" id="chiffres-title">Les chiffres</h2>
   <div class="stats" data-stagger>
     <div class="stat">
+      <span class="stat__rule" aria-hidden="true"></span>
       <div class="stat__value">+<span data-count="5000" data-format="space">0</span></div>
       <p class="stat__label">Participants rencontrés</p>
     </div>
     <div class="stat">
+      <span class="stat__rule" aria-hidden="true"></span>
       <div class="stat__value">+<span data-count="300">0</span></div>
       <p class="stat__label">Ateliers menés</p>
     </div>
     <div class="stat">
-      <div class="stat__value">+<span data-count="15">0</span></div>
-      <p class="stat__label">Années de pratique</p>
+      <span class="stat__rule" aria-hidden="true"></span>
+      <div class="stat__value">+<span data-count="10">0</span></div>
+      <p class="stat__label">Ans de carrière</p>
     </div>
   </div>
 </section>
@@ -301,7 +309,7 @@
      ============================================================== -->
 <section class="section section--close" id="temoignages">
   <div class="wrap center measure" data-reveal style="margin-bottom:clamp(32px,7vw,52px)">
-    <h2 class="h2">Ce qu'en disent les équipes</h2>
+    <h2 class="h2">Ils parlent de mes ateliers</h2>
     <p class="lead mute" style="margin-top:20px">Enseignants, coordinateurs, documentalistes :
       celles et ceux qui m'ont fait intervenir racontent ce qu'il en est resté.</p>
   </div>
@@ -474,11 +482,7 @@
           <h3 class="h4">Écrire directement</h3>
           <p style="margin-top:8px"><a href="mailto:slampoetrip@gmail.com">slampoetrip@gmail.com</a></p>
         </div>
-        <div class="contact__card">
-          <h3 class="h4">Pass Culture</h3>
-          <p class="mute" style="margin-top:8px">Contactez-moi pour discuter du projet : l'offre est
-            publiée sur la plateforme quelques heures après.</p>
-        </div>
+
       </div>
     </div>
 
@@ -744,6 +748,6 @@
   </div>
 </dialog>
 
-<script src="assets/js/app.js?v=12" defer></script>
+<script src="assets/js/app.js?v=14" defer></script>
 </body>
 </html>
