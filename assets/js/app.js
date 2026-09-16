@@ -221,10 +221,11 @@
       dot.setAttribute('role', 'tab');
       dot.setAttribute('aria-label', 'Témoignage ' + (i + 1) + ' sur ' + slides.length);
       dot.addEventListener('click', function () {
-        carousel.scrollTo({
-          left: slide.offsetLeft - carousel.offsetLeft,
-          behavior: reduced ? 'auto' : 'smooth'
-        });
+        // Les vignettes sont centrées (scroll-snap-align: center) : viser leur
+        // bord gauche ferait accrocher la vignette suivante.
+        var left = slide.offsetLeft - carousel.offsetLeft
+          - (carousel.clientWidth - slide.offsetWidth) / 2;
+        carousel.scrollTo({ left: left, behavior: reduced ? 'auto' : 'smooth' });
       });
       dotsBox.appendChild(dot);
     });
@@ -232,16 +233,25 @@
     var dots = $$('button', dotsBox);
 
     function syncDots() {
-      // La vignette active est celle dont le centre est le plus proche du
-      // centre de la zone visible.
-      var mid = carousel.scrollLeft + carousel.clientWidth / 2;
-      var best = 0;
-      var bestGap = Infinity;
-      slides.forEach(function (slide, i) {
-        var center = slide.offsetLeft - carousel.offsetLeft + slide.offsetWidth / 2;
-        var gap = Math.abs(center - mid);
-        if (gap < bestGap) { bestGap = gap; best = i; }
-      });
+      var max = carousel.scrollWidth - carousel.clientWidth;
+      var best;
+
+      if (carousel.scrollLeft <= 1) {
+        // En butée, la première et la dernière vignette ne peuvent pas être
+        // centrées : le plus proche du centre désignerait leur voisine.
+        best = 0;
+      } else if (carousel.scrollLeft >= max - 1) {
+        best = slides.length - 1;
+      } else {
+        var mid = carousel.scrollLeft + carousel.clientWidth / 2;
+        var bestGap = Infinity;
+        best = 0;
+        slides.forEach(function (slide, i) {
+          var center = slide.offsetLeft - carousel.offsetLeft + slide.offsetWidth / 2;
+          var gap = Math.abs(center - mid);
+          if (gap < bestGap) { bestGap = gap; best = i; }
+        });
+      }
       dots.forEach(function (dot, i) {
         dot.classList.toggle('is-active', i === best);
         dot.setAttribute('aria-selected', i === best ? 'true' : 'false');
@@ -442,28 +452,6 @@
       if (e.target === agendaDialog) closeAgenda();
     });
   }
-
-  /* ----------------------------------------------------------------------
-     Filtres de l'agenda
-     ---------------------------------------------------------------------- */
-
-  var filters = $$('.filter');
-  var events = $$('#agendaList .event');
-  var agendaEmpty = $('#agendaEmpty');
-
-  filters.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var value = button.getAttribute('data-filter');
-      filters.forEach(function (f) { f.classList.toggle('is-active', f === button); });
-      var visible = 0;
-      events.forEach(function (event) {
-        var match = value === 'tous' || event.getAttribute('data-category') === value;
-        event.classList.toggle('is-filtered-out', !match);
-        if (match) visible += 1;
-      });
-      if (agendaEmpty) agendaEmpty.hidden = visible !== 0;
-    });
-  });
 
   /* ----------------------------------------------------------------------
      FAQ

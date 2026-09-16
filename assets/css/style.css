@@ -163,8 +163,11 @@ input, textarea, select { font: inherit; color: inherit; }
   padding-inline: var(--gutter);
 }
 
-.section { padding-block: clamp(56px, 12vw, 104px); }
-.section--tight { padding-block: clamp(40px, 9vw, 72px); }
+.section { padding-block: clamp(44px, 8.5vw, 76px); }
+.section--tight { padding-block: clamp(32px, 6vw, 52px); }
+/* Modules qui s'enchaînent : on ne garde qu'un souffle en haut, le bas du
+   module précédent fournissant déjà l'essentiel de l'écart. */
+.section--close { padding-top: clamp(12px, 2.5vw, 24px); }
 
 .center { text-align: center; }
 .measure { max-width: 640px; margin-inline: auto; }
@@ -776,29 +779,19 @@ input, textarea, select { font: inherit; color: inherit; }
    Agenda
    -------------------------------------------------------------------------- */
 
-.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-.filter {
-  padding: 10px 18px; border: 0; border-radius: 99px;
-  background: var(--card); color: var(--ink-soft);
-  font-size: 15px; font-weight: 600;
-  transition: background var(--dur-fast) ease, color var(--dur-fast) ease;
-}
-.filter.is-active { background: var(--ink); color: var(--white); }
-
 .agenda { display: grid; gap: 12px; }
 .sheet .event { background: var(--card); }
 
 /* Dans la fenêtre, la largeur utile est bien plus faible que sur la page :
    la date passe en pastille horizontale et le titre récupère toute la ligne. */
 @media (max-width: 560px) {
-  .sheet .event { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
+  .sheet .event { grid-template-columns: 1fr; gap: 12px; padding: 18px; }
   .sheet .event__date {
     display: inline-flex; align-items: baseline; gap: 7px;
     width: max-content; padding: 7px 14px; border-radius: 99px;
   }
   .sheet .event__day { display: inline; font-size: 20px; }
   .sheet .event__month { display: inline; margin-top: 0; }
-  .sheet .event__action { flex-wrap: wrap; gap: 10px; }
 }
 
 .event {
@@ -806,7 +799,7 @@ input, textarea, select { font: inherit; color: inherit; }
   grid-template-columns: 76px 1fr;
   gap: 20px;
   align-items: center;
-  padding: 22px;
+  padding: 20px 22px;
   background: var(--card);
   border-radius: var(--r-card);
   transition: transform var(--dur) var(--ease);
@@ -822,15 +815,6 @@ input, textarea, select { font: inherit; color: inherit; }
 .event__month { display: block; margin-top: 3px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
 .event__title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
 .event__meta { margin-top: 5px; font-size: 16px; color: var(--ink-soft); }
-.event__action { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.event__seats { font-size: 14px; color: var(--ink-mute); }
-
-.agenda__empty {
-  padding: 28px; border-radius: var(--r-card);
-  background: var(--card); text-align: center; color: var(--ink-soft);
-}
-.agenda__empty[hidden] { display: none; }
-
 /* --------------------------------------------------------------------------
    FAQ
    -------------------------------------------------------------------------- */
@@ -987,8 +971,7 @@ input, textarea, select { font: inherit; color: inherit; }
   .express { grid-template-columns: 1.2fr 0.8fr; }
   .dials { grid-template-columns: repeat(3, 1fr); }
 
-  .event { grid-template-columns: 88px 1fr auto; }
-  .event__action { grid-column: auto; flex-direction: column; align-items: flex-end; }
+  .event { grid-template-columns: 88px 1fr; }
 
   .contact { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
   .field-row { grid-template-columns: 1fr 1fr; }

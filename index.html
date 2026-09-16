@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=7">
+<link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
 
@@ -199,7 +199,7 @@
 </section>
 
 <!-- ================= MODULE 6 — CARTES PRODUIT ================= -->
-<section class="wrap" style="padding-bottom:clamp(56px,12vw,104px)">
+<section class="wrap" style="padding-bottom:clamp(44px,8.5vw,76px)">
   <div class="products">
 
     <article class="product" id="atelier-slam" data-reveal>
@@ -321,7 +321,7 @@
 </section>
 
 <!-- ================= MODULE 7 — TÉMOIGNAGES EN CARROUSEL ================= -->
-<section class="section" id="temoignages">
+<section class="section section--close" id="temoignages">
   <div class="wrap center measure" data-reveal style="margin-bottom:clamp(40px,9vw,64px)">
     <h2 class="h2">Ce que ça fait de passer au micro</h2>
     <p class="lead mute" style="margin-top:20px">On a demandé à d'anciens participants ce qu'il leur
@@ -401,7 +401,7 @@
 </section>
 
 <!-- ================= FAQ (conservée) ================= -->
-<section class="section wrap" id="faq">
+<section class="section section--close wrap" id="faq">
   <div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,48px)">
     <h2 class="h2">Ce qu'on nous demande avant de réserver</h2>
   </div>
@@ -441,7 +441,7 @@
 </section>
 
 <!-- ================= CONTACT (conservé) ================= -->
-<section class="section wrap" id="contact">
+<section class="section section--close wrap" id="contact">
   <div class="contact">
     <div data-reveal>
       <h2 class="h2">Dites-nous qui vous êtes, on répond sous 48 h.</h2>
@@ -505,7 +505,7 @@
 </section>
 
 <!-- ================= MODULE 8 — JEU + CTA FINAL ================= -->
-<section class="section wrap" id="atelier-express">
+<section class="section section--close wrap" id="atelier-express">
 
   <div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,56px)">
     <h2 class="h2">La machine à consignes</h2>
@@ -646,23 +646,12 @@
     <p class="lead mute" style="margin-bottom:28px">Les ateliers en établissement se calent sur votre
       calendrier. Ci-dessous, uniquement ce qui est ouvert au public.</p>
 
-  <div class="filters" role="group" aria-label="Filtrer l'agenda">
-    <button class="filter is-active" type="button" data-filter="tous">Tout voir</button>
-    <button class="filter" type="button" data-filter="scene">Scènes ouvertes</button>
-    <button class="filter" type="button" data-filter="stage">Stages</button>
-    <button class="filter" type="button" data-filter="jeunesse">Jeunesse</button>
-  </div>
-
   <div class="agenda" id="agendaList">
     <article class="event" data-category="scene">
       <div class="event__date"><span class="event__day">12</span><span class="event__month">Nov.</span></div>
       <div>
         <h3 class="event__title">Scène ouverte — Le Périscope</h3>
         <p class="event__meta">Lyon 7<sup>e</sup> · 20 h 00 · Inscription sur place dès 19 h 15</p>
-      </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">S'inscrire</a>
-        <span class="event__seats">9 passages restants</span>
       </div>
     </article>
 
@@ -672,10 +661,6 @@
         <h3 class="event__title">Stage — « Écrire l'endroit d'où l'on vient »</h3>
         <p class="event__meta">Médiathèque de Villeurbanne · 14 h – 17 h · Dès 15 ans</p>
       </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">Réserver</a>
-        <span class="event__seats">6 places restantes</span>
-      </div>
     </article>
 
     <article class="event" data-category="jeunesse">
@@ -683,10 +668,6 @@
       <div>
         <h3 class="event__title">Atelier ados — slam et langue française</h3>
         <p class="event__meta">Maison de quartier, Saint-Étienne · 14 h – 16 h 30 · 12–17 ans</p>
-      </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">Inscrire un jeune</a>
-        <span class="event__seats">14 places restantes</span>
       </div>
     </article>
 
@@ -696,17 +677,11 @@
         <h3 class="event__title">Scène ouverte de fin d'année — plateau invité</h3>
         <p class="event__meta">Grenoble, La Bobine · 20 h 30 · Première partie par l'atelier ados</p>
       </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">S'inscrire</a>
-        <span class="event__seats">12 passages restants</span>
-      </div>
     </article>
   </div>
-
-  <p class="agenda__empty" id="agendaEmpty" hidden>Aucune date dans cette catégorie — écrivez-nous, on vous prévient dès qu'une s'ouvre.</p>
   </div>
 </dialog>
 
-<script src="assets/js/app.js?v=7" defer></script>
+<script src="assets/js/app.js?v=8" defer></script>
 </body>
 </html>
