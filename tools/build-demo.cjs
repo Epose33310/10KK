@@ -132,20 +132,9 @@ const html = `<!doctype html>
 ${header}<main id="main">
 <span id="top"></span>
 
-<section class="page-hero wrap">
+<section class="wrap" style="padding-block:clamp(24px,5vw,40px) clamp(20px,4vw,28px)">
   <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l'accueil</a>
-  <div class="page-hero__band band--yellow">
-    <span class="page-hero__watermark" aria-hidden="true">démo</span>
-    <div class="page-hero__inner">
-      <h1>Quatre exercices, à essayer tout de suite</h1>
-      <p>Le meilleur moyen de comprendre un atelier, c'est d'en faire un bout. Ces quatre jeux
-        reprennent des mécaniques que j'utilise vraiment en salle — en version courte, seul,
-        depuis votre téléphone.</p>
-      <p style="margin-top:14px"><strong>Ce ne sont que des exemples.</strong> J'en ai développé
-        des dizaines en dix ans de carrière, et chaque atelier a les siens, taillés pour le groupe,
-        son niveau et ce qu'on veut en tirer.</p>
-    </div>
-  </div>
+  <h1 class="h2" style="max-width:20ch">4 exercices que je fais en atelier, à essayer depuis chez vous.</h1>
 </section>
 
 <section class="section section--close wrap">
