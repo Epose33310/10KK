@@ -222,6 +222,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .header__inner {
   position: relative;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 16px;
   min-height: var(--header-h);
@@ -234,7 +235,12 @@ input, textarea, select { font: inherit; color: inherit; }
   line-height: 1;
   padding-bottom: 6px;
   color: var(--ink);
-  flex: 0 0 auto;
+  /* Le logo peut se resserrer si la police chargée est plus large que prévu,
+     pour que le header ne casse jamais. */
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .header__nav { display: none; }
