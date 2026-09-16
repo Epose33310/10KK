@@ -42,8 +42,11 @@
     var y = window.scrollY;
     nav.classList.toggle('is-stuck', y > 8);
 
-    var mobileOpen = navMobile && navMobile.classList.contains('is-open');
-    if (!mobileOpen && y > 240 && y > lastY + 4) {
+    var panelOpen =
+      (navMobile && navMobile.classList.contains('is-open')) ||
+      (megaWrap && megaWrap.classList.contains('is-open'));
+
+    if (!panelOpen && y > 240 && y > lastY + 4) {
       nav.classList.add('is-hidden');
     } else if (y < lastY - 4 || y <= 240) {
       nav.classList.remove('is-hidden');
@@ -51,8 +54,85 @@
     lastY = y;
   }
 
+  /* ----------------------------------------------------------------------
+     Méga menu « Les ateliers » : survol avec temporisation, clic et clavier
+     ---------------------------------------------------------------------- */
+
+  var megaWrap = $('[data-mega]');
+  var megaTrigger = $('#megaTrigger');
+  var megaPanel = $('#megaAteliers');
+  var megaTimer = null;
+
+  function openMega() {
+    if (!megaWrap) return;
+    clearTimeout(megaTimer);
+    megaWrap.classList.add('is-open');
+    megaTrigger.setAttribute('aria-expanded', 'true');
+    if (nav) nav.classList.remove('is-hidden');
+  }
+
+  function closeMega(immediate) {
+    if (!megaWrap) return;
+    clearTimeout(megaTimer);
+    var apply = function () {
+      megaWrap.classList.remove('is-open');
+      megaTrigger.setAttribute('aria-expanded', 'false');
+    };
+    if (immediate) apply();
+    else megaTimer = setTimeout(apply, 180);
+  }
+
+  if (megaWrap && megaTrigger) {
+    // Survol réservé aux pointeurs fins : sur écran tactile, un appui déclenche
+    // mouseenter puis click, ce qui ouvrirait et refermerait aussitôt le panneau.
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      megaWrap.addEventListener('mouseenter', openMega);
+      megaWrap.addEventListener('mouseleave', function () { closeMega(); });
+    }
+
+    megaTrigger.addEventListener('click', function () {
+      if (megaWrap.classList.contains('is-open')) closeMega(true);
+      else openMega();
+    });
+
+    // Le panneau reste ouvert quand le focus entre dedans, mais un focus sur le
+    // déclencheur ne l'ouvre pas — sinon Échap refermerait puis rouvrirait.
+    megaWrap.addEventListener('focusin', function (e) {
+      if (megaPanel && megaPanel.contains(e.target)) openMega();
+    });
+    megaWrap.addEventListener('focusout', function (e) {
+      if (!megaWrap.contains(e.relatedTarget)) closeMega(true);
+    });
+
+    $$('a', megaWrap).forEach(function (link) {
+      link.addEventListener('click', function () { closeMega(true); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || !megaWrap.classList.contains('is-open')) return;
+      closeMega(true);
+      megaTrigger.focus();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!megaWrap.contains(e.target)) closeMega(true);
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Menu mobile
+     ---------------------------------------------------------------------- */
+
   var navToggle = $('#navToggle');
   var navMobile = $('#navMobile');
+  var mobileAteliersToggle = $('#mobileAteliersToggle');
+
+  if (mobileAteliersToggle) {
+    mobileAteliersToggle.addEventListener('click', function () {
+      var open = mobileAteliersToggle.getAttribute('aria-expanded') === 'true';
+      mobileAteliersToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  }
 
   function closeMobileMenu() {
     if (!navToggle || !navMobile) return;

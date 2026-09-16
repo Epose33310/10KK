@@ -23,6 +23,16 @@
 <a class="skip-link" href="#main">Aller au contenu</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
+<!-- ======================= BANDEAU D'ANNONCE ======================= -->
+<div class="announce">
+  <div class="container announce__inner">
+    <p class="announce__text">
+      <b>Nouveau</b> — battle de compliments, éloquence et rap rejoignent les ateliers.
+    </p>
+    <a class="announce__link" href="#ateliers">Voir les quatre ateliers <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</div>
+
 <!-- ======================= NAVIGATION ======================= -->
 <header class="nav" id="nav">
   <div class="container nav__inner">
@@ -32,7 +42,82 @@
     </a>
 
     <nav class="nav__links" aria-label="Navigation principale">
-      <a class="nav__link" href="#formats">Ateliers</a>
+      <div class="nav__item" data-mega>
+        <button class="nav__link nav__link--trigger" id="megaTrigger" type="button"
+                aria-expanded="false" aria-haspopup="true" aria-controls="megaAteliers">
+          Les ateliers <span class="caret" aria-hidden="true"></span>
+        </button>
+
+        <div class="mega" id="megaAteliers">
+          <div class="mega__inner">
+            <div class="mega__col">
+              <p class="mega__label">Par atelier</p>
+
+              <a class="mega__item" href="#atelier-slam">
+                <span class="mega__chip mega__chip--terracotta" aria-hidden="true"></span>
+                <span class="mega__body">
+                  <b>Ateliers slam</b>
+                  <small>Écrire un texte, le dire debout. Le format d'origine.</small>
+                </span>
+              </a>
+
+              <a class="mega__item" href="#atelier-compliments">
+                <span class="mega__chip mega__chip--lavender" aria-hidden="true"></span>
+                <span class="mega__body">
+                  <b>Ateliers battle de compliments</b>
+                  <small>La battle, mais où l'on s'envoie des éloges.</small>
+                </span>
+              </a>
+
+              <a class="mega__item" href="#atelier-eloquence">
+                <span class="mega__chip mega__chip--sky" aria-hidden="true"></span>
+                <span class="mega__body">
+                  <b>Ateliers éloquence</b>
+                  <small>Argumenter, tenir sa voix, occuper le silence.</small>
+                </span>
+              </a>
+
+              <a class="mega__item" href="#atelier-rap">
+                <span class="mega__chip mega__chip--cream" aria-hidden="true"></span>
+                <span class="mega__body">
+                  <b>Ateliers rap</b>
+                  <small>Rimes, placement sur instru, flow et respiration.</small>
+                </span>
+              </a>
+            </div>
+
+            <div class="mega__col mega__col--secondary">
+              <p class="mega__label">Par public</p>
+
+              <a class="mega__item" href="#public-scolaire">
+                <span class="mega__body">
+                  <b>Collèges &amp; lycées</b>
+                  <small>De 3 h au parcours de dix séances.</small>
+                </span>
+              </a>
+
+              <a class="mega__item" href="#public-entreprises">
+                <span class="mega__body">
+                  <b>Entreprises &amp; collectivités</b>
+                  <small>La demi-journée qui change une prise de parole.</small>
+                </span>
+              </a>
+
+              <a class="mega__item" href="#public-tout-public">
+                <span class="mega__body">
+                  <b>Stages &amp; scènes ouvertes</b>
+                  <small>Le samedi, dès 15 ans, sans prérequis.</small>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <a class="mega__foot" href="#ateliers">
+            Voir les quatre ateliers en détail <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
       <a class="nav__link" href="#methode">Méthode</a>
       <a class="nav__link" href="#atelier-express">Atelier express</a>
       <a class="nav__link" href="#agenda">Agenda</a>
@@ -49,7 +134,21 @@
   </div>
 
   <div class="nav__mobile" id="navMobile">
-    <a href="#formats">Ateliers</a>
+    <div class="nav__mobile-group">
+      <button class="nav__mobile-toggle" id="mobileAteliersToggle" type="button"
+              aria-expanded="false" aria-controls="mobileAteliers">
+        Les ateliers <span class="caret" aria-hidden="true"></span>
+      </button>
+      <div class="nav__mobile-sub" id="mobileAteliers">
+        <div>
+          <a href="#atelier-slam">Ateliers slam</a>
+          <a href="#atelier-compliments">Ateliers battle de compliments</a>
+          <a href="#atelier-eloquence">Ateliers éloquence</a>
+          <a href="#atelier-rap">Ateliers rap</a>
+          <a href="#formats">Par public</a>
+        </div>
+      </div>
+    </div>
     <a href="#methode">Méthode</a>
     <a href="#atelier-express">Atelier express</a>
     <a href="#agenda">Agenda</a>
@@ -164,8 +263,74 @@
   </div>
 </section>
 
-<!-- ======================= FORMATS ======================= -->
-<section class="section section--paper" id="formats" aria-labelledby="formats-title">
+<!-- ======================= LES QUATRE ATELIERS ======================= -->
+<section class="section section--paper" id="ateliers" aria-labelledby="ateliers-title">
+  <div class="blob-field" data-parallax-field aria-hidden="true">
+    <span class="blob blob--lavender shape-2 blob--float" style="width:150px;height:140px;top:8%;left:-3%;opacity:.7" data-speed="0.2"></span>
+    <span class="blob blob--cream shape-4 blob--float-slow" style="width:120px;height:112px;bottom:10%;right:-2%;opacity:.8" data-speed="0.26"></span>
+  </div>
+
+  <div class="container content">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Les ateliers</span>
+      <h2 class="heading" id="ateliers-title">Quatre ateliers, une même mécanique : écrire vite, dire fort, être écouté.</h2>
+      <p class="lead">Le slam est le tronc commun — les trois autres en sont des branches, avec leurs propres codes et leur propre public. Ils se combinent très bien sur un parcours long.</p>
+    </div>
+
+    <div class="ateliers" data-reveal-stagger>
+      <article class="format-card format-card--terracotta" id="atelier-slam">
+        <span class="eyebrow">Dès 12 ans · 3 h à 10 séances</span>
+        <h3 class="heading-sm">Ateliers slam</h3>
+        <p>Écrire un texte, le dire debout, sans musique ni accessoire. C'est le format d'origine, celui qui structure tous les autres : la contrainte d'écriture, puis le passage au micro.</p>
+        <ul>
+          <li>Consignes minutées, puis travail du souffle et du regard</li>
+          <li>Se termine toujours par une scène, même petite</li>
+          <li>Le format le plus adapté à une classe entière</li>
+        </ul>
+        <a class="btn btn--outline-terracotta" href="#contact">Demander un devis</a>
+      </article>
+
+      <article class="format-card format-card--lavender" id="atelier-compliments">
+        <span class="eyebrow">Dès 10 ans · 2 h</span>
+        <h3 class="heading-sm">Ateliers battle de compliments</h3>
+        <p>Le principe de la battle de rap, retourné : deux personnes s'affrontent à coups d'éloges, en rythme, devant un public qui départage. Redoutablement efficace pour souder un groupe.</p>
+        <ul>
+          <li>Format court, très physique, sans écriture préalable</li>
+          <li>Désamorce les moqueries en en détournant les codes</li>
+          <li>Demandé en médiation, en cohésion d'équipe et en collège</li>
+        </ul>
+        <a class="btn btn--outline-lavender" href="#contact">Demander un devis</a>
+      </article>
+
+      <article class="format-card format-card--sky" id="atelier-eloquence">
+        <span class="eyebrow">Lycée &amp; adultes · 3 h à 6 séances</span>
+        <h3 class="heading-sm">Ateliers éloquence</h3>
+        <p>Argumenter, tenir sa voix, occuper le silence. Le travail de la prise de parole appliqué à une échéance réelle : un concours, un grand oral, une soutenance ou une réunion.</p>
+        <ul>
+          <li>Construction d'un argumentaire et gestion du trac</li>
+          <li>Joutes oratoires chronométrées, filmées sur demande</li>
+          <li>Se prépare en lien avec vos échéances d'examen</li>
+        </ul>
+        <a class="btn btn--outline-sky" href="#contact">Demander un devis</a>
+      </article>
+
+      <article class="format-card format-card--cream" id="atelier-rap">
+        <span class="eyebrow">Dès 11 ans · 3 h à 10 séances</span>
+        <h3 class="heading-sm">Ateliers rap</h3>
+        <p>Écriture en rimes, placement sur instrumental, flow et respiration. Pour les groupes que le mot « poésie » fait fuir mais que le son attire — c'est souvent la même chose autrement.</p>
+        <ul>
+          <li>Travail sur instru, avec ou sans enregistrement</li>
+          <li>Rimes, mesures et placement rythmique</li>
+          <li>Restitution possible en maquette audio</li>
+        </ul>
+        <a class="btn btn--outline" href="#contact">Demander un devis</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PUBLICS ======================= -->
+<section class="section" id="formats" aria-labelledby="formats-title">
   <div class="blob-field" data-parallax-field aria-hidden="true">
     <span class="blob blob--cream shape-3 blob--float" style="width:160px;height:150px;top:8%;right:-3%;opacity:.7" data-speed="0.18"></span>
     <span class="blob blob--sky shape-1 blob--float-slow" style="width:96px;height:96px;bottom:10%;left:-2%;opacity:.65" data-speed="0.26"></span>
@@ -175,11 +340,11 @@
     <div class="section-head" data-reveal>
       <span class="eyebrow">Les formats</span>
       <h2 class="heading" id="formats-title">Trois manières d'entrer dans le slam. Une seule règle : personne ne reste assis pour rien.</h2>
-      <p class="lead">Chaque format a sa couleur, sa durée et son objectif. On adapte la jauge, la langue et les thèmes à votre contexte — pas l'inverse.</p>
+      <p class="lead">Les quatre ateliers ci-dessus se déclinent pour trois publics. On adapte la jauge, la langue et les thèmes à votre contexte — pas l'inverse.</p>
     </div>
 
     <div class="formats" data-reveal-stagger>
-      <article class="format-card format-card--sky">
+      <article class="format-card format-card--sky" id="public-scolaire">
         <span class="eyebrow">Scolaire</span>
         <h3 class="heading-sm">Collèges &amp; lycées</h3>
         <p>De la 6<sup>e</sup> à la terminale, en classe entière ou en demi-groupe. On travaille la langue par le rythme plutôt que par la règle.</p>
@@ -191,7 +356,7 @@
         <a class="btn btn--outline-sky" href="#contact">Demander un devis</a>
       </article>
 
-      <article class="format-card format-card--terracotta">
+      <article class="format-card format-card--terracotta" id="public-entreprises">
         <span class="eyebrow">Entreprises</span>
         <h3 class="heading-sm">Équipes &amp; collectivités</h3>
         <p>Une demi-journée pour désamorcer la peur de parler en public. On repart avec un texte collectif et une manière de respirer.</p>
@@ -203,7 +368,7 @@
         <a class="btn btn--outline-terracotta" href="#contact">Construire le format</a>
       </article>
 
-      <article class="format-card format-card--lavender">
+      <article class="format-card format-card--lavender" id="public-tout-public">
         <span class="eyebrow">Tout public</span>
         <h3 class="heading-sm">Stages &amp; scènes ouvertes</h3>
         <p>Le samedi après-midi, on écrit ensemble ; le soir, la scène est ouverte. Venir en spectateur est une façon parfaitement valable de commencer.</p>
@@ -748,6 +913,15 @@
       </div>
       <div>
         <h3>Ateliers</h3>
+        <ul>
+          <li><a href="#atelier-slam">Slam</a></li>
+          <li><a href="#atelier-compliments">Battle de compliments</a></li>
+          <li><a href="#atelier-eloquence">Éloquence</a></li>
+          <li><a href="#atelier-rap">Rap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Publics</h3>
         <ul>
           <li><a href="#formats">Collèges &amp; lycées</a></li>
           <li><a href="#formats">Entreprises</a></li>

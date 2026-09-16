@@ -8,8 +8,11 @@ aucun tracker — trois fichiers et c'est en ligne.
 
 | Section | Contenu |
 |---|---|
+| Bandeau | Annonce en haut de page, terracotta, défile avec la page |
+| Navigation | Méga menu « Les ateliers » : par atelier + par public |
 | Hero | Titre à mot tournant, blobs en parallaxe, trois cartes de format |
-| Formats | Scolaire (sky) · Entreprises (terracotta) · Tout public (lavender) |
+| Les ateliers | Slam (terracotta) · Battle de compliments (lavender) · Éloquence (sky) · Rap (cream) |
+| Publics | Scolaire (sky) · Entreprises (terracotta) · Tout public (lavender) |
 | Méthode | Les quatre temps d'un atelier, avec leur durée |
 | Écrire / Dire / Monter sur scène | Trois blocs deux colonnes alternés |
 | Atelier express | Machine à consignes (tirage aléatoire) + chrono de scène de 3 min |
@@ -35,6 +38,16 @@ assets/js/app.js      Interactions (sans dépendance)
 ```
 
 ## Personnaliser
+
+**Le bandeau d'annonce** est le bloc `.announce`, tout en haut de `index.html` :
+un texte et un lien, à changer à chaque nouvelle annonce. Le supprimer entièrement
+ne casse rien.
+
+**Le méga menu** est le bloc `.mega` dans `<header class="nav">`. Chaque entrée
+pointe aujourd'hui vers une ancre de la page (`#atelier-slam`, `#atelier-rap`…) :
+le jour où chaque atelier aura sa propre page, il suffit de remplacer l'ancre par
+l'URL de la page, sans toucher au reste. Les mêmes entrées sont reprises dans le
+menu mobile (`.nav__mobile-sub`) — pensez à modifier les deux.
 
 **Le contenu** se modifie directement dans `index.html` : les dates de l'agenda sont
 des blocs `<article class="event" data-category="…">`, les catégories disponibles
