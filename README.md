@@ -59,6 +59,7 @@ assets/img/           Photos (à remplacer)
 assets/docs/          PDF générés
 assets/css/arcade.css Styles de la page démo, chargés par elle seule
 assets/js/arcade.js   Ouverture des bornes de jeu
+assets/js/game-*.js   Un fichier par jeu, chargé par la page démo
 tools/                Gabarits des PDF, contenus des pages, scripts
 ```
 
@@ -141,9 +142,15 @@ Quatre jeux, présentés en bornes d'arcade : bord d'encre, ombre portée dure,
 emblème géométrique et gros numéro, un fond de couleur par discipline. Chaque
 borne ouvre une fenêtre contenant son jeu.
 
-Les jeux eux-mêmes restent à écrire : chaque fenêtre affiche pour l'instant son
-emblème et une phrase d'attente. Le contenu se trouve dans `tools/build-demo.cjs`,
-dans la constante `GAMES`.
+**Jeu 03, éloquence** (`assets/js/game-eloquence.js`) : tranche d'âge, tirage du
+sujet dans la bibliothèque correspondante, compte à rebours, soixante secondes de
+chrono, puis auto-évaluation. Les réponses déclenchent des techniques ciblées —
+aucune note, aucun jugement. Sujets, critères, points forts et techniques sont
+quatre constantes en tête de fichier, modifiables sans toucher à la mécanique.
+
+Les trois autres jeux restent à écrire : leurs fenêtres affichent pour l'instant
+leur emblème et une phrase d'attente. Le contenu des bornes se trouve dans
+`tools/build-demo.cjs`, dans la constante `GAMES`.
 
 Les styles et le script de cette page sont dans des fichiers séparés
 (`arcade.css`, `arcade.js`) chargés uniquement par elle : le reste du site n'en

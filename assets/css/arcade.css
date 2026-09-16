@@ -256,3 +256,168 @@
 @media (prefers-reduced-motion: reduce) {
   .cab:hover .cab__bars rect { animation: none; }
 }
+
+/* ==========================================================================
+   Les jeux — grammaire commune aux quatre bornes
+   ========================================================================== */
+
+.g { display: block; }
+.g--center { text-align: center; }
+
+.g__eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.g__eyebrow--sep {
+  margin-top: 36px; padding-top: 26px;
+  border-top: 2px solid var(--ink);
+}
+
+.g__title {
+  margin-top: 12px;
+  font-size: clamp(23px, 5vw, 30px);
+  line-height: 1.12; letter-spacing: -0.03em; font-weight: 700;
+}
+.g__text {
+  margin-top: 14px;
+  font-size: clamp(16px, 3.6vw, 17px); line-height: 1.55;
+  color: var(--ink-soft);
+}
+.g__text--strong { color: var(--ink); font-weight: 600; }
+.g__hint { margin-top: 12px; font-size: 14px; color: var(--ink-mute); }
+
+/* Boutons du jeu ---------------------------------------------------------- */
+
+.g__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 28px; padding: 16px 26px;
+  border: 0; border-radius: 99px;
+  background: var(--ink); color: var(--paper);
+  font: inherit; font-size: 16px; font-weight: 700;
+  letter-spacing: 0.03em; text-transform: uppercase;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast) ease;
+}
+.g__btn:hover { transform: translateY(-2px); }
+.g__btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+.g__btn .arrow { transition: transform var(--dur-fast) var(--ease); }
+.g__btn:not(:disabled):hover .arrow { transform: translateX(5px); }
+.g__btn--cta { background: var(--yellow); color: var(--ink); text-decoration: none; }
+
+.g__link {
+  display: block; margin: 18px auto 0; padding: 8px 0;
+  border: 0; background: transparent;
+  font: inherit; font-size: 15px; font-weight: 600; color: var(--ink-mute);
+  text-decoration: underline; text-underline-offset: 4px;
+  cursor: pointer;
+}
+.g__link:hover { color: var(--ink); }
+
+/* Choix de la tranche d'âge ---------------------------------------------- */
+
+.g__choices { display: grid; gap: 12px; margin-top: 26px; }
+.g__choice {
+  display: block; width: 100%;
+  padding: 20px 22px;
+  border: 2px solid var(--ink); border-radius: 16px;
+  background: var(--paper); color: var(--ink);
+  font: inherit; text-align: left; cursor: pointer;
+  transition: background var(--dur-fast) ease, transform var(--dur-fast) var(--ease), opacity var(--dur-fast) ease;
+}
+.g__choice b { display: block; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.g__choice small { display: block; margin-top: 4px; font-size: 14px; color: var(--ink-mute); }
+.g__choice:not(:disabled):hover { background: var(--green); transform: translateY(-2px); }
+.g__choice.is-picked { background: var(--green); }
+.g__choice:disabled:not(.is-picked) { opacity: 0.3; cursor: default; }
+
+/* Tirage du sujet --------------------------------------------------------- */
+
+.g__slot {
+  margin-top: 26px; min-height: 2.4em;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(24px, 6vw, 36px);
+  line-height: 1.1; letter-spacing: -0.03em; font-weight: 700;
+}
+.g__slot.is-locked { color: var(--ink); }
+.g__after { margin-top: 8px; }
+
+/* Compte à rebours -------------------------------------------------------- */
+
+.g__count {
+  margin: 40px 0;
+  font-family: var(--font-logo);
+  font-size: clamp(80px, 22vw, 140px);
+  line-height: 1; text-transform: uppercase;
+}
+.g__count--go { font-size: clamp(44px, 12vw, 76px); color: var(--ink); }
+
+/* Chronomètre ------------------------------------------------------------- */
+
+.g--speak .g__topic {
+  margin-top: 10px;
+  font-size: clamp(22px, 5vw, 30px);
+  line-height: 1.12; letter-spacing: -0.03em; font-weight: 700;
+}
+.g__clock { position: relative; width: min(230px, 62vw); margin: 30px auto 0; }
+.g__ring { width: 100%; height: auto; transform: rotate(-90deg); }
+.g__ring-track { fill: none; stroke: var(--card); stroke-width: 9; }
+.g__ring-run {
+  fill: none; stroke: var(--ink); stroke-width: 9; stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+.g__clock-value {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--font-logo);
+  font-size: clamp(58px, 16vw, 84px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Auto-évaluation --------------------------------------------------------- */
+
+.g__quiz { display: grid; gap: 22px; margin-top: 28px; }
+.g__q-label { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.g__opts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.g__opt {
+  padding: 11px 16px;
+  border: 2px solid var(--line); border-radius: 99px;
+  background: var(--paper); color: var(--ink-soft);
+  font: inherit; font-size: 15px; font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur-fast) ease, border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+.g__opt:hover { border-color: var(--ink); color: var(--ink); }
+.g__opt.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+/* Profil et techniques ---------------------------------------------------- */
+
+.g__strengths { display: grid; gap: 12px; margin-top: 22px; }
+.g__strength {
+  padding: 20px 22px; border-radius: 16px; background: var(--green);
+}
+.g__strength b { display: block; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.g__strength span { display: block; margin-top: 6px; font-size: 15px; line-height: 1.5; }
+
+.g__techs { display: grid; gap: 12px; margin-top: 22px; }
+.g__tech {
+  padding: 22px; border: 2px solid var(--ink); border-radius: 16px;
+  background: var(--paper);
+}
+.g__tech-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px;
+}
+.g__tech b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
+.g__tech span { display: block; margin-top: 8px; font-size: 16px; line-height: 1.55; color: var(--ink-soft); }
+
+.g__outro {
+  margin-top: 36px; padding-top: 26px;
+  border-top: 2px solid var(--ink);
+  text-align: center;
+}
+
+@media (min-width: 560px) {
+  .g__choices { grid-template-columns: repeat(2, 1fr); }
+  .g__strengths, .g__techs { gap: 14px; }
+}

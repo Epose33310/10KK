@@ -66,7 +66,7 @@ const GAMES = [
     soon: "Une qualité, une image connue de tous, et la punchline se construit toute seule." },
   { key: 'eloquence', num: '03', tag: 'Éloquence',
     title: "S'essayer au discours",
-    sub: 'Un sujet, un temps imparti, et le silence à occuper.',
+    sub: 'Un sujet tiré au sort. 60 secondes pour en parler.',
     soon: "Une prise de parole minutée, avec la contrainte qui oblige à structurer." },
   { key: 'rap', num: '04', tag: 'Rap',
     title: 'Trouver des rimes',
@@ -101,13 +101,13 @@ const dialogs = GAMES.map((g) => `
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">
+  <div class="play__body">${g.key === 'eloquence' ? '' : `
     <div class="play__soon">
       <span class="cab__emblem" aria-hidden="true">${EMBLEMS[g.key]}
       </span>
       <p>${g.soon}</p>
       <p style="margin-top:14px;font-weight:600;color:var(--ink)">Le jeu arrive ici.</p>
-    </div>
+    </div>`}
   </div>
 </dialog>`).join('\n');
 
@@ -158,7 +158,11 @@ ${header}<main id="main">
 </main>
 ${dialogs}
 
-${footer.replace('</body>', '<script src="assets/js/arcade.js?v=' + v + '" defer></script>\n</body>')}`;
+${footer.replace(
+  '</body>',
+  '<script src="assets/js/arcade.js?v=' + v + '" defer></script>\n' +
+  '<script src="assets/js/game-eloquence.js?v=' + v + '" defer></script>\n</body>'
+)}`;
 
 writeFileSync(join(root, 'demo.html'), html);
 console.log('→ demo.html');
