@@ -180,8 +180,13 @@ pronominaux compris, valent mieux que trois cents approximatifs. Les
 la ponctuation de la suite saisie — points de suspension recopiés, espace avant
 une virgule, espaces multiples, point en double.
 
-Le dernier jeu reste à écrire : leurs fenêtres affichent pour l'instant
-leur emblème et une phrase d'attente. Le contenu des bornes se trouve dans
+**Jeu 02, battle** (`assets/js/game-battle.js`) : une personne tirée au sort,
+une qualité et une image écrites par le joueur, puis la comparaison s'assemble
+en trois temps. Chaque personne porte un genre — non pour corriger le joueur,
+mais pour lui poser la bonne question (« celui qui **la** décrit ») et lui
+proposer des exemples accordés.
+
+Les quatre jeux sont donc en place. Le contenu des bornes se trouve dans leurs fenêtres affichent pour l'instant
 `tools/build-demo.cjs`, dans la constante `GAMES`.
 
 Les styles et le script de cette page sont dans des fichiers séparés

@@ -149,7 +149,7 @@
         </span>
         <span class="cab__body">
           <span class="cab__title">Faire des punchlines</span>
-          <span class="cab__sub">Le format de la battle, retourné : on frappe avec des éloges.</span>
+          <span class="cab__sub">Une qualité, une image, et le compliment devient imparable.</span>
           <span class="cab__play">Jouer <span class="arrow" aria-hidden="true">→</span></span>
         </span>
       </button>
@@ -228,8 +228,8 @@
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">
-  </div>
+  <!-- Rempli par assets/js/game-<jeu>.js ; sans script, l'écran reste vide. -->
+  <div class="play__body"></div>
 </dialog>
 
 <dialog class="play" id="play-battle" aria-labelledby="play-battle-title">
@@ -242,19 +242,8 @@
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">
-    <div class="play__soon">
-      <span class="cab__emblem" aria-hidden="true">
-      <svg viewBox="0 0 120 120" aria-hidden="true">
-        <path d="M6 20 l26 40 -26 40" data-stroke/>
-        <path d="M114 20 l-26 40 26 40" data-stroke/>
-        <path d="M64 12 l-20 44 18 0 -12 56 32 -50 -18 0 16 -50 z" data-fill class="cab__spark"/>
-      </svg>
-      </span>
-      <p>Une qualité, une image connue de tous, et la punchline se construit toute seule.</p>
-      <p style="margin-top:14px;font-weight:600;color:var(--ink)">Le jeu arrive ici.</p>
-    </div>
-  </div>
+  <!-- Rempli par assets/js/game-<jeu>.js ; sans script, l'écran reste vide. -->
+  <div class="play__body"></div>
 </dialog>
 
 <dialog class="play" id="play-eloquence" aria-labelledby="play-eloquence-title">
@@ -267,8 +256,8 @@
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">
-  </div>
+  <!-- Rempli par assets/js/game-<jeu>.js ; sans script, l'écran reste vide. -->
+  <div class="play__body"></div>
 </dialog>
 
 <dialog class="play" id="play-rap" aria-labelledby="play-rap-title">
@@ -281,8 +270,8 @@
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">
-  </div>
+  <!-- Rempli par assets/js/game-<jeu>.js ; sans script, l'écran reste vide. -->
+  <div class="play__body"></div>
 </dialog>
 
 <!-- ================= PARCOURS — fenêtre ================= -->
@@ -430,5 +419,6 @@
 <script src="assets/js/game-eloquence.js?v=14" defer></script>
 <script src="assets/js/game-rap.js?v=14" defer></script>
 <script src="assets/js/game-slam.js?v=14" defer></script>
+<script src="assets/js/game-battle.js?v=14" defer></script>
 </body>
 </html>

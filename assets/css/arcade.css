@@ -549,3 +549,27 @@
   font-size: clamp(26px, 6.2vw, 38px);
   line-height: 1.15; letter-spacing: -0.03em; font-weight: 700;
 }
+
+/* --------------------------------------------------------------------------
+   Jeu 02 — Punchline compliment
+   -------------------------------------------------------------------------- */
+
+.g__build { display: grid; gap: 8px; margin: 22px 0 6px; }
+.g__build-item {
+  opacity: 0;
+  transform: translateY(10px);
+  font-size: clamp(22px, 5.4vw, 30px);
+  line-height: 1.1; letter-spacing: -0.03em; font-weight: 700;
+  text-transform: uppercase;
+  transition: opacity 340ms var(--ease), transform 340ms var(--ease);
+}
+.g__build-item.is-in { opacity: 1; transform: none; }
+.g__build-item + .g__build-item { color: var(--ink-soft); }
+
+.g__result.is-in { opacity: 1; transform: none; }
+#play-battle .g__result {
+  opacity: 0; transform: translateY(12px);
+  margin-top: 22px; padding-top: 22px;
+  border-top: 2px solid var(--ink);
+  transition: opacity 460ms var(--ease), transform 460ms var(--ease);
+}
