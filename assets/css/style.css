@@ -1066,90 +1066,34 @@ input, textarea, select { font: inherit; color: inherit; }
 
 
 /* --------------------------------------------------------------------------
-   Bandeau des trois piliers (sous le hero)
-   -------------------------------------------------------------------------- */
-
-.pillars { display: grid; gap: 32px; }
-.pillar__label {
-  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-  font-weight: 700; color: var(--ink-mute); margin-bottom: 14px;
-}
-.pillar h3 {
-  font-size: clamp(22px, 4.6vw, 26px); line-height: 1.1;
-  letter-spacing: -0.02em; font-weight: 600; margin-bottom: 12px;
-}
-.pillar p { color: var(--ink-soft); font-size: 17px; line-height: 1.5; }
-.pillar .btn--link { margin-top: 16px; }
-
-/* --------------------------------------------------------------------------
-   Marqueurs de confiance
-   -------------------------------------------------------------------------- */
-
-.trust {
-  display: grid; gap: 2px;
-  background: var(--line);
-  border-radius: var(--r-card);
-  overflow: hidden;
-}
-.trust__item { background: var(--card); padding: 28px 24px; }
-.trust__item b {
-  display: block; font-size: clamp(20px, 4.4vw, 24px); line-height: 1.15;
-  letter-spacing: -0.02em; font-weight: 700; margin-bottom: 8px;
-}
-.trust__item span { color: var(--ink-soft); font-size: 16px; line-height: 1.45; }
-
-/* --------------------------------------------------------------------------
-   Bénéfices et objectifs
-   -------------------------------------------------------------------------- */
-
-.benefits { display: grid; gap: 16px; }
-.benefit {
-  background: var(--card);
-  border-radius: 18px;
-  padding: 28px 26px;
-}
-.benefit__num {
-  display: inline-grid; place-items: center;
-  width: 38px; height: 38px; margin-bottom: 18px;
-  border-radius: 50%; background: var(--yellow);
-  font-weight: 700; font-size: 16px;
-}
-.benefit h3 {
-  font-size: clamp(20px, 4.2vw, 23px); line-height: 1.15;
-  letter-spacing: -0.02em; font-weight: 600; margin-bottom: 10px;
-}
-.benefit p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
-
-/* --------------------------------------------------------------------------
-   Manifeste (bloc sombre)
-   -------------------------------------------------------------------------- */
-
-.manifesto {
-  background: var(--ink); color: var(--white);
-  border-radius: var(--r-card);
-  padding: clamp(32px, 7vw, 64px);
-}
-.manifesto__intro { color: #c9c6c2; max-width: 60ch; }
-.manifesto__grid { display: grid; gap: 28px; margin-top: clamp(32px, 6vw, 48px); }
-.manifesto__item h3 {
-  font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
-  font-weight: 700; color: var(--yellow); margin-bottom: 12px;
-}
-.manifesto__item p { color: #ddd9d5; font-size: 16px; line-height: 1.55; }
-
-/* --------------------------------------------------------------------------
    Bloc ESOPE : bio courte, distinctions, documents
    -------------------------------------------------------------------------- */
 
-.awards { display: grid; gap: 10px; margin-top: 28px; }
+.awards { display: grid; gap: 14px; margin-top: 28px; }
 .awards li {
-  display: flex; align-items: flex-start; gap: 12px;
+  display: flex; align-items: center; gap: 14px;
   font-size: 17px; font-weight: 500;
 }
-.awards li::before {
-  content: ''; flex: 0 0 auto; margin-top: 7px;
-  width: 10px; height: 10px; border-radius: 3px; background: var(--yellow);
+.awards__icon {
+  flex: 0 0 auto; width: 26px; height: 26px;
+  fill: var(--yellow);
 }
+/* Sur fond clair, le jaune seul manque de contraste : on le cercle d'encre. */
+.awards li { position: relative; }
+.awards__icon { filter: drop-shadow(0 0 0.6px rgba(26,26,26,0.55)); }
+
+.creds {
+  margin-top: 28px; padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 15px; font-weight: 600; color: var(--ink-soft);
+}
+
+.principles { display: grid; gap: 16px; margin-top: 20px; }
+.principles > div {
+  background: var(--card); border-radius: 14px; padding: 20px 22px;
+}
+.principles b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+.principles span { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
 
 /* --------------------------------------------------------------------------
    Emplacements vidéo et audio
@@ -1231,16 +1175,13 @@ input, textarea, select { font: inherit; color: inherit; }
    -------------------------------------------------------------------------- */
 
 @media (min-width: 900px) {
-  .pillars { grid-template-columns: repeat(3, 1fr); gap: 48px; }
   .trust { grid-template-columns: repeat(4, 1fr); }
-  .benefits { grid-template-columns: repeat(4, 1fr); }
-  .manifesto__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
   .defs { grid-template-columns: repeat(3, 1fr); }
   .media { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 620px) and (max-width: 899px) {
-  .trust, .benefits, .defs { grid-template-columns: repeat(2, 1fr); }
+  .defs { grid-template-columns: repeat(2, 1fr); }
 }
 
 
@@ -1248,13 +1189,14 @@ input, textarea, select { font: inherit; color: inherit; }
    Chiffres clés
    -------------------------------------------------------------------------- */
 
-.figures { display: grid; gap: 2px; background: var(--line); border-radius: var(--r-card); overflow: hidden; }
-.figure { background: var(--yellow); padding: 30px 24px; }
-.figure__value {
-  font-size: clamp(34px, 7vw, 46px); line-height: 1.02;
-  letter-spacing: -0.035em; font-weight: 700;
+.stats { display: grid; gap: clamp(48px, 11vw, 72px); text-align: center; }
+.stat__value {
+  font-size: clamp(64px, 16vw, 112px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 600;
 }
-.figure__label { margin-top: 10px; font-size: 15px; font-weight: 500; }
+.stat__label { margin-top: 14px; font-size: clamp(17px, 4.2vw, 20px); }
 
 /* --------------------------------------------------------------------------
    Pages d'atelier
@@ -1266,6 +1208,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .band--green { background: var(--green); }
 .band--periwinkle { background: var(--periwinkle); }
 .band--magenta { background: var(--magenta); }
+.band--yellow { background: var(--yellow); }
 .page-hero__inner { position: relative; z-index: 1; max-width: 760px; }
 .page-hero h1 { font-size: clamp(34px, 7.6vw, 62px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; }
 .page-hero p { margin-top: 20px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.45; }
@@ -1315,12 +1258,12 @@ input, textarea, select { font: inherit; color: inherit; }
 .related__item .arrow { margin-left: auto; font-size: 20px; }
 
 @media (min-width: 900px) {
-  .figures { grid-template-columns: repeat(4, 1fr); }
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 40px; }
   .facts { grid-template-columns: repeat(4, 1fr); }
   .goals { grid-template-columns: repeat(2, 1fr); }
   .related { grid-template-columns: repeat(3, 1fr); }
   .related__item:hover { transform: translateY(-5px); }
 }
 @media (min-width: 620px) and (max-width: 899px) {
-  .figures, .facts, .goals { grid-template-columns: repeat(2, 1fr); }
+  .facts, .goals { grid-template-columns: repeat(2, 1fr); }
 }

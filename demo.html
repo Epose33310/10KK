@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ateliers slam — Esope</title>
-<meta name="description" content="Atelier slam en milieu scolaire et structures jeunesse : écriture poétique, mise en voix, restitution scénique. Agréé Éducation nationale, éligible pass Culture.">
+<title>Démo en ligne — Esope</title>
+<meta name="description" content="Testez en ligne deux outils utilisés en atelier : la machine à consignes d'écriture et le chrono de scène de trois minutes.">
 <meta name="theme-color" content="#fdc837">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ateliers slam — Esope">
-<meta property="og:description" content="Atelier slam en milieu scolaire et structures jeunesse : écriture poétique, mise en voix, restitution scénique. Agréé Éducation nationale, éligible pass Culture.">
+<meta property="og:title" content="Démo en ligne — Esope">
+<meta property="og:description" content="Deux outils d'atelier à essayer directement dans le navigateur.">
 <meta property="og:locale" content="fr_FR">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=10">
+<link rel="stylesheet" href="assets/css/style.css?v=11">
 </head>
 <body>
 
@@ -102,121 +102,86 @@
 <span id="top"></span>
 
 <section class="page-hero wrap">
-  <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Toutes les interventions</a>
-  <div class="page-hero__band band--turquoise">
+  <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l'accueil</a>
+  <div class="page-hero__band band--yellow">
     <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
       <path d="M-20 70 C120 10 260 130 420 50 M-20 200 C100 150 300 260 420 190 M90 -20 C120 120 60 200 130 320 M300 -20 C280 110 350 190 300 320"/>
     </svg>
     <div class="page-hero__inner">
-      <h1>Ateliers slam</h1>
-      <p>Réconcilier les jeunes avec la langue française par un art actuel et accessible. Les élèves écrivent, puis montent au micro.</p>
+      <h1>Démo en ligne</h1>
+      <p>Deux outils que j'utilise en salle, à essayer tout de suite. De quoi se faire une idée
+        concrète de ce qui se passe pendant un atelier — en trois minutes, montre en main.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--close wrap" id="machine">
+<div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,56px)">
+    <h2 class="h2">La machine à consignes</h2>
+    <p class="lead mute" style="margin-top:20px">Un aperçu de ce qui se passe en salle. Tirez une
+      consigne, lancez le chrono de trois minutes, écrivez sans vous relire.</p>
+  </div>
+
+  <div class="express" data-reveal>
+    <div class="express__panel">
+      <h3 class="h4">Votre consigne du moment</h3>
+
+      <div class="dials">
+        <div class="dial dial--turquoise" id="dial-objet">
+          <span class="dial__label">Un objet</span>
+          <span class="dial__value" data-dial-value>une clé</span>
+        </div>
+        <div class="dial dial--magenta" id="dial-contrainte">
+          <span class="dial__label">Une contrainte</span>
+          <span class="dial__value" data-dial-value>sans le mot « je »</span>
+        </div>
+        <div class="dial dial--periwinkle" id="dial-emotion">
+          <span class="dial__label">Une couleur</span>
+          <span class="dial__value" data-dial-value>en confidence</span>
+        </div>
+      </div>
+
+      <p class="express__prompt" id="machinePrompt" aria-live="polite">
+        Écrivez sur <b>une clé</b>, <b>sans le mot « je »</b>, <b>en confidence</b>. Sept minutes, sans vous relire.
+      </p>
+
       <div class="btn-row">
-        <a class="btn btn--ink" href="index.html#contact">Construire votre projet</a>
-        <a class="btn btn--link" href="index.html#dossier">Le dossier en PDF <span class="arrow" aria-hidden="true">→</span></a>
+        <button class="btn btn--ink" type="button" id="rollBtn">Tirer une consigne</button>
+        <button class="btn btn--link" type="button" id="copyBtn">Copier <span class="arrow" aria-hidden="true">→</span></button>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section section--close wrap">
-  <div class="facts" data-stagger>
-      <div class="fact"><b>Public</b><span>Primaire à université</span></div>
-      <div class="fact"><b>Format type</b><span>10 h en séances de 2 h</span></div>
-      <div class="fact"><b>Jauge</b><span>Classe entière</span></div>
-      <div class="fact"><b>Restitution</b><span>Scène en fin de parcours</span></div>
-  </div>
-  <p class="body-lg mute" style="margin-top:clamp(28px,5vw,40px);max-width:760px" data-reveal>Dans le slam, on écrit pour dire. C'est la discipline mère de mes interventions : celle qui structure toutes les autres, et celle qui transforme le plus visiblement le rapport d'un élève à sa propre parole.</p>
-</section>
-
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Comment se déroule un parcours</h2>
-  </div>
-  <div class="steps" data-stagger>
-      <div class="step">
-        <span class="step__n" aria-hidden="true"></span>
-        <div><h3>Poser le cadre</h3><p>Je présente le mouvement slam, les règles de l'atelier et ses valeurs : l'écoute, le courage, les applaudissements pour tous, le respect de l'autre. Puis une démonstration en live, pour montrer plutôt qu'expliquer.</p></div>
+    <div class="timer" id="timer">
+      <div>
+        <h3 class="h4" style="color:#fff">Chrono de scène</h3>
+        <p style="margin-top:12px">La durée exacte d'un passage en scène ouverte.</p>
       </div>
-      <div class="step">
-        <span class="step__n" aria-hidden="true"></span>
-        <div><h3>Jouer avec la langue</h3><p>Des jeux collectifs à voix haute, créés spécifiquement pour le projet, portant chacun sur un thème ou une technique d'écriture. Personne n'écrit avant d'avoir entendu sa propre voix dans la salle.</p></div>
+      <div>
+        <div class="timer__display" id="timerDisplay" role="timer" aria-live="off">03:00</div>
+        <div class="timer__bar" aria-hidden="true" style="margin-top:20px"><span id="timerBar"></span></div>
       </div>
-      <div class="step">
-        <span class="step__n" aria-hidden="true"></span>
-        <div><h3>Masterclass de poésie</h3><p>Sous forme interactive, je passe en revue rimes, métrique et figures de style. Tous les outils poétiques qui servent la rythmique orale autant que la forme écrite. C'est là que votre programme de français trouve son support.</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n" aria-hidden="true"></span>
-        <div><h3>Écrire sous contrainte</h3><p>Je décortique chaque étape de l'écriture pour que les élèves écrivent librement, tout en étant accompagnés. La contrainte lève la pression de la page blanche.</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n" aria-hidden="true"></span>
-        <div><h3>Mettre en bouche</h3><p>Souffle, regard, silences, appuis. La moitié du travail se joue au passage de la feuille à la voix — c'est aussi là que la plupart des ateliers d'écriture s'arrêtent.</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n" aria-hidden="true"></span>
-        <div><h3>Monter sur scène</h3><p>L'aboutissement de chaque parcours. Devant la classe, l'établissement ou les familles. Les applaudissements prennent une grande place : l'élève doit être conscient de la mission accomplie.</p></div>
-      </div>
-  </div>
-</section>
-
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Les objectifs travaillés</h2>
-  </div>
-  <div class="goals" data-stagger>
-      <div class="goal"><b>Écriture</b><span>Appréhender les techniques d'écriture et de musicalité : figures de style, rhétorique, rythme, schémas de rimes, jeux de mots.</span></div>
-      <div class="goal"><b>Oralité</b><span>Mettre en voix les textes et assurer une prise de parole en public : échange avec le public, appropriation de l'espace scénique, souffle.</span></div>
-      <div class="goal"><b>Partage</b><span>S'exprimer sur les plans personnel et émotionnel, extérioriser opinions et ressentis, libérer la parole.</span></div>
-      <div class="goal"><b>Confiance</b><span>Affirmer un point de vue, une création ou une idée, dans un climat qui renforce l'estime de soi en toute bienveillance.</span></div>
-  </div>
-</section>
-
-<section class="section section--close wrap">
-  <div class="split" data-reveal>
-    <div class="def def--turquoise">
-      <h3>Le slam</h3>
-      <p>En anglais, « slam » signifie claquer. Un slam de poésie est une restitution orale et scénique, sans musique, nourrie de textes poétiques. Né dans les bars de Chicago dans les années 1980, ce courant de la poésie contemporaine allie écriture, interprétation et gestuelle. C'est l'art littéraire et oratoire le plus complet qui soit : figures de style, storytelling, schémas de rimes, mémorisation, gestion du stress, prise de parole, musicalité.</p>
-    </div>
-    <div>
-      <h2 class="h2">Et côté équipe pédagogique</h2>
-      <p class="body-lg mute" style="margin-top:24px">Pour l'enseignant, l'atelier slam est un support réel pour introduire la partie du programme consacrée à la poésie. Les notions sont abordées par la pratique, dans l'ordre qui sert le texte de l'élève plutôt que celui du manuel.</p>
-      <div class="btn-row" style="margin-top:32px">
-        <a class="btn btn--yellow" href="index.html#contact">Parler de votre projet</a>
+      <div class="btn-row">
+        <button class="btn btn--yellow" type="button" id="timerToggle">Démarrer</button>
+        <button class="btn btn--line" type="button" id="timerReset">Réinitialiser</button>
       </div>
     </div>
-  </div>
 </section>
 
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Les autres interventions</h2>
-  </div>
-  <div class="related" data-stagger>
-      <a class="related__item band--green" href="atelier-eloquence.html">
-        <span><b>Ateliers éloquence</b><small>Argumenter, tenir sa voix, occuper le silence.</small></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="related__item band--periwinkle" href="atelier-rap.html">
-        <span><b>Ateliers rap</b><small>De la rédaction d'un texte à l'enregistrement et au clip.</small></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="related__item band--magenta" href="atelier-battle.html">
-        <span><b>Battle de compliments</b><small>La battle de rue, retournée : deux artistes s'affrontent à coups d'éloges devant un public qui départage.</small></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
+<section class="section section--close wrap" id="jeu-2">
+  <div class="center measure" data-reveal>
+    <h2 class="h2">Deuxième outil</h2>
+    <p class="lead mute" style="margin-top:20px">Un second jeu prendra place ici.</p>
   </div>
 </section>
 
 <section class="section section--close wrap center">
   <div class="measure" data-reveal>
-    <h2 class="h2">Donnez à vos élèves l'envie des mots</h2>
-    <p class="lead mute" style="margin-top:24px">Plus de 300 ateliers menés et 5 000 participants
-      rencontrés, dans toute la France. Décrivez-moi votre contexte, je réponds avec une proposition
-      adaptée.</p>
+    <h2 class="h2">Ça marche encore mieux en vrai</h2>
+    <p class="lead mute" style="margin-top:24px">Ce que vous venez d'essayer, c'est dix minutes d'un
+      parcours qui en dure dix heures. Décrivez-moi votre contexte, je réponds sous 48 h.</p>
     <div class="btn-row btn-row--center" style="margin-top:32px">
       <a class="btn btn--yellow" href="index.html#contact">Construire votre projet</a>
-      <a class="btn btn--link" href="index.html#dossier">Télécharger le dossier <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--link" href="assets/docs/dossier-esope.pdf" download>Télécharger le dossier <span class="arrow" aria-hidden="true">↓</span></a>
     </div>
   </div>
 </section>
@@ -363,6 +328,6 @@
   </div>
 </dialog>
 
-<script src="assets/js/app.js?v=10" defer></script>
+<script src="assets/js/app.js?v=11" defer></script>
 </body>
 </html>

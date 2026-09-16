@@ -14,19 +14,18 @@ traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
 |---|---|
 | Header jaune fixe | Logo Anton, bouton noir, burger (mobile) / méga menu (ordinateur) |
 | Hero | Titre, accroche, boutons, collage photo à bords déchirés |
-| Trois piliers | Champion de France · Dans toute la France · Projets uniques |
-| Chiffres clés | 5 000 participants, 300 ateliers, toute la France, tous niveaux |
-| Marqueurs de confiance | Agrément, pass Culture, distinctions |
+| Chiffres | Trois grands nombres, façon Podia |
 | Interventions | Quatre cartes menant chacune à sa page dédiée |
-| Générer de l'ambition | Bloc deux colonnes, photo et texte |
-| Manifeste | Bloc sombre, quatre principes |
 | Témoignages | Carrousel — **citations à remplacer par de vrais retours** |
-| Esope | Bio courte, distinctions, fenêtre parcours complet |
+| L'intervenant | Bio courte, distinctions à icônes, fenêtre parcours complet |
 | FAQ | Six questions |
-| Dossier | Deux PDF téléchargeables |
 | Contact | Formulaire de demande |
-| Jeu + CTA final | Machine à consignes, chrono de 3 min |
+| CTA final | Appel et téléchargement du dossier |
 | Agenda | Fenêtre modale, ouverte depuis le menu uniquement |
+
+Le manifeste, « générer de l'ambition » et le détail des distinctions vivent dans
+la **fenêtre parcours** plutôt que dans la page : ils y sont accessibles en un clic
+sans occuper de place. Les modalités détaillées sont dans les PDF.
 
 ### Palette
 
@@ -52,6 +51,7 @@ npx serve .
 ```
 index.html            Page d'accueil
 atelier-*.html        Une page par intervention (générées)
+demo.html             Démo en ligne : les outils d'atelier à essayer
 assets/css/style.css  Jetons de design + composants
 assets/js/app.js      Interactions (sans dépendance)
 assets/fonts/         Inter Tight et Anton, servies depuis le dépôt
