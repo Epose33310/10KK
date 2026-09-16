@@ -19,6 +19,10 @@ const between = (start, end) => index.slice(index.indexOf(start), index.indexOf(
 const toHome = (html) =>
   html.replace(/href="#(?!top\b|main\b)([a-z0-9-]+)"/g, 'href="index.html#$1"');
 
+// La version des assets est lue sur l'accueil : les pages générées ne peuvent
+// pas se retrouver avec une feuille de style d'une autre génération.
+const assetVersion = (index.match(/style\.css\?v=(\d+)/) || [, '1'])[1];
+
 const header = toHome(between('<a class="skip-link"', '<main id="main">'));
 const footer = toHome(index.slice(index.indexOf('<!-- ================= PARCOURS — fenêtre')));
 
@@ -144,7 +148,7 @@ for (const p of pages) {
 <meta property="og:description" content="${p.meta}">
 <meta property="og:locale" content="fr_FR">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=10">
+<link rel="stylesheet" href="assets/css/style.css?v=${assetVersion}">
 </head>
 <body>
 
@@ -229,7 +233,7 @@ ${header}<main id="main">
 
 </main>
 
-${footer.replace(/app\.js\?v=\d+/, 'app.js?v=10')}`;
+${footer.replace(/app\.js\?v=\d+/, `app.js?v=${assetVersion}`)}`;
 
   writeFileSync(join(root, p.file), html);
   console.log('→ ' + p.file);
