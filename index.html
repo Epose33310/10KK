@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=6">
+<link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
 
@@ -57,9 +57,9 @@
             </div>
             <div class="mega__col mega__col--2">
               <p class="mega__label">Par public</p>
-              <a class="mega__item" href="#agenda"><span><b>Collèges &amp; lycées</b><small>De 3 h au parcours de dix séances.</small></span></a>
-              <a class="mega__item" href="#agenda"><span><b>Entreprises</b><small>La demi-journée prise de parole.</small></span></a>
-              <a class="mega__item" href="#agenda"><span><b>Tout public</b><small>Stages et scènes ouvertes.</small></span></a>
+              <a class="mega__item" href="#contact"><span><b>Collèges &amp; lycées</b><small>De 3 h au parcours de dix séances.</small></span></a>
+              <a class="mega__item" href="#contact"><span><b>Entreprises</b><small>La demi-journée prise de parole.</small></span></a>
+              <button class="mega__item" type="button" data-agenda><span><b>Tout public</b><small>Stages et scènes ouvertes.</small></span></button>
             </div>
           </div>
           <a class="mega__foot" href="#ateliers">Voir les quatre ateliers <span class="arrow" aria-hidden="true">→</span></a>
@@ -67,7 +67,7 @@
       </div>
 
       <a class="header__link" href="#atelier-express">Mini atelier en ligne</a>
-      <a class="header__link" href="#agenda">Agenda</a>
+      <button class="header__link" type="button" data-agenda>Agenda</button>
       <a class="header__link" href="#temoignages">Témoignages</a>
     </nav>
 
@@ -96,7 +96,7 @@
       </div></div>
     </div>
     <a href="#atelier-express">Mini atelier en ligne</a>
-    <a href="#agenda">Agenda</a>
+    <button type="button" data-agenda>Agenda</button>
     <a href="#temoignages">Témoignages</a>
     <a href="#faq">Questions</a>
     <a class="btn btn--ink btn--pill btn--block" href="#contact">Réserve ton atelier</a>
@@ -320,128 +320,6 @@
   </div>
 </section>
 
-<!-- ================= ATELIER EXPRESS (conservé) ================= -->
-<section class="section wrap" id="atelier-express">
-  <div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,56px)">
-    <h2 class="h2">La machine à consignes</h2>
-    <p class="lead mute" style="margin-top:20px">C'est exactement l'outil qu'on utilise en salle.
-      Tire une consigne, lance le chrono de trois minutes, écris sans te relire.</p>
-  </div>
-
-  <div class="express" data-reveal>
-    <div class="express__panel">
-      <h3 class="h4">Ta consigne du moment</h3>
-
-      <div class="dials">
-        <div class="dial dial--turquoise" id="dial-objet">
-          <span class="dial__label">Un objet</span>
-          <span class="dial__value" data-dial-value>une clé</span>
-        </div>
-        <div class="dial dial--magenta" id="dial-contrainte">
-          <span class="dial__label">Une contrainte</span>
-          <span class="dial__value" data-dial-value>sans le mot « je »</span>
-        </div>
-        <div class="dial dial--periwinkle" id="dial-emotion">
-          <span class="dial__label">Une couleur</span>
-          <span class="dial__value" data-dial-value>en confidence</span>
-        </div>
-      </div>
-
-      <p class="express__prompt" id="machinePrompt" aria-live="polite">
-        Écris sur <b>une clé</b>, <b>sans le mot « je »</b>, <b>en confidence</b>. Sept minutes, sans te relire.
-      </p>
-
-      <div class="btn-row">
-        <button class="btn btn--ink" type="button" id="rollBtn">Tirer une consigne</button>
-        <button class="btn btn--link" type="button" id="copyBtn">Copier <span class="arrow" aria-hidden="true">→</span></button>
-      </div>
-    </div>
-
-    <div class="timer" id="timer">
-      <div>
-        <h3 class="h4" style="color:#fff">Chrono de scène</h3>
-        <p style="margin-top:12px">La durée exacte d'un passage en scène ouverte.</p>
-      </div>
-      <div>
-        <div class="timer__display" id="timerDisplay" role="timer" aria-live="off">03:00</div>
-        <div class="timer__bar" aria-hidden="true" style="margin-top:20px"><span id="timerBar"></span></div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn--yellow" type="button" id="timerToggle">Démarrer</button>
-        <button class="btn btn--line" type="button" id="timerReset">Réinitialiser</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= AGENDA (conservé) ================= -->
-<section class="section wrap" id="agenda">
-  <div data-reveal style="margin-bottom:clamp(28px,6vw,44px)">
-    <h2 class="h2">Les prochaines dates ouvertes</h2>
-    <p class="lead mute" style="margin-top:20px;max-width:640px">Les ateliers en établissement se calent
-      sur votre calendrier. Ci-dessous, uniquement ce qui est ouvert au public.</p>
-  </div>
-
-  <div class="filters" role="group" aria-label="Filtrer l'agenda" data-reveal>
-    <button class="filter is-active" type="button" data-filter="tous">Tout voir</button>
-    <button class="filter" type="button" data-filter="scene">Scènes ouvertes</button>
-    <button class="filter" type="button" data-filter="stage">Stages</button>
-    <button class="filter" type="button" data-filter="jeunesse">Jeunesse</button>
-  </div>
-
-  <div class="agenda" id="agendaList" data-stagger>
-    <article class="event" data-category="scene">
-      <div class="event__date"><span class="event__day">12</span><span class="event__month">Nov.</span></div>
-      <div>
-        <h3 class="event__title">Scène ouverte — Le Périscope</h3>
-        <p class="event__meta">Lyon 7<sup>e</sup> · 20 h 00 · Inscription sur place dès 19 h 15</p>
-      </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">S'inscrire</a>
-        <span class="event__seats">9 passages restants</span>
-      </div>
-    </article>
-
-    <article class="event" data-category="stage">
-      <div class="event__date"><span class="event__day">23</span><span class="event__month">Nov.</span></div>
-      <div>
-        <h3 class="event__title">Stage — « Écrire l'endroit d'où l'on vient »</h3>
-        <p class="event__meta">Médiathèque de Villeurbanne · 14 h – 17 h · Dès 15 ans</p>
-      </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">Réserver</a>
-        <span class="event__seats">6 places restantes</span>
-      </div>
-    </article>
-
-    <article class="event" data-category="jeunesse">
-      <div class="event__date"><span class="event__day">04</span><span class="event__month">Déc.</span></div>
-      <div>
-        <h3 class="event__title">Atelier ados — slam et langue française</h3>
-        <p class="event__meta">Maison de quartier, Saint-Étienne · 14 h – 16 h 30 · 12–17 ans</p>
-      </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">Inscrire un jeune</a>
-        <span class="event__seats">14 places restantes</span>
-      </div>
-    </article>
-
-    <article class="event" data-category="scene">
-      <div class="event__date"><span class="event__day">18</span><span class="event__month">Déc.</span></div>
-      <div>
-        <h3 class="event__title">Scène ouverte de fin d'année — plateau invité</h3>
-        <p class="event__meta">Grenoble, La Bobine · 20 h 30 · Première partie par l'atelier ados</p>
-      </div>
-      <div class="event__action">
-        <a class="btn btn--ink" href="#contact">S'inscrire</a>
-        <span class="event__seats">12 passages restants</span>
-      </div>
-    </article>
-  </div>
-
-  <p class="agenda__empty" id="agendaEmpty" hidden>Aucune date dans cette catégorie — écrivez-nous, on vous prévient dès qu'une s'ouvre.</p>
-</section>
-
 <!-- ================= MODULE 7 — TÉMOIGNAGES EN CARROUSEL ================= -->
 <section class="section" id="temoignages">
   <div class="wrap center measure" data-reveal style="margin-bottom:clamp(40px,9vw,64px)">
@@ -626,22 +504,61 @@
   </div>
 </section>
 
-<!-- ================= MODULE 8 — CTA FINAL ================= -->
-<section class="section wrap center">
-  <div class="photoset" data-reveal>
-    <figure class="photoset__item photoset__item--left tear-c duo duo--green">
-      <img src="assets/img/atelier-3.jpg" alt="" loading="lazy" width="820" height="1050">
-    </figure>
-    <figure class="photoset__item photoset__item--main tear-a">
-      <img src="assets/img/ecriture-1.jpg" alt="Une scène ouverte en fin d'atelier" loading="lazy" width="1200" height="1000">
-    </figure>
-    <figure class="photoset__item photoset__item--right tear-b duo duo--magenta">
-      <img src="assets/img/atelier-2.jpg" alt="" loading="lazy" width="900" height="820">
-    </figure>
-    <div class="photoset__banner" aria-hidden="true"><span>ta voix</span></div>
+<!-- ================= MODULE 8 — JEU + CTA FINAL ================= -->
+<section class="section wrap" id="atelier-express">
+
+  <div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,56px)">
+    <h2 class="h2">La machine à consignes</h2>
+    <p class="lead mute" style="margin-top:20px">C'est exactement l'outil qu'on utilise en salle.
+      Tire une consigne, lance le chrono de trois minutes, écris sans te relire.</p>
   </div>
 
-  <div class="measure" style="margin-top:clamp(40px,9vw,64px)" data-reveal>
+  <div class="express" data-reveal>
+    <div class="express__panel">
+      <h3 class="h4">Ta consigne du moment</h3>
+
+      <div class="dials">
+        <div class="dial dial--turquoise" id="dial-objet">
+          <span class="dial__label">Un objet</span>
+          <span class="dial__value" data-dial-value>une clé</span>
+        </div>
+        <div class="dial dial--magenta" id="dial-contrainte">
+          <span class="dial__label">Une contrainte</span>
+          <span class="dial__value" data-dial-value>sans le mot « je »</span>
+        </div>
+        <div class="dial dial--periwinkle" id="dial-emotion">
+          <span class="dial__label">Une couleur</span>
+          <span class="dial__value" data-dial-value>en confidence</span>
+        </div>
+      </div>
+
+      <p class="express__prompt" id="machinePrompt" aria-live="polite">
+        Écris sur <b>une clé</b>, <b>sans le mot « je »</b>, <b>en confidence</b>. Sept minutes, sans te relire.
+      </p>
+
+      <div class="btn-row">
+        <button class="btn btn--ink" type="button" id="rollBtn">Tirer une consigne</button>
+        <button class="btn btn--link" type="button" id="copyBtn">Copier <span class="arrow" aria-hidden="true">→</span></button>
+      </div>
+    </div>
+
+    <div class="timer" id="timer">
+      <div>
+        <h3 class="h4" style="color:#fff">Chrono de scène</h3>
+        <p style="margin-top:12px">La durée exacte d'un passage en scène ouverte.</p>
+      </div>
+      <div>
+        <div class="timer__display" id="timerDisplay" role="timer" aria-live="off">03:00</div>
+        <div class="timer__bar" aria-hidden="true" style="margin-top:20px"><span id="timerBar"></span></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn--yellow" type="button" id="timerToggle">Démarrer</button>
+        <button class="btn btn--line" type="button" id="timerReset">Réinitialiser</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="measure center" style="margin-top:clamp(56px,11vw,96px)" data-reveal>
     <h2 class="h2">Si tu hoches la tête, tu n'es pas seul.</h2>
     <p class="lead mute" style="margin-top:24px">Plus de 1 200 personnes sont passées par ces ateliers.
       La plupart pensaient qu'elles n'écriraient rien. Écris-nous avant d'avoir trouvé une bonne raison
@@ -676,14 +593,14 @@
           <li><a href="#contact">Collèges &amp; lycées</a></li>
           <li><a href="#contact">Entreprises</a></li>
           <li><a href="#contact">Collectivités</a></li>
-          <li><a href="#agenda">Tout public</a></li>
+          <li><button type="button" data-agenda>Tout public</button></li>
         </ul>
       </div>
       <div>
         <h3>Le projet</h3>
         <ul>
           <li><a href="#atelier-express">Mini atelier en ligne</a></li>
-          <li><a href="#agenda">Agenda</a></li>
+          <li><button type="button" data-agenda>Agenda</button></li>
           <li><a href="#temoignages">Témoignages</a></li>
           <li><a href="#faq">Questions</a></li>
         </ul>
@@ -712,6 +629,84 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=6" defer></script>
+
+<!-- ================= AGENDA — fenêtre ouverte depuis le menu ================= -->
+<dialog class="sheet" id="agendaDialog" aria-labelledby="agendaTitle">
+  <div class="sheet__head">
+    <div>
+      <p class="sheet__eyebrow">Agenda</p>
+      <h2 class="sheet__title" id="agendaTitle">Les prochaines dates ouvertes</h2>
+    </div>
+    <button class="sheet__close" type="button" id="agendaClose" aria-label="Fermer l'agenda">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="sheet__body">
+    <p class="lead mute" style="margin-bottom:28px">Les ateliers en établissement se calent sur votre
+      calendrier. Ci-dessous, uniquement ce qui est ouvert au public.</p>
+
+  <div class="filters" role="group" aria-label="Filtrer l'agenda">
+    <button class="filter is-active" type="button" data-filter="tous">Tout voir</button>
+    <button class="filter" type="button" data-filter="scene">Scènes ouvertes</button>
+    <button class="filter" type="button" data-filter="stage">Stages</button>
+    <button class="filter" type="button" data-filter="jeunesse">Jeunesse</button>
+  </div>
+
+  <div class="agenda" id="agendaList">
+    <article class="event" data-category="scene">
+      <div class="event__date"><span class="event__day">12</span><span class="event__month">Nov.</span></div>
+      <div>
+        <h3 class="event__title">Scène ouverte — Le Périscope</h3>
+        <p class="event__meta">Lyon 7<sup>e</sup> · 20 h 00 · Inscription sur place dès 19 h 15</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">S'inscrire</a>
+        <span class="event__seats">9 passages restants</span>
+      </div>
+    </article>
+
+    <article class="event" data-category="stage">
+      <div class="event__date"><span class="event__day">23</span><span class="event__month">Nov.</span></div>
+      <div>
+        <h3 class="event__title">Stage — « Écrire l'endroit d'où l'on vient »</h3>
+        <p class="event__meta">Médiathèque de Villeurbanne · 14 h – 17 h · Dès 15 ans</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">Réserver</a>
+        <span class="event__seats">6 places restantes</span>
+      </div>
+    </article>
+
+    <article class="event" data-category="jeunesse">
+      <div class="event__date"><span class="event__day">04</span><span class="event__month">Déc.</span></div>
+      <div>
+        <h3 class="event__title">Atelier ados — slam et langue française</h3>
+        <p class="event__meta">Maison de quartier, Saint-Étienne · 14 h – 16 h 30 · 12–17 ans</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">Inscrire un jeune</a>
+        <span class="event__seats">14 places restantes</span>
+      </div>
+    </article>
+
+    <article class="event" data-category="scene">
+      <div class="event__date"><span class="event__day">18</span><span class="event__month">Déc.</span></div>
+      <div>
+        <h3 class="event__title">Scène ouverte de fin d'année — plateau invité</h3>
+        <p class="event__meta">Grenoble, La Bobine · 20 h 30 · Première partie par l'atelier ados</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">S'inscrire</a>
+        <span class="event__seats">12 passages restants</span>
+      </div>
+    </article>
+  </div>
+
+  <p class="agenda__empty" id="agendaEmpty" hidden>Aucune date dans cette catégorie — écrivez-nous, on vous prévient dès qu'une s'ouvre.</p>
+  </div>
+</dialog>
+
+<script src="assets/js/app.js?v=7" defer></script>
 </body>
 </html>

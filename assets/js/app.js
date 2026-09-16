@@ -400,6 +400,50 @@
   renderTimer();
 
   /* ----------------------------------------------------------------------
+     Agenda : fenêtre ouverte depuis le menu uniquement
+     ---------------------------------------------------------------------- */
+
+  var agendaDialog = $('#agendaDialog');
+  var agendaClose = $('#agendaClose');
+
+  function openAgenda() {
+    if (!agendaDialog) return;
+    closeDrawer();
+    closeMega(true);
+    if (typeof agendaDialog.showModal === 'function') agendaDialog.showModal();
+    else agendaDialog.setAttribute('open', '');   // navigateurs sans <dialog>
+    document.body.classList.add('is-locked');
+  }
+
+  function closeAgenda() {
+    if (!agendaDialog) return;
+    if (typeof agendaDialog.close === 'function') agendaDialog.close();
+    else agendaDialog.removeAttribute('open');
+  }
+
+  $$('[data-agenda]').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      openAgenda();
+    });
+  });
+
+  if (agendaClose) agendaClose.addEventListener('click', closeAgenda);
+
+  if (agendaDialog) {
+    // Le verrou de défilement se lève quoi qu'il arrive : bouton, Échap ou clic
+    // sur le fond, tous passent par l'événement close.
+    agendaDialog.addEventListener('close', function () {
+      document.body.classList.remove('is-locked');
+    });
+
+    // Clic sur le fond : la cible est le dialog lui-même, pas son contenu.
+    agendaDialog.addEventListener('click', function (e) {
+      if (e.target === agendaDialog) closeAgenda();
+    });
+  }
+
+  /* ----------------------------------------------------------------------
      Filtres de l'agenda
      ---------------------------------------------------------------------- */
 

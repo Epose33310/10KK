@@ -693,6 +693,86 @@ input, textarea, select { font: inherit; color: inherit; }
 .timer .btn--line:hover { background: rgba(255,255,255,0.12); }
 
 /* --------------------------------------------------------------------------
+   Agenda — fenêtre ouverte depuis le menu
+   -------------------------------------------------------------------------- */
+
+.sheet {
+  width: min(880px, calc(100vw - 32px));
+  max-height: min(86vh, 900px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-card);
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+.sheet::backdrop { background: rgba(26, 26, 26, 0.55); }
+
+.sheet[open] { display: flex; flex-direction: column; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sheet[open] { animation: sheet-in 320ms var(--ease); }
+  .sheet[open]::backdrop { animation: fade-in 320ms var(--ease); }
+}
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.sheet__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px clamp(20px, 4vw, 36px) 20px;
+  background: var(--yellow);
+}
+.sheet__eyebrow {
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 8px;
+}
+.sheet__title {
+  font-size: clamp(26px, 5.4vw, 38px);
+  line-height: 1.05; letter-spacing: -0.03em; font-weight: 600;
+}
+.sheet__close {
+  flex: 0 0 auto;
+  position: relative;
+  width: 44px; height: 44px;
+  border: 0; border-radius: 50%;
+  background: var(--ink);
+}
+.sheet__close span {
+  position: absolute; left: 13px; top: 21px;
+  width: 18px; height: 2.5px; border-radius: 2px; background: var(--white);
+}
+.sheet__close span:first-child { transform: rotate(45deg); }
+.sheet__close span:last-child { transform: rotate(-45deg); }
+
+.sheet__body {
+  padding: clamp(24px, 4vw, 36px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Les entrées de menu qui ouvrent la fenêtre sont des boutons : on neutralise
+   l'apparence native pour qu'elles restent identiques aux liens voisins. */
+.drawer__group > button[data-agenda],
+.drawer > button[data-agenda] {
+  display: block; width: 100%;
+  padding: 16px 0; border: 0; background: transparent;
+  font-size: 20px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--ink); text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.footer button[data-agenda] {
+  padding: 0; border: 0; background: transparent;
+  color: #e6e3df; font-size: 16px; text-align: left;
+}
+.footer button[data-agenda]:hover { color: var(--white); }
+
+/* --------------------------------------------------------------------------
    Agenda
    -------------------------------------------------------------------------- */
 
@@ -706,6 +786,20 @@ input, textarea, select { font: inherit; color: inherit; }
 .filter.is-active { background: var(--ink); color: var(--white); }
 
 .agenda { display: grid; gap: 12px; }
+.sheet .event { background: var(--card); }
+
+/* Dans la fenêtre, la largeur utile est bien plus faible que sur la page :
+   la date passe en pastille horizontale et le titre récupère toute la ligne. */
+@media (max-width: 560px) {
+  .sheet .event { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
+  .sheet .event__date {
+    display: inline-flex; align-items: baseline; gap: 7px;
+    width: max-content; padding: 7px 14px; border-radius: 99px;
+  }
+  .sheet .event__day { display: inline; font-size: 20px; }
+  .sheet .event__month { display: inline; margin-top: 0; }
+  .sheet .event__action { flex-wrap: wrap; gap: 10px; }
+}
 
 .event {
   display: grid;

@@ -22,7 +22,7 @@ de traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
 | — | Agenda | Dates filtrables par catégorie |
 | 7 | Témoignages | Carrousel de cartes colorées, pastilles de pagination |
 | — | FAQ · Contact | Accordéon et formulaire de devis |
-| 8 | CTA final | Collage, titre, sous-titre, bouton jaune |
+| 8 | Jeu + CTA final | Machine à consignes, chrono de 3 min, puis titre et bouton jaune |
 | 9 | Pied de page noir | Logo script, quatre colonnes, réseaux, mentions |
 
 ### Palette relevée
@@ -85,6 +85,11 @@ pointe aujourd'hui vers une ancre de la page (`#atelier-slam`, `#atelier-rap`…
 le jour où chaque atelier aura sa propre page, il suffit de remplacer l'ancre par
 l'URL de la page, sans toucher au reste. Les mêmes entrées sont reprises dans le
 menu mobile (`.nav__mobile-sub`) — pensez à modifier les deux.
+
+**L'agenda** n'est pas dans le flux de la page : c'est un `<dialog class="sheet">`
+placé en fin de `index.html`, ouvert par n'importe quel élément portant
+l'attribut `data-agenda` (entrées de menu, pied de page). Il se ferme au bouton,
+par Échap ou par un clic sur le fond.
 
 **Le contenu** se modifie directement dans `index.html` : les dates de l'agenda sont
 des blocs `<article class="event" data-category="…">`, les catégories disponibles
