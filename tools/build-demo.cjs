@@ -58,7 +58,7 @@ const EMBLEMS = {
 const GAMES = [
   { key: 'slam', num: '01', tag: 'Slam',
     title: 'Écrire une métaphore',
-    sub: 'Un verbe, un sujet tiré au sort. À vous d\'écrire la suite.',
+    sub: 'Un verbe, un sujet que je tire au sort. À vous d\'écrire la suite.',
     soon: "Un exercice d'association : deux mots que rien ne rapproche, et une phrase qui les relie." },
   { key: 'battle', num: '02', tag: 'Battle de compliments',
     title: 'Faire des punchlines',
@@ -66,16 +66,16 @@ const GAMES = [
     soon: "Une qualité, une image connue de tous, et la punchline se construit toute seule." },
   { key: 'eloquence', num: '03', tag: 'Éloquence',
     title: "S'essayer au discours",
-    sub: 'Un sujet tiré au sort. 60 secondes pour en parler.',
+    sub: 'Je tire un sujet au sort. 60 secondes pour en parler.',
     soon: "Une prise de parole minutée, avec la contrainte qui oblige à structurer." },
   { key: 'rap', num: '04', tag: 'Rap',
     title: 'Trouver des rimes',
-    sub: 'Un mot, 60 secondes. Combien de rimes trouvez-vous ?',
+    sub: 'Un mot que je vous donne, 60 secondes. Combien de rimes trouvez-vous ?',
     soon: "Un mot à faire rimer, un compte à rebours, et la liste qui s'allonge." },
 ];
 
 const cards = GAMES.map((g) => `
-      <button class="cab cab--${g.key}" type="button" data-play="${g.key}"
+      <button class="cab cab--${g.key}" type="button" id="demo-${g.key}" data-play="${g.key}"
               aria-haspopup="dialog" aria-controls="play-${g.key}">
         <span class="cab__top">
           <span class="cab__num" aria-hidden="true">${g.num}</span>
@@ -128,7 +128,7 @@ ${header}<main id="main">
 
 <section class="wrap" style="padding-block:clamp(24px,5vw,40px) clamp(20px,4vw,28px)">
   <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l'accueil</a>
-  <h1 class="h2" style="max-width:20ch">4 exercices que je fais en atelier, à essayer depuis chez vous.</h1>
+  <h1 class="h2" style="max-width:20ch">4 exercices qu'Esope peut faire en atelier, à essayer chez vous.</h1>
 </section>
 
 <section class="section section--close wrap">

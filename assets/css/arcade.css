@@ -565,6 +565,39 @@
    Jeu 02 — Punchline compliment
    -------------------------------------------------------------------------- */
 
+/* L'aperçu de l'étape d'assemblage : la phrase se remplit sous les doigts. */
+.g__apercu {
+  margin: 20px 0 4px;
+  padding: 16px 18px;
+  border: 2px solid var(--ink); border-radius: 16px;
+  background: var(--card);
+  font-size: clamp(19px, 4.6vw, 27px);
+  line-height: 1.4; letter-spacing: -0.02em; font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.g__apercu-trou {
+  display: inline-block;
+  padding: 0 2px;
+  border-bottom: 3px solid var(--magenta);
+  color: var(--ink);
+}
+.g__apercu-trou.is-vide {
+  color: var(--ink-mute);
+  font-weight: 500; font-style: italic;
+}
+
+.g__pair { display: grid; gap: 14px; }
+.g__field { display: block; min-width: 0; }
+.g__field .g__input { width: 100%; }
+.g__field-label {
+  display: block; margin-bottom: 7px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+@media (min-width: 560px) {
+  .g__pair { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
 .g__build { display: grid; gap: 8px; margin: 22px 0 6px; }
 .g__build-item {
   opacity: 0;
@@ -577,13 +610,16 @@
 .g__build-item.is-in { opacity: 1; transform: none; }
 .g__build-item + .g__build-item { color: var(--ink-soft); }
 
-.g__result.is-in { opacity: 1; transform: none; }
-#play-battle .g__result {
+/* La punchline arrive après ses ingrédients. Modificateur et pas sélecteur
+   d'identifiant : sinon « is-in » perd la bataille de spécificité et la
+   phrase reste invisible. */
+.g__result--reveal {
   opacity: 0; transform: translateY(12px);
   margin-top: 22px; padding-top: 22px;
   border-top: 2px solid var(--ink);
   transition: opacity 460ms var(--ease), transform 460ms var(--ease);
 }
+.g__result--reveal.is-in { opacity: 1; transform: none; }
 
 /* ==========================================================================
    Petits écrans — la fenêtre prend la place, le décor s'efface
@@ -622,7 +658,9 @@
   .g__verbs { gap: 7px; margin-top: 18px; }
   .g__verb { padding: 10px 14px; font-size: 14px; }
 
-  .g__form--stack { margin-top: 18px; }
+  .g__form--stack { margin-top: 20px; }
+  .g__apercu { margin-top: 16px; padding: 14px 15px; line-height: 1.45; }
+  .g__field-label { font-size: 10px; margin-bottom: 5px; }
   .g__input { padding: 13px 15px; font-size: 16px; }  /* 16px : iOS ne zoome pas */
   .g__input--area { min-height: 132px; }
   .g__btn--send { padding: 15px 18px; }

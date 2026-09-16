@@ -90,7 +90,7 @@
     var s = el('div', 'g g--center');
     s.appendChild(el('p', 'g__eyebrow', 'Défi de rimes'));
     s.appendChild(el('h3', 'g__title', 'Combien de rimes en 60 secondes ?'));
-    s.appendChild(el('p', 'g__text', 'Un mot apparaît. Trouvez une rime, validez, le mot suivant arrive. Une mauvaise réponse ne coûte aucun point : elle coûte du temps.'));
+    s.appendChild(el('p', 'g__text', 'Je vous donne un mot. Trouvez une rime, validez, le mot suivant arrive. Une mauvaise réponse ne coûte aucun point : elle coûte du temps.'));
 
     var tip = el('p', 'g__tip', 'On cherche le dernier son, pas les mêmes lettres. « soleil » rime avec « merveille ».');
     s.appendChild(tip);

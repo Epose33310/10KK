@@ -37,6 +37,7 @@ const OBJECTIFS = {
 const pages = [
   {
     file: 'atelier-slam.html',
+    demo: ['slam', "écrire une métaphore", "Un verbe, un sujet qu’Esope tire au sort, et une phrase à finir. Deux minutes, directement dans votre navigateur — sans inscription."],
     color: 'turquoise',
     title: 'Ateliers slam',
     baseline: "Réconcilier les jeunes avec la langue française par un art actuel et accessible. Les élèves écrivent, puis montent au micro.",
@@ -57,6 +58,7 @@ const pages = [
   },
   {
     file: 'atelier-eloquence.html',
+    demo: ['eloquence', "prendre la parole 60 secondes", "Un sujet tiré au sort, soixante secondes pour en parler à voix haute, puis un retour sur ce qui s’est joué. Directement dans votre navigateur — sans inscription."],
     color: 'green',
     title: 'Ateliers éloquence',
     baseline: "Argumenter, tenir sa voix, occuper le silence. La prise de parole appliquée à une échéance réelle.",
@@ -76,6 +78,7 @@ const pages = [
   },
   {
     file: 'atelier-rap.html',
+    demo: ['rap', "trouver des rimes", "Un mot, soixante secondes, et autant de rimes que vous pouvez en trouver. Directement dans votre navigateur — sans inscription."],
     color: 'periwinkle',
     title: 'Ateliers rap',
     baseline: "De la rédaction d'un texte à l'enregistrement et au clip. Une immersion artistique aux objectifs très concrets.",
@@ -95,20 +98,21 @@ const pages = [
   },
   {
     file: 'atelier-battle.html',
+    demo: ['battle', "faire une punchline", "Une qualité, une image, deux mots pour les relier, et le compliment devient imparable. Deux minutes, directement dans votre navigateur — sans inscription."],
     color: 'magenta',
     title: 'Battle de compliments',
-    baseline: "La battle de rue, retournée : deux artistes s'affrontent à coups d'éloges devant un public qui départage.",
+    baseline: "Le battle de rue, retourné : deux artistes s'affrontent à coups d'éloges devant un public qui départage.",
     meta: "Battle de compliments : un exercice rhétorique positif et physique, sans écriture préalable. Redoutable pour souder un groupe et détourner les codes de la moquerie.",
     facts: [['Public', 'Dès 10 ans'], ['Format type', '2 h, format court'], ['Jauge', 'Groupe ou classe'], ['Restitution', 'Battle devant le groupe']],
     intro: "Une discipline insolite qui met le verbe à l'honneur dans un exercice rhétorique positif. Le principe est simple, la mécanique redoutable : elle emprunte aux codes de la vanne et de la punchline pour les retourner en éloge.",
     steps: [
-      ['Poser les règles', "Deux adversaires, un temps limité, un public qui vote. Les mêmes codes que la battle de rap, avec une seule inversion : on ne cherche pas à démolir, on cherche à flatter."],
+      ['Poser les règles', "Deux adversaires, un temps limité, un public qui vote. Les mêmes codes que le battle de rap, avec une seule inversion : on ne cherche pas à démolir, on cherche à flatter."],
       ['Chauffer le verbe', "Jeux d'échauffement à voix haute, en cercle. L'improvisation se travaille comme le reste : par la répétition et la prise de risque progressive."],
       ['Passer en binôme', "Les face-à-face s'enchaînent, courts, rythmés, applaudis. Personne ne prépare de texte : tout se joue dans l'instant."],
       ['Départager', "Le public note. Et comme dans le slam, le public a toujours tort : ce qui compte, c'est que chacun soit passé."],
     ],
     goals: ['eloquence', 'confiance', 'partage', 'oralite'],
-    definition: ["La battle", "La battle est un héritage direct de la culture hip-hop, où deux MC s'affrontent verbalement devant un public arbitre. La battle de compliments en conserve la forme — le face-à-face, le rythme, le jury populaire — en inversant l'intention. L'exercice est court, très physique, et ne demande aucune écriture préalable."],
+    definition: ["Le battle", "Le battle est un héritage direct de la culture hip-hop, où deux MC s'affrontent verbalement devant un public arbitre. Le battle de compliments en conserve la forme — le face-à-face, le rythme, le jury populaire — en inversant l'intention. L'exercice est court, très physique, et ne demande aucune écriture préalable."],
     school: "C'est le format le plus demandé en médiation et en cohésion de groupe. Il désamorce les moqueries en en détournant les codes, et fonctionne particulièrement bien en début d'année ou à la suite d'un conflit de classe.",
   },
 ];
@@ -193,6 +197,15 @@ ${header}<main id="main">
   </div>
   <div class="goals" data-stagger>${goals}
   </div>
+</section>
+
+<section class="section section--close wrap">
+  <a class="tryout band--${p.color}" href="demo.html#demo-${p.demo[0]}" data-reveal>
+    <span class="tryout__label">Démo en ligne · gratuite</span>
+    <span class="tryout__title">Essayez l'exercice : ${p.demo[1]}</span>
+    <span class="tryout__text">${p.demo[2]}</span>
+    <span class="tryout__cta">Lancer la démo <span class="arrow" aria-hidden="true">→</span></span>
+  </a>
 </section>
 
 <section class="section section--close wrap">

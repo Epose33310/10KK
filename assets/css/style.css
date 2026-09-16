@@ -1345,6 +1345,47 @@ input, textarea, select { font: inherit; color: inherit; }
 .goal b { display: block; font-size: clamp(20px, 4vw, 23px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
 .goal span { color: var(--ink-soft); font-size: 16px; line-height: 1.55; }
 
+/* Bloc « essayer la démo » des pages atelier : même grammaire que les bornes
+   de la page démo — bord d'encre et ombre dure qui se resserre au survol. */
+.tryout {
+  display: block;
+  padding: clamp(26px, 5vw, 44px);
+  border: 2px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 7px 7px 0 var(--ink);
+  color: var(--ink);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.tryout:hover { transform: translate(3px, 3px); box-shadow: 4px 4px 0 var(--ink); }
+.tryout:active { transform: translate(7px, 7px); box-shadow: 0 0 0 var(--ink); }
+.tryout__label {
+  display: block;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; opacity: 0.68;
+}
+.tryout__title {
+  display: block; margin-top: 10px;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.1; letter-spacing: -0.03em; font-weight: 700;
+}
+.tryout__text {
+  display: block; margin-top: 14px; max-width: 56ch;
+  font-size: clamp(16px, 2vw, 17px); line-height: 1.55; opacity: 0.82;
+}
+.tryout__cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: clamp(22px, 3vw, 28px); padding: 14px 24px;
+  border-radius: 99px;
+  background: var(--ink); color: var(--paper);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.tryout .arrow { transition: transform var(--dur-fast) var(--ease); }
+.tryout:hover .arrow { transform: translateX(5px); }
+@media (prefers-reduced-motion: reduce) {
+  .tryout, .tryout .arrow { transition: none; }
+  .tryout:hover, .tryout:active { transform: none; box-shadow: 7px 7px 0 var(--ink); }
+}
+
 .related { display: grid; gap: 12px; }
 .related__item {
   display: flex; align-items: center; gap: 16px;

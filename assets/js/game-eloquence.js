@@ -193,7 +193,7 @@
     var s = el('div', 'g');
     s.appendChild(el('p', 'g__eyebrow', 'Défi de prise de parole'));
     s.appendChild(el('h3', 'g__title', 'Un sujet. 60 secondes. Une prise de parole.'));
-    s.appendChild(el('p', 'g__text', 'Choisissez une tranche d’âge, découvrez le sujet tiré au sort, et relevez le défi. Ici, rien à écrire : il faut parler à voix haute.'));
+    s.appendChild(el('p', 'g__text', 'Choisissez une tranche d’âge, je tire le sujet au sort, et vous relevez le défi. Ici, rien à écrire : il faut parler à voix haute.'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';
@@ -374,7 +374,7 @@
     var s = el('div', 'g');
     s.appendChild(el('p', 'g__eyebrow', 'Auto-évaluation'));
     s.appendChild(el('h3', 'g__title', 'À vous de juger votre prise de parole.'));
-    s.appendChild(el('p', 'g__text', 'Aucune bonne réponse : ce sont vos réponses qui choisissent les techniques affichées ensuite.'));
+    s.appendChild(el('p', 'g__text', 'Aucune bonne réponse : ce sont vos réponses qui décident des techniques que je vous montre ensuite.'));
 
     var form = el('div', 'g__quiz');
     list.forEach(function (item, index) {

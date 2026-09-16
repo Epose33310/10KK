@@ -151,7 +151,7 @@
     var s = el('div', 'g g--center');
     s.appendChild(el('p', 'g__eyebrow', 'Association inattendue'));
     s.appendChild(el('h3', 'g__title', 'Deux mots. Une image. À vous d’écrire la suite.'));
-    s.appendChild(el('p', 'g__text', 'On part d’une association que personne n’aurait choisie. La machine pose la contrainte — la poésie, c’est vous qui l’écrivez.'));
+    s.appendChild(el('p', 'g__text', 'Je vous impose une association que personne n’aurait choisie. La contrainte vient de moi — la poésie, c’est vous qui l’écrivez.'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';
@@ -165,7 +165,7 @@
     var s = el('div', 'g');
     s.appendChild(el('p', 'g__eyebrow', 'Étape 1'));
     s.appendChild(el('h3', 'g__title', 'Choisissez votre verbe.'));
-    s.appendChild(el('p', 'g__text', 'Ce mot va guider toute la phrase. Une fois choisi, il est verrouillé.'));
+    s.appendChild(el('p', 'g__text', 'Ce mot va guider toute la phrase. Une fois choisi, je le verrouille.'));
 
     var grille = el('div', 'g__verbs');
     VERBS.forEach(function (verbe) {
@@ -341,7 +341,7 @@
     }
 
     s.appendChild(el('p', 'g__text g__text--strong', 'Vous venez de créer une image poétique.'));
-    s.appendChild(el('p', 'g__text', 'En atelier, on part d’une association inattendue, puis on cherche ensemble comment la prolonger, la préciser, la rendre plus évocatrice.'));
+    s.appendChild(el('p', 'g__text', 'En atelier, je pars d’une association inattendue, puis on cherche ensemble comment la prolonger, la préciser, la rendre plus évocatrice.'));
     s.appendChild(el('p', 'g__text g__text--strong', 'Imaginez maintenant cette consigne avec tout un groupe.'));
 
     var cta = el('a', 'g__btn g__btn--cta', 'Découvrir l’atelier slam');

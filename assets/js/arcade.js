@@ -39,4 +39,21 @@
       button.focus();
     });
   });
+
+  /* Les pages atelier pointent sur demo.html#demo-slam & co. : le jeu s'ouvre
+     tout seul à l'arrivée. On attend DOMContentLoaded pour que les scripts
+     de jeu aient rempli leur écran — jamais de fenêtre vide. */
+  function ouvrirDepuisLien() {
+    var cible = /^#demo-([a-z]+)$/.exec(window.location.hash || '');
+    if (!cible) return;
+    var bouton = document.querySelector('[data-play="' + cible[1] + '"]');
+    if (bouton) bouton.click();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ouvrirDepuisLien);
+  } else {
+    // Les scripts differés suivants n'ont pas encore tourné : on leur laisse le tour.
+    setTimeout(ouvrirDepuisLien, 0);
+  }
 })();
