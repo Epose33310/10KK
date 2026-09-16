@@ -169,7 +169,18 @@ s'il figure dans le panier de rimes du mot affiché : son existence et sa rime s
 vérifiées d'un coup, sans faux positif orthographique. Pour changer les mots
 cibles, éditez `TARGET_WORDS` dans le script et relancez-le.
 
-Les deux autres jeux restent à écrire : leurs fenêtres affichent pour l'instant
+**Jeu 01, slam** (`assets/js/game-slam.js`) : un verbe choisi puis verrouillé,
+un sujet tiré au sort parmi soixante-deux, et l'amorce s'assemble avec le bon
+accord. Le participant écrit la suite ; le site ne propose jamais de phrase à sa
+place et ne juge jamais ce qu'il écrit.
+
+Les formes conjuguées sont **écrites, pas dérivées** : vingt-cinq verbes sûrs,
+pronominaux compris, valent mieux que trois cents approximatifs. Les
+1 525 combinaisons possibles ont été vérifiées. La fonction `composer()` nettoie
+la ponctuation de la suite saisie — points de suspension recopiés, espace avant
+une virgule, espaces multiples, point en double.
+
+Le dernier jeu reste à écrire : leurs fenêtres affichent pour l'instant
 leur emblème et une phrase d'attente. Le contenu des bornes se trouve dans
 `tools/build-demo.cjs`, dans la constante `GAMES`.
 

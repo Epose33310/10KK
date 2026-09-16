@@ -58,7 +58,7 @@ const EMBLEMS = {
 const GAMES = [
   { key: 'slam', num: '01', tag: 'Slam',
     title: 'Écrire une métaphore',
-    sub: "Partir d'une image, en trouver une autre, les faire tenir ensemble.",
+    sub: 'Un verbe, un sujet tiré au sort. À vous d\'écrire la suite.',
     soon: "Un exercice d'association : deux mots que rien ne rapproche, et une phrase qui les relie." },
   { key: 'battle', num: '02', tag: 'Battle de compliments',
     title: 'Faire des punchlines',
@@ -101,7 +101,7 @@ const dialogs = GAMES.map((g) => `
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="play__body">${['eloquence', 'rap'].indexOf(g.key) !== -1 ? '' : `
+  <div class="play__body">${['eloquence', 'rap', 'slam'].indexOf(g.key) !== -1 ? '' : `
     <div class="play__soon">
       <span class="cab__emblem" aria-hidden="true">${EMBLEMS[g.key]}
       </span>
@@ -162,7 +162,8 @@ ${footer.replace(
   '</body>',
   '<script src="assets/js/arcade.js?v=' + v + '" defer></script>\n' +
   '<script src="assets/js/game-eloquence.js?v=' + v + '" defer></script>\n' +
-  '<script src="assets/js/game-rap.js?v=' + v + '" defer></script>\n</body>'
+  '<script src="assets/js/game-rap.js?v=' + v + '" defer></script>\n' +
+  '<script src="assets/js/game-slam.js?v=' + v + '" defer></script>\n</body>'
 )}`;
 
 writeFileSync(join(root, 'demo.html'), html);
