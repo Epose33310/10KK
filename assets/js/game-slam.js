@@ -151,7 +151,7 @@
     var s = el('div', 'g g--center');
     s.appendChild(el('p', 'g__eyebrow', 'Association inattendue'));
     s.appendChild(el('h3', 'g__title', 'Deux mots. Une image. À vous d’écrire la suite.'));
-    s.appendChild(el('p', 'g__text', 'Je vous impose une association que personne n’aurait choisie. La contrainte vient de moi — la poésie, c’est vous qui l’écrivez.'));
+    s.appendChild(el('p', 'g__text', 'Vous choisissez un verbe, je tire au sort un sujet, et vous complétez la phrase.'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';

@@ -145,25 +145,26 @@
      Cercle tracé au feutre autour du titre
      ---------------------------------------------------------------------- */
 
-  var circled = $('[data-circled]');
-  if (circled) {
-    var strokePath = $('path.is-draw', circled);
-    if (strokePath && typeof strokePath.getTotalLength === 'function') {
-      var len = strokePath.getTotalLength();
-      circled.style.setProperty('--len', len);
-    }
-    if (!('IntersectionObserver' in window) || reduced) {
-      circled.classList.add('is-visible');
-    } else {
-      var circleObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          circled.classList.add('is-visible');
-          circleObserver.unobserve(entry.target);
-        });
-      }, { threshold: 0.6 });
-      circleObserver.observe(circled);
-    }
+  var circles = $$('[data-circled]');
+  if (circles.length) {
+    var circleObserver = ('IntersectionObserver' in window) && !reduced
+      ? new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            circleObserver.unobserve(entry.target);
+          });
+        }, { threshold: 0.6 })
+      : null;
+
+    circles.forEach(function (circled) {
+      var strokePath = $('path.is-draw', circled);
+      if (strokePath && typeof strokePath.getTotalLength === 'function') {
+        circled.style.setProperty('--len', strokePath.getTotalLength());
+      }
+      if (circleObserver) circleObserver.observe(circled);
+      else circled.classList.add('is-visible');
+    });
   }
 
   /* ----------------------------------------------------------------------

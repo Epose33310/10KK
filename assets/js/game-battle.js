@@ -1,8 +1,8 @@
 /* ==========================================================================
    Démo 02 — Punchline compliment
-   Une personne tirée au sort, puis quatre mots écrits par le joueur : la
-   qualité, l'image, le verbe et la comparaison. Rien n'est proposé à sa
-   place — Esope pose le cadre, le participant fournit toute la matière.
+   Une personne tirée au sort, une qualité et une image écrites par le joueur.
+   Seuls « est » et « comme » sont posés par le jeu : la qualité et l'image,
+   c'est le participant qui les trouve.
    ========================================================================== */
 
 (function () {
@@ -58,14 +58,14 @@
       .trim();
   }
 
-  /* Le verbe et la comparaison viennent du joueur : rien n'est ajouté ici. */
+  /* La comparaison s'écrit toujours « X est Y comme Z ». */
   function composer() {
     var personne = state.personne && state.personne.t;
-    if (!personne || !state.verbe || !state.qualite || !state.lien || !state.image) return '';
+    if (!personne || !state.qualite || !state.image) return '';
     // Le joueur écrit souvent « comme le soleil » : on évite le doublon.
     var img = state.image.replace(/^comme\s+/i, '').trim();
     if (!img) return '';
-    var phrase = [personne, state.verbe, state.qualite, state.lien, img].join(' ');
+    var phrase = [personne, 'est', state.qualite, 'comme', img].join(' ');
     return phrase.replace(/\s{2,}/g, ' ').trim() + '.';
   }
 
@@ -79,7 +79,7 @@
      État
      ---------------------------------------------------------------------- */
 
-  var state = { personne: null, qualite: '', image: '', verbe: '', lien: '', rollId: null, revealId: null };
+  var state = { personne: null, qualite: '', image: '', rollId: null, revealId: null };
 
   /* ----------------------------------------------------------------------
      Écrans
@@ -88,9 +88,9 @@
   function screenIntro() {
     var s = el('div', 'g g--center');
     s.appendChild(el('p', 'g__eyebrow', 'Un compliment. Une image. Une punchline.'));
-    s.appendChild(el('h3', 'g__title', 'Construisez votre punchline, mot après mot.'));
-    s.appendChild(el('p', 'g__text', 'Le principe du battle, retourné : on ne cherche pas à démolir, on cherche à flatter. Et on frappe avec une image.'));
-    s.appendChild(el('p', 'g__hint', 'Je tire la personne au sort et je pose le cadre — tous les mots de la punchline, c’est vous qui les écrivez.'));
+    s.appendChild(el('h3', 'g__title', 'Construisez votre punchline compliment.'));
+    s.appendChild(el('p', 'g__text', 'Le principe du battle, retourné : on ne cherche pas à démolir, on cherche à flatter.'));
+    s.appendChild(el('p', 'g__hint', 'Je tire la personne au sort — la qualité et l’image, c’est vous qui les trouvez.'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';
@@ -225,8 +225,8 @@
       label: "L'image",
       id: 'battle-image',
       placeholder: 'Ex. le soleil…',
-      bouton: 'Continuer',
-      erreur: 'Écrivez une image pour continuer.',
+      bouton: 'Créer ma punchline',
+      erreur: 'Écrivez une image pour créer la punchline.',
       // « comme » seul donnerait « brillant comme comme ».
       verifier: function (valeur) {
         return /^comme\s*$/i.test(valeur)
@@ -235,118 +235,9 @@
       },
       valider: function (valeur) {
         state.image = valeur;
-        show(screenAssemblage);
+        show(screenResultat);
       }
     });
-  }
-
-  /* ----------------------------------------------------------------------
-     Étape 4 — l'assemblage
-     Le verbe et le mot de comparaison manquent volontairement : ce sont eux
-     qui transforment trois mots en phrase, et c'est au joueur de les poser.
-     ---------------------------------------------------------------------- */
-
-  /** Un petit champ libellé, pour tenir deux saisies côte à côte. */
-  function petitChamp(id, libelle, exemple) {
-    var bloc = el('div', 'g__field');
-    var lab = el('label', 'g__field-label', libelle);
-    lab.setAttribute('for', id);
-    bloc.appendChild(lab);
-
-    var input = document.createElement('input');
-    input.type = 'text';
-    input.id = id;
-    input.className = 'g__input';
-    input.placeholder = exemple;
-    input.enterKeyHint = 'next';
-    input.maxLength = 24;
-    bloc.appendChild(input);
-    return { bloc: bloc, input: input };
-  }
-
-  function screenAssemblage() {
-    var personne = state.personne && state.personne.t;
-    if (!personne || !state.qualite || !state.image) return screenIntro();
-
-    var s = el('div', 'g');
-    s.appendChild(el('p', 'g__eyebrow', 'Étape 4 · l’assemblage'));
-    s.appendChild(el('h3', 'g__title', 'Reliez vos trois mots.'));
-    s.appendChild(el('p', 'g__text', 'Il manque deux mots : le verbe, et celui qui compare. Je ne les écris pas à votre place.'));
-    var exemple = el('p', 'g__hint');
-    exemple.appendChild(document.createTextNode('Par exemple : Zidane '));
-    exemple.appendChild(el('b', null, 'est'));
-    exemple.appendChild(document.createTextNode(' brillant '));
-    exemple.appendChild(el('b', null, 'comme'));
-    exemple.appendChild(document.createTextNode(' le soleil.'));
-    s.appendChild(exemple);
-
-    /* L'aperçu se remplit à mesure qu'on tape : on voit la phrase venir. */
-    var apercu = el('p', 'g__apercu');
-    var trouVerbe = el('span', 'g__apercu-trou is-vide', 'verbe');
-    var trouLien = el('span', 'g__apercu-trou is-vide', 'comparaison');
-    apercu.appendChild(el('span', 'g__apercu-mot', personne));
-    apercu.appendChild(document.createTextNode(' '));
-    apercu.appendChild(trouVerbe);
-    apercu.appendChild(document.createTextNode(' '));
-    apercu.appendChild(el('span', 'g__apercu-mot', state.qualite));
-    apercu.appendChild(document.createTextNode(' '));
-    apercu.appendChild(trouLien);
-    apercu.appendChild(document.createTextNode(' '));
-    apercu.appendChild(el('span', 'g__apercu-mot', state.image.replace(/^comme\s+/i, '')));
-    s.appendChild(apercu);
-
-    var form = el('form', 'g__form g__form--stack');
-    form.setAttribute('autocomplete', 'off');
-
-    var verbe = petitChamp('battle-verbe', 'Le verbe', 'Ex. est, brille, avance…');
-    var lien = petitChamp('battle-lien', 'Le mot de comparaison', 'Ex. comme, tel, autant que…');
-
-    var paire = el('div', 'g__pair');
-    paire.appendChild(verbe.bloc);
-    paire.appendChild(lien.bloc);
-    form.appendChild(paire);
-
-    var send = el('button', 'g__btn g__btn--send', 'Créer ma punchline');
-    send.type = 'submit';
-    send.appendChild(el('span', 'arrow', '→'));
-    form.appendChild(send);
-    s.appendChild(form);
-
-    var flash = el('p', 'g__flash');
-    flash.setAttribute('role', 'status');
-    s.appendChild(flash);
-
-    function refleter(input, trou, defaut) {
-      var mot = nettoyer(input.value);
-      trou.textContent = mot || defaut;
-      trou.classList.toggle('is-vide', !mot);
-    }
-    verbe.input.addEventListener('input', function () { refleter(verbe.input, trouVerbe, 'verbe'); });
-    lien.input.addEventListener('input', function () { refleter(lien.input, trouLien, 'comparaison'); });
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var v = nettoyer(verbe.input.value);
-      var l = nettoyer(lien.input.value);
-      if (!v) {
-        flash.textContent = 'Écrivez le verbe qui relie les deux : est, brille, avance…';
-        flash.className = 'g__flash is-ko';
-        verbe.input.focus();
-        return;
-      }
-      if (!l) {
-        flash.textContent = 'Écrivez le mot de comparaison : comme, tel, autant que…';
-        flash.className = 'g__flash is-ko';
-        lien.input.focus();
-        return;
-      }
-      state.verbe = v;
-      state.lien = l;
-      show(screenResultat);
-    });
-
-    setTimeout(function () { verbe.input.focus(); }, reduced ? 0 : 280);
-    return s;
   }
 
   function screenResultat() {
@@ -371,7 +262,7 @@
     var suite = el('div', 'g__after');
     suite.hidden = true;
     suite.appendChild(el('p', 'g__text g__text--strong', 'Vous venez de construire une punchline.'));
-    suite.appendChild(el('p', 'g__text', 'La technique tient en quatre temps : partir d’une qualité positive, chercher une image que tout le monde comprend, poser le verbe, puis choisir le mot qui compare. C’est tout, et ça marche à chaque fois.'));
+    suite.appendChild(el('p', 'g__text', 'La technique tient en trois temps : partir d’une qualité positive, chercher une image que tout le monde comprend, puis les relier par une comparaison. C’est tout, et ça marche à chaque fois.'));
     suite.appendChild(el('p', 'g__text g__text--strong', 'Imaginez maintenant un groupe entier en train d’en fabriquer.'));
 
     var cta = el('a', 'g__btn g__btn--cta', 'Découvrir le battle de compliments');
@@ -420,8 +311,6 @@
     state.personne = null;
     state.qualite = '';
     state.image = '';
-    state.verbe = '';
-    state.lien = '';
     show(screenIntro);
   }
 

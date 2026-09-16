@@ -121,6 +121,9 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .skip-link:focus { top: 16px; }
 
+/* Garde un mot et sa ponctuation sur la même ligne. */
+.nobr { white-space: nowrap; }
+
 .visually-hidden {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
@@ -391,8 +394,16 @@ input, textarea, select { font: inherit; color: inherit; }
    -------------------------------------------------------------------------- */
 
 .hero { padding-block: clamp(40px, 9vw, 84px) 0; }
-.hero__title { max-width: 16ch; margin-inline: auto; }
+.hero__title { max-width: 19ch; margin-inline: auto; text-wrap: balance; }
 .hero__sub { margin: 24px auto 0; max-width: 560px; }
+.hero__note {
+  margin: clamp(20px, 3vw, 28px) auto 0;
+  max-width: 68ch;
+  font-size: clamp(14px, 1.6vw, 15px);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--ink-mute);
+}
 .hero .btn-row { margin-top: 32px; }
 
 /* --------------------------------------------------------------------------
@@ -514,12 +525,17 @@ input, textarea, select { font: inherit; color: inherit; }
   overflow: visible;
   pointer-events: none;
 }
+/* Le tracé s'étire sur toute la largeur du mot : sans ça, l'ellipse garde ses
+   proportions et laisse les premières et dernières lettres dehors. */
 .circled path {
   fill: none;
-  stroke: var(--ink);
-  stroke-width: 2.4;
+  stroke: var(--yellow);
+  stroke-width: 3.4;
   stroke-linecap: round;
 }
+/* Boîte plus étroite pour un mot court : le trait y est plus étiré en hauteur. */
+.circled--court path { stroke-width: 4.2; }
+.circled--ponctue { margin-right: -0.15em; }
 .circled path.is-draw {
   stroke-dasharray: var(--len);
   stroke-dashoffset: var(--len);
@@ -897,17 +913,85 @@ input, textarea, select { font: inherit; color: inherit; }
    Contact
    -------------------------------------------------------------------------- */
 
-.contact { display: grid; gap: 32px; }
-.form { background: var(--card); border-radius: var(--r-card); padding: clamp(24px, 6vw, 40px); display: grid; gap: 16px; }
-.field { display: grid; gap: 8px; }
-.field label { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
-.field input, .field select, .field textarea {
-  width: 100%; padding: 15px 16px;
-  border: 1px solid var(--line); border-radius: var(--r-btn);
-  background: var(--white); font-size: 16px;
-  transition: border-color var(--dur-fast) ease;
+.contact { display: grid; gap: clamp(24px, 4vw, 34px); }
+
+/* Le panneau jaune porte l'invitation, la carte blanche porte le formulaire.
+   Même bord d'encre et même ombre dure que les bornes de démo. */
+.contact__intro {
+  padding: clamp(26px, 5vw, 40px);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: 8px 8px 0 var(--ink);
+  background: var(--yellow);
 }
-.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--ink); outline: none; }
+.contact__label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; opacity: 0.65;
+}
+.contact__title {
+  margin-top: 10px;
+  font-size: clamp(30px, 6vw, 44px);
+  line-height: 1.05; letter-spacing: -0.035em; font-weight: 700;
+}
+.contact__text {
+  margin-top: 16px;
+  font-size: clamp(16px, 2vw, 17px); line-height: 1.55;
+  color: rgba(26, 26, 26, 0.78);
+}
+
+.contact__mail {
+  display: block; margin-top: clamp(22px, 3vw, 28px);
+  padding: 16px 20px;
+  border: 2px solid var(--ink); border-radius: 16px;
+  background: var(--paper);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.contact__mail:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.contact__mail-label {
+  display: block;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.contact__mail-value {
+  display: block; margin-top: 4px;
+  font-size: clamp(17px, 2.4vw, 21px);
+  font-weight: 700; letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.contact__points { margin-top: clamp(20px, 3vw, 26px); display: grid; gap: 10px; }
+.contact__points li {
+  display: flex; align-items: flex-start; gap: 11px;
+  font-size: 15px; font-weight: 600;
+}
+.contact__points li::before {
+  content: ''; flex: 0 0 auto;
+  width: 9px; height: 9px; margin-top: 7px;
+  border-radius: 50%; background: var(--ink);
+}
+
+.form {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: clamp(24px, 5vw, 36px);
+  display: grid; gap: 18px;
+}
+.field { display: grid; gap: 8px; }
+.field label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; color: var(--ink-mute);
+}
+.field input, .field select, .field textarea {
+  width: 100%; padding: 14px 15px;
+  border: 2px solid var(--ink); border-radius: 12px;
+  background: var(--white); font-size: 16px; font-weight: 500;
+  transition: box-shadow var(--dur-fast) ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; box-shadow: 0 0 0 3px var(--periwinkle);
+}
 .field textarea { min-height: 120px; resize: vertical; }
 .field--error input, .field--error select, .field--error textarea { border-color: #c2410c; }
 .field__error { font-size: 14px; color: #c2410c; text-transform: none; letter-spacing: 0; }
@@ -918,9 +1002,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .form__status { padding: 14px 16px; border-radius: var(--r-btn); background: var(--yellow); font-size: 16px; }
 .form__status[hidden] { display: none; }
 
-.contact__card { background: var(--card); border-radius: var(--r-card); padding: 24px; }
-.contact__card + .contact__card { margin-top: 12px; }
-.contact__card a { font-weight: 600; border-bottom: 2px solid var(--yellow); }
+
 
 /* --------------------------------------------------------------------------
    Pied de page noir
@@ -1116,19 +1198,87 @@ input, textarea, select { font: inherit; color: inherit; }
 .awards li { position: relative; }
 .awards__icon { filter: drop-shadow(0 0 0.6px rgba(26,26,26,0.55)); }
 
+.eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+
 .creds {
   margin-top: 28px; padding-top: 22px;
   border-top: 1px solid var(--line);
   font-size: 15px; font-weight: 600; color: var(--ink-soft);
 }
 
-.principles { display: grid; gap: 12px; margin-top: 20px; }
-.principles > div {
-  background: var(--card); border-radius: 14px; padding: 20px 22px;
-  border-left: 5px solid var(--yellow);
+/* --------------------------------------------------------------------------
+   Le manifeste des ateliers
+   Quatre principes, quatre aplats. Le bandeau d'encre porte l'intention,
+   les cartes colorées portent les règles.
+   -------------------------------------------------------------------------- */
+
+.manifeste { margin-top: 40px; }
+
+.manifeste__head {
+  position: relative;
+  padding: clamp(24px, 5vw, 34px);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card) var(--r-card) 0 0;
+  border-bottom: 0;
+  background: var(--ink);
+  color: var(--paper);
 }
-.principles b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
-.principles span { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+.manifeste__label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--yellow);
+}
+.manifeste__title {
+  margin-top: 12px;
+  max-width: 24ch;
+  font-size: clamp(22px, 4.4vw, 30px);
+  line-height: 1.14; letter-spacing: -0.03em; font-weight: 700;
+}
+
+.manifeste__list {
+  display: grid; gap: 0;
+  border: 2px solid var(--ink);
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  overflow: hidden;
+}
+.manifeste__item {
+  position: relative;
+  padding: clamp(22px, 4vw, 28px) clamp(20px, 4vw, 28px);
+  padding-left: clamp(66px, 11vw, 88px);
+}
+.manifeste__item + .manifeste__item { border-top: 2px solid var(--ink); }
+.manifeste__item--turquoise { background: var(--turquoise); }
+.manifeste__item--magenta { background: var(--magenta); }
+.manifeste__item--green { background: var(--green); }
+.manifeste__item--periwinkle { background: var(--periwinkle); }
+
+.manifeste__n {
+  position: absolute;
+  left: clamp(20px, 4vw, 28px); top: clamp(20px, 4vw, 26px);
+  font-family: var(--font-logo);
+  font-size: clamp(26px, 5vw, 34px);
+  line-height: 1;
+  opacity: 0.4;
+}
+.manifeste__item b {
+  display: block;
+  font-size: clamp(17px, 3vw, 19px); font-weight: 700; letter-spacing: -0.02em;
+}
+.manifeste__item span:not(.manifeste__n) {
+  display: block; margin-top: 6px;
+  font-size: 15px; line-height: 1.55;
+  color: rgba(26, 26, 26, 0.78);
+}
+
+@media (min-width: 720px) {
+  .manifeste__list { grid-template-columns: 1fr 1fr; }
+  /* En deux colonnes, les frontières ne suivent plus l'ordre du document. */
+  .manifeste__item + .manifeste__item { border-top: 0; }
+  .manifeste__item:nth-child(even) { border-left: 2px solid var(--ink); }
+  .manifeste__item:nth-child(n+3) { border-top: 2px solid var(--ink); }
+}
 
 /* --------------------------------------------------------------------------
    Emplacements vidéo et audio
