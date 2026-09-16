@@ -54,6 +54,18 @@ assets/css/style.css  Jetons de design + composants
 assets/js/app.js      Interactions (sans dépendance)
 ```
 
+## Typographie
+
+Deux polices :
+
+- **Inter Tight** (Google Fonts) pour tout le texte, en tracking serré sur les titres.
+- **Anton** pour le logo, servi depuis `assets/fonts/anton.woff2` — condensé
+  ultra-gras, en capitales. Il est hébergé dans le dépôt plutôt que chargé depuis
+  Google Fonts : le logo s'affiche donc même si Google Fonts est lent ou bloqué.
+
+Pour changer le logo de police, remplacez le fichier `.woff2` et le nom dans la
+règle `@font-face` en haut de `assets/css/style.css`, puis ajustez `--font-logo`.
+
 ## Personnaliser
 
 **Les photos.** Quatre fichiers de `assets/img/` sont des images de substitution :
