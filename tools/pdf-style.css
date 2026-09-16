@@ -1,0 +1,62 @@
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #fdc837; --paper: #fdfdfc; --card: #f4f3f1; --ink: #1a1a1a;
+  --ink-soft: #444240; --ink-mute: #6f6c68; --line: #e2e0dc;
+  --turquoise: #55e7dd; --magenta: #ff98ff; --periwinkle: #96b4fc; --green: #88e2b3;
+}
+@font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-400.woff2') format('woff2'); font-weight:400 }
+@font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-500.woff2') format('woff2'); font-weight:500 }
+@font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-600.woff2') format('woff2'); font-weight:600 }
+@font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-700.woff2') format('woff2'); font-weight:700 }
+@font-face { font-family:'Anton'; src:url('../assets/fonts/anton.woff2') format('woff2'); font-weight:400 }
+
+body { font-family:'Inter Tight',sans-serif; color:var(--ink); background:var(--paper); font-size:10.5pt; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact }
+.page { width:210mm; min-height:297mm; page-break-after:always; position:relative; overflow:hidden; display:flex; flex-direction:column }
+.page:last-child { page-break-after:auto }
+.pad { padding:16mm 16mm 14mm }
+
+.bar { background:var(--yellow); padding:7mm 16mm; display:flex; align-items:center; justify-content:space-between }
+/* sans flex:0 0 auto le logo se fait comprimer par le libellé de droite */
+.logo { font-family:'Anton',sans-serif; font-size:22pt; text-transform:uppercase; letter-spacing:-.01em; line-height:1; flex:0 0 auto; white-space:nowrap }
+.bar span { font-size:9pt; font-weight:600 }
+
+h1 { font-size:34pt; line-height:1.02; letter-spacing:-.035em; font-weight:600 }
+h2 { font-size:19pt; line-height:1.08; letter-spacing:-.03em; font-weight:600; margin-bottom:5mm }
+h3 { font-size:12pt; line-height:1.15; letter-spacing:-.02em; font-weight:600; margin-bottom:2mm }
+p { margin-bottom:3.5mm }
+.lead { font-size:12pt; line-height:1.45 }
+.eyebrow { font-size:8pt; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--ink-mute); margin-bottom:3mm }
+.mute { color:var(--ink-soft) }
+
+.cover { background:var(--yellow); flex:1; display:flex; flex-direction:column; padding:18mm 16mm; position:relative; overflow:hidden }
+.cover h1 { font-size:40pt }
+.cover .logo { font-size:34pt }
+.cover .title { margin-top:auto; position:relative; z-index:1 }
+.cover .meta { font-size:10pt; font-weight:500; margin-top:9mm; position:relative; z-index:1 }
+
+/* formes papier déchiré, comme sur le site */
+.cover .shape { position:absolute; z-index:0 }
+.shape--a { top:22mm; left:-14mm; width:96mm; height:64mm; background:var(--turquoise);
+  clip-path:polygon(2% 6%,28% 0,56% 5%,84% 1%,100% 8%,96% 40%,100% 72%,94% 100%,66% 95%,38% 100%,12% 94%,0 98%,3% 66%,0 34%) }
+.shape--b { top:52mm; right:-10mm; width:78mm; height:88mm; background:var(--magenta);
+  clip-path:polygon(6% 0,34% 5%,62% 0,90% 6%,100% 3%,97% 30%,100% 58%,98% 86%,100% 100%,72% 96%,44% 100%,16% 95%,0 99%,3% 70%,0 42%,4% 16%) }
+.shape--c { top:96mm; left:34mm; width:70mm; height:46mm; background:var(--periwinkle);
+  clip-path:polygon(0 14%,24% 4%,52% 0,78% 6%,100% 2%,94% 58%,88% 100%,60% 95%,32% 99%,10% 92%) }
+
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:6mm }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:5mm }
+.card { background:var(--card); border-radius:4mm; padding:6mm }
+.card--turquoise { background:var(--turquoise) } .card--magenta { background:var(--magenta) }
+.card--periwinkle { background:var(--periwinkle) } .card--green { background:var(--green) }
+.card--ink { background:var(--ink); color:#fff } .card--ink h3 { color:var(--yellow) } .card--ink p { color:#ddd9d5 }
+.card--yellow { background:var(--yellow) }
+.card p:last-child { margin-bottom:0 }
+
+ul { list-style:none } li { display:flex; gap:3mm; margin-bottom:2.5mm; font-size:10.5pt }
+li::before { content:''; flex:0 0 auto; margin-top:1.6mm; width:2.5mm; height:2.5mm; border-radius:.8mm; background:var(--yellow) }
+.card--yellow li::before, .card--turquoise li::before { background:var(--ink) }
+
+.foot { margin-top:auto; padding-top:6mm; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:8.5pt; color:var(--ink-mute) }
+.quote { font-size:15pt; line-height:1.25; letter-spacing:-.02em; font-weight:600 }
+.tag { display:inline-block; background:var(--ink); color:#fff; border-radius:99px; padding:1.5mm 4mm; font-size:8.5pt; font-weight:600; margin:0 2mm 2mm 0 }

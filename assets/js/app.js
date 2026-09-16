@@ -290,7 +290,7 @@
 
   var COULEURS = [
     'en confidence', 'à voix basse', 'comme une colère polie', 'avec de l’humour malgré tout',
-    'comme un aveu', 'sur un rythme rapide', 'comme si tu avais dix ans',
+    'comme un aveu', 'sur un rythme rapide', 'comme si vous aviez dix ans',
     'avec beaucoup de silences', 'comme un remerciement', 'comme une lettre qu’on n’enverra pas'
   ];
 
@@ -308,14 +308,14 @@
   }
 
   function promptText() {
-    return 'Écris sur ' + current.objet + ', ' + current.contrainte + ', ' + current.emotion +
-      '. Sept minutes, sans te relire.';
+    return 'Écrivez sur ' + current.objet + ', ' + current.contrainte + ', ' + current.emotion +
+      '. Sept minutes, sans vous relire.';
   }
 
   function renderPrompt() {
     if (!machinePrompt) return;
-    machinePrompt.innerHTML = 'Écris sur <b>' + current.objet + '</b>, <b>' + current.contrainte +
-      '</b>, <b>' + current.emotion + '</b>. Sept minutes, sans te relire.';
+    machinePrompt.innerHTML = 'Écrivez sur <b>' + current.objet + '</b>, <b>' + current.contrainte +
+      '</b>, <b>' + current.emotion + '</b>. Sept minutes, sans vous relire.';
   }
 
   function setDial(key, value) {
@@ -413,45 +413,52 @@
      Agenda : fenêtre ouverte depuis le menu uniquement
      ---------------------------------------------------------------------- */
 
-  var agendaDialog = $('#agendaDialog');
-  var agendaClose = $('#agendaClose');
+  function wireSheet(dialogId, closeId, triggerAttr) {
+    var dialog = $('#' + dialogId);
+    if (!dialog) return;
 
-  function openAgenda() {
-    if (!agendaDialog) return;
-    closeDrawer();
-    closeMega(true);
-    if (typeof agendaDialog.showModal === 'function') agendaDialog.showModal();
-    else agendaDialog.setAttribute('open', '');   // navigateurs sans <dialog>
-    document.body.classList.add('is-locked');
-  }
+    function open() {
+      closeDrawer();
+      closeMega(true);
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');   // navigateurs sans <dialog>
+      document.body.classList.add('is-locked');
+    }
 
-  function closeAgenda() {
-    if (!agendaDialog) return;
-    if (typeof agendaDialog.close === 'function') agendaDialog.close();
-    else agendaDialog.removeAttribute('open');
-  }
+    function close() {
+      if (typeof dialog.close === 'function') dialog.close();
+      else dialog.removeAttribute('open');
+    }
 
-  $$('[data-agenda]').forEach(function (trigger) {
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      openAgenda();
+    $$('[' + triggerAttr + ']').forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        open();
+      });
     });
-  });
 
-  if (agendaClose) agendaClose.addEventListener('click', closeAgenda);
+    var closeBtn = $('#' + closeId);
+    if (closeBtn) closeBtn.addEventListener('click', close);
 
-  if (agendaDialog) {
+    // Un lien interne depuis la fenêtre doit la refermer avant de défiler.
+    $$('a[href^="#"]', dialog).forEach(function (link) {
+      link.addEventListener('click', close);
+    });
+
     // Le verrou de défilement se lève quoi qu'il arrive : bouton, Échap ou clic
     // sur le fond, tous passent par l'événement close.
-    agendaDialog.addEventListener('close', function () {
+    dialog.addEventListener('close', function () {
       document.body.classList.remove('is-locked');
     });
 
     // Clic sur le fond : la cible est le dialog lui-même, pas son contenu.
-    agendaDialog.addEventListener('click', function (e) {
-      if (e.target === agendaDialog) closeAgenda();
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) close();
     });
   }
+
+  wireSheet('agendaDialog', 'agendaClose', 'data-agenda');
+  wireSheet('bioDialog', 'bioClose', 'data-bio');
 
   /* ----------------------------------------------------------------------
      FAQ

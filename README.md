@@ -1,31 +1,36 @@
-# Esope — site des ateliers slam
+# Esope — site des ateliers slam, rap et éloquence
 
-Site vitrine statique pour des ateliers de slam : formats d'intervention, méthode,
-agenda, témoignages, FAQ et demande de devis. Aucune dépendance, aucun build,
-aucun tracker — trois fichiers et c'est en ligne.
+Site vitrine statique d'un intervenant culturel : ateliers slam, rap, éloquence et
+battle de compliments, pour les établissements scolaires et les structures
+accueillant un jeune public. Aucune dépendance, aucun build, aucun tracker.
 
 ## Aperçu
 
 Le visuel suit podia.com, relevé sur captures : header jaune fixe, canvas blanc
-cassé, titres grotesques serrés, cartes gris clair, panneaux de couleur griffés
-de traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
+cassé, titres grotesques serrés, cartes gris clair, panneaux de couleur griffés de
+traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
 
-| # | Module | Contenu |
-|---|--------|---------|
-| 1 | Header jaune fixe | Logo script, bouton noir, burger (mobile) / méga menu (ordinateur) |
-| 2 | Hero | Titre géant centré, sous-titre, bouton jaune, collage papier |
-| 3 | Chiffres | Trois nombres géants, empilés sur mobile, en ligne sur ordinateur |
-| 4 | Collage + texte | Collage, puis titre, paragraphe long, bouton jaune + lien souligné |
-| 5 | Titre entouré | « Découvre l'intérieur », cercle tracé au feutre à l'arrivée à l'écran |
-| 6 | Cartes produit | Zone grise (titre, texte, bouton noir) + panneau coloré avec maquette |
-| — | Mini atelier en ligne | Machine à consignes + chrono de scène de 3 min |
-| — | Agenda | Dates filtrables par catégorie |
-| 7 | Témoignages | Carrousel de cartes colorées, pastilles de pagination |
-| — | FAQ · Contact | Accordéon et formulaire de devis |
-| 8 | Jeu + CTA final | Machine à consignes, chrono de 3 min, puis titre et bouton jaune |
-| 9 | Pied de page noir | Logo script, quatre colonnes, réseaux, mentions |
+| Module | Contenu |
+|---|---|
+| Header jaune fixe | Logo Anton, bouton noir, burger (mobile) / méga menu (ordinateur) |
+| Hero | Titre, accroche, boutons, collage photo à bords déchirés |
+| Trois piliers | Champion de France · Dans toute la France · Projets uniques |
+| Marqueurs de confiance | Agréé Éducation nationale, pass Culture, 300 ateliers, déplacements |
+| Interventions | Slam, éloquence, rap, battle de compliments + quatre formats complémentaires |
+| Générer de l'ambition | Bloc deux colonnes, photo et texte |
+| Ce que vos élèves y gagnent | Quatre bénéfices |
+| Les objectifs | Carrousel de cinq cartes colorées |
+| Manifeste | Bloc sombre, quatre principes |
+| Esope | Bio courte, distinctions, fenêtre parcours complet |
+| Voir et entendre | Emplacements vidéo |
+| Définitions | Slam, rap, éloquence |
+| FAQ | Six questions |
+| Dossier | Deux PDF téléchargeables |
+| Contact | Formulaire de demande |
+| Jeu + CTA final | Machine à consignes, chrono de 3 min |
+| Agenda | Fenêtre modale, ouverte depuis le menu uniquement |
 
-### Palette relevée
+### Palette
 
 | Rôle | Valeur |
 |---|---|
@@ -38,12 +43,10 @@ de traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
 
 ## Lancer en local
 
-Ouvrir `index.html` dans un navigateur suffit. Pour un serveur local :
+Ouvrir `index.html` suffit. Pour un serveur local :
 
 ```bash
 npx serve .
-# ou
-python3 -m http.server 8000
 ```
 
 ## Structure
@@ -52,82 +55,61 @@ python3 -m http.server 8000
 index.html            Toute la page
 assets/css/style.css  Jetons de design + composants
 assets/js/app.js      Interactions (sans dépendance)
+assets/fonts/         Inter Tight et Anton, servies depuis le dépôt
+assets/img/           Photos (à remplacer)
+assets/docs/          PDF générés
+tools/                Gabarits des PDF + script de génération
 ```
 
-## Typographie
+## Les PDF téléchargeables
 
-Deux polices :
+Deux documents sont proposés au téléchargement : le **dossier de présentation**
+(5 pages) et le **parcours et distinctions** (1 page). Ils reprennent les polices
+et les couleurs du site.
 
-- **Inter Tight** (Google Fonts) pour tout le texte, en tracking serré sur les titres.
-- **Anton** pour le logo, servi depuis `assets/fonts/anton.woff2` — condensé
-  ultra-gras, en capitales. Il est hébergé dans le dépôt plutôt que chargé depuis
-  Google Fonts : le logo s'affiche donc même si Google Fonts est lent ou bloqué.
+Ils sont **générés**, pas écrits à la main. Pour les régénérer après modification :
 
-Pour changer le logo de police, remplacez le fichier `.woff2` et le nom dans la
-règle `@font-face` en haut de `assets/css/style.css`, puis ajustez `--font-logo`.
+```bash
+npm install playwright     # une seule fois
+node tools/build-pdf.cjs
+```
+
+Chaque `tools/<nom>.html` produit `assets/docs/<nom>.pdf`. Pour ajouter un
+document, créez un gabarit HTML dans `tools/` qui charge `pdf-style.css`, puis
+relancez le script.
 
 ## Personnaliser
 
 **Les photos.** Quatre fichiers de `assets/img/` sont des images de substitution :
 `atelier-1.jpg` (portrait, la plus visible), `atelier-2.jpg`, `atelier-3.jpg` et
-`ecriture-1.jpg`. **Écrasez-les par vos propres photos en gardant les mêmes noms**
-et tout se met en place : bords déchirés, teinte duotone et aplats colorés sont
-appliqués par le CSS, pas par les fichiers. Visez au moins 1 000 px de large.
+`ecriture-1.jpg`. **Écrasez-les en gardant les mêmes noms** et tout se met en
+place : bords déchirés, duotone et aplats colorés sont appliqués par le CSS.
 
-Pour des photos libres de droit, Unsplash et Pexels conviennent (recherchez
-« spoken word », « poetry slam », « open mic », « writing workshop »).
-
-Le duotone est obtenu en `mix-blend-mode: multiply` sur une photo désaturée
-posée sur un aplat coloré — une photo contrastée donne le meilleur résultat.
-
-**Le méga menu** est le bloc `.mega` dans `<header class="nav">`. Chaque entrée
-pointe aujourd'hui vers une ancre de la page (`#atelier-slam`, `#atelier-rap`…) :
-le jour où chaque atelier aura sa propre page, il suffit de remplacer l'ancre par
-l'URL de la page, sans toucher au reste. Les mêmes entrées sont reprises dans le
-menu mobile (`.nav__mobile-sub`) — pensez à modifier les deux.
+**Les vidéos.** Deux emplacements `.media__slot` attendent une intégration :
+remplacez le contenu du bloc par une `<iframe>` YouTube ou Vimeo.
 
 **L'agenda** n'est pas dans le flux de la page : c'est un `<dialog class="sheet">`
-placé en fin de `index.html`, ouvert par n'importe quel élément portant
-l'attribut `data-agenda` (entrées de menu, pied de page). Il se ferme au bouton,
-par Échap ou par un clic sur le fond.
+en fin de `index.html`, ouvert par tout élément portant `data-agenda`. Même
+mécanique pour le parcours complet, avec `data-bio`.
 
-**Le contenu** se modifie directement dans `index.html` : les dates de l'agenda sont
-des blocs `<article class="event" data-category="…">`, les catégories disponibles
-étant `scene`, `stage` et `jeunesse` (ajouter une catégorie = ajouter un bouton
-`<button class="filter" data-filter="…">` correspondant).
+**Le formulaire** ouvre la messagerie du visiteur (`mailto:`), sans serveur. Pour
+recevoir les demandes directement, remplacez le bloc `form.addEventListener('submit', …)`
+de `assets/js/app.js` par un envoi vers Formspree, Netlify Forms ou équivalent.
 
-**Les consignes d'écriture** de l'atelier express vivent en haut de `assets/js/app.js`,
-dans les tableaux `OBJETS`, `CONTRAINTES` et `COULEURS`. Toute combinaison des trois
-produit une consigne jouable.
+## Typographie
 
-**Les couleurs et la typographie** sont des variables CSS déclarées dans `:root`
-(`assets/css/style.css`). La triade chromatique est associative : sky = scolaire,
-terracotta = entreprises, lavender = tout public. Sur un fond coloré, les boutons
-passent dans la variante sombre correspondante (deep-teal, graphite, plum).
-
-**Le formulaire** ouvre la messagerie du visiteur avec une demande pré-remplie
-(`mailto:`), sans serveur ni stockage. Pour recevoir les demandes directement,
-remplacer le bloc `form.addEventListener('submit', …)` par un envoi vers un service
-de formulaire (Formspree, Netlify Forms, etc.) — l'adresse de destination
-`slampoetrip@gmail.com` apparaît dans `index.html` et `assets/js/app.js`.
-
-## Parti pris de design
-
-Surfaces mates, sans ombre ni dégradé : la hiérarchie vient des aplats de couleur et
-des rayons (56 px pour les cartes de format, 24 px pour les cartes de contenu, 8 px
-pour les boutons). Les formes organiques flottantes restent décoratives, en fond, à
-opacité réduite, et ne sont jamais interactives.
+**Inter Tight** pour le texte, **Anton** pour le logo, toutes deux servies depuis
+`assets/fonts/`. Aucune requête vers Google Fonts : le site s'affiche correctement
+même hors ligne ou derrière un filtre, et les PDF sont identiques au site.
 
 ## Accessibilité et mouvement
 
-- Toutes les animations (révélations, parallaxe, défilé, compteurs, mot tournant)
-  se coupent sous `prefers-reduced-motion: reduce` ; le contenu reste complet.
-- La parallaxe des blobs est désactivée sous 720 px, où les formes sont aussi
-  réduites et atténuées pour ne pas gêner la lecture.
-- Navigation au clavier, focus visible, hiérarchie de titres continue, libellés de
-  formulaire explicites et messages d'erreur reliés à leur champ.
+- Toutes les animations se coupent sous `prefers-reduced-motion: reduce`.
+- Navigation au clavier, focus visible, hiérarchie de titres continue.
+- Les fenêtres utilisent `<dialog>` natif : focus piégé, fermeture par Échap.
+- Vérifié sans débordement horizontal de 320 à 1920 px.
 
 ## Mise en ligne
 
-N'importe quel hébergement statique convient. Avec GitHub Pages : *Settings → Pages*,
-puis publier depuis la branche souhaitée, dossier `/root`.
+N'importe quel hébergement statique. Avec GitHub Pages : *Settings → Pages*, puis
+publier depuis la branche, dossier `/root`.

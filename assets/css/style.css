@@ -7,6 +7,27 @@
    ========================================================================== */
 
 @font-face {
+  font-family: 'Inter Tight';
+  src: url('../fonts/inter-tight-400.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('../fonts/inter-tight-500.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('../fonts/inter-tight-600.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('../fonts/inter-tight-700.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@font-face {
   font-family: 'Anton';
   src: url('../fonts/anton.woff2') format('woff2');
   font-weight: 400;
@@ -1041,4 +1062,183 @@ input, textarea, select { font: inherit; color: inherit; }
   }
   [data-reveal], [data-stagger] > * { opacity: 1; transform: none; }
   .circled path.is-draw { stroke-dashoffset: 0; }
+}
+
+
+/* --------------------------------------------------------------------------
+   Bandeau des trois piliers (sous le hero)
+   -------------------------------------------------------------------------- */
+
+.pillars { display: grid; gap: 32px; }
+.pillar__label {
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; color: var(--ink-mute); margin-bottom: 14px;
+}
+.pillar h3 {
+  font-size: clamp(22px, 4.6vw, 26px); line-height: 1.1;
+  letter-spacing: -0.02em; font-weight: 600; margin-bottom: 12px;
+}
+.pillar p { color: var(--ink-soft); font-size: 17px; line-height: 1.5; }
+.pillar .btn--link { margin-top: 16px; }
+
+/* --------------------------------------------------------------------------
+   Marqueurs de confiance
+   -------------------------------------------------------------------------- */
+
+.trust {
+  display: grid; gap: 2px;
+  background: var(--line);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.trust__item { background: var(--card); padding: 28px 24px; }
+.trust__item b {
+  display: block; font-size: clamp(20px, 4.4vw, 24px); line-height: 1.15;
+  letter-spacing: -0.02em; font-weight: 700; margin-bottom: 8px;
+}
+.trust__item span { color: var(--ink-soft); font-size: 16px; line-height: 1.45; }
+
+/* --------------------------------------------------------------------------
+   Bénéfices et objectifs
+   -------------------------------------------------------------------------- */
+
+.benefits { display: grid; gap: 16px; }
+.benefit {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 28px 26px;
+}
+.benefit__num {
+  display: inline-grid; place-items: center;
+  width: 38px; height: 38px; margin-bottom: 18px;
+  border-radius: 50%; background: var(--yellow);
+  font-weight: 700; font-size: 16px;
+}
+.benefit h3 {
+  font-size: clamp(20px, 4.2vw, 23px); line-height: 1.15;
+  letter-spacing: -0.02em; font-weight: 600; margin-bottom: 10px;
+}
+.benefit p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
+
+/* --------------------------------------------------------------------------
+   Manifeste (bloc sombre)
+   -------------------------------------------------------------------------- */
+
+.manifesto {
+  background: var(--ink); color: var(--white);
+  border-radius: var(--r-card);
+  padding: clamp(32px, 7vw, 64px);
+}
+.manifesto__intro { color: #c9c6c2; max-width: 60ch; }
+.manifesto__grid { display: grid; gap: 28px; margin-top: clamp(32px, 6vw, 48px); }
+.manifesto__item h3 {
+  font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; color: var(--yellow); margin-bottom: 12px;
+}
+.manifesto__item p { color: #ddd9d5; font-size: 16px; line-height: 1.55; }
+
+/* --------------------------------------------------------------------------
+   Bloc ESOPE : bio courte, distinctions, documents
+   -------------------------------------------------------------------------- */
+
+.awards { display: grid; gap: 10px; margin-top: 28px; }
+.awards li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 17px; font-weight: 500;
+}
+.awards li::before {
+  content: ''; flex: 0 0 auto; margin-top: 7px;
+  width: 10px; height: 10px; border-radius: 3px; background: var(--yellow);
+}
+
+/* --------------------------------------------------------------------------
+   Emplacements vidéo et audio
+   -------------------------------------------------------------------------- */
+
+.media { display: grid; gap: 16px; }
+.media__slot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  background: var(--card);
+  display: grid; place-items: center; text-align: center;
+  padding: 24px;
+  overflow: hidden;
+}
+.media__slot iframe, .media__slot video { width: 100%; height: 100%; border: 0; }
+.media__play {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--ink); display: grid; place-items: center; margin: 0 auto 16px;
+}
+.media__play::after {
+  content: ''; width: 0; height: 0; margin-left: 4px;
+  border-left: 16px solid var(--white);
+  border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+}
+.media__slot b { display: block; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+.media__slot span { display: block; margin-top: 6px; font-size: 15px; color: var(--ink-mute); }
+
+/* --------------------------------------------------------------------------
+   Définitions
+   -------------------------------------------------------------------------- */
+
+.defs { display: grid; gap: 16px; }
+.def {
+  border-radius: 18px; padding: 28px 26px;
+}
+.def--turquoise { background: var(--turquoise); }
+.def--periwinkle { background: var(--periwinkle); }
+.def--green { background: var(--green); }
+.def h3 {
+  font-size: clamp(22px, 4.6vw, 26px); line-height: 1.1;
+  letter-spacing: -0.02em; font-weight: 700; margin-bottom: 12px;
+}
+.def p { font-size: 16px; line-height: 1.55; }
+
+/* --------------------------------------------------------------------------
+   Documents téléchargeables
+   -------------------------------------------------------------------------- */
+
+.docs { display: grid; gap: 12px; margin-top: 28px; }
+.doc {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 20px;
+  background: var(--card);
+  border-radius: 14px;
+  transition: background var(--dur-fast) ease, transform var(--dur-fast) var(--ease);
+}
+.doc:hover { background: var(--yellow); transform: translateX(4px); }
+.doc__icon {
+  flex: 0 0 auto; width: 42px; height: 52px;
+  background: var(--ink); border-radius: 4px;
+  position: relative;
+  display: grid; place-items: end center; padding-bottom: 7px;
+}
+.doc__icon::before {
+  content: ''; position: absolute; right: 0; top: 0;
+  border-width: 0 12px 12px 0; border-style: solid;
+  border-color: transparent var(--paper) transparent transparent;
+}
+.doc__icon span {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em; color: var(--white);
+}
+.doc__text b { display: block; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.doc__text small { display: block; margin-top: 3px; font-size: 14px; color: var(--ink-soft); }
+.doc__arrow { margin-left: auto; font-size: 20px; }
+
+/* --------------------------------------------------------------------------
+   Ordinateur : grilles des nouveaux blocs
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+  .pillars { grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .trust { grid-template-columns: repeat(4, 1fr); }
+  .benefits { grid-template-columns: repeat(4, 1fr); }
+  .manifesto__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 48px; }
+  .defs { grid-template-columns: repeat(3, 1fr); }
+  .media { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 620px) and (max-width: 899px) {
+  .trust, .benefits, .defs { grid-template-columns: repeat(2, 1fr); }
 }
