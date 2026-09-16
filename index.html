@@ -4,46 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Poetrip — Ateliers slam : écrire, dire, monter sur scène</title>
-<meta name="description" content="Ateliers de slam et d'écriture pour collèges, lycées, entreprises, médiathèques et collectivités. De la page blanche à la scène ouverte, en trois heures ou en dix séances.">
-<meta name="theme-color" content="#f5f5f5">
+<meta name="description" content="Ateliers de slam, battle de compliments, éloquence et rap. Pour les collèges et lycées, les entreprises, les médiathèques et les collectivités. De la page blanche à la scène ouverte.">
+<meta name="theme-color" content="#fdc837">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Poetrip — Ateliers slam">
 <meta property="og:description" content="Écrire, dire, monter sur scène. Ateliers de slam pour établissements scolaires, entreprises et collectivités.">
 <meta property="og:locale" content="fr_FR">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4c26 0 46 18 46 44S74 96 48 96 4 76 4 50 24 4 50 4z' fill='%23e39a4d'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Yellowtail&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <a class="skip-link" href="#main">Aller au contenu</a>
-<div class="progress" id="progress" aria-hidden="true"></div>
 
-<!-- ======================= BANDEAU D'ANNONCE ======================= -->
-<div class="announce">
-  <div class="container announce__inner">
-    <p class="announce__text">
-      <b>Nouveau</b> — battle de compliments, éloquence et rap rejoignent les ateliers.
-    </p>
-    <a class="announce__link" href="#ateliers">Voir les quatre ateliers <span class="arrow" aria-hidden="true">→</span></a>
-  </div>
-</div>
+<!-- ================= MODULE 1 — HEADER JAUNE FIXE ================= -->
+<header class="header" id="header">
+  <div class="wrap header__inner">
+    <a class="logo" href="#top">poetrip</a>
 
-<!-- ======================= NAVIGATION ======================= -->
-<header class="nav" id="nav">
-  <div class="container nav__inner">
-    <a class="logo" href="#top" aria-label="Poetrip, accueil">
-      <span class="logo__mark" aria-hidden="true"></span>
-      poetrip
-    </a>
-
-    <nav class="nav__links" aria-label="Navigation principale">
-      <div class="nav__item" data-mega>
-        <button class="nav__link nav__link--trigger" id="megaTrigger" type="button"
+    <nav class="header__nav" aria-label="Navigation principale">
+      <div class="header__item" data-mega>
+        <button class="header__link" id="megaTrigger" type="button"
                 aria-expanded="false" aria-haspopup="true" aria-controls="megaAteliers">
           Les ateliers <span class="caret" aria-hidden="true"></span>
         </button>
@@ -52,865 +38,614 @@
           <div class="mega__inner">
             <div class="mega__col">
               <p class="mega__label">Par atelier</p>
-
               <a class="mega__item" href="#atelier-slam">
-                <span class="mega__chip mega__chip--terracotta" aria-hidden="true"></span>
-                <span class="mega__body">
-                  <b>Ateliers slam</b>
-                  <small>Écrire un texte, le dire debout. Le format d'origine.</small>
-                </span>
+                <span class="mega__chip mega__chip--turquoise" aria-hidden="true"></span>
+                <span><b>Ateliers slam</b><small>Écrire un texte, le dire debout.</small></span>
               </a>
-
               <a class="mega__item" href="#atelier-compliments">
-                <span class="mega__chip mega__chip--lavender" aria-hidden="true"></span>
-                <span class="mega__body">
-                  <b>Ateliers battle de compliments</b>
-                  <small>La battle, mais où l'on s'envoie des éloges.</small>
-                </span>
+                <span class="mega__chip mega__chip--magenta" aria-hidden="true"></span>
+                <span><b>Battle de compliments</b><small>La battle, mais à coups d'éloges.</small></span>
               </a>
-
               <a class="mega__item" href="#atelier-eloquence">
-                <span class="mega__chip mega__chip--sky" aria-hidden="true"></span>
-                <span class="mega__body">
-                  <b>Ateliers éloquence</b>
-                  <small>Argumenter, tenir sa voix, occuper le silence.</small>
-                </span>
+                <span class="mega__chip mega__chip--green" aria-hidden="true"></span>
+                <span><b>Ateliers éloquence</b><small>Argumenter, tenir sa voix.</small></span>
               </a>
-
               <a class="mega__item" href="#atelier-rap">
-                <span class="mega__chip mega__chip--cream" aria-hidden="true"></span>
-                <span class="mega__body">
-                  <b>Ateliers rap</b>
-                  <small>Rimes, placement sur instru, flow et respiration.</small>
-                </span>
+                <span class="mega__chip mega__chip--periwinkle" aria-hidden="true"></span>
+                <span><b>Ateliers rap</b><small>Rimes, flow et placement.</small></span>
               </a>
             </div>
-
-            <div class="mega__col mega__col--secondary">
+            <div class="mega__col mega__col--2">
               <p class="mega__label">Par public</p>
-
-              <a class="mega__item" href="#public-scolaire">
-                <span class="mega__body">
-                  <b>Collèges &amp; lycées</b>
-                  <small>De 3 h au parcours de dix séances.</small>
-                </span>
-              </a>
-
-              <a class="mega__item" href="#public-entreprises">
-                <span class="mega__body">
-                  <b>Entreprises &amp; collectivités</b>
-                  <small>La demi-journée qui change une prise de parole.</small>
-                </span>
-              </a>
-
-              <a class="mega__item" href="#public-tout-public">
-                <span class="mega__body">
-                  <b>Stages &amp; scènes ouvertes</b>
-                  <small>Le samedi, dès 15 ans, sans prérequis.</small>
-                </span>
-              </a>
+              <a class="mega__item" href="#agenda"><span><b>Collèges &amp; lycées</b><small>De 3 h au parcours de dix séances.</small></span></a>
+              <a class="mega__item" href="#agenda"><span><b>Entreprises</b><small>La demi-journée prise de parole.</small></span></a>
+              <a class="mega__item" href="#agenda"><span><b>Tout public</b><small>Stages et scènes ouvertes.</small></span></a>
             </div>
           </div>
-
-          <a class="mega__foot" href="#ateliers">
-            Voir les quatre ateliers en détail <span class="arrow" aria-hidden="true">→</span>
-          </a>
+          <a class="mega__foot" href="#ateliers">Voir les quatre ateliers <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
 
-      <a class="nav__link" href="#methode">Méthode</a>
-      <a class="nav__link" href="#atelier-express">Atelier express</a>
-      <a class="nav__link" href="#agenda">Agenda</a>
-      <a class="nav__link" href="#temoignages">Témoignages</a>
+      <a class="header__link" href="#atelier-express">Atelier express</a>
+      <a class="header__link" href="#agenda">Agenda</a>
+      <a class="header__link" href="#temoignages">Témoignages</a>
     </nav>
 
-    <div class="nav__actions">
-      <a class="nav__link nav__login" href="#faq">Questions</a>
-      <a class="btn btn--primary" data-magnetic href="#contact">Réserver un atelier</a>
-      <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Ouvrir le menu">
-        <span aria-hidden="true"></span>
-      </button>
+    <div class="header__cta">
+      <a class="btn btn--ink btn--pill" href="#contact">
+        <span class="cta-long">Réserve ton atelier</span>
+        <span class="cta-short">Réserver</span>
+      </a>
     </div>
+
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
   </div>
 
-  <div class="nav__mobile" id="navMobile">
-    <div class="nav__mobile-group">
-      <button class="nav__mobile-toggle" id="mobileAteliersToggle" type="button"
-              aria-expanded="false" aria-controls="mobileAteliers">
+  <div class="drawer" id="drawer">
+    <div class="drawer__group">
+      <button id="drawerAteliers" type="button" aria-expanded="false" aria-controls="drawerSub">
         Les ateliers <span class="caret" aria-hidden="true"></span>
       </button>
-      <div class="nav__mobile-sub" id="mobileAteliers">
-        <div>
-          <a href="#atelier-slam">Ateliers slam</a>
-          <a href="#atelier-compliments">Ateliers battle de compliments</a>
-          <a href="#atelier-eloquence">Ateliers éloquence</a>
-          <a href="#atelier-rap">Ateliers rap</a>
-          <a href="#formats">Par public</a>
-        </div>
-      </div>
+      <div class="drawer__sub" id="drawerSub"><div>
+        <a href="#atelier-slam">Ateliers slam</a>
+        <a href="#atelier-compliments">Battle de compliments</a>
+        <a href="#atelier-eloquence">Ateliers éloquence</a>
+        <a href="#atelier-rap">Ateliers rap</a>
+      </div></div>
     </div>
-    <a href="#methode">Méthode</a>
     <a href="#atelier-express">Atelier express</a>
     <a href="#agenda">Agenda</a>
     <a href="#temoignages">Témoignages</a>
     <a href="#faq">Questions</a>
-    <a class="btn btn--primary btn--block" href="#contact">Réserver un atelier</a>
+    <a class="btn btn--ink btn--pill btn--block" href="#contact">Réserve ton atelier</a>
   </div>
 </header>
 
 <main id="main">
 <span id="top"></span>
 
-<!-- ======================= HERO ======================= -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="blob-field" data-parallax-field aria-hidden="true">
-    <span class="blob blob--terracotta shape-1 blob--float" style="width:190px;height:170px;top:6%;left:-4%;opacity:.8" data-speed="0.16"></span>
-    <span class="blob blob--lavender shape-2 blob--float-slow" style="width:150px;height:150px;top:14%;right:-2%;opacity:.75" data-speed="0.22"></span>
-    <span class="blob blob--sky shape-3 blob--morph" style="width:110px;height:110px;top:58%;left:4%;opacity:.7" data-speed="0.3"></span>
-    <span class="blob blob--cream shape-4 blob--float" style="width:132px;height:120px;top:50%;right:6%;opacity:.85" data-speed="0.12"></span>
-    <span class="blob blob--mist shape-1 blob--float-slow" style="width:74px;height:74px;top:32%;left:22%;opacity:.9" data-speed="0.4"></span>
-    <span class="blob blob--terracotta shape-2 blob--morph" style="width:64px;height:64px;top:24%;right:24%;opacity:.6" data-speed="0.36"></span>
+<!-- ================= MODULE 2 — HERO ================= -->
+<section class="hero wrap center">
+  <h1 class="display hero__title" data-reveal>Tes mots, ta voix, ton souffle et ta scène. Tout commence ici.</h1>
+
+  <p class="lead hero__sub mute" data-reveal>
+    Rejoins plus de 1 200 participants qui sont montés au micro sans savoir écrire la veille.
+  </p>
+
+  <div class="btn-row btn-row--center" data-reveal>
+    <a class="btn btn--yellow" href="#contact">Réserve ton atelier</a>
   </div>
 
-  <div class="container content hero__inner">
-    <span class="badge badge--cream" data-reveal><span class="dot" aria-hidden="true"></span> Prochaine scène ouverte : 12 novembre, Lyon</span>
+  <!-- Collage papier découpé : remplacer les aplats par vos photos d'atelier -->
+  <div class="collage" data-reveal aria-hidden="true">
+    <div class="collage__piece collage__left"></div>
+    <div class="collage__piece collage__right">
+      <svg class="scribbles" viewBox="0 0 200 300" preserveAspectRatio="none">
+        <path d="M10 40 L190 30 M10 80 L190 72 M10 120 L150 112 M10 160 L190 150 M10 200 L160 194"/>
+      </svg>
+    </div>
+    <div class="collage__piece collage__center" data-label="Votre photo d'atelier"></div>
+    <div class="collage__piece collage__banner"><span>slam</span></div>
+  </div>
+</section>
 
-    <h1 class="display hero__title" id="hero-title" data-reveal>
-      Ta voix tient debout.<br>
-      Viens la <span class="hero__rotator" data-rotator='["poser","poser","dire","scander","lâcher","assumer"]'><span>poser</span></span>.
-    </h1>
+<!-- ================= MODULE 3 — CHIFFRES ================= -->
+<section class="section wrap">
+  <div class="stats" data-stagger>
+    <div class="stat">
+      <div class="stat__value"><span data-count="1200" data-format="space">0</span>+</div>
+      <p class="stat__label">Participants passés au micro</p>
+    </div>
+    <div class="stat">
+      <div class="stat__value"><span data-count="184">0</span></div>
+      <p class="stat__label">Ateliers menés depuis 2014</p>
+    </div>
+    <div class="stat">
+      <div class="stat__value"><span data-count="46">0</span></div>
+      <p class="stat__label">Scènes ouvertes organisées</p>
+    </div>
+  </div>
+</section>
 
-    <p class="lead hero__sub" data-reveal>
-      Des ateliers de slam où l'on part de la page blanche et où l'on finit debout, micro en main.
-      Pour les collèges et lycées, les entreprises, les médiathèques et tous ceux qui pensent
-      « moi, je n'écris pas ».
+<!-- ================= MODULE 4 — COLLAGE + TEXTE LONG ================= -->
+<section class="section wrap">
+  <div class="collage" data-reveal aria-hidden="true" style="margin-top:0">
+    <div class="collage__piece collage__right" style="left:0;right:auto;background:var(--periwinkle)">
+      <svg class="scribbles" viewBox="0 0 200 300" preserveAspectRatio="none">
+        <path d="M-10 60 C60 20 140 120 210 70 M-10 150 C70 110 130 210 210 160 M40 -10 C60 100 120 200 100 310"/>
+      </svg>
+    </div>
+    <div class="collage__piece collage__center" data-label="Votre photo d'atelier"></div>
+    <div class="collage__piece collage__left" style="left:auto;right:0;background:var(--green)"></div>
+  </div>
+
+  <div style="max-width:760px;margin-top:clamp(40px,8vw,64px)" data-reveal>
+    <h2 class="h2">Tout le chemin, de la page blanche au micro</h2>
+    <p class="body-lg mute" style="margin-top:28px">
+      La plupart des ateliers d'écriture s'arrêtent au texte. On écrit, on lit à voix basse, on range
+      sa feuille et il ne se passe rien. Ici, écrire n'est que la première heure : ensuite on travaille
+      le souffle, le regard, les silences, l'ordre de passage, le trac — et on finit debout devant du
+      monde. Écriture, voix, scène, et le retour au calme après : c'est un seul fil, tenu par une seule
+      personne, celle qui anime l'atelier et qui vous répondra quand vous écrirez.
     </p>
-
-    <div class="btn-row btn-row--center" data-reveal>
-      <a class="btn btn--primary" data-magnetic href="#contact">Réserver un atelier</a>
-      <a class="btn btn--outline" href="#atelier-express">Tester l'atelier express</a>
-    </div>
-
-    <p class="hero__proof" data-reveal>Plus de 180 ateliers menés · 1 200 participants · 14 scènes ouvertes par an</p>
-
-    <h2 class="visually-hidden">Les trois formats d'atelier</h2>
-
-    <div class="hero__cards" data-reveal-stagger>
-      <article class="product-card product-card--sky" data-tilt>
-        <span class="product-card__label">Scolaire</span>
-        <h3 class="heading-sm">Collèges &amp; lycées</h3>
-        <p>Une classe entière qui écrit, puis qui se lève. Aligné sur les programmes de français et le parcours d'éducation artistique.</p>
-        <div class="product-card__meta">
-          <span>3 h à 10 séances</span>
-          <span aria-hidden="true">→</span>
-        </div>
-        <span class="paper-art" aria-hidden="true"><i class="rect"></i><i class="pill"></i><i class="tri"></i></span>
-      </article>
-
-      <article class="product-card product-card--terracotta" data-tilt>
-        <span class="product-card__label">Entreprises</span>
-        <h3 class="heading-sm">Équipes &amp; séminaires</h3>
-        <p>Prendre la parole autrement : rythme, souffle, présence. Un format cohésion qui ne ressemble à aucun team building.</p>
-        <div class="product-card__meta">
-          <span>Demi-journée</span>
-          <span aria-hidden="true">→</span>
-        </div>
-        <span class="paper-art" aria-hidden="true"><i class="rect"></i><i class="pill"></i><i class="tri"></i></span>
-      </article>
-
-      <article class="product-card product-card--lavender" data-tilt>
-        <span class="product-card__label">Scènes</span>
-        <h3 class="heading-sm">Stages &amp; scènes ouvertes</h3>
-        <p>Pour celles et ceux qui écrivent déjà dans leur coin et veulent passer au micro. Tout public, dès 15 ans.</p>
-        <div class="product-card__meta">
-          <span>Le samedi</span>
-          <span aria-hidden="true">→</span>
-        </div>
-        <span class="paper-art" aria-hidden="true"><i class="rect"></i><i class="pill"></i><i class="tri"></i></span>
-      </article>
+    <div class="btn-row" style="margin-top:36px">
+      <a class="btn btn--yellow" href="#contact">Réserve ton atelier</a>
+      <a class="btn btn--link" href="#ateliers">En savoir plus</a>
     </div>
   </div>
 </section>
 
-<!-- ======================= BANDEAU DÉFILANT ======================= -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track" data-marquee>
-    <span class="marquee__item">Pas de musique <i></i> Pas de costume <i></i> Pas de décor <i></i> Juste un texte et trois minutes <i></i></span>
-  </div>
-</div>
-
-<!-- ======================= CHIFFRES ======================= -->
-<section class="section section--tight">
-  <div class="container content">
-    <div class="stats" data-reveal-stagger>
-      <div class="stat">
-        <div class="stat__value"><span data-count="1200" data-format="space">0</span></div>
-        <div class="stat__label">Participants</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value"><span data-count="184">0</span></div>
-        <div class="stat__label">Ateliers menés</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value"><span data-count="46">0</span></div>
-        <div class="stat__label">Scènes ouvertes</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value"><span data-count="98">0</span><span aria-hidden="true">%</span></div>
-        <div class="stat__label">Sont montés au micro</div>
-      </div>
-    </div>
-  </div>
+<!-- ================= MODULE 5 — TITRE ENTOURÉ ================= -->
+<section class="section--tight wrap center" id="ateliers">
+  <h2 class="h2" data-reveal>
+    Découvre
+    <span class="circled" data-circled>l'intérieur
+      <svg viewBox="0 0 300 100" aria-hidden="true">
+        <path class="is-draw" d="M150 8 C60 8 12 28 12 50 C12 74 66 92 152 92 C240 92 288 72 288 49 C288 28 244 10 156 8 C120 7 92 11 74 17"/>
+      </svg>
+    </span>
+  </h2>
 </section>
 
-<!-- ======================= LES QUATRE ATELIERS ======================= -->
-<section class="section section--paper" id="ateliers" aria-labelledby="ateliers-title">
-  <div class="blob-field" data-parallax-field aria-hidden="true">
-    <span class="blob blob--lavender shape-2 blob--float" style="width:150px;height:140px;top:8%;left:-3%;opacity:.7" data-speed="0.2"></span>
-    <span class="blob blob--cream shape-4 blob--float-slow" style="width:120px;height:112px;bottom:10%;right:-2%;opacity:.8" data-speed="0.26"></span>
-  </div>
+<!-- ================= MODULE 6 — CARTES PRODUIT ================= -->
+<section class="wrap" style="padding-bottom:clamp(56px,12vw,104px)">
+  <div class="products">
 
-  <div class="container content">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Les ateliers</span>
-      <h2 class="heading" id="ateliers-title">Quatre ateliers, une même mécanique : écrire vite, dire fort, être écouté.</h2>
-      <p class="lead">Le slam est le tronc commun — les trois autres en sont des branches, avec leurs propres codes et leur propre public. Ils se combinent très bien sur un parcours long.</p>
-    </div>
-
-    <div class="ateliers" data-reveal-stagger>
-      <article class="format-card format-card--terracotta" id="atelier-slam">
-        <span class="eyebrow">Dès 12 ans · 3 h à 10 séances</span>
-        <h3 class="heading-sm">Ateliers slam</h3>
-        <p>Écrire un texte, le dire debout, sans musique ni accessoire. C'est le format d'origine, celui qui structure tous les autres : la contrainte d'écriture, puis le passage au micro.</p>
-        <ul>
-          <li>Consignes minutées, puis travail du souffle et du regard</li>
-          <li>Se termine toujours par une scène, même petite</li>
-          <li>Le format le plus adapté à une classe entière</li>
-        </ul>
-        <a class="btn btn--outline-terracotta" href="#contact">Demander un devis</a>
-      </article>
-
-      <article class="format-card format-card--lavender" id="atelier-compliments">
-        <span class="eyebrow">Dès 10 ans · 2 h</span>
-        <h3 class="heading-sm">Ateliers battle de compliments</h3>
-        <p>Le principe de la battle de rap, retourné : deux personnes s'affrontent à coups d'éloges, en rythme, devant un public qui départage. Redoutablement efficace pour souder un groupe.</p>
-        <ul>
-          <li>Format court, très physique, sans écriture préalable</li>
-          <li>Désamorce les moqueries en en détournant les codes</li>
-          <li>Demandé en médiation, en cohésion d'équipe et en collège</li>
-        </ul>
-        <a class="btn btn--outline-lavender" href="#contact">Demander un devis</a>
-      </article>
-
-      <article class="format-card format-card--sky" id="atelier-eloquence">
-        <span class="eyebrow">Lycée &amp; adultes · 3 h à 6 séances</span>
-        <h3 class="heading-sm">Ateliers éloquence</h3>
-        <p>Argumenter, tenir sa voix, occuper le silence. Le travail de la prise de parole appliqué à une échéance réelle : un concours, un grand oral, une soutenance ou une réunion.</p>
-        <ul>
-          <li>Construction d'un argumentaire et gestion du trac</li>
-          <li>Joutes oratoires chronométrées, filmées sur demande</li>
-          <li>Se prépare en lien avec vos échéances d'examen</li>
-        </ul>
-        <a class="btn btn--outline-sky" href="#contact">Demander un devis</a>
-      </article>
-
-      <article class="format-card format-card--cream" id="atelier-rap">
-        <span class="eyebrow">Dès 11 ans · 3 h à 10 séances</span>
-        <h3 class="heading-sm">Ateliers rap</h3>
-        <p>Écriture en rimes, placement sur instrumental, flow et respiration. Pour les groupes que le mot « poésie » fait fuir mais que le son attire — c'est souvent la même chose autrement.</p>
-        <ul>
-          <li>Travail sur instru, avec ou sans enregistrement</li>
-          <li>Rimes, mesures et placement rythmique</li>
-          <li>Restitution possible en maquette audio</li>
-        </ul>
-        <a class="btn btn--outline" href="#contact">Demander un devis</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= PUBLICS ======================= -->
-<section class="section" id="formats" aria-labelledby="formats-title">
-  <div class="blob-field" data-parallax-field aria-hidden="true">
-    <span class="blob blob--cream shape-3 blob--float" style="width:160px;height:150px;top:8%;right:-3%;opacity:.7" data-speed="0.18"></span>
-    <span class="blob blob--sky shape-1 blob--float-slow" style="width:96px;height:96px;bottom:10%;left:-2%;opacity:.65" data-speed="0.26"></span>
-  </div>
-
-  <div class="container content">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Les formats</span>
-      <h2 class="heading" id="formats-title">Trois manières d'entrer dans le slam. Une seule règle : personne ne reste assis pour rien.</h2>
-      <p class="lead">Les quatre ateliers ci-dessus se déclinent pour trois publics. On adapte la jauge, la langue et les thèmes à votre contexte — pas l'inverse.</p>
-    </div>
-
-    <div class="formats" data-reveal-stagger>
-      <article class="format-card format-card--sky" id="public-scolaire">
-        <span class="eyebrow">Scolaire</span>
-        <h3 class="heading-sm">Collèges &amp; lycées</h3>
-        <p>De la 6<sup>e</sup> à la terminale, en classe entière ou en demi-groupe. On travaille la langue par le rythme plutôt que par la règle.</p>
-        <ul>
-          <li>Jeux d'écriture, contraintes courtes, tour de micro</li>
-          <li>Restitution devant l'établissement en fin de parcours</li>
-          <li>Devis compatible pass Culture et budget PEAC</li>
-        </ul>
-        <a class="btn btn--outline-sky" href="#contact">Demander un devis</a>
-      </article>
-
-      <article class="format-card format-card--terracotta" id="public-entreprises">
-        <span class="eyebrow">Entreprises</span>
-        <h3 class="heading-sm">Équipes &amp; collectivités</h3>
-        <p>Une demi-journée pour désamorcer la peur de parler en public. On repart avec un texte collectif et une manière de respirer.</p>
-        <ul>
-          <li>Jusqu'à 25 personnes, en salle ou en extérieur</li>
-          <li>Travail du souffle, du regard et du silence</li>
-          <li>Option scène finale devant le reste de l'équipe</li>
-        </ul>
-        <a class="btn btn--outline-terracotta" href="#contact">Construire le format</a>
-      </article>
-
-      <article class="format-card format-card--lavender" id="public-tout-public">
-        <span class="eyebrow">Tout public</span>
-        <h3 class="heading-sm">Stages &amp; scènes ouvertes</h3>
-        <p>Le samedi après-midi, on écrit ensemble ; le soir, la scène est ouverte. Venir en spectateur est une façon parfaitement valable de commencer.</p>
-        <ul>
-          <li>Stage de 3 h suivi d'une scène à 20 h</li>
-          <li>Dès 15 ans, aucun prérequis d'écriture</li>
-          <li>Tarif libre à partir de 5 € pour la scène</li>
-        </ul>
-        <a class="btn btn--outline-lavender" href="#agenda">Voir les prochaines dates</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= MÉTHODE ======================= -->
-<section class="section" id="methode" aria-labelledby="methode-title">
-  <div class="container content">
-    <div class="section-head section-head--center" data-reveal>
-      <span class="eyebrow">La méthode</span>
-      <h2 class="heading" id="methode-title">Quatre temps, toujours les mêmes. C'est ce qui rend la peur gérable.</h2>
-      <p class="lead">Un atelier de trois heures suit exactement ce déroulé. Un parcours de dix séances, c'est le même chemin, en plus profond.</p>
-    </div>
-
-    <ol class="steps" data-reveal-stagger>
-      <li class="step">
-        <span class="step__num">01</span>
-        <h3 class="heading-sm">Casser la glace</h3>
-        <p>On commence debout, en cercle, avec des jeux de voix. Personne n'écrit avant d'avoir entendu le son de sa propre voix dans la salle.</p>
-        <p class="step__time">20 minutes</p>
-      </li>
-      <li class="step">
-        <span class="step__num">02</span>
-        <h3 class="heading-sm">Écrire sous contrainte</h3>
-        <p>Trois consignes courtes, minutées. La contrainte enlève la pression de la page blanche : on n'écrit pas « un beau texte », on répond à une commande.</p>
-        <p class="step__time">50 minutes</p>
-      </li>
-      <li class="step">
-        <span class="step__num">03</span>
-        <h3 class="heading-sm">Mettre en bouche</h3>
-        <p>Travail du souffle, des appuis, du silence. On répète à deux avant de répéter devant tout le monde, jamais l'inverse.</p>
-        <p class="step__time">45 minutes</p>
-      </li>
-      <li class="step">
-        <span class="step__num">04</span>
-        <h3 class="heading-sm">Passer au micro</h3>
-        <p>Trois minutes, pas de musique, pas d'accessoire. La salle applaudit avant, pendant et après. C'est la règle du slam, elle n'est pas négociable.</p>
-        <p class="step__time">45 minutes</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ======================= SPLIT 1 — ÉCRIRE ======================= -->
-<section class="section section--paper" aria-labelledby="ecrire-title">
-  <div class="container content">
-    <div class="split" data-reveal>
-      <div class="split__art split__art--terracotta">
-        <div class="blob-field" aria-hidden="true">
-          <span class="blob blob--cream shape-2 blob--float" style="width:150px;height:140px;top:8%;left:8%;opacity:.8"></span>
-          <span class="blob blob--paper shape-3 blob--float-slow" style="width:90px;height:90px;top:18%;right:12%;background:#fff;opacity:.55"></span>
+    <article class="product" id="atelier-slam" data-reveal>
+      <div class="product__text">
+        <h3 class="h3">Ateliers slam</h3>
+        <p class="body-lg mute">Écrire un texte, le dire debout, sans musique ni accessoire. Le format
+          d'origine, celui qui structure tous les autres : trois consignes minutées, le travail de la
+          voix, puis le passage au micro. Trois minutes chacun, et la salle applaudit avant même que
+          vous commenciez.</p>
+        <div><a class="btn btn--ink" href="#contact">En savoir plus</a></div>
+      </div>
+      <div class="product__panel product__panel--turquoise">
+        <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 70 C120 10 260 130 420 50 M-20 200 C100 150 300 260 420 190 M90 -20 C120 120 60 200 130 320 M300 -20 C280 110 350 190 300 320"/>
+        </svg>
+        <div class="mock" aria-hidden="true">
+          <div class="mock__side">
+            <b>Atelier</b>
+            <i class="on">Consignes</i><i>Mon texte</i><i>Mise en bouche</i><i>Ordre de passage</i><i>Scène</i>
+          </div>
+          <div class="mock__main">
+            <div class="mock__head"><b>Consigne 3 — l'objet</b><span class="mock__tag">07:00</span></div>
+            <div class="mock__block">
+              <div class="mock__row"><span class="mock__dot"></span><b>Écris l'objet que tu n'as jamais jeté</b></div>
+              <div class="mock__bars"><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="mock__bars"><i></i><i></i><i></i><i></i></div>
+          </div>
         </div>
-        <div class="note-card">
-          <p class="note-card__label">Consigne n° 3</p>
-          <p>« Écris l'objet que tu n'as jamais réussi à jeter. Interdiction de dire pourquoi. »</p>
-          <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </article>
+
+    <article class="product product--flip" id="atelier-compliments" data-reveal>
+      <div class="product__text">
+        <h3 class="h3">Battle de compliments</h3>
+        <p class="body-lg mute">Le principe de la battle de rap, retourné : deux personnes s'affrontent
+          à coups d'éloges, en rythme, devant un public qui départage. Pas d'écriture préalable, beaucoup
+          de rires, et un groupe qui ne se regarde plus pareil à la fin des deux heures.</p>
+        <div><a class="btn btn--ink" href="#contact">En savoir plus</a></div>
+      </div>
+      <div class="product__panel product__panel--magenta">
+        <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 110 C140 40 240 180 420 90 M-20 230 C140 190 260 280 420 220 M180 -20 C150 110 220 190 170 320"/>
+        </svg>
+        <div class="mock" aria-hidden="true">
+          <div class="mock__side">
+            <b>Battle</b>
+            <i>Équipes</i><i class="on">Manche 2</i><i>Chrono</i><i>Public</i><i>Résultats</i>
+          </div>
+          <div class="mock__main">
+            <div class="mock__head"><b>Manche 2 — face à face</b><span class="mock__tag">45 s</span></div>
+            <div class="mock__block">
+              <div class="mock__row"><span class="mock__dot"></span><b>Sofia</b><span class="mock__tag">8,5</span></div>
+              <div class="mock__row"><span class="mock__dot"></span><b>Mehdi</b><span class="mock__tag">9,0</span></div>
+            </div>
+            <div class="mock__wave"><i style="height:40%"></i><i style="height:75%"></i><i style="height:55%"></i><i style="height:95%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:45%"></i><i style="height:65%"></i></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="product" id="atelier-eloquence" data-reveal>
+      <div class="product__text">
+        <h3 class="h3">Ateliers éloquence</h3>
+        <p class="body-lg mute">Argumenter, tenir sa voix, occuper le silence. La prise de parole
+          appliquée à une échéance réelle : un grand oral, un concours, une soutenance, une réunion.
+          Joutes oratoires chronométrées, filmées sur demande, et un trac qu'on nomme au lieu de le
+          subir.</p>
+        <div><a class="btn btn--ink" href="#contact">En savoir plus</a></div>
+      </div>
+      <div class="product__panel product__panel--green">
+        <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 60 C120 20 280 140 420 60 M-20 180 C160 130 260 250 420 170 M250 -20 C230 120 300 200 250 320 M60 -20 C80 100 30 210 90 320"/>
+        </svg>
+        <div class="mock" aria-hidden="true">
+          <div class="mock__side">
+            <b>Éloquence</b>
+            <i>Argumentaire</i><i class="on">Joutes</i><i>Souffle</i><i>Captation</i><i>Grand oral</i>
+          </div>
+          <div class="mock__main">
+            <div class="mock__head"><b>Joute — mars</b><span class="mock__tag">Séance 4/6</span></div>
+            <div class="mock__grid">
+              <span>L</span><span>M</span><span>M</span><span>J</span><span class="on">V</span><span>S</span><span>D</span>
+              <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+            </div>
+            <div class="mock__bars"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="product product--flip" id="atelier-rap" data-reveal>
+      <div class="product__text">
+        <h3 class="h3">Ateliers rap</h3>
+        <p class="body-lg mute">Écriture en rimes, placement sur instrumental, flow et respiration.
+          Pour les groupes que le mot « poésie » fait fuir mais que le son attire — c'est souvent la
+          même chose autrement. Restitution possible en maquette audio à la fin du parcours.</p>
+        <div><a class="btn btn--ink" href="#contact">En savoir plus</a></div>
+      </div>
+      <div class="product__panel product__panel--periwinkle">
+        <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 90 C160 30 240 170 420 80 M-20 210 C120 170 280 260 420 200 M130 -20 C100 120 180 200 120 320"/>
+        </svg>
+        <div class="mock" aria-hidden="true">
+          <div class="mock__side">
+            <b>Studio</b>
+            <i>Instrus</i><i class="on">Couplet 1</i><i>Refrain</i><i>Prises</i><i>Maquette</i>
+          </div>
+          <div class="mock__main">
+            <div class="mock__head"><b>Couplet 1 — 16 mesures</b><span class="mock__tag">90 BPM</span></div>
+            <div class="mock__wave"><i style="height:30%"></i><i style="height:60%"></i><i style="height:90%"></i><i style="height:45%"></i><i style="height:75%"></i><i style="height:100%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:85%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:55%"></i></div>
+            <div class="mock__bars"><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= ATELIER EXPRESS (conservé) ================= -->
+<section class="section wrap" id="atelier-express">
+  <div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,56px)">
+    <h2 class="h2">La machine à consignes</h2>
+    <p class="lead mute" style="margin-top:20px">C'est exactement l'outil qu'on utilise en salle.
+      Tire une consigne, lance le chrono de trois minutes, écris sans te relire.</p>
+  </div>
+
+  <div class="express" data-reveal>
+    <div class="express__panel">
+      <h3 class="h4">Ta consigne du moment</h3>
+
+      <div class="dials">
+        <div class="dial dial--turquoise" id="dial-objet">
+          <span class="dial__label">Un objet</span>
+          <span class="dial__value" data-dial-value>une clé</span>
+        </div>
+        <div class="dial dial--magenta" id="dial-contrainte">
+          <span class="dial__label">Une contrainte</span>
+          <span class="dial__value" data-dial-value>sans le mot « je »</span>
+        </div>
+        <div class="dial dial--periwinkle" id="dial-emotion">
+          <span class="dial__label">Une couleur</span>
+          <span class="dial__value" data-dial-value>en confidence</span>
         </div>
       </div>
 
-      <div class="split__copy">
-        <span class="eyebrow">Écrire</span>
-        <h2 class="heading" id="ecrire-title">La page blanche n'existe pas. Il n'y a que des consignes trop vagues.</h2>
-        <p class="lead">On ne demande jamais « écris un texte sur toi ». On donne un objet, un temps, une interdiction. En sept minutes, tout le monde a écrit quelque chose — y compris ceux qui avaient annoncé qu'ils n'y arriveraient pas.</p>
-        <ul class="split__list">
-          <li><span><b>Des consignes minutées</b> : entre 4 et 10 minutes, jamais plus. Le chrono fait le travail que la motivation ne fait pas.</span></li>
-          <li><span><b>Zéro correction orthographique</b> pendant l'écriture. On corrige au moment de la mise en bouche, si le texte doit être lu par d'autres.</span></li>
-          <li><span><b>Un carnet qui repart avec vous</b>, avec les 12 consignes de l'atelier pour continuer seul.</span></li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn btn--outline-terracotta" href="#atelier-express">Essayer une consigne</a>
-        </div>
+      <p class="express__prompt" id="machinePrompt" aria-live="polite">
+        Écris sur <b>une clé</b>, <b>sans le mot « je »</b>, <b>en confidence</b>. Sept minutes, sans te relire.
+      </p>
+
+      <div class="btn-row">
+        <button class="btn btn--ink" type="button" id="rollBtn">Tirer une consigne</button>
+        <button class="btn btn--link" type="button" id="copyBtn">Copier <span class="arrow" aria-hidden="true">→</span></button>
+      </div>
+    </div>
+
+    <div class="timer" id="timer">
+      <div>
+        <h3 class="h4" style="color:#fff">Chrono de scène</h3>
+        <p style="margin-top:12px">La durée exacte d'un passage en scène ouverte.</p>
+      </div>
+      <div>
+        <div class="timer__display" id="timerDisplay" role="timer" aria-live="off">03:00</div>
+        <div class="timer__bar" aria-hidden="true" style="margin-top:20px"><span id="timerBar"></span></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn--yellow" type="button" id="timerToggle">Démarrer</button>
+        <button class="btn btn--line" type="button" id="timerReset">Réinitialiser</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= SPLIT 2 — DIRE ======================= -->
-<section class="section" aria-labelledby="dire-title">
-  <div class="container content">
-    <div class="split split--reverse" data-reveal>
-      <div class="split__art split__art--sky">
-        <div class="blob-field" aria-hidden="true">
-          <span class="blob blob--lavender shape-1 blob--float-slow" style="width:160px;height:150px;bottom:12%;right:6%;opacity:.7"></span>
-          <span class="blob blob--cream shape-4 blob--float" style="width:88px;height:88px;top:14%;left:10%;opacity:.8"></span>
-        </div>
-        <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        <div class="note-card">
-          <p class="note-card__label">Travail de la voix</p>
-          <p>« Dis la même phrase trois fois : en confidence, en colère, en riant. Garde celle qui te surprend. »</p>
-          <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
-        </div>
-      </div>
+<!-- ================= AGENDA (conservé) ================= -->
+<section class="section wrap" id="agenda">
+  <div data-reveal style="margin-bottom:clamp(28px,6vw,44px)">
+    <h2 class="h2">Les prochaines dates ouvertes</h2>
+    <p class="lead mute" style="margin-top:20px;max-width:640px">Les ateliers en établissement se calent
+      sur votre calendrier. Ci-dessous, uniquement ce qui est ouvert au public.</p>
+  </div>
 
-      <div class="split__copy">
-        <span class="eyebrow">Dire</span>
-        <h2 class="heading" id="dire-title">Un texte slamé n'est pas un texte lu plus fort.</h2>
-        <p class="lead">Le passage de la feuille à la bouche, c'est là que tout se joue — et c'est aussi là que la plupart des ateliers s'arrêtent. Ici, la moitié du temps est consacrée à l'oral.</p>
-        <ul class="split__list">
-          <li><span><b>Le souffle avant le sens</b> : où respirer, où couper, où ne rien dire du tout.</span></li>
-          <li><span><b>Le regard</b> : on apprend à trouver trois points dans la salle plutôt que ses chaussures.</span></li>
-          <li><span><b>Le trac nommé</b> : on en parle explicitement, parce qu'un trac nommé est un trac qui rétrécit.</span></li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn btn--outline-sky" href="#methode">Voir le déroulé complet</a>
-        </div>
+  <div class="filters" role="group" aria-label="Filtrer l'agenda" data-reveal>
+    <button class="filter is-active" type="button" data-filter="tous">Tout voir</button>
+    <button class="filter" type="button" data-filter="scene">Scènes ouvertes</button>
+    <button class="filter" type="button" data-filter="stage">Stages</button>
+    <button class="filter" type="button" data-filter="jeunesse">Jeunesse</button>
+  </div>
+
+  <div class="agenda" id="agendaList" data-stagger>
+    <article class="event" data-category="scene">
+      <div class="event__date"><span class="event__day">12</span><span class="event__month">Nov.</span></div>
+      <div>
+        <h3 class="event__title">Scène ouverte — Le Périscope</h3>
+        <p class="event__meta">Lyon 7<sup>e</sup> · 20 h 00 · Inscription sur place dès 19 h 15</p>
       </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">S'inscrire</a>
+        <span class="event__seats">9 passages restants</span>
+      </div>
+    </article>
+
+    <article class="event" data-category="stage">
+      <div class="event__date"><span class="event__day">23</span><span class="event__month">Nov.</span></div>
+      <div>
+        <h3 class="event__title">Stage — « Écrire l'endroit d'où l'on vient »</h3>
+        <p class="event__meta">Médiathèque de Villeurbanne · 14 h – 17 h · Dès 15 ans</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">Réserver</a>
+        <span class="event__seats">6 places restantes</span>
+      </div>
+    </article>
+
+    <article class="event" data-category="jeunesse">
+      <div class="event__date"><span class="event__day">04</span><span class="event__month">Déc.</span></div>
+      <div>
+        <h3 class="event__title">Atelier ados — slam et langue française</h3>
+        <p class="event__meta">Maison de quartier, Saint-Étienne · 14 h – 16 h 30 · 12–17 ans</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">Inscrire un jeune</a>
+        <span class="event__seats">14 places restantes</span>
+      </div>
+    </article>
+
+    <article class="event" data-category="scene">
+      <div class="event__date"><span class="event__day">18</span><span class="event__month">Déc.</span></div>
+      <div>
+        <h3 class="event__title">Scène ouverte de fin d'année — plateau invité</h3>
+        <p class="event__meta">Grenoble, La Bobine · 20 h 30 · Première partie par l'atelier ados</p>
+      </div>
+      <div class="event__action">
+        <a class="btn btn--ink" href="#contact">S'inscrire</a>
+        <span class="event__seats">12 passages restants</span>
+      </div>
+    </article>
+  </div>
+
+  <p class="agenda__empty" id="agendaEmpty" hidden>Aucune date dans cette catégorie — écrivez-nous, on vous prévient dès qu'une s'ouvre.</p>
+</section>
+
+<!-- ================= MODULE 7 — TÉMOIGNAGES EN CARROUSEL ================= -->
+<section class="section" id="temoignages">
+  <div class="wrap center measure" data-reveal style="margin-bottom:clamp(40px,9vw,64px)">
+    <h2 class="h2">Ce que ça fait de passer au micro</h2>
+    <p class="lead mute" style="margin-top:20px">On a demandé à d'anciens participants ce qu'il leur
+      restait, six mois après. Voilà ce qu'ils ont répondu.</p>
+  </div>
+
+  <div class="wrap" style="padding-inline:0">
+    <div class="carousel" id="carousel" tabindex="0" aria-label="Témoignages, faites défiler horizontalement">
+      <article class="quote quote--periwinkle">
+        <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 120 C140 40 260 220 420 120 M-20 320 C120 260 280 400 420 300 M120 -20 C90 200 200 340 140 520"/>
+        </svg>
+        <p class="quote__text">« J'avais trois élèves qui ne parlaient jamais en classe. Les trois sont
+          passés au micro devant 80 personnes. Je ne sais toujours pas comment. »</p>
+        <div class="quote__who">
+          <div class="quote__avatar">NB</div>
+          <p class="quote__name">Nadia B.</p>
+          <p class="quote__role">Professeure de français, lycée Jean-Moulin</p>
+        </div>
+      </article>
+
+      <article class="quote quote--turquoise">
+        <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 90 C160 30 240 240 420 150 M-20 350 C140 290 260 430 420 340 M260 -20 C230 180 310 320 260 520"/>
+        </svg>
+        <p class="quote__text">« Je suis venu parce que ma boîte m'y a envoyé. Je suis reparti avec un
+          texte que j'ai lu à mon père. C'était pas prévu au programme. »</p>
+        <div class="quote__who">
+          <div class="quote__avatar">KM</div>
+          <p class="quote__name">Karim M.</p>
+          <p class="quote__role">Participant, séminaire d'équipe</p>
+        </div>
+      </article>
+
+      <article class="quote quote--yellow">
+        <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 160 C140 80 280 260 420 170 M-20 380 C160 320 240 450 420 370 M180 -20 C150 200 230 350 170 520"/>
+        </svg>
+        <p class="quote__text">« J'écrivais depuis dix ans sans jamais rien lire à personne. Le stage m'a
+          donné trois minutes. Depuis, je passe une fois par mois. »</p>
+        <div class="quote__who">
+          <div class="quote__avatar">EL</div>
+          <p class="quote__name">Élise L.</p>
+          <p class="quote__role">Stage tout public, Villeurbanne</p>
+        </div>
+      </article>
+
+      <article class="quote quote--magenta">
+        <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 130 C150 60 250 230 420 140 M-20 340 C130 280 290 410 420 320 M90 -20 C120 190 60 330 110 520"/>
+        </svg>
+        <p class="quote__text">« La battle de compliments, on l'a refaite sans vous le mois suivant. Les
+          sixièmes la réclament. C'est devenu un rituel de classe. »</p>
+        <div class="quote__who">
+          <div class="quote__avatar">TR</div>
+          <p class="quote__name">Thomas R.</p>
+          <p class="quote__role">CPE, collège Aragon</p>
+        </div>
+      </article>
+
+      <article class="quote quote--green">
+        <svg class="scribbles" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 110 C170 50 230 250 420 160 M-20 360 C150 300 270 420 420 350 M300 -20 C270 190 340 330 290 520"/>
+        </svg>
+        <p class="quote__text">« Le grand oral, je l'ai passé sans trembler. Pas parce que j'avais moins
+          peur, mais parce que je savais quoi faire de la peur. »</p>
+        <div class="quote__who">
+          <div class="quote__avatar">AD</div>
+          <p class="quote__name">Aya D.</p>
+          <p class="quote__role">Terminale, atelier éloquence</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="dots" id="dots" role="tablist" aria-label="Choisir un témoignage"></div>
+  </div>
+</section>
+
+<!-- ================= FAQ (conservée) ================= -->
+<section class="section wrap" id="faq">
+  <div class="center measure" data-reveal style="margin-bottom:clamp(32px,7vw,48px)">
+    <h2 class="h2">Ce qu'on nous demande avant de réserver</h2>
+  </div>
+
+  <div class="faq" data-stagger>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-1">
+        Faut-il savoir écrire pour participer ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
+      <div class="faq__a" id="faq-1"><div><p>Non, et c'est même le point de départ. Les consignes sont conçues pour des personnes qui n'ont jamais écrit et qui sont persuadées qu'elles n'y arriveront pas. Le slam ne demande ni rime, ni métrique, ni vocabulaire particulier — seulement d'avoir quelque chose à dire.</p></div></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2">
+        Combien coûte un atelier ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
+      <div class="faq__a" id="faq-2"><div><p>Un atelier de trois heures en établissement démarre à 350 € ; un parcours de dix séances avec restitution se construit sur devis. Pour les entreprises, la demi-journée est à 900 €. Les scènes ouvertes sont à tarif libre. Un devis part sous 48 h après votre message.</p></div></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3">
+        Quel matériel faut-il prévoir ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
+      <div class="faq__a" id="faq-3"><div><p>Une salle où l'on peut pousser les tables et se mettre en cercle, c'est tout. Les carnets et les stylos sont fournis. Pour la restitution, une sono avec un micro filaire suffit — et si vous n'en avez pas, nous l'apportons.</p></div></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4">
+        Et ceux qui refusent de passer au micro ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
+      <div class="faq__a" id="faq-4"><div><p>Personne n'est forcé, jamais. Il existe toujours une porte de sortie : lire à deux, faire lire son texte par quelqu'un d'autre, ou rester au silence. Dans les faits, presque tout le monde finit par passer — mais parce que la porte de sortie existait.</p></div></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5">
+        Intervenez-vous en dehors de la région lyonnaise ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
+      <div class="faq__a" id="faq-5"><div><p>Oui, partout en France. Au-delà de 150 km, on ajoute les frais de déplacement au devis et on préfère regrouper plusieurs séances sur la même journée ou sur deux jours consécutifs.</p></div></div>
+    </div>
+    <div class="faq__item">
+      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-6">
+        Les textes des participants sont-ils publiés ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
+      <div class="faq__a" id="faq-6"><div><p>Seulement avec accord écrit, et jamais par défaut. Les textes appartiennent à celles et ceux qui les écrivent. Sur demande, on met en page un recueil de fin de parcours — c'est souvent le plus beau souvenir qu'il reste.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ======================= SPLIT 3 — SCÈNE ======================= -->
-<section class="section section--paper" aria-labelledby="scene-title">
-  <div class="container content">
-    <div class="split" data-reveal>
-      <div class="split__art split__art--lavender">
-        <div class="blob-field" aria-hidden="true">
-          <span class="blob blob--terracotta shape-2 blob--float" style="width:150px;height:140px;top:10%;right:8%;opacity:.75"></span>
-          <span class="blob blob--sky shape-3 blob--float-slow" style="width:100px;height:100px;bottom:16%;left:8%;opacity:.7"></span>
+<!-- ================= CONTACT (conservé) ================= -->
+<section class="section wrap" id="contact">
+  <div class="contact">
+    <div data-reveal>
+      <h2 class="h2">Dites-nous qui vous êtes, on répond sous 48 h.</h2>
+      <p class="lead mute" style="margin-top:20px">Un devis, une disponibilité, une question de budget :
+        c'est le même formulaire. Pas de standard, pas de commercial — vous écrivez à la personne qui
+        animera l'atelier.</p>
+      <div style="margin-top:32px">
+        <div class="contact__card">
+          <h3 class="h4">Écrire directement</h3>
+          <p style="margin-top:8px"><a href="mailto:slampoetrip@gmail.com">slampoetrip@gmail.com</a></p>
         </div>
-        <div class="note-card">
-          <p class="note-card__label">Règles de la scène</p>
-          <p>« Trois minutes. Pas de musique, pas de costume, pas d'accessoire. Le public note de 0 à 10 — et le public a toujours tort. »</p>
-          <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
-        </div>
-      </div>
-
-      <div class="split__copy">
-        <span class="eyebrow">Monter sur scène</span>
-        <h2 class="heading" id="scene-title">La scène ouverte, c'est la partie que personne ne regrette.</h2>
-        <p class="lead">Chaque parcours se termine devant du public : la classe voisine, le reste de l'équipe, ou la salle du samedi soir. Passer est un choix, mais 98 % des participants passent.</p>
-        <ul class="split__list">
-          <li><span><b>Ordre de passage tiré au sort</b> juste avant, pour éviter deux heures d'attente anxieuse.</span></li>
-          <li><span><b>Possibilité de lire sa feuille</b> : apprendre par cœur n'est jamais une condition.</span></li>
-          <li><span><b>Captation audio</b> sur demande, pour garder une trace du parcours.</span></li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn btn--outline-lavender" href="#agenda">Prochaines scènes</a>
+        <div class="contact__card">
+          <h3 class="h4">Délais habituels</h3>
+          <p class="mute" style="margin-top:8px">Devis sous 48 h · Créneaux scolaires à réserver 6 semaines
+            à l'avance · Scènes ouvertes confirmées le mois précédent.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ======================= ATELIER EXPRESS ======================= -->
-<section class="section section--mist" id="atelier-express" aria-labelledby="express-title">
-  <div class="blob-field" data-parallax-field aria-hidden="true">
-    <span class="blob blob--terracotta shape-1 blob--float" style="width:140px;height:130px;top:6%;left:-2%;opacity:.7" data-speed="0.2"></span>
-    <span class="blob blob--lavender shape-4 blob--float-slow" style="width:120px;height:110px;bottom:8%;right:-1%;opacity:.7" data-speed="0.24"></span>
-  </div>
-
-  <div class="container content">
-    <div class="section-head section-head--center" data-reveal>
-      <span class="eyebrow">Atelier express</span>
-      <h2 class="heading" id="express-title">La machine à consignes. Trois tirages, sept minutes, un texte.</h2>
-      <p class="lead">C'est exactement l'outil qu'on utilise en salle. Tirez une consigne, lancez le chrono de trois minutes, écrivez sans vous relire.</p>
-    </div>
-
-    <div class="machine" data-reveal>
-      <div class="machine__panel">
-        <span class="eyebrow">Votre consigne du moment</span>
-
-        <div class="dials">
-          <div class="dial dial--sky" id="dial-objet">
-            <span class="dial__label">Un objet</span>
-            <span class="dial__value" data-dial-value>une clé</span>
-          </div>
-          <div class="dial dial--terracotta" id="dial-contrainte">
-            <span class="dial__label">Une contrainte</span>
-            <span class="dial__value" data-dial-value>sans le mot « je »</span>
-          </div>
-          <div class="dial dial--lavender" id="dial-emotion">
-            <span class="dial__label">Une couleur</span>
-            <span class="dial__value" data-dial-value>en confidence</span>
-          </div>
-        </div>
-
-        <p class="machine__prompt" id="machinePrompt" aria-live="polite">
-          Écris sur <b>une clé</b>, <b>sans le mot « je »</b>, <b>en confidence</b>. Sept minutes, sans te relire.
-        </p>
-
-        <div class="btn-row">
-          <button class="btn btn--primary" type="button" id="rollBtn" data-magnetic>Tirer une consigne</button>
-          <button class="btn btn--ghost" type="button" id="copyBtn">
-            Copier la consigne <span class="arrow" aria-hidden="true">→</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="timer" id="timer">
-        <div>
-          <span class="eyebrow" style="color:#e1edf2">Chrono de scène</span>
-          <h3 class="heading-sm">Trois minutes</h3>
-          <p>La durée exacte d'un passage en scène ouverte. Entraînez-vous avec.</p>
-        </div>
-
-        <div>
-          <div class="timer__display" id="timerDisplay" role="timer" aria-live="off">03:00</div>
-          <div class="timer__bar" aria-hidden="true"><span id="timerBar"></span></div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn--on-dark" type="button" id="timerToggle">Démarrer</button>
-          <button class="btn btn--outline" type="button" id="timerReset" style="border-color:#e1edf2;color:#e1edf2">Réinitialiser</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= AGENDA ======================= -->
-<section class="section" id="agenda" aria-labelledby="agenda-title">
-  <div class="container content">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Agenda</span>
-      <h2 class="heading" id="agenda-title">Les prochaines dates ouvertes</h2>
-      <p class="lead">Les ateliers en établissement se calent sur votre calendrier. Ci-dessous, uniquement ce qui est ouvert au public ou aux inscriptions individuelles.</p>
-    </div>
-
-    <div class="filters" role="group" aria-label="Filtrer l'agenda" data-reveal>
-      <button class="filter is-active" type="button" data-filter="tous">Tout voir</button>
-      <button class="filter" type="button" data-filter="scene">Scènes ouvertes</button>
-      <button class="filter" type="button" data-filter="stage">Stages</button>
-      <button class="filter" type="button" data-filter="jeunesse">Jeunesse</button>
-    </div>
-
-    <div class="agenda" id="agendaList" data-reveal-stagger>
-      <article class="event" data-category="scene">
-        <div class="event__date"><span class="event__day">12</span><span class="event__month">Nov.</span></div>
-        <div>
-          <h3 class="event__title">Scène ouverte — Le Périscope</h3>
-          <p class="event__meta">Lyon 7<sup>e</sup> · 20 h 00 · Inscription sur place dès 19 h 15</p>
-          <div class="event__tags">
-            <span class="badge badge--lavender">Scène ouverte</span>
-            <span class="badge">Tarif libre</span>
-          </div>
-        </div>
-        <div class="event__action">
-          <a class="btn btn--outline-lavender" href="#contact">S'inscrire</a>
-          <span class="event__seats">9 passages restants</span>
-        </div>
-      </article>
-
-      <article class="event" data-category="stage">
-        <div class="event__date"><span class="event__day">23</span><span class="event__month">Nov.</span></div>
-        <div>
-          <h3 class="event__title">Stage d'écriture — « Écrire l'endroit d'où l'on vient »</h3>
-          <p class="event__meta">Médiathèque de Villeurbanne · 14 h – 17 h · Dès 15 ans</p>
-          <div class="event__tags">
-            <span class="badge badge--terracotta">Stage 3 h</span>
-            <span class="badge">Débutants bienvenus</span>
-          </div>
-        </div>
-        <div class="event__action">
-          <a class="btn btn--outline-terracotta" href="#contact">Réserver</a>
-          <span class="event__seats">6 places restantes</span>
-        </div>
-      </article>
-
-      <article class="event" data-category="jeunesse">
-        <div class="event__date"><span class="event__day">04</span><span class="event__month">Déc.</span></div>
-        <div>
-          <h3 class="event__title">Atelier ados — slam et langue française</h3>
-          <p class="event__meta">Maison de quartier, Saint-Étienne · 14 h – 16 h 30 · 12–17 ans</p>
-          <div class="event__tags">
-            <span class="badge badge--sky">Jeunesse</span>
-            <span class="badge">Gratuit</span>
-          </div>
-        </div>
-        <div class="event__action">
-          <a class="btn btn--outline-sky" href="#contact">Inscrire un jeune</a>
-          <span class="event__seats">14 places restantes</span>
-        </div>
-      </article>
-
-      <article class="event" data-category="scene">
-        <div class="event__date"><span class="event__day">18</span><span class="event__month">Déc.</span></div>
-        <div>
-          <h3 class="event__title">Scène ouverte de fin d'année — plateau invité</h3>
-          <p class="event__meta">Grenoble, La Bobine · 20 h 30 · Première partie assurée par l'atelier ados</p>
-          <div class="event__tags">
-            <span class="badge badge--lavender">Scène ouverte</span>
-            <span class="badge badge--cream">Plateau invité</span>
-          </div>
-        </div>
-        <div class="event__action">
-          <a class="btn btn--outline-lavender" href="#contact">S'inscrire</a>
-          <span class="event__seats">12 passages restants</span>
-        </div>
-      </article>
-
-      <article class="event" data-category="stage">
-        <div class="event__date"><span class="event__day">17</span><span class="event__month">Janv.</span></div>
-        <div>
-          <h3 class="event__title">Stage intensif — de la page au micro</h3>
-          <p class="event__meta">Lyon 1<sup>er</sup> · Samedi 10 h – 18 h · Scène ouverte le soir</p>
-          <div class="event__tags">
-            <span class="badge badge--terracotta">Stage 1 jour</span>
-            <span class="badge">Niveau intermédiaire</span>
-          </div>
-        </div>
-        <div class="event__action">
-          <a class="btn btn--outline-terracotta" href="#contact">Réserver</a>
-          <span class="event__seats">4 places restantes</span>
-        </div>
-      </article>
-    </div>
-
-    <p class="agenda__empty" id="agendaEmpty" hidden>Aucune date dans cette catégorie pour le moment — écrivez-nous, on vous prévient dès qu'une s'ouvre.</p>
-  </div>
-</section>
-
-<!-- ======================= TÉMOIGNAGES ======================= -->
-<section class="section section--paper" id="temoignages" aria-labelledby="temoignages-title">
-  <div class="blob-field" data-parallax-field aria-hidden="true">
-    <span class="blob blob--sky shape-2 blob--float-slow" style="width:150px;height:140px;top:10%;left:-3%;opacity:.65" data-speed="0.2"></span>
-    <span class="blob blob--cream shape-1 blob--float" style="width:110px;height:104px;bottom:12%;right:-2%;opacity:.8" data-speed="0.28"></span>
-  </div>
-
-  <div class="container content">
-    <div class="section-head section-head--center" data-reveal>
-      <span class="eyebrow">Paroles d'ateliers</span>
-      <h2 class="heading" id="temoignages-title">Ce qu'il en reste, six mois après</h2>
-    </div>
-
-    <div class="stories" data-reveal-stagger>
-      <article class="story">
-        <div class="story__portrait story__portrait--terracotta"><span class="story__initials">NB</span></div>
-        <div class="story__body">
-          <p class="story__eyebrow">Paroles d'ateliers</p>
-          <p class="story__name">Nadia B. <span class="arrow" aria-hidden="true">→</span></p>
-          <p class="story__quote">« J'avais trois élèves qui ne parlaient jamais en classe. Les trois sont passés au micro devant 80 personnes. Je ne sais toujours pas comment. »</p>
-          <p class="story__role">Professeure de français, lycée Jean-Moulin</p>
-        </div>
-      </article>
-
-      <article class="story">
-        <div class="story__portrait story__portrait--sky"><span class="story__initials">KM</span></div>
-        <div class="story__body">
-          <p class="story__eyebrow">Paroles d'ateliers</p>
-          <p class="story__name">Karim M. <span class="arrow" aria-hidden="true">→</span></p>
-          <p class="story__quote">« Je suis venu parce que ma boîte m'y a envoyé. Je suis reparti avec un texte que j'ai lu à mon père. C'était pas prévu au programme. »</p>
-          <p class="story__role">Participant, séminaire d'équipe</p>
-        </div>
-      </article>
-
-      <article class="story">
-        <div class="story__portrait story__portrait--lavender"><span class="story__initials">EL</span></div>
-        <div class="story__body">
-          <p class="story__eyebrow">Paroles d'ateliers</p>
-          <p class="story__name">Élise L. <span class="arrow" aria-hidden="true">→</span></p>
-          <p class="story__quote">« J'écrivais depuis dix ans sans jamais rien lire à personne. Le stage m'a donné trois minutes. Depuis, je passe une fois par mois. »</p>
-          <p class="story__role">Stage tout public, Villeurbanne</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= FAQ ======================= -->
-<section class="section" id="faq" aria-labelledby="faq-title">
-  <div class="container content">
-    <div class="section-head section-head--center" data-reveal>
-      <span class="eyebrow">Questions</span>
-      <h2 class="heading" id="faq-title">Ce qu'on nous demande avant de réserver</h2>
-    </div>
-
-    <div class="faq" data-reveal-stagger>
-      <div class="faq__item">
-        <h3>
-          <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-1">
-            Faut-il savoir écrire pour participer ?
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <div class="faq__a" id="faq-1"><div><p>Non, et c'est même le point de départ. Les consignes sont conçues pour des personnes qui n'ont jamais écrit et qui sont persuadées qu'elles n'y arriveront pas. Le slam ne demande ni rime, ni métrique, ni vocabulaire particulier — seulement d'avoir quelque chose à dire.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <h3>
-          <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2">
-            Combien coûte un atelier ?
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <div class="faq__a" id="faq-2"><div><p>Un atelier de trois heures en établissement démarre à 350 € ; un parcours de dix séances avec restitution se construit sur devis. Pour les entreprises, la demi-journée est à 900 €. Les scènes ouvertes sont à tarif libre. Un devis part sous 48 h après votre message.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <h3>
-          <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3">
-            Quel matériel faut-il prévoir ?
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <div class="faq__a" id="faq-3"><div><p>Une salle où l'on peut pousser les tables et se mettre en cercle, c'est tout. Les carnets et les stylos sont fournis. Pour la restitution, une sono avec un micro filaire suffit largement — et si vous n'en avez pas, nous l'apportons.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <h3>
-          <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4">
-            Et les élèves qui refusent de passer au micro ?
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <div class="faq__a" id="faq-4"><div><p>Personne n'est forcé, jamais. Il existe toujours une porte de sortie : lire à deux, faire lire son texte par quelqu'un d'autre, ou rester au silence. Dans les faits, presque tout le monde finit par passer — mais parce que la porte de sortie existait.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <h3>
-          <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5">
-            Intervenez-vous en dehors de la région lyonnaise ?
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <div class="faq__a" id="faq-5"><div><p>Oui, partout en France. Au-delà de 150 km, on ajoute les frais de déplacement au devis et on préfère regrouper plusieurs séances sur la même journée ou sur deux jours consécutifs.</p></div></div>
-      </div>
-
-      <div class="faq__item">
-        <h3>
-          <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-6">
-            Les textes des participants sont-ils publiés ?
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-        </h3>
-        <div class="faq__a" id="faq-6"><div><p>Seulement avec accord écrit, et jamais par défaut. Les textes appartiennent à celles et ceux qui les écrivent. Sur demande, on met en page un recueil de fin de parcours — c'est souvent le plus beau souvenir qu'il reste.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= CONTACT ======================= -->
-<section class="section section--mist" id="contact" aria-labelledby="contact-title">
-  <div class="container content">
-    <div class="contact">
-      <div data-reveal>
-        <span class="eyebrow">Réserver</span>
-        <h2 class="heading" id="contact-title">Dites-nous qui vous êtes, on vous répond sous 48 h.</h2>
-        <p class="lead" style="margin-top:16px">Un devis, une disponibilité, une question de budget PEAC : c'est le même formulaire. Pas de standard téléphonique, pas de commercial — vous écrivez à la personne qui animera l'atelier.</p>
-
-        <div class="contact__aside" style="margin-top:32px">
-          <div class="contact__card">
-            <h3 class="heading-sm">Écrire directement</h3>
-            <p><a href="mailto:slampoetrip@gmail.com">slampoetrip@gmail.com</a></p>
-          </div>
-          <div class="contact__card contact__card--mist">
-            <h3 class="heading-sm">Délais habituels</h3>
-            <p>Devis sous 48 h · Créneaux scolaires à réserver 6 semaines à l'avance · Scènes ouvertes confirmées le mois précédent.</p>
-          </div>
-        </div>
-      </div>
-
-      <form class="form" id="bookingForm" novalidate data-reveal>
-        <div class="field-row">
-          <div class="field">
-            <label for="nom">Votre nom</label>
-            <input type="text" id="nom" name="nom" autocomplete="name" required>
-            <p class="field__error" data-error-for="nom" hidden>Indiquez votre nom.</p>
-          </div>
-          <div class="field">
-            <label for="email">Votre e-mail</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-            <p class="field__error" data-error-for="email" hidden>Indiquez un e-mail valide.</p>
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="structure">Structure</label>
-            <input type="text" id="structure" name="structure" placeholder="Lycée, entreprise, médiathèque…">
-          </div>
-          <div class="field">
-            <label for="format">Format souhaité</label>
-            <select id="format" name="format" required>
-              <option value="">Choisir…</option>
-              <option>Atelier scolaire (3 h)</option>
-              <option>Parcours scolaire (10 séances)</option>
-              <option>Demi-journée entreprise</option>
-              <option>Stage tout public</option>
-              <option>Scène ouverte</option>
-              <option>Je ne sais pas encore</option>
-            </select>
-            <p class="field__error" data-error-for="format" hidden>Choisissez un format, même approximatif.</p>
-          </div>
-        </div>
-
+    <form class="form" id="bookingForm" novalidate data-reveal>
+      <div class="field-row">
         <div class="field">
-          <label for="message">Votre contexte</label>
-          <textarea id="message" name="message" placeholder="Le nombre de participants, la période visée, ce que vous aimeriez qu'il se passe…" required></textarea>
-          <p class="field__error" data-error-for="message" hidden>Deux lignes suffisent, mais il en faut deux.</p>
+          <label for="nom">Votre nom</label>
+          <input type="text" id="nom" name="nom" autocomplete="name" required>
+          <p class="field__error" data-error-for="nom" hidden>Indiquez votre nom.</p>
         </div>
-
-        <button class="btn btn--primary btn--block" type="submit" data-magnetic>Envoyer la demande</button>
-        <p class="form__note">Ce formulaire ouvre votre messagerie avec la demande pré-remplie. Aucune donnée n'est stockée sur ce site.</p>
-        <p class="form__status" id="formStatus" role="status" hidden></p>
-      </form>
-    </div>
+        <div class="field">
+          <label for="email">Votre e-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+          <p class="field__error" data-error-for="email" hidden>Indiquez un e-mail valide.</p>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="structure">Structure</label>
+          <input type="text" id="structure" name="structure" placeholder="Lycée, entreprise, médiathèque…">
+        </div>
+        <div class="field">
+          <label for="format">Atelier souhaité</label>
+          <select id="format" name="format" required>
+            <option value="">Choisir…</option>
+            <option>Ateliers slam</option>
+            <option>Battle de compliments</option>
+            <option>Ateliers éloquence</option>
+            <option>Ateliers rap</option>
+            <option>Je ne sais pas encore</option>
+          </select>
+          <p class="field__error" data-error-for="format" hidden>Choisissez un atelier, même approximatif.</p>
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">Votre contexte</label>
+        <textarea id="message" name="message" placeholder="Le nombre de participants, la période visée, ce que vous aimeriez qu'il se passe…" required></textarea>
+        <p class="field__error" data-error-for="message" hidden>Deux lignes suffisent, mais il en faut deux.</p>
+      </div>
+      <button class="btn btn--yellow btn--block" type="submit">Envoyer la demande</button>
+      <p class="form__note">Ce formulaire ouvre votre messagerie avec la demande pré-remplie. Aucune donnée n'est stockée sur ce site.</p>
+      <p class="form__status" id="formStatus" role="status" hidden></p>
+    </form>
   </div>
 </section>
 
-<!-- ======================= CTA FINAL ======================= -->
-<section class="section">
-  <div class="container content">
-    <div class="cta-band" data-reveal>
-      <div class="blob-field" aria-hidden="true">
-        <span class="blob blob--terracotta shape-1 blob--float" style="width:170px;height:160px;top:-10%;left:-4%;opacity:.85"></span>
-        <span class="blob blob--lavender shape-3 blob--float-slow" style="width:140px;height:130px;bottom:-12%;right:-3%;opacity:.8"></span>
-        <span class="blob blob--sky shape-4 blob--morph" style="width:80px;height:80px;top:18%;right:12%;opacity:.7"></span>
-      </div>
-      <div class="content">
-        <h2 class="heading-lg">Trois minutes. Un micro. Personne n'est jamais mort de ça.</h2>
-        <p>Écrivez-nous la semaine prochaine ou dans six mois — mais écrivez-nous avant d'avoir trouvé une bonne raison de ne pas le faire.</p>
-        <div class="btn-row btn-row--center">
-          <a class="btn btn--on-dark" data-magnetic href="#contact">Réserver un atelier</a>
-          <a class="btn btn--outline" style="border-color:#e39a4d;color:#f6ddc4" href="#agenda">Venir voir une scène d'abord</a>
-        </div>
-      </div>
+<!-- ================= MODULE 8 — CTA FINAL ================= -->
+<section class="section wrap center">
+  <div class="collage" data-reveal aria-hidden="true" style="margin-top:0">
+    <div class="collage__piece collage__left"></div>
+    <div class="collage__piece collage__center" data-label="Votre photo de scène"></div>
+    <div class="collage__piece collage__right"></div>
+    <div class="collage__piece collage__banner"><span>ta voix</span></div>
+  </div>
+
+  <div class="measure" style="margin-top:clamp(40px,9vw,64px)" data-reveal>
+    <h2 class="h2">Si tu hoches la tête, tu n'es pas seul.</h2>
+    <p class="lead mute" style="margin-top:24px">Plus de 1 200 personnes sont passées par ces ateliers.
+      La plupart pensaient qu'elles n'écriraient rien. Écris-nous avant d'avoir trouvé une bonne raison
+      de ne pas le faire.</p>
+    <div class="btn-row btn-row--center" style="margin-top:32px">
+      <a class="btn btn--yellow" href="#contact">Réserve ton atelier</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ======================= FOOTER ======================= -->
+<!-- ================= MODULE 9 — PIED DE PAGE NOIR ================= -->
 <footer class="footer">
-  <div class="container">
+  <div class="wrap">
+    <p class="footer__logo">poetrip</p>
+    <p class="footer__copy">© <span id="year">2026</span> Poetrip — Ateliers slam</p>
+
     <div class="footer__grid">
-      <div>
-        <a class="logo" href="#top">
-          <span class="logo__mark" aria-hidden="true"></span>
-          poetrip
-        </a>
-        <p class="footer__blurb">Ateliers de slam et d'écriture. De la page blanche à la scène ouverte, partout en France.</p>
-      </div>
       <div>
         <h3>Ateliers</h3>
         <ul>
@@ -923,19 +658,19 @@
       <div>
         <h3>Publics</h3>
         <ul>
-          <li><a href="#formats">Collèges &amp; lycées</a></li>
-          <li><a href="#formats">Entreprises</a></li>
-          <li><a href="#formats">Stages tout public</a></li>
-          <li><a href="#agenda">Scènes ouvertes</a></li>
+          <li><a href="#contact">Collèges &amp; lycées</a></li>
+          <li><a href="#contact">Entreprises</a></li>
+          <li><a href="#contact">Collectivités</a></li>
+          <li><a href="#agenda">Tout public</a></li>
         </ul>
       </div>
       <div>
         <h3>Le projet</h3>
         <ul>
-          <li><a href="#methode">La méthode</a></li>
           <li><a href="#atelier-express">Atelier express</a></li>
+          <li><a href="#agenda">Agenda</a></li>
           <li><a href="#temoignages">Témoignages</a></li>
-          <li><a href="#faq">Questions fréquentes</a></li>
+          <li><a href="#faq">Questions</a></li>
         </ul>
       </div>
       <div>
@@ -947,9 +682,17 @@
       </div>
     </div>
 
-    <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Poetrip — Ateliers slam</span>
-      <span>Site sans cookie, sans tracker, sans analytics.</span>
+    <div class="socials">
+      <a href="#contact" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.7 0 3.1 0 4.1.06 1 .05 1.7.2 2.3.44.6.24 1.1.55 1.6 1.05s.8 1 1.05 1.6c.24.6.4 1.3.44 2.3.05 1 .06 1.4.06 4.1s0 3.1-.06 4.1c-.05 1-.2 1.7-.44 2.3a4.4 4.4 0 0 1-1.05 1.6c-.5.5-1 .8-1.6 1.05-.6.24-1.3.4-2.3.44-1 .05-1.4.06-4.1.06s-3.1 0-4.1-.06c-1-.05-1.7-.2-2.3-.44a4.4 4.4 0 0 1-1.6-1.05c-.5-.5-.8-1-1.05-1.6-.24-.6-.4-1.3-.44-2.3C2.01 15.1 2 14.7 2 12s0-3.1.06-4.1c.05-1 .2-1.7.44-2.3.24-.6.55-1.1 1.05-1.6s1-.8 1.6-1.05c.6-.24 1.3-.4 2.3-.44C8.9 2.01 9.3 2 12 2zm0 1.8c-2.66 0-2.98.01-4.03.06-.97.04-1.5.2-1.85.34-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.14.35-.3.88-.34 1.85-.05 1.05-.06 1.37-.06 4.03s.01 2.98.06 4.03c.4.97.2 1.5.34 1.85.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.14.88.3 1.85.34 1.05.05 1.37.06 4.03.06s2.98-.01 4.03-.06c.97-.04 1.5-.2 1.85-.34.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.14-.35.3-.88.34-1.85.05-1.05.06-1.37.06-4.03s-.01-2.98-.06-4.03c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 0 0-.75-1.15 3.1 3.1 0 0 0-1.15-.75c-.35-.14-.88-.3-1.85-.34-1.05-.05-1.37-.06-4.03-.06zm0 3.07a5.13 5.13 0 1 1 0 10.26 5.13 5.13 0 0 1 0-10.26zm0 8.46a3.33 3.33 0 1 0 0-6.66 3.33 3.33 0 0 0 0 6.66zm6.54-8.66a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+      <a href="#contact" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.7-1.8C19.3 5 12 5 12 5s-7.3 0-8.9.5c-.8.2-1.5.9-1.7 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.7 1.8 1.6.5 8.9.5 8.9.5s7.3 0 8.9-.5c.8-.2 1.5-.9 1.7-1.8.4-1.5.4-4.7.4-4.7zM9.7 15.3V8.7l6.1 3.3-6.1 3.3z"/></svg></a>
+      <a href="#contact" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+    </div>
+
+    <div class="footer__legal">
+      <a href="#contact">Mentions légales</a>
+      <a href="#contact">Confidentialité</a>
+      <a href="#faq">Questions fréquentes</a>
+      <a href="#contact">Nous contacter</a>
     </div>
   </div>
 </footer>

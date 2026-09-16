@@ -6,18 +6,35 @@ aucun tracker — trois fichiers et c'est en ligne.
 
 ## Aperçu
 
-| Section | Contenu |
+Le visuel suit podia.com, relevé sur captures : header jaune fixe, canvas blanc
+cassé, titres grotesques serrés, cartes gris clair, panneaux de couleur griffés
+de traits fins, pied de page noir. Les couleurs sont échantillonnées au pixel.
+
+| # | Module | Contenu |
+|---|--------|---------|
+| 1 | Header jaune fixe | Logo script, bouton noir, burger (mobile) / méga menu (ordinateur) |
+| 2 | Hero | Titre géant centré, sous-titre, bouton jaune, collage papier |
+| 3 | Chiffres | Trois nombres géants, empilés sur mobile, en ligne sur ordinateur |
+| 4 | Collage + texte | Collage, puis titre, paragraphe long, bouton jaune + lien souligné |
+| 5 | Titre entouré | « Découvre l'intérieur », cercle tracé au feutre à l'arrivée à l'écran |
+| 6 | Cartes produit | Zone grise (titre, texte, bouton noir) + panneau coloré avec maquette |
+| — | Atelier express | Machine à consignes + chrono de scène de 3 min |
+| — | Agenda | Dates filtrables par catégorie |
+| 7 | Témoignages | Carrousel de cartes colorées, pastilles de pagination |
+| — | FAQ · Contact | Accordéon et formulaire de devis |
+| 8 | CTA final | Collage, titre, sous-titre, bouton jaune |
+| 9 | Pied de page noir | Logo script, quatre colonnes, réseaux, mentions |
+
+### Palette relevée
+
+| Rôle | Valeur |
 |---|---|
-| Bandeau | Annonce en haut de page, terracotta, défile avec la page |
-| Navigation | Méga menu « Les ateliers » : par atelier + par public |
-| Hero | Titre à mot tournant, blobs en parallaxe, trois cartes de format |
-| Les ateliers | Slam (terracotta) · Battle de compliments (lavender) · Éloquence (sky) · Rap (cream) |
-| Publics | Scolaire (sky) · Entreprises (terracotta) · Tout public (lavender) |
-| Méthode | Les quatre temps d'un atelier, avec leur durée |
-| Écrire / Dire / Monter sur scène | Trois blocs deux colonnes alternés |
-| Atelier express | Machine à consignes (tirage aléatoire) + chrono de scène de 3 min |
-| Agenda | Dates filtrables par catégorie |
-| Témoignages · FAQ · Contact | Cartes, accordéon, formulaire validé côté client |
+| Jaune header et boutons | `#fdc837` |
+| Canvas | `#fdfdfc` |
+| Carte grise | `#f4f3f1` |
+| Encre | `#1a1a1a` |
+| Pied de page | `#1b1a18` |
+| Turquoise / magenta / vert / pervenche | `#55e7dd` `#ff98ff` `#88e2b3` `#96b4fc` |
 
 ## Lancer en local
 
@@ -39,9 +56,10 @@ assets/js/app.js      Interactions (sans dépendance)
 
 ## Personnaliser
 
-**Le bandeau d'annonce** est le bloc `.announce`, tout en haut de `index.html` :
-un texte et un lien, à changer à chaque nouvelle annonce. Le supprimer entièrement
-ne casse rien.
+**Les photos.** Les collages contiennent des emplacements gris marqués « votre
+photo d'atelier » (`.collage__center`). Remplacez le bloc par une balise `<img>`
+pour que le collage prenne vie : les aplats de couleur autour sont conçus pour
+encadrer une vraie photo.
 
 **Le méga menu** est le bloc `.mega` dans `<header class="nav">`. Chaque entrée
 pointe aujourd'hui vers une ancre de la page (`#atelier-slam`, `#atelier-rap`…) :
