@@ -342,16 +342,12 @@ ${shot(0)}
       <h3>${p.definition[0]}</h3>
       <p>${p.definition[1]}</p>
     </div>
-${shot(1)}
-  </div>
-</section>
-
-<section class="section section--close wrap">
-  <div class="measure-wide" data-reveal>
-    <h2 class="h2">Et côté équipe pédagogique</h2>
-    <p class="body-lg mute" style="margin-top:24px">${p.school}</p>
-    <div class="btn-row" style="margin-top:32px">
-      <a class="btn btn--yellow" href="index.html#contact">Parler de votre projet</a>
+    <div class="def def--neutre" data-reveal>
+      <h3>Et côté équipe pédagogique</h3>
+      <p>${p.school}</p>
+      <div class="btn-row" style="margin-top:auto;padding-top:clamp(20px,3vw,28px)">
+        <a class="btn btn--yellow" href="index.html#contact">Parler de votre projet</a>
+      </div>
     </div>
   </div>
 </section>

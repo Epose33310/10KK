@@ -1353,6 +1353,7 @@ input, textarea, select { font: inherit; color: inherit; }
   border-radius: 18px;
   padding: clamp(24px, 4vw, 36px) clamp(22px, 4vw, 38px);
 }
+.def--neutre { background: var(--card); }
 .def--turquoise { background: var(--turquoise); }
 .def--periwinkle { background: var(--periwinkle); }
 .def--green { background: var(--green); }
@@ -1580,6 +1581,8 @@ input, textarea, select { font: inherit; color: inherit; }
 .shot {
   display: flex;
   justify-content: center;
+  /* Sans cela, une colonne étirée étire aussi la photo : le rapport saute. */
+  align-items: center;
   /* Le cadre épouse la photo au lieu de l'étaler sur toute la largeur :
      les formats verticaux ne flottent plus au milieu d'un aplat vide. */
   width: fit-content;
@@ -1611,15 +1614,24 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 
 @media (min-width: 900px) {
+  /* Deux colonnes strictement égales, en largeur comme en hauteur : c'est
+     l'égalité des deux blocs qui fait tenir la paire. */
   .paire {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start;
+    align-items: stretch;
     gap: clamp(32px, 4vw, 56px);
   }
-  .paire--faq { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); }
-  /* La photo accompagne la lecture du bloc en face d'elle. */
-  .paire > .shot { position: sticky; top: calc(var(--header-h) + 28px); }
-  .paire--def > .shot { position: static; }
+  .paire > .shot { width: 100%; margin-block: 0; }
+  .paire > .def { display: flex; flex-direction: column; }
+}
+
+/* En face de la FAQ, la photo se passe de cadre : deux aplats de couleur
+   coup sur coup dans la même page, c'était un de trop. */
+.paire--faq > .shot {
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
 }
 
 /* Le déroulé et la vidéo côte à côte sur grand écran. La vidéo reste en vue
