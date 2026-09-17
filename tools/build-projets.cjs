@@ -49,6 +49,237 @@ const teinteDe = (a) => a.teinte || COULEUR[a.atelier] || 'yellow';
 const ARTICLES = [
 /* ====================================================================== 1 */
 {
+  slug: 'atelier-slam-adultes-etauliers-queskonfabrik',
+  ordre: 180,
+  atelier: 'slam',
+  h1: 'Un atelier slam pour adultes à la Maison Baffort, à Étauliers',
+  seo: 'Atelier slam pour adultes — Maison Baffort, Étauliers',
+  meta: "Un atelier slam pour adultes à la Maison Baffort d'Étauliers, à l'invitation de l'association Queskonfabrik : trois heures d'écriture, une scène ouverte, et un maire qui s'est prêté au jeu.",
+  chapo: "À la Maison Baffort d'Étauliers, l'association Queskonfabrik m'a invité à mener un atelier slam pour un groupe d'adultes. Trois heures d'écriture, une scène ouverte qui a rempli la petite salle, et une envie commune d'en refaire une tradition.",
+  lieu: 'Maison Baffort, Étauliers (Gironde)',
+  publics: 'Groupe d’adultes volontaires (7 participants), dont le maire de la commune',
+  format: '3 h d’atelier, restitution en scène ouverte de 1 h 30',
+  motCle: 'atelier slam pour adultes',
+  secondes: ['atelier slam association', 'scène ouverte slam Gironde'],
+  images: {
+    principale: { src: 'scene-ouverte-slam-etauliers.jpg',
+      alt: 'Un petit groupe assis en cercle autour d’une personne qui performe, dans une salle intimiste',
+      legende: 'La scène ouverte a rempli la petite scène d’intérieur de la Maison Baffort.' },
+    deux: { src: 'atelier-slam-petit-groupe-adultes.jpg',
+      alt: 'Un intervenant s’adresse à un petit groupe assis, dans une ambiance de proximité' },
+    trois: { src: 'carnet-mon-texte-atelier-slam.jpg',
+      alt: 'Un carnet ouvert sur lequel est écrit : mon texte',
+      legende: 'Chaque participant est reparti avec un texte qu’il a choisi de dire devant les siens.' },
+  },
+  corps: [
+    ['p', `L'association <b>Queskonfabrik</b> m'a contacté pour animer un <b>atelier slam</b> à la Maison Baffort, à Étauliers. Un format resserré — trois heures d'écriture suivies d'une heure et demie de scène ouverte — pour un groupe d'adultes venus par curiosité, sans autre obligation que l'envie.`],
+
+    ['h2', 'Le contexte : un public adulte, un cadre associatif'],
+    ['p', `Les <a href="atelier-slam.html">ateliers slam</a> que je mène s'adressent le plus souvent à des scolaires ; celui-ci s'adressait à des adultes, réunis par une association locale plutôt que par un établissement. Le cadre change tout : personne n'est là par obligation, chacun vient avec son propre rapport à l'écriture, parfois abandonné depuis des années. Queskonfabrik cherchait précisément ce type de proposition — une activité culturelle accessible, ouverte à tous les habitants de la commune, sans prérequis.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le déroulement de l’atelier'],
+    ['p', `Sept participants se sont présentés, un nombre qui permet un accompagnement presque individuel. Parmi eux, le maire de la commune, venu comme n'importe qui d'autre et qui s'est prêté au jeu de l'écriture avec la même application que les autres — un détail qui a beaucoup contribué à l'ambiance générale : personne ne se sentait au-dessus ou en dessous de l'exercice.`],
+    ['p', `Les trois heures d'atelier ont suivi une progression classique — jeux oraux, collecte d'images personnelles, écriture, premiers essais à voix haute — mais avec un rythme différent de celui d'une classe : plus de temps par personne, plus d'échanges informels entre les textes, une ambiance que je qualifierais volontiers de cosy. L'heure et demie de scène ouverte qui a suivi n'était pas réservée aux seuls participants : elle était annoncée comme ouverte à tous, ce qui a changé la nature de la restitution.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Avec des adultes, on peut aller plus vite sur certains aspects — la compréhension de la consigne, la lecture d'un texte à voix haute — mais le travail sur l'image et la construction reste identique à celui que je mène ailleurs : comparaison, détail concret, économie de mots. Ce qui change surtout, c'est la matière : les adultes puisent dans un passé plus long, ce qui donne des textes différents, parfois plus directement personnels.`],
+
+    ['h2', 'Ce que les participants ont travaillé'],
+    ['p', `L'atelier a offert un espace pour écrire sans enjeu scolaire ni professionnel — une rareté pour beaucoup d'adultes, qui n'ont plus l'occasion d'écrire un texte personnel depuis longtemps. Les participants ont aussi été amenés à prendre la parole devant un public qui dépassait le seul groupe de l'atelier, puisque la scène ouverte a attiré du monde venu de l'extérieur.`],
+
+    ['img', 'trois'],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `La scène ouverte a rempli la petite scène d'intérieur de l'établissement — bien au-delà des sept participants de l'atelier. Chacun d'entre eux est passé, sous le regard des familles venues assister, et la soirée a eu assez de succès pour que nous nous disions, sur place, que nous voulions en faire un rendez-vous récurrent.`],
+
+    ['expert', {
+      titre: 'Un atelier slam pour un public adulte, ce qui change',
+      qr: [
+        ['Un atelier slam fonctionne-t-il aussi bien avec des adultes qu’avec des scolaires ?',
+         `Tout à fait, et parfois mieux : sans contrainte scolaire, l'engagement est spontané et les textes puisent dans une expérience de vie plus large. La seule différence notable est le rythme, plus posé, et le besoin de moins insister sur la légitimité à écrire — un frein plus fréquent chez l'adulte que chez l'adolescent, curieusement.`],
+        ['Une association peut-elle organiser ce type d’atelier sans lien avec une école ?',
+         `Oui, c'est même un cadre que j'apprécie particulièrement. Une association ou une municipalité peut très bien porter un atelier slam ouvert aux habitants, avec une restitution en scène ouverte plutôt qu'un spectacle formel. C'est un format léger à mettre en place et qui crée du lien à l'échelle d'une commune.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Ce qui m'a marqué dans ce projet, c'est la vitesse à laquelle un groupe d'adultes venus par simple curiosité s'est transformé en une soirée de scène ouverte qui a rempli la salle. Si votre association ou votre commune veut proposer une activité d'écriture accessible à tous les habitants, <a href="index.html#contact">on peut construire ensemble un format comme celui-ci</a>.`],
+  ],
+},
+
+/* ====================================================================== 2 */
+{
+  slug: 'atelier-rap-stage-opus-rocher-de-palmer',
+  ordre: 170,
+  atelier: 'rap',
+  h1: 'Un stage de rap pour le projet OPUS, au Rocher de Palmer',
+  seo: 'Atelier rap et masterclass — projet OPUS au Rocher de Palmer, Cenon',
+  meta: "Un stage de rap de quatre heures pour de jeunes passionnés des métiers de la musique, dans le cadre du projet OPUS au Rocher de Palmer, à Cenon : conseils individuels et échange collectif sur le métier.",
+  chapo: "Dans le cadre du projet OPUS, de jeunes stagiaires se formant aux métiers de la musique ont suivi un stage de rap au Rocher de Palmer, à Cenon. Conseils individuels sur leurs textes, échange collectif sur le métier.",
+  lieu: 'Rocher de Palmer, Cenon',
+  publics: 'Jeunes en stage, passionnés par les métiers de la musique (projet OPUS)',
+  format: '4 h d’atelier et de masterclass',
+  motCle: 'atelier rap masterclass',
+  secondes: ['stage rap métiers de la musique', 'atelier rap Cenon'],
+  images: {
+    principale: { src: 'micro-profil-rap-masterclass.jpg',
+      alt: 'Un jeune rappeur de profil, casquette vissée, au plus près du micro',
+      legende: 'Le stage s’adressait à des jeunes déjà engagés dans une pratique musicale.' },
+    deux: { src: 'horizon-avenir-metiers-musique.jpg',
+      alt: 'Un groupe de jeunes assis face à un paysage urbain, regardant au loin' },
+  },
+  corps: [
+    ['p', `Le <b>Rocher de Palmer</b>, à Cenon, m'a confié un <b>stage de rap</b> dans le cadre du projet OPUS : un dispositif qui permet à des jeunes passionnés par les métiers artistiques de se former aux métiers de la musique le temps d'un stage. Quatre heures d'atelier et de masterclass, entre conseils individuels et échanges collectifs sur le métier.`],
+
+    ['h2', 'Le contexte : un public déjà engagé dans la musique'],
+    ['p', `Contrairement à un <a href="atelier-rap.html">atelier rap</a> classique en milieu scolaire, ce stage s'adressait à des jeunes déjà tournés vers une pratique musicale, dans une logique de professionnalisation plutôt que de découverte. Le projet OPUS les réunit autour des métiers de la musique — technique, production, interprétation — et mon intervention portait spécifiquement sur le rap : l'écriture, mais aussi tout ce qui entoure la construction d'un projet artistique.`],
+
+    ['h2', 'Le déroulement du stage'],
+    ['p', `Le format s'est organisé en deux temps. D'abord, des conseils individuels très ciblés sur ce que chaque jeune apportait déjà : sa musique, sa direction artistique, ses ambitions. Ce n'était pas un atelier d'initiation — chacun avait un projet en cours, et le travail consistait à l'affiner plutôt qu'à le créer de zéro. Ensuite, un temps collectif consacré aux métiers de la musique : la réalité de l'intermittence, la question du rapport à la famille quand on choisit cette voie, les à-côtés du métier qu'on ne voit pas depuis l'extérieur.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Sur le plan artistique, le travail a porté sur la direction artistique du projet de chaque participant : cohérence entre le texte, l'image et l'ambition affichée. Sur le plan professionnel, l'échange a couvert des sujets que je n'aborde pas dans un atelier scolaire classique — le statut d'intermittent, la manière d'annoncer un choix de carrière artistique à sa famille, la patience que demande ce métier avant de pouvoir en vivre.`],
+
+    ['h2', 'Ce que les participants ont travaillé'],
+    ['p', `Les stagiaires ont été amenés à regarder leur pratique avec un peu de recul — un exercice difficile quand on est en plein dedans — et à mettre des mots sur leur ambition plutôt que de la laisser floue. L'échange collectif leur a aussi permis d'entendre que les questions qu'ils se posaient sur le métier étaient partagées par tout le groupe, ce qui a visiblement allégé certaines inquiétudes.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `L'échange sur le rapport à la famille a pris plus de place que prévu dans le temps collectif. Plusieurs jeunes ont raconté la difficulté à faire accepter un choix de carrière artistique dans leur entourage, et le groupe s'est mis à se répondre entre eux plus qu'à m'écouter — signe, je crois, que la question les concernait tous directement.`],
+
+    ['expert', {
+      titre: 'Le rap comme formation professionnelle, ce que ça implique',
+      qr: [
+        ['En quoi un stage comme celui du projet OPUS diffère-t-il d’un atelier rap scolaire ?',
+         `L'objectif change complètement : il ne s'agit plus de découvrir l'écriture, mais d'accompagner un projet déjà engagé. Les conseils sont individuels et techniques, et une partie du temps est consacrée à la réalité du métier plutôt qu'à l'exercice d'écriture lui-même.`],
+        ['Peut-on aborder des sujets comme l’intermittence ou le rapport à la famille dans ce cadre ?',
+         `Oui, et c'est même souvent ce que ces jeunes attendent le plus. Ils ont généralement déjà les bases techniques ; ce qui leur manque, c'est un espace pour parler concrètement de ce que ce métier implique au quotidien, avec quelqu'un qui l'a vécu.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Ce stage a confirmé ce que je constate souvent avec un public déjà engagé dans la musique : le vrai besoin n'est pas toujours technique, il est aussi humain — être entendu sur les doutes qu'on n'ose pas formuler ailleurs. Si votre structure accompagne de jeunes artistes vers une professionnalisation, <a href="index.html#contact">parlons du format qui conviendrait</a>.`],
+  ],
+},
+
+/* ====================================================================== 3 */
+{
+  slug: 'atelier-battle-de-compliments-college-beaucaire',
+  ordre: 160,
+  atelier: 'battle',
+  h1: 'Une semaine de battle de compliments dans un collège de Beaucaire',
+  seo: 'Atelier battle de compliments intensif — collège de Beaucaire',
+  meta: "Douze heures de battle de compliments en une semaine, avec deux classes d'un collège de Beaucaire : un format immersif jusqu'à une restitution dans le hall, acclamée par des centaines d'élèves.",
+  chapo: "En une semaine, deux classes d'un collège de Beaucaire ont vécu un format immersif de battle de compliments — environ douze heures au total — jusqu'à une restitution dans le hall, sous les acclamations de centaines d'élèves.",
+  lieu: 'Beaucaire (Gard)',
+  publics: 'Deux classes de collège',
+  format: 'Environ 12 h en une semaine, restitution dans le hall du collège',
+  motCle: 'atelier battle de compliments collège',
+  secondes: ['atelier slam intensif une semaine', 'restitution battle de compliments collège'],
+  images: {
+    principale: { src: 'atelier-ecriture-classe-college-beaucaire.jpg',
+      alt: 'Un intervenant s’adresse à une classe de collège devant le tableau',
+      legende: 'Douze heures en une semaine : un format resserré qui a porté sa propre énergie.' },
+    deux: { src: 'eleves-mains-levees-restitution.jpg',
+      alt: 'Des élèves lèvent la main dans une salle de classe, pleins d’énergie' },
+  },
+  corps: [
+    ['p', `Un collège de <b>Beaucaire</b>, dans le Gard, m'a confié une semaine de <b>battle de compliments</b> avec deux classes : environ douze heures d'atelier concentrées sur cinq jours, jusqu'à une restitution dans le hall du collège qui a rassemblé des centaines d'élèves.`],
+
+    ['h2', 'Le contexte : un format resserré dans le temps'],
+    ['p', `Répartir douze heures sur une semaine plutôt que sur plusieurs mois change complètement la dynamique d'un projet. Les élèves n'ont pas le temps d'oublier une séance avant la suivante, l'écriture reste en tête en dehors de l'atelier, et l'ensemble du collège finit par être au courant du projet avant même la restitution — l'effet d'annonce joue à plein.`],
+
+    ['h2', 'Le déroulement de la semaine'],
+    ['p', `Le <a href="atelier-battle.html">battle de compliments</a> se prête bien à ce format immersif : chaque séance nourrit directement la suivante, sans le temps mort qu'impose un rythme hebdomadaire habituel. Les deux classes ont travaillé en parallèle une bonne partie de la semaine, avant un dernier temps commun consacré aux répétitions et à la mise en place de la restitution dans le hall — un lieu de passage que tout le collège traverse plusieurs fois par jour, donc un choix loin d'être neutre pour l'ampleur de l'événement.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Le travail suit la progression habituelle du battle de compliments — observation, comparaison, rythme de la punchline — mais la concentration sur une semaine a permis d'aller plus vite sur chaque étape, les élèves gardant en mémoire fraîche ce qui avait été vu la veille. C'est un format qui demande de l'énergie, pour eux comme pour moi, mais qui produit des textes très aboutis en peu de temps.`],
+
+    ['h2', 'Ce que les élèves ont travaillé'],
+    ['p', `Ce format immersif permet de travailler l'écriture et la prise de parole dans une continuité que les emplois du temps scolaires classiques ne permettent pas. Les élèves ont aussi été amenés à gérer une forme de pression inhabituelle : savoir qu'ils allaient se produire devant tout le collège quelques jours seulement après avoir commencé à écrire.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `La restitution dans le hall a rassemblé des centaines d'élèves venus acclamer les punchlines, dans une énergie que je qualifierais sans exagérer de folle. Un format aussi resserré dans le temps aurait pu jouer contre l'ampleur de l'événement ; il l'a au contraire renforcée, comme si toute la semaine avait construit une attente collective jusqu'à ce moment précis.`],
+
+    ['expert', {
+      titre: 'Organiser un atelier intensif sur une semaine',
+      qr: [
+        ['Pourquoi choisir un format resserré sur une semaine plutôt qu’étalé sur plusieurs mois ?',
+         `Un format intensif crée une dynamique différente : les élèves gardent le projet en tête en continu, et l'ensemble de l'établissement finit par être au courant avant la restitution. C'est un choix pertinent quand on cherche un effet fédérateur rapide, par exemple pour marquer un temps fort dans l'année.`],
+        ['Une restitution dans un lieu de passage comme un hall, est-ce risqué ?',
+         `C'est au contraire souvent ce qui en fait la réussite. Un hall traversé par tout l'établissement transforme la restitution en événement collectif plutôt qu'en spectacle réservé à quelques classes invitées. Il faut simplement anticiper la logistique — l'acoustique, la circulation, les horaires de passage.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Cette semaine a montré qu'un format intensif de battle de compliments peut produire une énergie collective qui dépasse largement les deux classes concernées. Si votre établissement cherche à marquer un temps fort sur une semaine plutôt que sur un trimestre, <a href="index.html#contact">on peut construire ce format ensemble</a>.`],
+  ],
+},
+
+/* ====================================================================== 4 */
+{
+  slug: 'atelier-rap-accordeur-saint-denis-de-pile-rap-et-pizza',
+  ordre: 150,
+  atelier: 'rap',
+  teinte: 'yellow',
+  h1: 'Rap & Pizza : un atelier rap à l’Accordeur, à Saint-Denis-de-Pile',
+  seo: 'Atelier rap « Rap & Pizza » — L’Accordeur, Saint-Denis-de-Pile',
+  meta: "Un atelier rap de six heures dans le cadre de « Rap & Pizza », à l'Accordeur de Saint-Denis-de-Pile : de l'écriture à la présence scénique, avec des jeunes de 16 à 23 ans déjà habitués à écrire.",
+  chapo: "À l'Accordeur, à Saint-Denis-de-Pile, j'ai animé la partie atelier rap d'un projet hybride baptisé « Rap & Pizza », de l'écriture à la présence scénique, avec des jeunes de 16 à 23 ans déjà habitués à écrire.",
+  lieu: 'L’Accordeur, Saint-Denis-de-Pile (Gironde)',
+  publics: 'Jeunes de 16 à 23 ans, déjà habitués à l’écriture',
+  format: '6 h d’atelier, restitution lors d’un petit festival',
+  motCle: 'atelier rap présence scénique',
+  secondes: ['atelier rap Gironde', 'restitution rap festival'],
+  images: {
+    principale: { src: 'intervenant-petit-groupe-rap.jpg',
+      alt: 'Un intervenant s’adresse à un petit groupe assis dans une salle informelle',
+      legende: 'Une ambiance familiale, typique de l’Accordeur.' },
+    deux: { src: 'bureau-carnets-stylos-ecriture.jpg',
+      alt: 'Un bureau couvert de carnets et de stylos, prêt pour une séance d’écriture' },
+  },
+  corps: [
+    ['p', `L'Accordeur, à <b>Saint-Denis-de-Pile</b>, m'a invité à animer la partie <b>atelier rap</b> d'un projet hybride baptisé « Rap & Pizza », construit avec plusieurs associations partenaires — vidéo, enregistrement, et pour ma part l'écriture et la présence scénique. Six heures d'atelier, avec des jeunes de 16 à 23 ans déjà habitués à écrire.`],
+
+    ['h2', 'Le contexte : un projet à plusieurs mains'],
+    ['p', `« Rap & Pizza » n'est pas un atelier isolé : c'est un format construit à plusieurs associations, chacune apportant sa spécialité — la vidéo, l'enregistrement studio, et pour la partie qui me concernait, l'écriture et le passage à la présence scénique. Ce type de montage change la place de l'intervenant : je ne suis qu'une des briques du projet, ce qui suppose de bien caler mon temps avec celui des autres intervenants.`],
+
+    ['h2', 'Le déroulement de l’atelier'],
+    ['p', `Le public de ce projet était différent de ce que je croise habituellement : des jeunes de 16 à 23 ans, déjà habitués à écrire de leur côté, venus avec une vraie appétence pour le <a href="atelier-rap.html">rap</a> plutôt qu'en découverte. Les six heures ont couvert l'écriture — affiner des textes parfois déjà entamés — puis la présence scénique : comment tenir un micro, occuper un espace, adresser un texte à un public plutôt que de le réciter les yeux baissés.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Avec un public déjà familier de l'écriture, le travail a porté moins sur les bases que sur l'incarnation du texte : placement de la voix, gestion du micro, occupation de l'espace scénique. C'est un temps qui manque souvent aux jeunes qui écrivent seuls chez eux et n'ont pas l'occasion de tester leurs textes devant un public avant une vraie scène.`],
+
+    ['h2', 'Ce que les participants ont travaillé'],
+    ['p', `L'atelier a permis de travailler le passage de l'écrit à la scène — une étape que beaucoup de jeunes rappeurs autodidactes n'ont jamais eu l'occasion de préparer avec un regard extérieur. Les participants ont aussi profité du cadre pluridisciplinaire du projet pour réfléchir à leur univers visuel et sonore, au-delà du seul texte.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `La restitution s'est tenue lors d'un petit festival, dans une ambiance que je qualifierais de chic et bienveillante — familiale, comme l'est en général l'Accordeur, qui nous accueillait. Voir des jeunes qui écrivaient déjà depuis longtemps, seuls, présenter enfin leurs textes sur une vraie scène, avec le travail scénique qu'on avait mené ensemble, a donné à la soirée une justesse que je ne retrouve pas toujours.`],
+
+    ['expert', {
+      titre: 'Intervenir dans un projet associatif pluridisciplinaire',
+      qr: [
+        ['Comment un intervenant rap s’intègre-t-il dans un projet mené par plusieurs associations ?',
+         `En se concentrant sur sa spécialité et en calant son temps avec celui des autres intervenants. Sur « Rap & Pizza », je n'avais pas à me soucier de la vidéo ou de l'enregistrement : mon rôle se limitait à l'écriture et à la présence scénique, ce qui m'a permis d'aller plus loin sur ce point précis.`],
+        ['Un public déjà habitué à écrire demande-t-il une approche différente ?',
+         `Oui, largement. Avec des jeunes qui écrivent déjà, le travail porte moins sur les bases de l'écriture que sur ce qui leur manque réellement : ici, la présence scénique et le passage du texte écrit à la scène.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `« Rap & Pizza » a confirmé qu'un projet associatif à plusieurs mains peut offrir à des jeunes déjà engagés dans l'écriture ce qui leur manque le plus souvent : un vrai temps de travail sur la scène. Si votre association construit un projet pluridisciplinaire autour du rap, <a href="index.html#contact">parlons de la partie qui pourrait me revenir</a>.`],
+  ],
+},
+
+/* ====================================================================== 5 */
+{
   slug: 'ateliers-slam-battle-compliments-college-parentis-en-born',
   ordre: 140,
   atelier: 'slam',
@@ -114,7 +345,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 2 */
+/* ====================================================================== 6 */
 {
   slug: 'scene-slam-ouverte-rocher-de-palmer-nouveau-festival',
   ordre: 130,
@@ -178,7 +409,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 3 */
+/* ====================================================================== 7 */
 {
   slug: 'atelier-slam-egalite-filles-garcons-college-lege-cap-ferret',
   ordre: 120,
@@ -239,7 +470,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 4 */
+/* ====================================================================== 8 */
 {
   slug: 'atelier-slam-college-brantome-cours-de-musique',
   ordre: 110,
@@ -302,7 +533,7 @@ const ARTICLES = [
 },
 
 
-/* ====================================================================== 5 */
+/* ====================================================================== 9 */
 {
   slug: 'atelier-battle-de-compliments-structure-jeunesse-bassens',
   ordre: 100,
@@ -371,7 +602,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 6 */
+/* ====================================================================== 10 */
 {
   slug: 'atelier-ecriture-maison-des-adolescents-bordeaux',
   teinte: 'yellow',
@@ -435,7 +666,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 7 */
+/* ====================================================================== 11 */
 {
   slug: 'atelier-slam-college-arveyres-solidarite',
   ordre: 80,
@@ -506,7 +737,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 8 */
+/* ====================================================================== 12 */
 {
   slug: 'atelier-rap-ueaj-bordeaux',
   ordre: 70,
@@ -573,7 +804,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 9 */
+/* ====================================================================== 13 */
 {
   slug: 'atelier-slam-printemps-des-poetes-albi-blaye-les-mines',
   teinte: 'green',
