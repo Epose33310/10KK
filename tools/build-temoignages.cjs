@@ -189,9 +189,8 @@ ${header}<main id="main">
       <h3>Le palmarès</h3>
       <ul class="palms">${prix}
       </ul>
-      <p style="margin-top:auto;padding-top:clamp(18px,3vw,26px)">C’est ce parcours d’artiste en
-        activité qui nourrit les ateliers : ce qui se transmet en salle vient de la scène, pas d’un
-        manuel.</p>
+      <p style="margin-top:auto;padding-top:clamp(18px,3vw,26px)">Ce palmarès continue de
+        s’écrire sur le terrain : découvrez <a href="projets.html" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">les derniers projets d’Esope</a>.</p>
     </div>
   </div>
 </section>

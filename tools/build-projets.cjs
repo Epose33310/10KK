@@ -980,22 +980,11 @@ writeFileSync(join(root, 'projets.html'), page({
     })),
   }),
   corps: `
-<section class="page-hero wrap">
+<section class="wrap" style="padding-block:clamp(24px,5vw,40px) clamp(20px,4vw,28px)">
   <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l'accueil</a>
-  <div class="page-hero__band band--yellow">
-    <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M-20 70 C120 10 260 130 420 50 M-20 200 C100 150 300 260 420 190 M90 -20 C120 120 60 200 130 320 M300 -20 C280 110 350 190 300 320"/>
-    </svg>
-    <span class="page-hero__watermark" aria-hidden="true">Carnet</span>
-    <div class="page-hero__inner">
-      <h1>Les derniers projets</h1>
-      <p>Le journal de bord des interventions : ce qu'on a écrit, comment le groupe s'en est
-        emparé, et ce qu'il en reste une fois la scène de restitution terminée.</p>
-      <div class="btn-row">
-        <a class="btn btn--ink" href="index.html#contact">Construire mon projet</a>
-        <a class="btn btn--link" href="temoignages.html">Témoignages &amp; médias <span class="arrow" aria-hidden="true">→</span></a>
-      </div>
-    </div>
+  <div class="center" style="margin-top:clamp(18px,3vw,26px)">
+    <h1 class="h2" style="max-width:22ch;margin-inline:auto">Les derniers projets</h1>
+    <p class="lead mute" style="margin-top:16px">Le journal de bord des interventions d'Esope</p>
   </div>
 </section>
 
