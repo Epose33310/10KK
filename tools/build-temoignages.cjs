@@ -146,25 +146,6 @@ const html = `<!doctype html>
 ${header}<main id="main">
 <span id="top"></span>
 
-<section class="page-hero wrap">
-  <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l’accueil</a>
-  <div class="page-hero__band band--yellow">
-    <svg class="scribbles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M-20 70 C120 10 260 130 420 50 M-20 200 C100 150 300 260 420 190 M90 -20 C120 120 60 200 130 320 M300 -20 C280 110 350 190 300 320"/>
-    </svg>
-    <span class="page-hero__watermark" aria-hidden="true">Presse</span>
-    <div class="page-hero__inner">
-      <h1>Témoignages &amp; médias</h1>
-      <p>Ce que la presse a écrit sur les ateliers, ce que les structures en
-        ont dit, et ce que racontent celles et ceux qui m’ont fait intervenir.</p>
-      <div class="btn-row">
-        <a class="btn btn--ink" href="index.html#contact">Je construis un projet</a>
-        <a class="btn btn--link" href="assets/docs/dossier-esope.pdf" download>Télécharger le dossier <span class="arrow" aria-hidden="true">↓</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="marquee" aria-label="Les médias et structures qui ont parlé des ateliers">
   <div class="marquee__track">
     <span class="marquee__group">
@@ -178,7 +159,7 @@ ${header}<main id="main">
 
 <section class="section section--close wrap" id="presse">
   <div data-reveal style="margin-bottom:clamp(26px,5vw,40px)">
-    <h2 class="h2">La presse en parle</h2>
+    <h1 class="h2">La presse en parle</h1>
   </div>
   <div class="presses" data-stagger>${PRESSE.map(carte).join('')}
       <div class="filmcard">
