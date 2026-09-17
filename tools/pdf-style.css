@@ -65,6 +65,14 @@ li::before { content:''; flex:0 0 auto; margin-top:1.6mm; width:2.5mm; height:2.
 a { color: inherit; text-decoration: none }
 .link { font-weight: 600; border-bottom: .6mm solid var(--yellow); padding-bottom: .3mm }
 .press { display: grid; gap: 3mm }
+/* Sept titres de presse tiennent sur une page A4 en deux colonnes ; en une
+   seule, la page débordait de 37 mm. */
+.press--2 { grid-template-columns: 1fr 1fr; gap: 3mm 3.5mm; align-items: stretch }
+.press--2 .press-item { display: flex; flex-direction: column; padding: 3.5mm 4mm }
+.press--2 .press-item .url { margin-top: auto; padding-top: 1.5mm }
+/* nombre impair d'articles : le dernier prend toute la largeur plutôt que
+   de laisser une demi-ligne vide. */
+.press--2 .press-item:last-child:nth-child(odd) { grid-column: 1 / -1 }
 .press-item { background: var(--card); border-radius: 3mm; padding: 4mm 4.5mm }
 .press-item b { display: block; font-size: 10.5pt; font-weight: 600; letter-spacing: -.01em }
 .press-item span { display: block; margin-top: 1mm; font-size: 9pt; color: var(--ink-mute) }
