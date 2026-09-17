@@ -356,7 +356,7 @@ ${shot(1)}
   </div>
 </section>
 <section class="section section--close wrap" id="faq">
-  <div class="paire paire--faq paire--photo-avant">
+  <div class="paire paire--faq">
 ${shot(2)}
     <div>
       <div data-reveal style="margin-bottom:clamp(20px,4vw,32px)">

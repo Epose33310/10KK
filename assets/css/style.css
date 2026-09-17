@@ -547,6 +547,12 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .products { display: grid; gap: clamp(26px, 5vw, 48px); }
 
+/* Sur téléphone, le titre de section collé à la première carte manquait d'air.
+   Sur grand écran l'écart est déjà suffisant. */
+@media (max-width: 899px) {
+  .products-wrap { padding-top: 18px; }
+}
+
 /* Carte entièrement cliquable : le lien « En savoir plus » étend sa zone
    sensible à tout le bloc, sans dupliquer de lien pour les lecteurs d'écran. */
 .product {
@@ -1596,9 +1602,8 @@ input, textarea, select { font: inherit; color: inherit; }
 /* Les vidéos d'atelier sont tournées au téléphone, en vertical : plutôt que
    de les recadrer en bandeau, on les pose debout sur l'aplat de l'atelier. */
 /* Paires en deux colonnes sur les pages atelier : une photo face à un bloc.
-   Sur téléphone, celles qui viendraient se poser au-dessus de leur voisin
-   sont masquées — une photo juste avant la démo ou la FAQ alourdit la
-   lecture sans rien apporter. */
+   Sur téléphone, seule celle qui précède la démo est masquée : la démo est
+   déjà un pavé coloré, une photo juste avant alourdit l'enchaînement. */
 .paire { display: grid; gap: clamp(24px, 4vw, 36px); }
 
 @media (max-width: 899px) {
