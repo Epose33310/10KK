@@ -107,6 +107,17 @@
 
     $$('a', drawer).forEach(function (a) { a.addEventListener('click', closeDrawer); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+
+    // Un tiroir laissé ouvert doit s'effacer dès qu'on s'occupe d'autre chose :
+    // un tap ailleurs sur la page, ou le début d'un défilement.
+    document.addEventListener('click', function (e) {
+      if (!drawer.classList.contains('is-open')) return;
+      if (drawer.contains(e.target) || burger.contains(e.target)) return;
+      closeDrawer();
+    });
+    window.addEventListener('scroll', function () {
+      if (drawer.classList.contains('is-open')) closeDrawer();
+    }, { passive: true });
   }
 
   if (drawerAteliers) {
