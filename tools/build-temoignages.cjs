@@ -178,10 +178,7 @@ ${header}<main id="main">
 
 <section class="section section--close wrap" id="presse">
   <div data-reveal style="margin-bottom:clamp(26px,5vw,40px)">
-    <p class="eyebrow">Revue de presse</p>
     <h2 class="h2">La presse en parle</h2>
-    <p class="lead mute" style="margin-top:18px;max-width:640px">Quotidiens régionaux et magazines
-      culturels, sur des ateliers menés ces dernières années. Chaque carte ouvre l’article.</p>
   </div>
   <div class="presses" data-stagger>${PRESSE.map(carte).join('')}
   </div>
@@ -190,7 +187,7 @@ ${header}<main id="main">
 <section class="section section--close wrap">
   <div class="paire paire--def">
     <div class="def def--neutre" data-reveal>
-      <h3>Également relayé par les structures d’accueil</h3>
+      <h3>Mais encore...</h3>
       <p>Villes, médiathèques, réseaux de lecture publique et établissements qui ont annoncé ou
         raconté un atelier sur leurs propres canaux.</p>
       <div class="relais-liste">${relais}
@@ -208,17 +205,44 @@ ${header}<main id="main">
 </section>
 
 <section class="section section--close wrap">
+  <div class="films" data-stagger>
+    <div class="filmcard">
+      <button class="filmcard__btn" type="button"
+              data-video="assets/video/esope-slam.mp4"
+              data-webm="assets/video/esope-slam.webm"
+              data-titre="Un slam d’Esope">
+        <img class="filmcard__poster" src="assets/img/page-rap-3.jpg" alt="" loading="lazy" width="720" height="1280">
+        <span class="filmcard__veil" aria-hidden="true"></span>
+        <span class="filmcard__disc" aria-hidden="true"></span>
+        <span class="filmcard__label">Un slam d’Esope</span>
+      </button>
+    </div>
+    <div class="filmcard">
+      <button class="filmcard__btn" type="button"
+              data-video="assets/video/esope-battle.mp4"
+              data-webm="assets/video/esope-battle.webm"
+              data-titre="Un battle de compliments d’Esope">
+        <img class="filmcard__poster" src="assets/img/page-eloquence-3.jpg" alt="" loading="lazy" width="720" height="1280">
+        <span class="filmcard__veil" aria-hidden="true"></span>
+        <span class="filmcard__disc" aria-hidden="true"></span>
+        <span class="filmcard__label">Un battle de compliments d’Esope</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section section--close wrap">
   <div class="paire">
     <figure class="shot" data-reveal>
       <img src="assets/img/page-battle-3.jpg" alt="Affiche Top Versos 2021 : Ésope, performance de l’année"
            loading="lazy" width="720" height="720">
     </figure>
-    <div class="def def--periwinkle" data-reveal>
+    <div class="def def--periwinkle def--centre" data-reveal>
       <h3>Vous êtes journaliste ?</h3>
       <p>Je réponds volontiers pour un article, un reportage en classe ou une interview. Le dossier
         de présentation contient le détail des ateliers, les chiffres et le déroulé d’un parcours ;
         photos en haute définition et captations de restitution sur demande.</p>
-      <div class="btn-row" style="margin-top:auto;padding-top:clamp(20px,3vw,28px)">
+      <div class="btn-row btn-row--center" style="padding-top:clamp(20px,3vw,28px)">
         <a class="btn btn--ink" href="mailto:slampoetrip@gmail.com">slampoetrip@gmail.com</a>
         <a class="btn btn--link" href="assets/docs/dossier-esope.pdf" download>Le dossier (PDF) <span class="arrow" aria-hidden="true">↓</span></a>
       </div>
@@ -228,7 +252,6 @@ ${header}<main id="main">
 
 <section class="section section--close wrap" id="temoignages">
   <div data-reveal style="margin-bottom:clamp(26px,5vw,40px)">
-    <p class="eyebrow">Sur le terrain</p>
     <h2 class="h2">Ils parlent de mes ateliers</h2>
     <p class="lead mute" style="margin-top:18px;max-width:640px">Enseignants, coordinateurs, équipes
       soignantes : celles et ceux qui m’ont fait intervenir racontent ce qui s’est passé dans leur

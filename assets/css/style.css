@@ -148,6 +148,10 @@ input, textarea, select { font: inherit; color: inherit; }
   font-weight: 600;
 }
 
+/* « Mes interventions pédagogiques » : presque la taille du titre de la page,
+   pour qu'il ouvre la section aussi franchement que le hero ouvre le site. */
+.h2--grand { font-size: clamp(38px, 8.6vw, 72px); }
+
 .h3 {
   font-size: clamp(34px, 8.6vw, 46px);
   line-height: 1.05;
@@ -346,9 +350,11 @@ input, textarea, select { font: inherit; color: inherit; }
 
 /* Panneau mobile */
 
+/* Sur téléphone, le tiroir prolonge la barre jaune du header : un seul
+   panneau, du haut de l'écran jusqu'au dernier lien. */
 .drawer {
   display: none;
-  background: var(--paper);
+  background: var(--yellow);
   border-top: 2px solid var(--ink);
   padding: 4px var(--gutter) 28px;
 }
@@ -360,7 +366,8 @@ input, textarea, select { font: inherit; color: inherit; }
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
-  border-bottom: 1px solid var(--line);
+  /* Le filet gris clair disparaîtrait sur le jaune. */
+  border-bottom: 1px solid rgba(26, 26, 26, 0.16);
 }
 .drawer a:not(.btn):active { color: var(--ink-soft); }
 .drawer__group > button {
@@ -368,7 +375,7 @@ input, textarea, select { font: inherit; color: inherit; }
   width: 100%; padding: 16px 0; border: 0; background: transparent;
   font-size: 20px; font-weight: 600; letter-spacing: -0.02em; text-align: left;
   color: var(--ink);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.16);
 }
 .drawer__sub { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
 .drawer__group > button[aria-expanded='true'] + .drawer__sub { grid-template-rows: 1fr; }
@@ -377,8 +384,9 @@ input, textarea, select { font: inherit; color: inherit; }
   font-size: 17px; font-weight: 500;
   padding-left: 16px; margin-left: 2px;
   color: var(--ink-soft);
-  border-bottom: 1px solid var(--line);
-  border-left: 3px solid var(--yellow);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.16);
+  /* Sur fond jaune, le repère de sous-niveau passe à l'encre. */
+  border-left: 3px solid var(--ink);
 }
 .drawer .btn { margin-top: 20px; }
 
@@ -438,7 +446,7 @@ input, textarea, select { font: inherit; color: inherit; }
   .reel__frame {
     width: 100vw;
     margin-inline: calc(50% - 50vw);
-    max-width: min(100vw, calc((100svh - 110px) * 9 / 16));
+    max-width: min(100vw, calc((100svh - 190px) * 9 / 16));
     border-radius: 0;
   }
 }
@@ -449,9 +457,10 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 
 @media (min-width: 900px) {
-  /* La vidéo prend toute la hauteur que la fenêtre veut bien lui laisser :
-     c'est elle qui borne la largeur, un plan vertical grandissant vite. */
-  .reel__frame { max-width: min(100%, calc(min(96vh, 980px) * 9 / 16)); }
+  /* Sur ordinateur, le plan vertical est recadré : c'est le seul moyen
+     d'occuper toute la colonne sans faire une tour deux fois plus haute que
+     le titre d'en face. object-fit: cover garde le centre de l'image. */
+  .reel__frame { aspect-ratio: 1 / 1; max-width: 100%; }
 
   /* Sur grand écran, le titre tient la colonne de gauche et la vidéo celle
      de droite : le bloc d'ouverture se lit d'un seul regard. */
@@ -529,8 +538,11 @@ input, textarea, select { font: inherit; color: inherit; }
 .circled { position: relative; display: inline-block; padding: 0 0.16em; }
 .circled svg {
   position: absolute;
-  left: -6%; top: -22%;
-  width: 112%; height: 150%;
+  left: -12%; top: -22%;
+  width: 126%; height: 148%;
+  /* Le reset « img, svg { max-width: 100% } » ramenait le tracé à la largeur
+     exacte du mot : l'ellipse coupait donc toujours les dernières lettres. */
+  max-width: none;
   overflow: visible;
   pointer-events: none;
 }
@@ -543,6 +555,9 @@ input, textarea, select { font: inherit; color: inherit; }
   stroke-linecap: round;
 }
 /* Boîte plus étroite pour un mot court : le trait y est plus étiré en hauteur. */
+/* Un mot court tient dans une boîte étroite : le trait passait sur les
+   lettres. On l'écarte franchement pour que « Slam » reste lisible dedans. */
+.circled--court svg { left: -15%; top: -17%; width: 130%; height: 136%; }
 .circled--court path { stroke-width: 4.2; }
 .circled--ponctue { margin-right: -0.15em; }
 .circled path.is-draw {
@@ -564,6 +579,11 @@ input, textarea, select { font: inherit; color: inherit; }
    Sur grand écran l'écart est déjà suffisant. */
 @media (max-width: 899px) {
   .products-wrap { padding-top: 18px; }
+}
+/* Sur ordinateur, le titre entouré est devenu bien plus gros : il lui faut
+   la même respiration avant la première carte. */
+@media (min-width: 900px) {
+  .products-wrap { padding-top: clamp(20px, 2.6vw, 38px); }
 }
 
 /* Carte entièrement cliquable : le lien « En savoir plus » étend sa zone
@@ -866,16 +886,6 @@ input, textarea, select { font: inherit; color: inherit; }
   width: 52px; height: 4px; border-radius: 99px; background: var(--yellow);
 }
 
-/* Les entrées de menu qui ouvrent la fenêtre sont des boutons : on neutralise
-   l'apparence native pour qu'elles restent identiques aux liens voisins. */
-.drawer__group > button[data-agenda],
-.drawer > button[data-agenda] {
-  display: block; width: 100%;
-  padding: 16px 0; border: 0; background: transparent;
-  font-size: 20px; font-weight: 600; letter-spacing: -0.02em;
-  color: var(--ink); text-align: left;
-  border-bottom: 1px solid var(--line);
-}
 .footer button {
   padding: 0; border: 0; background: transparent;
   color: #e6e3df; font-size: 16px; font-weight: 400; text-align: left;
@@ -883,46 +893,6 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .footer button:hover { color: var(--white); }
 
-/* --------------------------------------------------------------------------
-   Agenda
-   -------------------------------------------------------------------------- */
-
-.agenda { display: grid; gap: 12px; }
-.sheet .event { background: var(--card); }
-
-/* Dans la fenêtre, la largeur utile est bien plus faible que sur la page :
-   la date passe en pastille horizontale et le titre récupère toute la ligne. */
-@media (max-width: 560px) {
-  .sheet .event { grid-template-columns: 1fr; gap: 12px; padding: 18px; }
-  .sheet .event__date {
-    display: inline-flex; align-items: baseline; gap: 7px;
-    width: max-content; padding: 7px 14px; border-radius: 99px;
-  }
-  .sheet .event__day { display: inline; font-size: 20px; }
-  .sheet .event__month { display: inline; margin-top: 0; }
-}
-
-.event {
-  display: grid;
-  grid-template-columns: 76px 1fr;
-  gap: 20px;
-  align-items: center;
-  padding: 20px 22px;
-  background: var(--card);
-  border-radius: var(--r-card);
-  transition: transform var(--dur) var(--ease);
-}
-.event:hover { transform: translateX(5px); }
-.event.is-filtered-out { display: none; }
-
-.event__date {
-  text-align: center; padding: 10px; border-radius: 12px;
-  background: var(--yellow);
-}
-.event__day { display: block; font-size: 26px; line-height: 1; font-weight: 700; letter-spacing: -0.03em; }
-.event__month { display: block; margin-top: 3px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
-.event__title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
-.event__meta { margin-top: 5px; font-size: 16px; color: var(--ink-soft); }
 /* --------------------------------------------------------------------------
    FAQ
    -------------------------------------------------------------------------- */
@@ -1159,7 +1129,6 @@ input, textarea, select { font: inherit; color: inherit; }
   .express { grid-template-columns: 1.2fr 0.8fr; }
   .dials { grid-template-columns: repeat(3, 1fr); }
 
-  .event { grid-template-columns: 88px 1fr; }
 
   .contact { grid-template-columns: 0.94fr 1.06fr; align-items: center; }
   .field-row { grid-template-columns: 1fr 1fr; }
@@ -1880,9 +1849,13 @@ input, textarea, select { font: inherit; color: inherit; }
 
 /* Palmarès */
 .def--yellow { background: var(--yellow); }
+/* Tout est centré, boutons compris : la carte se lit comme une adresse. Sans
+   justify-content, le bloc restait collé en haut et les boutons en bas. */
+.def--centre { text-align: center; justify-content: center; }
+.def--centre p { margin-inline: auto; }
 .palms { list-style: none; margin: clamp(14px, 2vw, 20px) 0 0; padding: 0; display: grid; }
 .palm {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 0.28em;
   padding-block: clamp(9px, 1.4vw, 13px);
   border-top: 1.5px solid rgba(26, 26, 26, 0.22);
 }
@@ -1906,3 +1879,155 @@ input, textarea, select { font: inherit; color: inherit; }
 .mosaique .quote__who { margin-top: clamp(20px, 3vw, 28px); }
 .mosaique .quote__name { font-size: 17px; }
 .mosaique .quote__role { font-size: 14px; }
+
+/* --------------------------------------------------------------------------
+   Carte de téléchargement dans le méga-menu
+   La colonne « Tous les publics » est plus courte que celle des ateliers :
+   le dossier occupe le vide au lieu de le laisser béant.
+   -------------------------------------------------------------------------- */
+
+.mega__doc {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 14px; padding: 14px 16px;
+  background: var(--card); border-radius: 14px;
+  transition: background var(--dur-fast) ease, transform var(--dur-fast) var(--ease);
+}
+.mega__doc:hover { background: var(--yellow); transform: translateX(3px); }
+.mega__doc .doc__icon { width: 34px; height: 42px; }
+.mega__doc .doc__text b { font-size: 15px; }
+.mega__doc .doc__text small { font-size: 13px; }
+.mega__doc .doc__arrow { font-size: 18px; }
+
+/* --------------------------------------------------------------------------
+   Lecteurs vidéo posés à la demande
+   Rien ne se charge avant le clic : ni la vidéo, ni son affiche.
+   -------------------------------------------------------------------------- */
+
+.playline { margin-top: 18px; }
+.playbtn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 10px 20px 10px 12px;
+  border: 0; border-radius: 99px;
+  background: var(--ink); color: var(--paper);
+  font: inherit; font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) ease;
+}
+.playbtn:hover { background: #000; transform: translateY(-2px); }
+.playbtn__icon {
+  flex: 0 0 auto;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--yellow);
+  position: relative;
+}
+/* Le triangle de lecture, dessiné en bordures : pas d'image à charger. */
+.playbtn__icon::before {
+  content: ''; position: absolute;
+  left: 10px; top: 50%; transform: translateY(-50%);
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent var(--ink);
+}
+.playvid {
+  display: block; width: 100%;
+  max-width: 520px;
+  border: 2px solid var(--ink); border-radius: 14px;
+  background: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   Vidéos à miniature — page « Témoignages & médias »
+   L'affiche est visible, la vidéo ne part qu'au clic, avec le son.
+   -------------------------------------------------------------------------- */
+
+.films { display: grid; gap: clamp(18px, 2.6vw, 26px); }
+@media (min-width: 760px) { .films { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.filmcard {
+  position: relative;
+  border: 2px solid var(--ink); border-radius: var(--r-card);
+  overflow: hidden; background: var(--ink);
+}
+.filmcard .playvid { max-width: none; border: 0; border-radius: 0; }
+.filmcard__btn {
+  display: block; width: 100%; padding: 0;
+  border: 0; background: none; cursor: pointer;
+  position: relative;
+}
+.filmcard__poster {
+  display: block; width: 100%; height: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+.filmcard__veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.62), rgba(26, 26, 26, 0.08) 55%);
+}
+.filmcard__disc {
+  position: absolute; left: 50%; top: 50%;
+  width: 72px; height: 72px; margin: -36px 0 0 -36px;
+  border-radius: 50%; background: var(--white);
+  box-shadow: 0 6px 24px rgba(26, 26, 26, 0.35);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.filmcard__disc::before {
+  content: ''; position: absolute;
+  left: 28px; top: 50%; transform: translateY(-50%);
+  border-style: solid;
+  border-width: 12px 0 12px 20px;
+  border-color: transparent transparent transparent var(--ink);
+}
+.filmcard__btn:hover .filmcard__disc { transform: scale(1.08); }
+.filmcard__label {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: clamp(16px, 2.4vw, 22px);
+  color: var(--white); text-align: left;
+  font-size: clamp(17px, 2vw, 20px); font-weight: 700; letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   « Les derniers projets » — le carnet de bord
+   Mêmes cartes que la revue de presse : bord d'encre, ombre dure, la carte
+   s'enfonce au survol.
+   -------------------------------------------------------------------------- */
+
+.projets { display: grid; gap: clamp(18px, 2.6vw, 26px); }
+@media (min-width: 720px) { .projets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1040px) { .projets { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.projet {
+  display: flex; flex-direction: column;
+  gap: clamp(12px, 1.6vw, 16px);
+  padding: clamp(22px, 2.9vw, 30px);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: 8px 8px 0 var(--ink);
+  color: var(--ink);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.projet:hover, .projet:focus-visible { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ink); }
+.projet:active { transform: translate(7px, 7px); box-shadow: 0 0 0 var(--ink); }
+
+.projet__top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.projet__date { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+.projet__tag {
+  flex: 0 0 auto;
+  padding: 5px 12px;
+  border: 1.5px solid var(--ink); border-radius: 99px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.projet__titre {
+  font-size: clamp(21px, 2.5vw, 26px);
+  line-height: 1.12; letter-spacing: -0.03em; font-weight: 700;
+}
+.projet__chapo { font-size: 16px; line-height: 1.5; color: rgba(26, 26, 26, 0.78); }
+.projet__foot {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px 18px;
+  margin-top: auto; padding-top: clamp(12px, 1.8vw, 18px);
+  border-top: 1.5px solid rgba(26, 26, 26, 0.22);
+}
+.projet__lieu { font-size: 14px; font-weight: 600; color: rgba(26, 26, 26, 0.7); }
+.projet__cta { font-size: 15px; font-weight: 700; }
+.projet__cta .arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
+.projet:hover .projet__cta .arrow { transform: translateX(4px); }

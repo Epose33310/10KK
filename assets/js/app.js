@@ -2,7 +2,7 @@
    Poetrip — Ateliers Slam
    Interactions : header, méga menu, tiroir mobile, révélations, compteurs,
    cercle au feutre, carrousel de témoignages, machine à consignes, chrono,
-   filtres d'agenda, FAQ, formulaire. Aucune dépendance.
+   FAQ, formulaire. Aucune dépendance.
    ========================================================================== */
 
 (function () {
@@ -413,7 +413,43 @@
   renderTimer();
 
   /* ----------------------------------------------------------------------
-     Agenda : fenêtre ouverte depuis le menu uniquement
+     Lecteurs vidéo posés à la demande
+
+     Rien n'est chargé tant qu'on n'a pas cliqué : ni la vidéo, ni son
+     affiche. Le bouton se remplace par le lecteur, qui démarre avec le son
+     — c'est le geste de l'utilisateur qui l'autorise.
+     ---------------------------------------------------------------------- */
+
+  $$('[data-video]').forEach(function (bouton) {
+    bouton.addEventListener('click', function () {
+      var video = document.createElement('video');
+      video.className = 'playvid';
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.setAttribute('aria-label', bouton.getAttribute('data-titre') || 'Vidéo');
+
+      var webm = bouton.getAttribute('data-webm');
+      if (webm) {
+        var sw = document.createElement('source');
+        sw.src = webm; sw.type = 'video/webm';
+        video.appendChild(sw);
+      }
+      var sm = document.createElement('source');
+      sm.src = bouton.getAttribute('data-video'); sm.type = 'video/mp4';
+      video.appendChild(sm);
+
+      var hote = bouton.closest('.playline') || bouton.closest('.filmcard') || bouton.parentNode;
+      hote.replaceChildren(video);
+      // Certains navigateurs refusent la lecture tant que la source n'est pas
+      // rattachée : on relance une fois le nœud dans le document.
+      var essai = video.play();
+      if (essai && typeof essai.catch === 'function') essai.catch(function () { /* l'utilisateur relancera */ });
+    });
+  });
+
+  /* ----------------------------------------------------------------------
+     Fenêtres ouvertes depuis le menu
      ---------------------------------------------------------------------- */
 
   function wireSheet(dialogId, closeId, triggerAttr) {
@@ -460,7 +496,6 @@
     });
   }
 
-  wireSheet('agendaDialog', 'agendaClose', 'data-agenda');
   wireSheet('bioDialog', 'bioClose', 'data-bio');
 
   /* ----------------------------------------------------------------------
