@@ -245,16 +245,14 @@ for (const p of pages) {
   const affiche = `assets/img/video-${p.demo[0]}.jpg`;
   const altVideo = `${p.title} en vidéo`;
   const film = `
-<div class="wrap">
-  <figure class="shot shot--video" style="--bande:var(--${p.color})" data-reveal>${mp4 ? `
+      <figure class="shot shot--video" style="--bande:var(--${p.color})" data-reveal>${mp4 ? `
     <video poster="${affiche}" autoplay muted loop playsinline preload="metadata"
            aria-label="${altVideo}" width="720" height="1280">${webm ? `
       <source src="assets/video/atelier-${cle}.webm" type="video/webm">` : ''}
       <source src="assets/video/atelier-${cle}.mp4" type="video/mp4">
     </video>` : `
     <img src="${affiche}" alt="${altVideo}" loading="lazy" width="720" height="1280">`}
-  </figure>
-</div>`;
+      </figure>`;
 
   // Une respiration entre deux blocs de texte : la photo pose le regard.
   const shot = (i) => `
@@ -309,13 +307,15 @@ ${header}<main id="main">
   </div>
   <p class="body-lg mute" style="margin-top:clamp(28px,5vw,40px);max-width:760px" data-reveal>${p.intro}</p>
 </section>
-${film}
 
 <section class="section section--close wrap">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
     <h2 class="h2">Comment se déroule un parcours</h2>
   </div>
-  <div class="steps" data-stagger>${steps}
+  <div class="parcours">
+${film}
+    <div class="steps" data-stagger>${steps}
+    </div>
   </div>
 </section>
 ${shot(0)}
