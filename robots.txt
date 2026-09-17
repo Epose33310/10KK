@@ -1,3 +1,4 @@
+# Tout est indexable sauf les sources des générateurs.
 User-agent: *
 Allow: /
 Disallow: /tools/

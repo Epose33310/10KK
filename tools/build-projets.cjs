@@ -616,27 +616,4 @@ ${voisins.length ? `
   console.log('→ projet-' + a.slug + '.html');
 });
 
-/* --- Le sitemap --------------------------------------------------------- */
-
-const PAGES = [
-  ['', '1.0'], ['atelier-slam.html', '0.9'], ['atelier-rap.html', '0.8'],
-  ['atelier-battle.html', '0.8'], ['atelier-eloquence.html', '0.8'],
-  ['demo.html', '0.6'], ['temoignages.html', '0.7'], ['projets.html', '0.8'],
-].concat(tries.map((a) => ['projet-' + a.slug + '.html', '0.7']));
-
-writeFileSync(join(root, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${PAGES.map(([u, p]) => `  <url><loc>${SITE}${u}</loc><priority>${p}</priority></url>`).join('\n')}
-</urlset>
-`);
-console.log('→ sitemap.xml  (' + PAGES.length + ' adresses)');
-
-writeFileSync(join(root, 'robots.txt'),
-  `User-agent: *
-Allow: /
-Disallow: /tools/
-
-Sitemap: ${SITE}sitemap.xml
-`);
-console.log('→ robots.txt');
+/* Le sitemap est produit à part : voir tools/build-sitemap.cjs. */
