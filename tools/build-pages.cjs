@@ -154,7 +154,7 @@ const pages = [
       ["Un battle de compliments, c'est quoi ?",
        "Un face-à-face verbal emprunté aux battles de rap, avec une seule inversion : au lieu de chercher à démolir l'autre, on cherche à le valoriser. Mêmes codes, même énergie, même public qui réagit — mais chaque punchline est un éloge."],
       ["Est-ce que les participants improvisent ?",
-       "Non, et c'est la surprise de l'atelier : tout est écrit. On travaille le verbe, la verve et le mot fort, on réécrit, on resserre. C'est un atelier d'écriture avant d'être un exercice de scène, et c'est justement ce travail en amont qui rend la répartie vive le jour du passage."],
+       "Non, et c'est la surprise de l'atelier : tout est écrit. On travaille le verbe, la verve et le mot fort, on réécrit, on affûte. C'est un atelier d'écriture avant d'être un exercice de scène, et c'est justement ce travail en amont qui rend la répartie vive le jour du passage."],
       ["Le battle ne risque-t-il pas de retomber en moqueries ?",
        "C'est exactement ce que la forme désamorce, en détournant les codes de la vanne. On apprend à peser ses mots : un compliment mal ajusté tombe à plat aussi sûrement qu'une vanne ratée. Le public n'est pas un jury — il encourage, et il crie à chaque punchline valorisante."],
       ["À partir de quel âge ?",
@@ -173,7 +173,7 @@ const pages = [
     steps: [
       ['Poser les règles', "Deux adversaires, un temps donné, un public qui encourage. Les mêmes codes que le battle de rap, avec une seule inversion : on ne cherche pas à démolir, on cherche à flatter."],
       ['Travailler le mot fort', "Le verbe, la verve, l'image qui frappe. On cherche l'adjectif juste plutôt que l'adjectif fort — et on apprend surtout à peser ses mots : un compliment mal ajusté tombe à plat aussi sûrement qu'une vanne ratée."],
-      ['Écrire ses punchlines', "Chacun écrit, relit, resserre. C'est un atelier d'écriture avant d'être un exercice de scène : la répartie se prépare, et c'est ce travail en amont qui la rend vive le jour du passage."],
+      ['Écrire ses punchlines', "Chacun écrit, relit, corrige. C'est un atelier d'écriture avant d'être un exercice de scène : la répartie se prépare, et c'est ce travail en amont qui la rend vive le jour du passage."],
       ['Passer en binôme', "Les face-à-face s'enchaînent, courts et rythmés. Le public crie à chaque punchline valorisante : c'est lui qui porte l'énergie de la salle, et personne n'est noté."],
       ['Finir par un vrai battle', "Je clôture le parcours par un battle contre un·e collègue, devant le groupe. Voir des professionnels se prêter à l'exercice qu'on vient de vivre change le regard qu'on porte sur son propre passage."],
     ],
