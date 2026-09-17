@@ -1,17 +1,27 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8">
 <title>Esope — Fiche projet</title>
-<link rel="stylesheet" href="pdf-style.css"></head><body>
+<link rel="stylesheet" href="pdf-style.css">
+<style>
+  /* Réglages propres à la fiche : elle doit tenir sur une page unique, photo
+     comprise, sans rien retirer au contenu. */
+  .pad { padding-top: 7mm !important; padding-bottom: 7mm !important }
+  table.t td { padding: 2.2mm 3.5mm }
+  table.t th { padding: 2.2mm 3.5mm }
+  /* la photo remplit toute la hauteur de la rangée, comme les deux encarts */
+  .grid3 > .photo { align-self: stretch }
+  .grid3 > .photo img { flex: 1 1 auto; min-height: 0 }
+</style></head><body>
 
 <section class="page">
   <div class="bar"><span class="logo">Esope</span><span>Fiche projet · à afficher ou à transmettre</span></div>
-  <div class="pad" style="flex:1;display:flex;flex-direction:column;padding-top:11mm;padding-bottom:10mm">
+  <div class="pad" style="flex:1;display:flex;flex-direction:column">
     <h1 style="font-size:22pt;max-width:160mm">Ateliers slam, rap, éloquence et battle de compliments</h1>
     <p class="lead mute" style="margin-top:3mm;max-width:164mm">Des interventions artistiques et
       pédagogiques conçues pour faire écrire, prendre la parole, créer du lien et oser. Animées par
       Esope, champion de France de Slam — écoles, collèges, lycées, universités, structures
       jeunesse, santé et médico-social, médiathèques, animateurs et éducateurs.</p>
 
-    <div class="card card--yellow" style="margin-top:5mm">
+    <div class="card card--yellow" style="margin-top:4mm">
       <p style="margin:0"><strong>Le principe :</strong> on écrit, puis on dit ce qu'on a écrit,
         debout, devant les autres. Chaque parcours se termine par une restitution devant un public.
         <strong>Financement :</strong> agréé Éducation nationale, éligible pass Culture — l'offre est
@@ -19,7 +29,7 @@
         artistique et culturelle. Devis détaillé sous 48 h.</p>
     </div>
 
-    <h2 style="margin-top:5mm">Les quatre ateliers</h2>
+    <h2 style="margin-top:4mm">Les quatre ateliers</h2>
     <table class="t">
       <tr><th>Atelier</th><th>Public</th><th>Volume moyen</th><th>Restitution</th></tr>
       <tr style="background:var(--turquoise)">
@@ -38,7 +48,7 @@
     <p style="font-size:8.5pt;color:var(--ink-mute);margin-top:2mm">Jauge : 30 personnes maximum par
       groupe. Les volumes sont des moyennes et s'ajustent à votre calendrier.</p>
 
-    <div class="grid2" style="margin-top:4mm">
+    <div class="grid3" style="margin-top:4mm;gap:4mm">
       <div class="card">
         <h3>À prévoir de votre côté</h3>
         <ul>
@@ -55,9 +65,14 @@
           <li>La conduite de la restitution, puis les textes mis en page sur demande</li>
         </ul>
       </div>
+      <figure class="photo">
+        <img src="../assets/img/photo-battle.jpg"
+             alt="Trois jeunes en performance dans la cour, devant tout l'établissement assis sur les marches">
+        <figcaption>La restitution, devant tout l'établissement.</figcaption>
+      </figure>
     </div>
 
-    <div class="card card--ink" style="margin-top:4mm">
+    <div class="card card--ink" style="margin-top:3.5mm">
       <h3>Comment démarrer</h3>
       <p>Écrivez-moi vos objectifs et votre public : le niveau, l'effectif, la période envisagée.
         Je réponds sous 48 h avec un déroulé et un devis. L'agenda se remplit vite, surtout de
