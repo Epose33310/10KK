@@ -181,6 +181,17 @@ ${header}<main id="main">
     <h2 class="h2">La presse en parle</h2>
   </div>
   <div class="presses" data-stagger>${PRESSE.map(carte).join('')}
+      <div class="filmcard">
+        <button class="filmcard__btn" type="button"
+                data-video="assets/video/esope-battle.mp4"
+                data-webm="assets/video/esope-battle.webm"
+                data-titre="Un battle de compliments d’Esope">
+          <img class="filmcard__poster" src="assets/img/film-battle.jpg" alt="" loading="lazy" width="1000" height="562">
+          <span class="filmcard__veil" aria-hidden="true"></span>
+          <span class="filmcard__disc" aria-hidden="true"></span>
+          <span class="filmcard__label">Un battle de compliments d’Esope</span>
+        </button>
+      </div>
   </div>
 </section>
 
@@ -200,22 +211,6 @@ ${header}<main id="main">
       <p style="margin-top:auto;padding-top:clamp(18px,3vw,26px)">C’est ce parcours d’artiste en
         activité qui nourrit les ateliers : ce qui se transmet en salle vient de la scène, pas d’un
         manuel.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section section--close wrap">
-  <div class="films" data-stagger>
-    <div class="filmcard">
-      <button class="filmcard__btn" type="button"
-              data-video="assets/video/esope-battle.mp4"
-              data-webm="assets/video/esope-battle.webm"
-              data-titre="Un battle de compliments d’Esope">
-        <img class="filmcard__poster" src="assets/img/film-battle.jpg" alt="" loading="lazy" width="1000" height="562">
-        <span class="filmcard__veil" aria-hidden="true"></span>
-        <span class="filmcard__disc" aria-hidden="true"></span>
-        <span class="filmcard__label">Un battle de compliments d’Esope</span>
-      </button>
     </div>
   </div>
 </section>
