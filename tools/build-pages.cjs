@@ -256,11 +256,9 @@ for (const p of pages) {
 
   // Une respiration entre deux blocs de texte : la photo pose le regard.
   const shot = (i) => `
-<div class="wrap">
-  <figure class="shot" style="--bande:var(--${p.color})" data-reveal>
-    <img src="assets/img/${p.shots[i][0]}" alt="${p.shots[i][1]}" loading="lazy" width="1600" height="760">
-  </figure>
-</div>`;
+    <figure class="shot" style="--bande:var(--${p.color})" data-reveal>
+      <img src="assets/img/${p.shots[i][0]}" alt="${p.shots[i][1]}" loading="lazy">
+    </figure>`;
 
   const html = `<!doctype html>
 <html lang="fr">
@@ -318,15 +316,16 @@ ${film}
     </div>
   </div>
 </section>
-${shot(0)}
-
 <section class="section section--close wrap">
-  <a class="tryout band--${p.color}" href="demo.html#demo-${p.demo[0]}" data-reveal>
+  <div class="paire paire--photo-avant">
+${shot(0)}
+    <a class="tryout band--${p.color}" href="demo.html#demo-${p.demo[0]}" data-reveal>
     <span class="tryout__label">Démo en ligne · gratuite</span>
     <span class="tryout__title">Essayez l'exercice : ${p.demo[1]}</span>
     <span class="tryout__text">${p.demo[2]}</span>
-    <span class="tryout__cta">Lancer la démo <span class="arrow" aria-hidden="true">→</span></span>
-  </a>
+      <span class="tryout__cta">Lancer la démo <span class="arrow" aria-hidden="true">→</span></span>
+    </a>
+  </div>
 </section>
 
 <section class="section section--close wrap">
@@ -336,12 +335,14 @@ ${shot(0)}
   <div class="goals" data-stagger>${goals}
   </div>
 </section>
-${shot(1)}
 
 <section class="section section--close wrap">
-  <div class="def def--${p.color}" data-reveal>
-    <h3>${p.definition[0]}</h3>
-    <p>${p.definition[1]}</p>
+  <div class="paire paire--def">
+    <div class="def def--${p.color}" data-reveal>
+      <h3>${p.definition[0]}</h3>
+      <p>${p.definition[1]}</p>
+    </div>
+${shot(1)}
   </div>
 </section>
 
@@ -354,15 +355,18 @@ ${shot(1)}
     </div>
   </div>
 </section>
-${shot(2)}
-
 <section class="section section--close wrap" id="faq">
-  <div class="center measure" data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
-    <h2 class="h2">Questions fréquentes</h2>
-    <p class="lead mute" style="margin-top:20px">Ce qu'on me demande le plus souvent avant de
-      lancer un projet ${p.title.toLowerCase()}.</p>
-  </div>
-  <div class="faq" data-stagger>${faq}
+  <div class="paire paire--faq paire--photo-avant">
+${shot(2)}
+    <div>
+      <div data-reveal style="margin-bottom:clamp(20px,4vw,32px)">
+        <h2 class="h2">Questions fréquentes</h2>
+        <p class="lead mute" style="margin-top:18px">Ce qu'on me demande le plus souvent avant de
+          lancer un projet ${p.title.toLowerCase()}.</p>
+      </div>
+      <div class="faq" data-stagger>${faq}
+      </div>
+    </div>
   </div>
 </section>
 

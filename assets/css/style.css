@@ -1595,6 +1595,28 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 /* Les vidéos d'atelier sont tournées au téléphone, en vertical : plutôt que
    de les recadrer en bandeau, on les pose debout sur l'aplat de l'atelier. */
+/* Paires en deux colonnes sur les pages atelier : une photo face à un bloc.
+   Sur téléphone, celles qui viendraient se poser au-dessus de leur voisin
+   sont masquées — une photo juste avant la démo ou la FAQ alourdit la
+   lecture sans rien apporter. */
+.paire { display: grid; gap: clamp(24px, 4vw, 36px); }
+
+@media (max-width: 899px) {
+  .paire--photo-avant > .shot { display: none; }
+}
+
+@media (min-width: 900px) {
+  .paire {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(32px, 4vw, 56px);
+  }
+  .paire--faq { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); }
+  /* La photo accompagne la lecture du bloc en face d'elle. */
+  .paire > .shot { position: sticky; top: calc(var(--header-h) + 28px); }
+  .paire--def > .shot { position: static; }
+}
+
 /* Le déroulé et la vidéo côte à côte sur grand écran. La vidéo reste en vue
    pendant qu'on parcourt les étapes. */
 .parcours { display: grid; gap: clamp(28px, 5vw, 44px); }
