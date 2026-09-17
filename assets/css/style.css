@@ -199,6 +199,7 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .center { text-align: center; }
 .measure { max-width: 640px; margin-inline: auto; }
+.measure-wide { max-width: 820px; }
 
 /* --------------------------------------------------------------------------
    Boutons
@@ -586,18 +587,6 @@ input, textarea, select { font: inherit; color: inherit; }
 .product__text h3 { margin-bottom: 20px; }
 .product__text p { max-width: 54ch; }
 .product__text .btn { margin-top: 28px; }
-
-/* Les repères qu'une équipe cherche d'abord : public, volume, restitution. */
-.product__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-.product__meta li {
-  padding: 6px 13px;
-  border: 2px solid var(--ink); border-radius: 99px;
-  background: var(--paper);
-  font-size: 12.5px; font-weight: 700; letter-spacing: -0.01em;
-}
-@media (min-width: 620px) {
-  .product__meta li { padding: 7px 15px; font-size: 13.5px; }
-}
 
 .product__panel {
   position: relative;
@@ -1388,17 +1377,21 @@ input, textarea, select { font: inherit; color: inherit; }
    -------------------------------------------------------------------------- */
 
 .defs { display: grid; gap: 16px; }
+/* Pleine largeur sur les pages atelier : le bloc garde son aplat, mais la
+   ligne de texte reste lisible. */
 .def {
-  border-radius: 18px; padding: 28px 26px;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: clamp(24px, 4vw, 36px) clamp(22px, 4vw, 38px);
 }
 .def--turquoise { background: var(--turquoise); }
 .def--periwinkle { background: var(--periwinkle); }
 .def--green { background: var(--green); }
 .def h3 {
-  font-size: clamp(22px, 4.6vw, 26px); line-height: 1.1;
-  letter-spacing: -0.02em; font-weight: 700; margin-bottom: 12px;
+  font-size: clamp(22px, 4.6vw, 30px); line-height: 1.1;
+  letter-spacing: -0.025em; font-weight: 700; margin-bottom: 14px;
 }
-.def p { font-size: 16px; line-height: 1.55; }
+.def p { max-width: 74ch; font-size: 16px; line-height: 1.6; }
 
 /* --------------------------------------------------------------------------
    Documents téléchargeables
@@ -1627,8 +1620,11 @@ input, textarea, select { font: inherit; color: inherit; }
   aspect-ratio: 1600 / 760;
   object-fit: cover;
 }
+.shot video { width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.shot--video img { aspect-ratio: 16 / 9; }
 @media (max-width: 620px) {
   .shot img { aspect-ratio: 4 / 3; }
+  .shot--video img, .shot video { aspect-ratio: 16 / 9; }
 }
 
 .related { display: grid; gap: 12px; }

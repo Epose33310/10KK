@@ -18,19 +18,28 @@ const COULEURS = {
 };
 
 const IMAGES = [
-  ['page-slam-1.jpg', 'slam', "La salle pendant l'écriture"],
-  ['page-slam-2.jpg', 'slam', 'Un passage au micro'],
-  ['page-rap-1.jpg', 'rap', "L'enregistrement en cabine"],
-  ['page-rap-2.jpg', 'rap', 'Le groupe et le clip'],
-  ['page-eloquence-1.jpg', 'eloquence', 'Une prise de parole debout'],
-  ['page-eloquence-2.jpg', 'eloquence', 'La joute devant le jury'],
-  ['page-battle-1.jpg', 'battle', "L'écriture des punchlines"],
-  ['page-battle-2.jpg', 'battle', 'Le face-à-face sur scène'],
+  ['page-slam-1.jpg', 'slam', "La salle pendant l'écriture", 'large'],
+  ['page-slam-2.jpg', 'slam', 'Un passage sur scène', 'large'],
+  ['page-slam-3.jpg', 'slam', 'Le groupe et son enseignant', 'large'],
+  ['page-rap-1.jpg', 'rap', "L'enregistrement en cabine", 'large'],
+  ['page-rap-2.jpg', 'rap', 'Le tournage du clip', 'large'],
+  ['page-rap-3.jpg', 'rap', "L'écoute du titre terminé", 'large'],
+  ['page-eloquence-1.jpg', 'eloquence', 'Une prise de parole debout', 'large'],
+  ['page-eloquence-2.jpg', 'eloquence', 'La joute devant le jury', 'large'],
+  ['page-eloquence-3.jpg', 'eloquence', 'Le groupe en cercle', 'large'],
+  ['page-battle-1.jpg', 'battle', "L'écriture des punchlines", 'large'],
+  ['page-battle-2.jpg', 'battle', 'Le face-à-face sur scène', 'large'],
+  ['page-battle-3.jpg', 'battle', 'Le public qui encourage', 'large'],
+  // Affiches des emplacements vidéo : visibles tant que la vidéo n'est pas déposée.
+  ['video-slam.jpg', 'slam', 'Vidéo — atelier slam', 'video'],
+  ['video-rap.jpg', 'rap', 'Vidéo — atelier rap', 'video'],
+  ['video-eloquence.jpg', 'eloquence', 'Vidéo — atelier éloquence', 'video'],
+  ['video-battle.jpg', 'battle', 'Vidéo — battle de compliments', 'video'],
 ];
 
-const L = 1600, H = 760;
+const TAILLES = { large: [1600, 760], video: [1600, 900] };
 
-const gabarit = (fichier, couleur, legende) => `<!doctype html>
+const gabarit = (fichier, couleur, legende, L, H, video) => `<!doctype html>
 <meta charset="utf-8">
 <style>
   html, body { margin: 0; }
@@ -46,20 +55,23 @@ const gabarit = (fichier, couleur, legende) => `<!doctype html>
   code { font: 500 26px/1 ui-monospace, Menlo, monospace; color: rgba(26,26,26,0.6); }
   small { font-size: 22px; color: rgba(26,26,26,0.55); }
 </style>
+${video ? '<b style="font-size:76px">▶</b>' : ''}
 <b>${legende}</b>
 <code>assets/img/${fichier}</code>
-<small>${L} × ${H} — remplacez ce fichier par la vraie photo</small>`;
+<small>${L} × ${H} — remplacez ce fichier par ${video ? "l'affiche de la vidéo" : 'la vraie photo'}</small>`;
 
 (async () => {
   const nav = await chromium.launch();
-  const page = await nav.newPage({ viewport: { width: L, height: H } });
-  for (const [fichier, cle, legende] of IMAGES) {
+  const page = await nav.newPage({ viewport: { width: 1600, height: 900 } });
+  for (const [fichier, cle, legende, forme] of IMAGES) {
     const chemin = join(out, fichier);
     if (existsSync(chemin) && process.argv[2] !== '--force') {
       console.log('· ' + fichier + ' existe déjà, on n\'y touche pas');
       continue;
     }
-    await page.setContent(gabarit(fichier, COULEURS[cle], legende));
+    const [L, H] = TAILLES[forme];
+    await page.setViewportSize({ width: L, height: H });
+    await page.setContent(gabarit(fichier, COULEURS[cle], legende, L, H, forme === 'video'));
     await page.screenshot({ path: chemin, type: 'jpeg', quality: 82 });
     console.log('→ assets/img/' + fichier);
   }

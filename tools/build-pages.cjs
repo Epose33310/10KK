@@ -7,7 +7,7 @@
  * Éditer le contenu ici, puis relancer : les quatre pages restent cohérentes
  * entre elles et avec l'accueil.
  */
-const { readFileSync, writeFileSync } = require('node:fs');
+const { readFileSync, writeFileSync, existsSync } = require('node:fs');
 const { join } = require('node:path');
 
 const root = join(__dirname, '..');
@@ -42,7 +42,7 @@ const pages = [
   {
     file: 'atelier-slam.html',
     seoTitle: "Ateliers slam pour collèges, lycées et structures — Esope",
-    shots: [["page-slam-1.jpg", "Un groupe en train d'écrire pendant un atelier slam"], ["page-slam-2.jpg", "Une participante au micro lors de la restitution d'un atelier slam"]],
+    shots: [["page-slam-1.jpg", "Un groupe en train d'écrire pendant un atelier slam"], ["page-slam-2.jpg", "Une participante au micro lors de la restitution d'un atelier slam"], ["page-slam-3.jpg", "Le groupe réuni avec son enseignant à la fin d'un atelier slam"]],
     faq: [
       ["Un atelier slam, c'est quoi exactement ?",
        "Une séance d'écriture et d'oralité animée par un slameur professionnel. On y écrit un texte poétique personnel, puis on apprend à le dire debout, devant les autres. L'écriture et la mise en voix comptent autant l'une que l'autre : dans le slam, on écrit pour dire."],
@@ -59,7 +59,7 @@ const pages = [
     demo: ['slam', "écrire une métaphore", "Un verbe, un sujet qu’Esope tire au sort, et une phrase à finir. Deux minutes, directement dans votre navigateur — sans inscription."],
     color: 'turquoise',
     title: 'Ateliers slam',
-    baseline: "Réconcilier les jeunes avec la langue française par un art actuel et accessible. Les élèves écrivent, puis montent au micro.",
+    baseline: "Réconcilier les jeunes avec la langue française par un art actuel et accessible. Les élèves écrivent, puis montent sur scène.",
     meta: "Atelier slam en milieu scolaire et structures jeunesse : écriture poétique, mise en voix, restitution scénique. Agréé Éducation nationale, éligible pass Culture.",
     facts: [['Public', 'Tout public'], ['Format type', 'Projet de 8 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', "Scène slam en fin de parcours + slam d'Esope"]],
     intro: "Dans le slam, on écrit pour dire. C'est la discipline mère de mes interventions : celle qui structure toutes les autres, et celle qui transforme le plus visiblement le rapport d'un élève à sa propre parole.",
@@ -78,7 +78,7 @@ const pages = [
   {
     file: 'atelier-eloquence.html',
     seoTitle: "Ateliers éloquence et préparation au grand oral — Esope",
-    shots: [["page-eloquence-1.jpg", "Une prise de parole debout pendant un atelier d'éloquence"], ["page-eloquence-2.jpg", "Une joute oratoire devant un jury en fin de parcours"]],
+    shots: [["page-eloquence-1.jpg", "Une prise de parole debout pendant un atelier d'éloquence"], ["page-eloquence-2.jpg", "Une joute oratoire devant un jury en fin de parcours"], ["page-eloquence-3.jpg", "Le groupe en cercle pendant un échauffement d'éloquence"]],
     faq: [
       ["Un atelier d'éloquence, c'est quoi ?",
        "Un entraînement à la prise de parole en public : construire un argumentaire, choisir ses mots, tenir sa voix, occuper le silence, gérer le trac. On s'adosse toujours à une échéance concrète — un grand oral, un concours, une soutenance, une prise de parole devant l'établissement."],
@@ -113,7 +113,7 @@ const pages = [
   {
     file: 'atelier-rap.html',
     seoTitle: "Ateliers rap : écriture, enregistrement et clip — Esope",
-    shots: [["page-rap-1.jpg", "Un participant en train d'enregistrer sa voix lors d'un atelier rap"], ["page-rap-2.jpg", "Le groupe réuni autour du montage du clip"]],
+    shots: [["page-rap-1.jpg", "Un participant en train d'enregistrer sa voix lors d'un atelier rap"], ["page-rap-2.jpg", "Le groupe réuni autour du montage du clip"], ["page-rap-3.jpg", "Les participants écoutent le titre terminé"]],
     faq: [
       ["Un atelier rap, c'est quoi ?",
        "Un parcours complet, de la page à la restitution : choix d'une instrumentale, écriture en mesures, travail du flow, enregistrement des voix, et selon le volume horaire, tournage d'un clip. À la fin, il existe un titre qu'on peut faire écouter."],
@@ -148,7 +148,7 @@ const pages = [
   {
     file: 'atelier-battle.html',
     seoTitle: "Ateliers battle de compliments : écrire des punchlines — Esope",
-    shots: [["page-battle-1.jpg", "L'écriture des punchlines pendant un atelier battle de compliments"], ["page-battle-2.jpg", "Un face-à-face sur scène lors d'un battle de compliments"]],
+    shots: [["page-battle-1.jpg", "L'écriture des punchlines pendant un atelier battle de compliments"], ["page-battle-2.jpg", "Un face-à-face sur scène lors d'un battle de compliments"], ["page-battle-3.jpg", "Le public qui encourage pendant un battle de compliments"]],
     faq: [
       ["Un battle de compliments, c'est quoi ?",
        "Un face-à-face verbal emprunté aux battles de rap, avec une seule inversion : au lieu de chercher à démolir l'autre, on cherche à le valoriser. Mêmes codes, même énergie, même public qui réagit — mais chaque punchline est un éloge."],
@@ -235,6 +235,25 @@ for (const p of pages) {
     ],
   });
 
+  /* Emplacement vidéo : dès qu'un fichier est déposé dans assets/video/, il
+     remplace l'affiche. Tant qu'il n'y est pas, aucune requête en 404. */
+  const cle = p.demo[0];
+  const mp4 = existsSync(join(root, 'assets', 'video', `atelier-${cle}.mp4`));
+  const webm = existsSync(join(root, 'assets', 'video', `atelier-${cle}.webm`));
+  const affiche = `assets/img/video-${cle}.jpg`;
+  const altVideo = `${p.title} en vidéo`;
+  const film = `
+<div class="wrap">
+  <figure class="shot shot--video" data-reveal>${mp4 ? `
+    <video poster="${affiche}" autoplay muted loop playsinline preload="metadata"
+           aria-label="${altVideo}" width="1600" height="900">${webm ? `
+      <source src="assets/video/atelier-${cle}.webm" type="video/webm">` : ''}
+      <source src="assets/video/atelier-${cle}.mp4" type="video/mp4">
+    </video>` : `
+    <img src="${affiche}" alt="${altVideo}" loading="lazy" width="1600" height="900">`}
+  </figure>
+</div>`;
+
   // Une respiration entre deux blocs de texte : la photo pose le regard.
   const shot = (i) => `
 <div class="wrap">
@@ -288,6 +307,7 @@ ${header}<main id="main">
   </div>
   <p class="body-lg mute" style="margin-top:clamp(28px,5vw,40px);max-width:760px" data-reveal>${p.intro}</p>
 </section>
+${film}
 
 <section class="section section--close wrap">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
@@ -317,20 +337,22 @@ ${shot(0)}
 ${shot(1)}
 
 <section class="section section--close wrap">
-  <div class="split" data-reveal>
-    <div class="def def--${p.color}">
-      <h3>${p.definition[0]}</h3>
-      <p>${p.definition[1]}</p>
-    </div>
-    <div>
-      <h2 class="h2">Et côté équipe pédagogique</h2>
-      <p class="body-lg mute" style="margin-top:24px">${p.school}</p>
-      <div class="btn-row" style="margin-top:32px">
-        <a class="btn btn--yellow" href="index.html#contact">Parler de votre projet</a>
-      </div>
+  <div class="def def--${p.color}" data-reveal>
+    <h3>${p.definition[0]}</h3>
+    <p>${p.definition[1]}</p>
+  </div>
+</section>
+
+<section class="section section--close wrap">
+  <div class="measure-wide" data-reveal>
+    <h2 class="h2">Et côté équipe pédagogique</h2>
+    <p class="body-lg mute" style="margin-top:24px">${p.school}</p>
+    <div class="btn-row" style="margin-top:32px">
+      <a class="btn btn--yellow" href="index.html#contact">Parler de votre projet</a>
     </div>
   </div>
 </section>
+${shot(2)}
 
 <section class="section section--close wrap" id="faq">
   <div class="center measure" data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
