@@ -11,22 +11,22 @@
 @font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-700.woff2') format('woff2'); font-weight:700 }
 @font-face { font-family:'Anton'; src:url('../assets/fonts/anton.woff2') format('woff2'); font-weight:400 }
 
-body { font-family:'Inter Tight',sans-serif; color:var(--ink); background:var(--paper); font-size:10.5pt; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact }
+body { font-family:'Inter Tight',sans-serif; color:var(--ink); background:var(--paper); font-size:9.8pt; line-height:1.45; -webkit-print-color-adjust:exact; print-color-adjust:exact }
 .page { width:210mm; min-height:297mm; page-break-after:always; position:relative; overflow:hidden; display:flex; flex-direction:column }
 .page:last-child { page-break-after:auto }
-.pad { padding:16mm 16mm 14mm }
+.pad { padding:14mm 16mm 12mm }
 
-.bar { background:var(--yellow); padding:7mm 16mm; display:flex; align-items:center; justify-content:space-between }
+.bar { background:var(--yellow); padding:6mm 16mm; display:flex; align-items:center; justify-content:space-between }
 /* sans flex:0 0 auto le logo se fait comprimer par le libellé de droite */
 .logo { font-family:'Anton',sans-serif; font-size:22pt; text-transform:uppercase; letter-spacing:-.01em; line-height:1; flex:0 0 auto; white-space:nowrap }
 .bar span { font-size:9pt; font-weight:600 }
 
 h1 { font-size:34pt; line-height:1.02; letter-spacing:-.035em; font-weight:600 }
-h2 { font-size:19pt; line-height:1.08; letter-spacing:-.03em; font-weight:600; margin-bottom:5mm }
-h3 { font-size:12pt; line-height:1.15; letter-spacing:-.02em; font-weight:600; margin-bottom:2mm }
-p { margin-bottom:3.5mm }
-.lead { font-size:12pt; line-height:1.45 }
-.eyebrow { font-size:8pt; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--ink-mute); margin-bottom:3mm }
+h2 { font-size:17.5pt; line-height:1.08; letter-spacing:-.03em; font-weight:600; margin-bottom:4mm }
+h3 { font-size:11.5pt; line-height:1.15; letter-spacing:-.02em; font-weight:600; margin-bottom:1.8mm }
+p { margin-bottom:3mm }
+.lead { font-size:11.5pt; line-height:1.4 }
+.eyebrow { font-size:7.5pt; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--ink-mute); margin-bottom:2.5mm }
 .mute { color:var(--ink-soft) }
 
 .cover { background:var(--yellow); flex:1; display:flex; flex-direction:column; padding:18mm 16mm; position:relative; overflow:hidden }
@@ -44,19 +44,40 @@ p { margin-bottom:3.5mm }
 .shape--c { top:96mm; left:34mm; width:70mm; height:46mm; background:var(--periwinkle);
   clip-path:polygon(0 14%,24% 4%,52% 0,78% 6%,100% 2%,94% 58%,88% 100%,60% 95%,32% 99%,10% 92%) }
 
-.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:6mm }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:5mm }
 .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:5mm }
-.card { background:var(--card); border-radius:4mm; padding:6mm }
+.card { background:var(--card); border-radius:4mm; padding:5mm }
 .card--turquoise { background:var(--turquoise) } .card--magenta { background:var(--magenta) }
 .card--periwinkle { background:var(--periwinkle) } .card--green { background:var(--green) }
 .card--ink { background:var(--ink); color:#fff } .card--ink h3 { color:var(--yellow) } .card--ink p { color:#ddd9d5 }
 .card--yellow { background:var(--yellow) }
 .card p:last-child { margin-bottom:0 }
 
-ul { list-style:none } li { display:flex; gap:3mm; margin-bottom:2.5mm; font-size:10.5pt }
+ul { list-style:none } li { display:flex; gap:3mm; margin-bottom:2.2mm; font-size:9.8pt }
 li::before { content:''; flex:0 0 auto; margin-top:1.6mm; width:2.5mm; height:2.5mm; border-radius:.8mm; background:var(--yellow) }
 .card--yellow li::before, .card--turquoise li::before { background:var(--ink) }
 
-.foot { margin-top:auto; padding-top:6mm; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:8.5pt; color:var(--ink-mute) }
+.foot { margin-top:auto; padding-top:5mm; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:8.5pt; color:var(--ink-mute) }
 .quote { font-size:15pt; line-height:1.25; letter-spacing:-.02em; font-weight:600 }
 .tag { display:inline-block; background:var(--ink); color:#fff; border-radius:99px; padding:1.5mm 4mm; font-size:8.5pt; font-weight:600; margin:0 2mm 2mm 0 }
+
+/* Liens cliquables : visibles à l'écran, lisibles une fois imprimés. */
+a { color: inherit; text-decoration: none }
+.link { font-weight: 600; border-bottom: .6mm solid var(--yellow); padding-bottom: .3mm }
+.press { display: grid; gap: 3mm }
+.press-item { background: var(--card); border-radius: 3mm; padding: 4mm 4.5mm }
+.press-item b { display: block; font-size: 10.5pt; font-weight: 600; letter-spacing: -.01em }
+.press-item span { display: block; margin-top: 1mm; font-size: 9pt; color: var(--ink-mute) }
+.press-item .url { font-size: 8.5pt; word-break: break-all; color: var(--ink-soft) }
+
+.rowcard { background: var(--card); border-radius: 4mm; padding: 4.5mm 5.5mm; margin-bottom: 3.5mm }
+.rowcard:last-child { margin-bottom: 0 }
+.rowcard h3 { margin-bottom: 1.5mm }
+.rowcard p { margin-bottom: 0; font-size: 9.5pt; color: var(--ink-soft) }
+.rowcard--turquoise { background: var(--turquoise) } .rowcard--green { background: var(--green) }
+.rowcard--periwinkle { background: var(--periwinkle) } .rowcard--magenta { background: var(--magenta) }
+.rowcard--turquoise p, .rowcard--green p, .rowcard--periwinkle p, .rowcard--magenta p { color: rgba(26,26,26,.82) }
+
+table.t { width: 100%; border-collapse: collapse; font-size: 9pt }
+table.t th { text-align: left; padding: 2.5mm 3.5mm; font-weight: 600; background: var(--ink); color: #fff }
+table.t td { padding: 3mm 3.5mm; vertical-align: top }
