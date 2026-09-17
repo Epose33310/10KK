@@ -56,6 +56,30 @@ node tools/build-pages.cjs     # les vidéos des quatre pages d'atelier
 
 ---
 
+# Les deux films de la page « Témoignages & médias »
+
+Ceux-là ne sont ni muets ni en boucle : ils se lancent au clic, avec le son.
+
+| Fichier | Rôle |
+| --- | --- |
+| `esope-slam.mp4` + `.webm` | « Un slam d'Esope » — 3 min 15, 400 × 224 |
+| `esope-battle.mp4` + `.webm` | « Un battle de compliments d'Esope » — 1 min 05, 640 × 360 |
+
+Les mêmes fichiers servent aux deux boutons discrets de la fenêtre « Le
+parcours d'Esope ». Leurs affiches (`assets/img/film-*.jpg`) sont extraites des
+vidéos ; si vous remplacez un film, refaites l'affiche avec :
+
+```
+ffmpeg -ss 12 -i assets/video/esope-slam.mp4 -frames:v 1 -q:v 3 \
+  -vf scale=1000:-2 assets/img/film-slam.jpg
+```
+
+Ici le mp4 est déclaré avant le webm : sur ces deux films il est le plus léger
+et il est décodé par le matériel. Le webm ne sert qu'aux navigateurs livrés
+sans décodeur H.264.
+
+---
+
 # État actuel (vidéos en place)
 
 | Emplacement | Fichier | Poids |

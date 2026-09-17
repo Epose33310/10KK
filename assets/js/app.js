@@ -429,15 +429,18 @@
       video.playsInline = true;
       video.setAttribute('aria-label', bouton.getAttribute('data-titre') || 'Vidéo');
 
+      // Le H.264 d'abord : il est décodé par le matériel, et sur ces deux
+      // films il est aussi le plus léger. Le VP9 ne sert qu'aux navigateurs
+      // livrés sans décodeur H.264, qui l'atteindront en le sautant.
+      var sm = document.createElement('source');
+      sm.src = bouton.getAttribute('data-video'); sm.type = 'video/mp4';
+      video.appendChild(sm);
       var webm = bouton.getAttribute('data-webm');
       if (webm) {
         var sw = document.createElement('source');
         sw.src = webm; sw.type = 'video/webm';
         video.appendChild(sw);
       }
-      var sm = document.createElement('source');
-      sm.src = bouton.getAttribute('data-video'); sm.type = 'video/mp4';
-      video.appendChild(sm);
 
       var hote = bouton.closest('.playline') || bouton.closest('.filmcard') || bouton.parentNode;
       hote.replaceChildren(video);

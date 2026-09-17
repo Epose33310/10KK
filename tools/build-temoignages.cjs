@@ -211,7 +211,7 @@ ${header}<main id="main">
               data-video="assets/video/esope-slam.mp4"
               data-webm="assets/video/esope-slam.webm"
               data-titre="Un slam d’Esope">
-        <img class="filmcard__poster" src="assets/img/page-rap-3.jpg" alt="" loading="lazy" width="720" height="1280">
+        <img class="filmcard__poster" src="assets/img/film-slam.jpg" alt="" loading="lazy" width="1000" height="560">
         <span class="filmcard__veil" aria-hidden="true"></span>
         <span class="filmcard__disc" aria-hidden="true"></span>
         <span class="filmcard__label">Un slam d’Esope</span>
@@ -222,7 +222,7 @@ ${header}<main id="main">
               data-video="assets/video/esope-battle.mp4"
               data-webm="assets/video/esope-battle.webm"
               data-titre="Un battle de compliments d’Esope">
-        <img class="filmcard__poster" src="assets/img/page-eloquence-3.jpg" alt="" loading="lazy" width="720" height="1280">
+        <img class="filmcard__poster" src="assets/img/film-battle.jpg" alt="" loading="lazy" width="1000" height="562">
         <span class="filmcard__veil" aria-hidden="true"></span>
         <span class="filmcard__disc" aria-hidden="true"></span>
         <span class="filmcard__label">Un battle de compliments d’Esope</span>
