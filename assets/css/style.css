@@ -1210,6 +1210,13 @@ input, textarea, select { font: inherit; color: inherit; }
   border-top: 1px solid var(--line);
   font-size: 16px; font-weight: 600;
 }
+/* Deux liens au pied du méga-menu : le filet est porté par le conteneur. */
+.mega__foots {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px;
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.mega__foots .mega__foot { width: auto; margin-top: 0; padding-top: 0; border-top: 0; }
 .mega__foot .arrow, .btn--link .arrow { transition: transform var(--dur-fast) var(--ease); }
 .mega__foot:hover .arrow, .btn--link:hover .arrow { transform: translateX(5px); }
 
@@ -1524,6 +1531,43 @@ input, textarea, select { font: inherit; color: inherit; }
 .step__n::before { content: counter(step, decimal-leading-zero); }
 .step:hover .step__n { transform: scale(1.06); background: var(--yellow); color: var(--ink); }
 .step__body { padding-top: 10px; }
+
+/* Le parcours se remplit au défilement : le filet se trace à l'encre et la
+   pastille passe au jaune quand l'étape arrive à hauteur de lecture. Les
+   étapes déjà lues restent allumées — on voit d'un coup d'œil où l'on en est.
+   Aucun script : là où le navigateur ne sait pas faire, il ne se passe
+   simplement rien de plus que le survol. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .step::after {
+      content: '';
+      position: absolute;
+      left: 27px; top: 52px; bottom: 6px;
+      width: 2px; background: var(--ink);
+      transform-origin: top center;
+      animation: fil-trace linear both;
+      animation-timeline: view();
+      /* Plages calées sur « cover » : l'étape s'allume quand elle atteint le
+         milieu de l'écran, et la bascule est courte pour ne pas s'attarder
+         sur les teintes intermédiaires entre l'encre et le jaune. */
+      animation-range: cover 40% cover 66%;
+    }
+    .step:last-child::after { display: none; }
+    .step__n {
+      animation: pastille-allumee linear both;
+      animation-timeline: view();
+      animation-range: cover 34% cover 47%;
+    }
+  }
+}
+@keyframes fil-trace {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes pastille-allumee {
+  from { background: var(--ink); color: var(--white); transform: scale(1); }
+  to { background: var(--yellow); color: var(--ink); transform: scale(1.08); }
+}
 .step h3 { font-size: clamp(21px, 4.4vw, 26px); line-height: 1.12; letter-spacing: -0.025em; font-weight: 600; margin-bottom: 10px; }
 .step p { color: var(--ink-soft); font-size: clamp(16px, 3.6vw, 17px); line-height: 1.55; max-width: 62ch; }
 
@@ -1720,3 +1764,142 @@ input, textarea, select { font: inherit; color: inherit; }
 @media (min-width: 620px) and (max-width: 899px) {
   .facts, .goals { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ==========================================================================
+   Page « Témoignages & médias »
+   ========================================================================== */
+
+/* Bandeau défilant des médias. Les noms sont composés dans la police du site,
+   ce ne sont pas les logotypes des rédactions : une citation, pas une
+   reproduction de marque. La piste est écrite deux fois pour que la boucle se
+   referme sans saut ; la seconde copie est masquée aux lecteurs d'écran. */
+.marquee {
+  overflow: hidden;
+  padding-block: clamp(13px, 2.2vw, 19px);
+  background: var(--ink);
+  border-block: 2px solid var(--ink);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 44s linear infinite;
+}
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track { animation-play-state: paused; }
+.marquee__group { display: flex; align-items: center; flex: 0 0 auto; }
+.marquee__item {
+  display: inline-flex; align-items: center; gap: clamp(20px, 3.4vw, 36px);
+  padding-inline: clamp(10px, 1.7vw, 18px);
+  font-family: var(--font-logo);
+  font-size: clamp(21px, 3.2vw, 32px);
+  text-transform: uppercase; letter-spacing: 0.005em;
+  color: var(--paper);
+  white-space: nowrap;
+}
+.marquee__item i { font-style: normal; font-size: 0.42em; color: var(--yellow); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; }
+  .marquee__track { animation: none; }
+}
+
+/* Les articles de presse. Même grammaire que les cartes d'atelier de
+   l'accueil : bord d'encre, ombre portée dure, la carte s'enfonce au survol. */
+.presses { display: grid; gap: clamp(18px, 2.6vw, 26px); }
+@media (min-width: 720px) {
+  .presses { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .presse--une { grid-column: span 2; }
+}
+@media (min-width: 1040px) { .presses { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.presse {
+  display: flex; flex-direction: column;
+  gap: clamp(12px, 1.6vw, 16px);
+  padding: clamp(22px, 2.9vw, 30px);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: 8px 8px 0 var(--ink);
+  color: var(--ink); text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.presse:hover, .presse:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.presse:active { transform: translate(7px, 7px); box-shadow: 0 0 0 var(--ink); }
+
+.presse__top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.presse__media {
+  font-family: var(--font-logo);
+  font-size: clamp(20px, 2.4vw, 26px);
+  text-transform: uppercase; letter-spacing: 0.005em; line-height: 1;
+}
+.presse__tag {
+  flex: 0 0 auto;
+  padding: 5px 12px;
+  border: 1.5px solid var(--ink); border-radius: 99px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.presse__titre {
+  font-size: clamp(21px, 2.5vw, 26px);
+  line-height: 1.12; letter-spacing: -0.03em; font-weight: 700;
+}
+.presse--une .presse__titre { font-size: clamp(26px, 4.2vw, 40px); }
+.presse__chapo {
+  font-size: 16px; line-height: 1.5; color: rgba(26, 26, 26, 0.78);
+  max-width: 54ch;
+}
+.presse__foot {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px 18px;
+  margin-top: auto; padding-top: clamp(12px, 1.8vw, 18px);
+  border-top: 1.5px solid rgba(26, 26, 26, 0.22);
+}
+.presse__lieu { font-size: 14px; font-weight: 600; color: rgba(26, 26, 26, 0.7); }
+.presse__cta { font-size: 15px; font-weight: 700; }
+.presse__cta .arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
+.presse:hover .presse__cta .arrow { transform: translate(3px, -3px); }
+
+/* Relais des structures : des lignes, pas des cartes — elles ne doivent pas
+   rivaliser avec les articles de presse juste au-dessus. */
+.relais-liste { margin-top: clamp(16px, 2.4vw, 22px); border-top: 1.5px solid var(--line); }
+.relais {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 4px 18px;
+  padding-block: clamp(11px, 1.6vw, 15px);
+  border-bottom: 1.5px solid var(--line);
+  color: var(--ink); text-decoration: none;
+}
+.relais:hover { background: rgba(26, 26, 26, 0.04); }
+.relais__nom { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.relais__titre { font-size: 15px; color: var(--ink-mute); }
+.relais .arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
+.relais:hover .arrow { transform: translate(3px, -3px); }
+
+/* Palmarès */
+.def--yellow { background: var(--yellow); }
+.palms { list-style: none; margin: clamp(14px, 2vw, 20px) 0 0; padding: 0; display: grid; }
+.palm {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
+  padding-block: clamp(9px, 1.4vw, 13px);
+  border-top: 1.5px solid rgba(26, 26, 26, 0.22);
+}
+.palm:last-child { border-bottom: 1.5px solid rgba(26, 26, 26, 0.22); }
+.palm b { font-size: clamp(17px, 2vw, 20px); letter-spacing: -0.02em; }
+.palm span { font-size: 15px; color: rgba(26, 26, 26, 0.72); }
+
+/* Les douze témoignages, en mosaïque plutôt qu'en carrousel : sur une page
+   qui leur est consacrée, on veut pouvoir tous les lire. */
+.mosaique { display: grid; gap: clamp(16px, 2.2vw, 24px); }
+@media (min-width: 700px) { .mosaique { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .mosaique { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mosaique > .quote {
+  flex: initial;
+  min-height: 0;
+  padding: clamp(24px, 2.9vw, 32px);
+  border: 2px solid var(--ink);
+}
+.mosaique .quote__text { font-size: clamp(19px, 2.1vw, 25px); line-height: 1.2; }
+.mosaique .quote__who { margin-top: clamp(20px, 3vw, 28px); }
+.mosaique .quote__name { font-size: 17px; }
+.mosaique .quote__role { font-size: 14px; }

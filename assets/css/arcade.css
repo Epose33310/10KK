@@ -576,6 +576,21 @@
   border-bottom: 3px solid currentColor; opacity: 0.3;
 }
 
+/* Exemples de fins de phrase : des étiquettes, pas un paragraphe de plus.
+   Elles ne sont pas cliquables — c'est au participant d'écrire la sienne. */
+.g__ex { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.g__ex-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-mute);
+  width: 100%;
+}
+.g__ex-item {
+  padding: 7px 13px;
+  border: 1.5px dashed rgba(26, 26, 26, 0.28);
+  border-radius: 99px;
+  font-size: 14px; line-height: 1.25; color: var(--ink-soft);
+}
+
 .g__form--stack { flex-direction: column; gap: 12px; margin-top: 24px; }
 .g__form--stack .g__btn--send { width: 100%; }
 

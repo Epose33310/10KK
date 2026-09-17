@@ -278,6 +278,18 @@
     s.appendChild(el('h3', 'g__title g__title--sm', 'Finissez la phrase.'));
     s.appendChild(el('p', 'g__hint', 'Où ? Pourquoi ? Vers quoi ? Avec quelle sensation ?'));
 
+    /* Des fins possibles, volontairement passe-partout : elles doivent tomber
+       juste derrière n'importe quel sujet tiré au sort. Elles s'affichent,
+       elles ne se cliquent pas — la phrase reste celle du participant. */
+    var ex = el('div', 'g__ex');
+    ex.appendChild(el('span', 'g__ex-label', 'Des fins possibles'));
+    ['…quand personne ne regarde.',
+     '…au fond de la classe, sans bruit.',
+     '…comme une promesse qu’on n’a pas tenue.'].forEach(function (bout) {
+      ex.appendChild(el('span', 'g__ex-item', bout));
+    });
+    s.appendChild(ex);
+
     var form = el('form', 'g__form g__form--stack');
     form.setAttribute('autocomplete', 'off');
 
