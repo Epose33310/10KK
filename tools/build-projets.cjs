@@ -989,8 +989,11 @@ writeFileSync(join(root, 'projets.html'), page({
 </section>
 
 <section class="section section--close wrap">
-  <div class="projets" data-stagger>${tries.map(carte).join('')}
+  <div class="projets" data-paginate>${tries.map(carte).join('')}
   </div>
+  <button class="voirplus" type="button" data-voirplus hidden>
+    Voir plus <span class="voirplus__chevron" aria-hidden="true"></span>
+  </button>
 </section>
 `,
 }));

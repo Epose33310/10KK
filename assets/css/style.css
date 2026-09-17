@@ -2132,3 +2132,28 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .expert .faq { max-width: none; }
 .expert .faq__item { background: rgba(255, 255, 255, 0.55); }
+
+/* --------------------------------------------------------------------------
+   « Voir plus » — carnet « Les derniers projets »
+   Un texte discret, pas un bouton : la charge visuelle doit rester sur les
+   cartes, pas sur ce qui permet d'en voir davantage.
+   -------------------------------------------------------------------------- */
+
+.projets[data-paginate] > .projet[hidden] { display: none; }
+
+.voirplus {
+  display: flex; align-items: center; gap: 6px;
+  width: fit-content;
+  margin: clamp(28px, 4.5vw, 40px) auto 0;
+  padding: 8px 6px;
+  border: 0; background: transparent;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--ink-mute);
+  transition: color var(--dur-fast) var(--ease);
+}
+.voirplus:hover, .voirplus:focus-visible { color: var(--ink); }
+.voirplus__chevron {
+  width: 7px; height: 7px;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}

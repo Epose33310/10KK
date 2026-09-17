@@ -153,6 +153,36 @@
   }
 
   /* ----------------------------------------------------------------------
+     « Voir plus » sur le carnet « Les derniers projets »
+     Les cartes s'affichent toutes de suite, sans attendre un défilement ;
+     seul leur nombre est limité au départ pour ne pas charger toute la
+     liste d'un coup si elle grossit. Le lot dépend de la largeur d'écran,
+     pour toujours révéler des rangées complètes.
+     ---------------------------------------------------------------------- */
+
+  var grilleProjets = $('.projets[data-paginate]');
+  var boutonVoirPlus = $('[data-voirplus]');
+
+  if (grilleProjets && boutonVoirPlus) {
+    var cartesProjets = $$('.projet', grilleProjets);
+    var largeEcran = window.matchMedia('(min-width: 1040px)');
+    var lot = function () { return largeEcran.matches ? 9 : 8; };
+    var visibles = lot();
+
+    var appliquer = function () {
+      cartesProjets.forEach(function (carte, i) { carte.hidden = i >= visibles; });
+      boutonVoirPlus.hidden = visibles >= cartesProjets.length;
+    };
+
+    boutonVoirPlus.addEventListener('click', function () {
+      visibles += lot();
+      appliquer();
+    });
+
+    appliquer();
+  }
+
+  /* ----------------------------------------------------------------------
      Cercle tracé au feutre autour du titre
      ---------------------------------------------------------------------- */
 
