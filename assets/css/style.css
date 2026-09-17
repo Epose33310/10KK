@@ -431,6 +431,17 @@ input, textarea, select { font: inherit; color: inherit; }
 @supports not (height: 100svh) {
   .reel__frame { max-width: min(100%, 420px); }
 }
+
+/* Sur téléphone la vidéo sort de la gouttière : bord à bord, sans cadre découpé,
+   dans son format d'origine. */
+@media (max-width: 899px) {
+  .reel__frame {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    max-width: min(100vw, calc((100svh - 110px) * 9 / 16));
+    border-radius: 0;
+  }
+}
 .reel__frame img, .reel__frame video {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -1575,24 +1586,20 @@ input, textarea, select { font: inherit; color: inherit; }
   .tryout:hover, .tryout:active { transform: none; box-shadow: 7px 7px 0 var(--ink); }
 }
 
-/* Respiration entre deux blocs de texte sur les pages atelier. Les photos
-   arrivent dans tous les formats : plutôt que de les recadrer, on les pose
-   entières sur l'aplat de l'atelier, comme les vidéos. */
+/* Respiration entre deux blocs de texte sur les pages atelier. La photo est
+   nue : elle porte son propre cadre d'encre, sans aplat derrière elle. */
 .shot {
   display: flex;
   justify-content: center;
   /* Sans cela, une colonne étirée étire aussi la photo : le rapport saute. */
   align-items: center;
-  /* Le cadre épouse la photo au lieu de l'étaler sur toute la largeur :
-     les formats verticaux ne flottent plus au milieu d'un aplat vide. */
   width: fit-content;
   max-width: 100%;
   margin-inline: auto;
   margin-block: clamp(8px, 2vw, 20px);
-  padding: clamp(14px, 2.4vw, 26px);
-  border: 2px solid var(--ink);
-  border-radius: var(--r-card);
-  background: var(--bande, var(--card));
+  padding: 0;
+  border: 0;
+  background: none;
 }
 .shot img {
   width: auto; height: auto;
@@ -1623,15 +1630,25 @@ input, textarea, select { font: inherit; color: inherit; }
   }
   .paire > .shot { width: 100%; margin-block: 0; }
   .paire > .def { display: flex; flex-direction: column; }
+  /* La photo occupe toute sa colonne : c'est ce qui met les deux blocs à
+     la même taille, notamment face à une FAQ qui fait deux fois sa hauteur. */
+  .paire > .shot img {
+    width: 100%; height: 100%;
+    max-height: none;
+    object-fit: cover;
+  }
 }
 
-/* En face de la FAQ, la photo se passe de cadre : deux aplats de couleur
-   coup sur coup dans la même page, c'était un de trop. */
-.paire--faq > .shot {
-  background: none;
-  border: 0;
-  padding: 0;
-  border-radius: 0;
+/* Sur téléphone, seule la photo qui ouvre la FAQ garde l'aplat de son
+   atelier : elle annonce la section. */
+@media (max-width: 899px) {
+  .paire--faq > .shot {
+    width: 100%;
+    padding: clamp(14px, 3vw, 22px);
+    border: 2px solid var(--ink);
+    border-radius: var(--r-card);
+    background: var(--bande, var(--card));
+  }
 }
 
 /* Le déroulé et la vidéo côte à côte sur grand écran. La vidéo reste en vue
@@ -1659,11 +1676,19 @@ input, textarea, select { font: inherit; color: inherit; }
   max-height: none;
   aspect-ratio: 9 / 16;
   object-fit: cover;
+  border: 2px solid var(--ink);
   border-radius: 14px;
   background: var(--ink);
 }
-@media (max-width: 620px) {
-  .shot--video video, .shot--video img { height: min(72vh, 520px); }
+/* Sur téléphone la vidéo prend toute la largeur disponible : à 350 px de
+   large, son 9/16 lui donne déjà les trois quarts de l'écran. */
+@media (max-width: 899px) {
+  .shot--video { max-width: none; }
+  .shot--video video, .shot--video img {
+    width: 100%;
+    height: auto;
+    max-width: min(100%, calc((100svh - 120px) * 9 / 16));
+  }
 }
 
 .related { display: grid; gap: 12px; }
