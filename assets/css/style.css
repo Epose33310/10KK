@@ -1020,7 +1020,9 @@ input, textarea, select { font: inherit; color: inherit; }
   padding-block: clamp(44px, 7vw, 68px) clamp(28px, 4vw, 36px);
 }
 .footer__logo {
-  display: inline-block;
+  /* block pour que l'adresse passe à la ligne, width limitée pour que la
+     zone cliquable s'arrête au mot et ne traverse pas toute la largeur. */
+  display: block; width: fit-content;
   font-family: var(--font-logo);
   font-size: clamp(28px, 4.6vw, 38px);
   line-height: 1;
@@ -1035,7 +1037,9 @@ input, textarea, select { font: inherit; color: inherit; }
    ".footer__logo" seule, donc il faut reprendre la balise ici aussi. */
 .footer a.footer__logo, .footer a.footer__logo:hover, .footer a.footer__logo:focus-visible { color: var(--white); }
 
-.footer__mail { display: inline-block; margin-top: 10px; font-size: 14px; }
+/* Le logo est en Anton, interligne 1 : sans une marge franche, l'adresse
+   vient se coller sous les capitales. */
+.footer__mail { display: inline-block; margin-top: clamp(16px, 1.8vw, 22px); font-size: 14px; }
 
 .footer__nav {
   display: flex; flex-wrap: wrap; gap: 12px 26px;
