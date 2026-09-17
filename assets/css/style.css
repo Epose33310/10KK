@@ -409,71 +409,40 @@ input, textarea, select { font: inherit; color: inherit; }
 .hero .btn-row { margin-top: 32px; }
 
 /* --------------------------------------------------------------------------
-   Collage photo : bords déchirés, duotone, bandeau et traits griffés
+   La vidéo d'accueil
+   Un seul plan, vertical : presque tout l'écran sur téléphone, étiré autant
+   que la fenêtre le permet sur ordinateur.
    -------------------------------------------------------------------------- */
 
-.photoset {
-  position: relative;
-  margin-inline: auto;
-  aspect-ratio: 16 / 12;
-  max-width: 560px;
-}
+.reel { display: flex; justify-content: center; }
 
-.photoset__item {
-  position: absolute;
+.reel__frame {
+  position: relative;
   margin: 0;
   overflow: hidden;
-}
-.photoset__item img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 9 / 16;
+  background: var(--card);
+  /* La hauteur disponible sous le titre borne la largeur : la vidéo grandit
+     jusqu'à remplir l'écran, sans jamais le dépasser. */
+  max-width: min(100%, calc((100svh - 150px) * 9 / 16));
+}
+@supports not (height: 100svh) {
+  .reel__frame { max-width: min(100%, 420px); }
+}
+.reel__frame img, .reel__frame video {
+  width: 100%; height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .reel__frame { max-width: calc(min(76vh, 680px) * 9 / 16); }
 }
 
 /* Bords déchirés : polygones irréguliers, comme un papier arraché à la main */
-.tear-a { clip-path: polygon(1% 4%, 17% 1%, 34% 5%, 51% 0, 69% 4%, 87% 1%, 100% 6%, 98% 27%, 100% 52%, 97% 76%, 99% 96%, 79% 99%, 59% 95%, 39% 100%, 19% 96%, 2% 99%, 0 74%, 2% 49%, 0 26%); }
 .tear-b { clip-path: polygon(0 3%, 20% 0, 41% 4%, 62% 1%, 82% 5%, 100% 2%, 98% 24%, 100% 48%, 97% 71%, 100% 94%, 78% 98%, 56% 94%, 34% 99%, 12% 95%, 0 98%, 3% 72%, 0 47%, 2% 25%); }
 .tear-c { clip-path: polygon(3% 0, 24% 4%, 45% 0, 66% 5%, 88% 1%, 100% 5%, 97% 28%, 100% 51%, 98% 74%, 100% 97%, 76% 100%, 54% 96%, 31% 100%, 9% 96%, 0 99%, 2% 73%, 0 50%, 3% 27%); }
-
-/* Duotone : le fond coloré transparaît dans les zones claires de la photo */
-.duo { background: var(--turquoise); }
-.duo img { filter: grayscale(1) contrast(1.16) brightness(1.04); mix-blend-mode: multiply; }
-.duo--turquoise { background: var(--turquoise); }
-.duo--pink { background: var(--pink); }
-.duo--yellow { background: var(--yellow); }
-.duo--green { background: var(--green); }
-.duo--magenta { background: var(--magenta); }
-
-/* Placement du trio */
-.photoset__video { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.photoset__item--left { left: 0; top: 26%; width: 42%; height: 48%; transform: rotate(-1.2deg); }
-.photoset__item--main { left: 26%; top: 0; width: 48%; height: 84%; }
-.photoset__item--right { right: 0; top: 5%; width: 36%; height: 64%; transform: rotate(1.4deg); }
-
-@media (max-width: 899px) {
-  .photoset { aspect-ratio: 9 / 13; max-width: 320px; }
-  .photoset__item--left, .photoset__item--right, .photoset .photoset__banner { display: none; }
-  .photoset__item--main { inset: 0; width: 100%; height: 100%; }
-}
-
-/* Bandeau déchiré en avant-plan */
-.photoset__banner {
-  position: absolute;
-  left: 3%; bottom: 0;
-  width: 94%; height: 27%;
-  background: var(--blue);
-  clip-path: polygon(0 14%, 22% 4%, 48% 0, 74% 5%, 100% 1%, 92% 62%, 86% 100%, 60% 95%, 34% 99%, 11% 93%);
-  display: grid;
-  place-items: center;
-}
-.photoset__banner span {
-  font-size: clamp(22px, 6vw, 56px);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.32);
-}
 
 /* Photo seule, pour les blocs en deux colonnes */
 .photo-single {
@@ -1123,10 +1092,6 @@ input, textarea, select { font: inherit; color: inherit; }
   .split--flip > *:first-child { order: 2; }
 
   /* Sur grand écran les photos occupent nettement plus de surface */
-  .photoset { max-width: none; aspect-ratio: 16 / 9; }
-  .photoset__item--main { left: 35%; top: 0; width: 30%; height: 96%; }
-  .photoset__item--left { left: 0; top: 20%; width: 33%; height: 56%; }
-  .photoset__item--right { right: 0; top: 6%; width: 31%; height: 66%; }
   .photo-single { aspect-ratio: 5 / 5.4; }
 
   .product { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }

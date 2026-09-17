@@ -133,28 +133,18 @@
     <a class="btn btn--link" href="assets/docs/dossier-esope.pdf" download>Télécharger le dossier <span class="arrow" aria-hidden="true">↓</span></a>
   </div>
 
-  <div class="photoset" data-reveal style="margin-top:clamp(40px,9vw,72px)">
-    <figure class="photoset__item photoset__item--left tear-a duo duo--turquoise">
-      <img src="assets/img/atelier-2.jpg" alt="" loading="lazy" width="900" height="820">
-    </figure>
-    <!-- Emplacement vidéo. Déposez le fichier dans assets/video/ puis lancez
-         `node tools/sync-video.cjs` : la photo ci-dessous est remplacée par la
-         vidéo, en boucle et sans son. Voir assets/video/README.md. -->
-    <figure class="photoset__item photoset__item--main tear-b" data-video-slot>
-      <video class="photoset__video" poster="assets/img/atelier-1.jpg"
+  <!-- Emplacement vidéo. Déposez le fichier dans assets/video/ puis lancez
+       `node tools/sync-video.cjs` : la photo ci-dessous est remplacée par la
+       vidéo, en boucle et sans son. Voir assets/video/README.md. -->
+  <div class="reel" data-reveal>
+    <figure class="reel__frame tear-b" data-video-slot>
+      <video poster="assets/img/atelier-1.jpg"
              autoplay muted loop playsinline preload="metadata"
-             aria-label="Esope en atelier slam dans une classe" width="1100" height="1300">
+             aria-label="Esope en atelier slam dans une classe" width="720" height="1280">
         <source src="assets/video/atelier-esope.webm" type="video/webm">
         <source src="assets/video/atelier-esope.mp4" type="video/mp4">
       </video>
     </figure>
-    <figure class="photoset__item photoset__item--right tear-c duo duo--pink">
-      <img src="assets/img/atelier-3.jpg" alt="" loading="lazy" width="820" height="1050">
-      <svg class="scribbles" viewBox="0 0 200 300" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M10 40 L190 30 M10 80 L190 72 M10 120 L150 112 M10 160 L190 150 M10 200 L160 194"/>
-      </svg>
-    </figure>
-    <div class="photoset__banner" aria-hidden="true"><span>slam</span></div>
   </div>
 </section>
 

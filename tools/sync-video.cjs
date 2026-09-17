@@ -30,13 +30,13 @@ const AFFICHE = 'assets/img/atelier-1.jpg';
 const ALT = 'Esope en atelier slam dans une classe';
 
 const photo = `
-      <img src="${AFFICHE}" alt="${ALT}" width="1100" height="1300">
+      <img src="${AFFICHE}" alt="${ALT}" width="720" height="1280">
     `;
 
 const lecteur = `
-      <video class="photoset__video" poster="${AFFICHE}"
+      <video poster="${AFFICHE}"
              autoplay muted loop playsinline preload="metadata"
-             aria-label="${ALT}" width="1100" height="1300">${
+             aria-label="${ALT}" width="720" height="1280">${
   webm ? `\n        <source src="assets/video/${encodeURI(webm)}" type="video/webm">` : ''}
         <source src="assets/video/${encodeURI(mp4)}" type="video/mp4">
       </video>
@@ -45,7 +45,7 @@ const lecteur = `
 const chemin = join(root, 'index.html');
 const html = readFileSync(chemin, 'utf8');
 
-const motif = /(<figure class="photoset__item photoset__item--main tear-b" data-video-slot>)[\s\S]*?(<\/figure>)/;
+const motif = /(<figure class="[^"]*" data-video-slot>)[\s\S]*?(<\/figure>)/;
 if (!motif.test(html)) {
   console.error('Emplacement `data-video-slot` introuvable dans index.html.');
   process.exit(1);
