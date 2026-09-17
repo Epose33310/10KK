@@ -39,8 +39,9 @@ pas là, c'est l'affiche `assets/img/video-<atelier>.jpg` qui s'affiche.
 
 ## Format attendu
 
-- **Cadrage paysage**, 16:9 (1600 × 900 ou 1920 × 1080).
-- 15 à 30 secondes, bouclées proprement.
+- **Cadrage vertical** — c'est le format des quatre vidéos en place, tournées
+  au téléphone ; le cadre s'y adapte (largeur maximale 560 px sur ordinateur).
+- 5 à 30 secondes, bouclées proprement.
 - Sans son : la piste audio ne sera jamais jouée.
 - Moins de 4 Mo si possible.
 - Pensez à remplacer aussi l'affiche `assets/img/video-<atelier>.jpg` par une
@@ -63,10 +64,11 @@ node tools/build-pages.cjs     # les vidéos des quatre pages d'atelier
 | `atelier-slam.html` | `atelier-slam.mp4` + `.webm` | 2,0 / 2,4 Mo |
 | `atelier-eloquence.html` | `atelier-eloquence.mp4` + `.webm` | 1,1 / 0,9 Mo |
 | `atelier-rap.html` | `atelier-rap.mp4` + `.webm` | 0,7 / 0,9 Mo |
-| `atelier-battle.html` | rejoue `atelier-esope.*` en attendant sa propre vidéo | — |
+| `atelier-battle.html` | `atelier-battle.mp4` + `.webm` | 0,8 / 0,7 Mo |
 
 Les sources envoyées (`Ateliers Battle.mp4`, `Ateliers Slam 2.mp4`,
-`Esope Flex.MOV`, `atelier éloquenceh.mov`) ont été converties :
+`Esope Flex.MOV`, `atelier éloquenceh.mov`, `-4307615840185493331.MP4`) ont
+été converties :
 
 - piste audio retirée,
 - `.mov` → `.mp4` H.264, plus un `.webm` VP9 en secours (certains navigateurs
