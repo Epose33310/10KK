@@ -83,10 +83,18 @@
      Outils
      ---------------------------------------------------------------------- */
 
+  /* Typographie française : une espace fine insécable avant ? ! : ; et à
+     l'intérieur des guillemets, sinon la ponctuation passe seule à la ligne. */
+  function typo(texte) {
+    return String(texte)
+      .replace(/ ([?!:;»])/g, '\u202f$1')
+      .replace(/« /g, '\u00ab\u202f');
+  }
+
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
-    if (text !== undefined && text !== null) node.textContent = String(text);
+    if (text !== undefined && text !== null) node.textContent = typo(text);
     return node;
   }
 
@@ -160,9 +168,9 @@
 
   function screenIntro() {
     var s = el('div', 'g g--center');
-    s.appendChild(el('p', 'g__eyebrow', 'Association inattendue'));
-    s.appendChild(el('h3', 'g__title', 'Deux mots. Une image. À vous d’écrire la suite.'));
-    s.appendChild(el('p', 'g__text', 'Vous choisissez un verbe, je tire au sort un sujet, et vous complétez la phrase.'));
+    s.appendChild(el('p', 'g__eyebrow', 'En trois étapes'));
+    s.appendChild(el('h3', 'g__title', 'Vous choisissez un verbe, je tire un sujet, vous finissez la phrase.'));
+    s.appendChild(el('p', 'g__tip', 'Par exemple : « Le silence dort au fond de la classe. »'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';
@@ -174,9 +182,9 @@
 
   function screenVerbe() {
     var s = el('div', 'g');
-    s.appendChild(el('p', 'g__eyebrow', 'Étape 1'));
-    s.appendChild(el('h3', 'g__title', 'Choisissez votre verbe.'));
-    s.appendChild(el('p', 'g__text', 'Ce mot va guider toute la phrase. Une fois choisi, je le verrouille.'));
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 1 sur 3'));
+    s.appendChild(el('h3', 'g__title', 'Choisissez un verbe.'));
+    s.appendChild(el('p', 'g__text', 'C’est lui qui donnera son mouvement à la phrase.'));
 
     var grille = el('div', 'g__verbs');
     VERBS.forEach(function (verbe) {
@@ -218,8 +226,8 @@
 
     var s = el('div', 'g g--center');
     s.appendChild(verrou());
-    s.appendChild(el('p', 'g__eyebrow', 'Étape 2 · le sujet'));
-    s.appendChild(el('h3', 'g__title', 'Et maintenant, qui fait cette action ?'));
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 2 sur 3'));
+    s.appendChild(el('h3', 'g__title', 'Je tire au sort qui fait cette action.'));
 
     var slot = el('p', 'g__slot', SUBJECTS[0].t);
     s.appendChild(slot);
@@ -264,10 +272,10 @@
 
     var s = el('div', 'g');
     s.appendChild(verrou());
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 3 sur 3'));
     s.appendChild(el('p', 'g__phrase', debut + '…'));
 
-    s.appendChild(el('h3', 'g__title g__title--sm', 'À vous de trouver la suite.'));
-    s.appendChild(el('p', 'g__text', 'Ajoutez quelques mots pour transformer cette phrase en image.'));
+    s.appendChild(el('h3', 'g__title g__title--sm', 'Finissez la phrase.'));
     s.appendChild(el('p', 'g__hint', 'Où ? Pourquoi ? Vers quoi ? Avec quelle sensation ?'));
 
     var form = el('form', 'g__form g__form--stack');
@@ -283,7 +291,7 @@
     input.id = 'slam-input';
     input.className = 'g__input g__input--area';
     input.rows = 3;
-    input.placeholder = 'Continuez la phrase…';
+    input.placeholder = 'Quelques mots suffisent…';
     input.enterKeyHint = 'done';
     input.setAttribute('autocapitalize', 'none');
     input.maxLength = 140;
@@ -309,7 +317,7 @@
     function valider() {
       var suite = String(input.value || '').replace(/^[\s.…]+/, '').trim();
       if (!suite) {
-        flash.textContent = 'Écrivez quelques mots pour continuer la phrase.';
+        flash.textContent = 'Écrivez quelques mots pour finir la phrase.';
         flash.className = 'g__flash is-ko';
         input.focus();
         return;
@@ -353,7 +361,7 @@
     }
 
     s.appendChild(el('p', 'g__text g__text--strong', 'Vous venez de créer une image poétique.'));
-    s.appendChild(el('p', 'g__text', 'En atelier, je pars d’une association inattendue, puis on cherche ensemble comment la prolonger, la préciser, la rendre plus évocatrice.'));
+    s.appendChild(el('p', 'g__text', 'En atelier, on part de la même contrainte, puis on cherche ensemble à préciser l’image.'));
     s.appendChild(el('p', 'g__text g__text--strong', 'Imaginez maintenant cette consigne avec tout un groupe.'));
 
     var cta = el('a', 'g__btn g__btn--cta', 'Découvrir l’atelier slam');

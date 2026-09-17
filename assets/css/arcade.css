@@ -553,6 +553,20 @@
   overflow-wrap: anywhere;
 }
 
+/* Phrase en construction (jeu 02) : plus petite que l'amorce du jeu 01,
+   parce qu'elle reste affichée au-dessus d'un champ de saisie. */
+.g__phrase--sm { font-size: clamp(19px, 4.6vw, 27px); margin-bottom: 18px; padding-bottom: 12px; }
+.g__fill {
+  background: var(--yellow);
+  box-shadow: 0 0 0 3px var(--yellow);
+  border-radius: 3px;
+}
+/* Le blanc à remplir : un trait, de la largeur d'un mot. */
+.g__gap {
+  display: inline-block; width: 2.6em; height: 0.62em;
+  border-bottom: 3px solid currentColor; opacity: 0.3;
+}
+
 .g__form--stack { flex-direction: column; gap: 12px; margin-top: 24px; }
 .g__form--stack .g__btn--send { width: 100%; }
 

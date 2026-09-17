@@ -153,10 +153,18 @@
     return value;
   }
 
+  /* Typographie française : une espace fine insécable avant ? ! : ; et à
+     l'intérieur des guillemets, sinon la ponctuation passe seule à la ligne. */
+  function typo(texte) {
+    return String(texte)
+      .replace(/ ([?!:;»])/g, '\u202f$1')
+      .replace(/« /g, '\u00ab\u202f');
+  }
+
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
-    if (text !== undefined && text !== null) node.textContent = String(text);
+    if (text !== undefined && text !== null) node.textContent = typo(text);
     return node;
   }
 
@@ -191,9 +199,9 @@
 
   function screenIntro() {
     var s = el('div', 'g');
-    s.appendChild(el('p', 'g__eyebrow', 'Défi de prise de parole'));
-    s.appendChild(el('h3', 'g__title', 'Un sujet. 60 secondes. Une prise de parole.'));
-    s.appendChild(el('p', 'g__text', 'Choisissez une tranche d’âge, je tire le sujet au sort, et vous relevez le défi. Ici, rien à écrire : il faut parler à voix haute.'));
+    s.appendChild(el('p', 'g__eyebrow', 'En trois étapes'));
+    s.appendChild(el('h3', 'g__title', 'Un sujet tiré au sort, 60 secondes pour en parler.'));
+    s.appendChild(el('p', 'g__text', 'Rien à écrire ici : on parle à voix haute. Vous choisissez l’âge, je choisis le sujet.'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';
@@ -205,8 +213,8 @@
 
   function screenAge() {
     var s = el('div', 'g');
-    s.appendChild(el('p', 'g__eyebrow', 'Étape 1'));
-    s.appendChild(el('h3', 'g__title', 'Pour quelle tranche d’âge ?'));
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 1 sur 3'));
+    s.appendChild(el('h3', 'g__title', 'Le sujet sera pour quel âge ?'));
 
     var grid = el('div', 'g__choices');
     AGE_GROUPS.forEach(function (group) {
@@ -237,13 +245,14 @@
     state.topic = finalTopic || 'Le sujet de votre choix';
 
     var s = el('div', 'g g--center');
-    s.appendChild(el('p', 'g__eyebrow', 'Étape 2 · le sujet'));
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 2 sur 3'));
+    s.appendChild(el('h3', 'g__title g__title--sm', 'Je tire votre sujet au sort.'));
     var slot = el('p', 'g__slot', list[0] || state.topic);
     s.appendChild(slot);
 
     var after = el('div', 'g__after');
     after.hidden = true;
-    after.appendChild(el('p', 'g__text', 'Vous avez 60 secondes pour en parler.'));
+    after.appendChild(el('p', 'g__text', 'À vous : 60 secondes, à voix haute.'));
     var go = el('button', 'g__btn', 'Je relève le défi');
     go.type = 'button';
     go.appendChild(el('span', 'arrow', '→'));
@@ -257,20 +266,24 @@
     var delay = reduced ? 0 : 50;
     var steps = reduced ? 0 : 14;
     var i = 0;
+    // On garde la valeur brute à part : le texte affiché porte des espaces
+    // fines, il ne se compare plus aux entrées de la liste.
+    var affiche = list[0] || state.topic;
     function roll() {
       if (i >= steps) {
-        slot.textContent = state.topic;
+        slot.textContent = typo(state.topic);
         slot.classList.add('is-locked');
         after.hidden = false;
         return;
       }
-      slot.textContent = pick(list, slot.textContent) || state.topic;
+      affiche = pick(list, affiche) || state.topic;
+      slot.textContent = typo(affiche);
       i += 1;
       delay = delay * 1.10;
       state.rollId = setTimeout(roll, delay);
     }
     if (reduced) {
-      slot.textContent = state.topic;
+      slot.textContent = typo(state.topic);
       slot.classList.add('is-locked');
       after.hidden = false;
     } else {
@@ -331,9 +344,9 @@
     wrap.appendChild(value);
     s.appendChild(wrap);
 
-    s.appendChild(el('p', 'g__text', 'Parlez librement jusqu’à la fin du chrono.'));
+    s.appendChild(el('p', 'g__text', 'Parlez jusqu’à la fin du chrono.'));
 
-    var skip = el('button', 'g__link', 'Passer à l’auto-évaluation');
+    var skip = el('button', 'g__link', 'J’ai fini');
     skip.type = 'button';
     skip.addEventListener('click', function () { show(screenQuiz); });
     s.appendChild(skip);
@@ -358,8 +371,8 @@
   function screenDone() {
     var s = el('div', 'g g--center');
     s.appendChild(el('p', 'g__eyebrow', 'Temps écoulé'));
-    s.appendChild(el('h3', 'g__title', 'Vous venez de tenir une prise de parole de 60 secondes.'));
-    s.appendChild(el('p', 'g__text', 'Reste le plus instructif : regarder ce qui s’est passé pendant ces soixante secondes.'));
+    s.appendChild(el('h3', 'g__title', 'Vous venez de tenir 60 secondes sur un sujet imposé.'));
+    s.appendChild(el('p', 'g__text', 'Étape 3 : regardons comment ça s’est passé.'));
 
     var go = el('button', 'g__btn', 'Comment ça s’est passé ?');
     go.type = 'button';
@@ -372,9 +385,9 @@
   function screenQuiz() {
     var list = CRITERIA[state.age] || CRITERIA['15-20'];
     var s = el('div', 'g');
-    s.appendChild(el('p', 'g__eyebrow', 'Auto-évaluation'));
-    s.appendChild(el('h3', 'g__title', 'À vous de juger votre prise de parole.'));
-    s.appendChild(el('p', 'g__text', 'Aucune bonne réponse : ce sont vos réponses qui décident des techniques que je vous montre ensuite.'));
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 3 sur 3'));
+    s.appendChild(el('h3', 'g__title', 'Comment ça s’est passé, pour vous ?'));
+    s.appendChild(el('p', 'g__text', 'Pas de bonne réponse : ce sont vos réponses qui choisissent les techniques que je vous montre après.'));
 
     var form = el('div', 'g__quiz');
     list.forEach(function (item, index) {
@@ -417,9 +430,10 @@
       var answered = Object.keys(state.answers).length;
       var total = list.length;
       go.disabled = answered < total;
-      hint.textContent = answered < total
-        ? answered + ' réponse' + (answered > 1 ? 's' : '') + ' sur ' + total
-        : '';
+      // À zéro, on explique pourquoi le bouton est grisé ; ensuite, on compte.
+      hint.textContent = answered >= total ? ''
+        : answered === 0 ? 'Répondez aux ' + total + ' questions pour voir votre profil.'
+        : answered + ' sur ' + total;
     }
     update();
     return s;
@@ -483,7 +497,7 @@
     }
 
     var outro = el('div', 'g__outro');
-    outro.appendChild(el('p', 'g__text', 'Vous venez de travailler une technique d’éloquence. En atelier, on va plus loin : trouver ses idées, structurer son discours, travailler sa voix et prendre confiance devant les autres.'));
+    outro.appendChild(el('p', 'g__text', 'En atelier, on va plus loin : trouver ses idées, structurer son discours, travailler sa voix, et oser devant les autres.'));
     outro.appendChild(el('p', 'g__text g__text--strong', 'Imaginez maintenant votre groupe relever le même défi.'));
 
     var cta = el('a', 'g__btn g__btn--cta', 'Découvrir l’atelier éloquence');

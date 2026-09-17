@@ -34,10 +34,18 @@
      Outils
      ---------------------------------------------------------------------- */
 
+  /* Typographie française : une espace fine insécable avant ? ! : ; et à
+     l'intérieur des guillemets, sinon la ponctuation passe seule à la ligne. */
+  function typo(texte) {
+    return String(texte)
+      .replace(/ ([?!:;»])/g, '\u202f$1')
+      .replace(/« /g, '\u00ab\u202f');
+  }
+
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
-    if (text !== undefined && text !== null) node.textContent = String(text);
+    if (text !== undefined && text !== null) node.textContent = typo(text);
     return node;
   }
 
@@ -79,6 +87,19 @@
     return phrase.replace(/\s{2,}/g, ' ').trim() + '.';
   }
 
+  /* La phrase en construction, affichée en haut des étapes 2 et 3 : elle
+     explique la consigne mieux qu'une ligne de texte. Les mots déjà trouvés
+     par le joueur sont surlignés, ce qui reste à trouver est un blanc. */
+  function fragment(mots) {
+    var p = el('p', 'g__phrase g__phrase--sm');
+    mots.forEach(function (mot, i) {
+      if (i) p.appendChild(document.createTextNode(' '));
+      if (mot === null) { p.appendChild(el('span', 'g__gap')); return; }
+      p.appendChild(mot.fill ? el('span', 'g__fill', mot.t) : document.createTextNode(mot.t || mot));
+    });
+    return p;
+  }
+
   function show(build) {
     if (state.rollId) { clearTimeout(state.rollId); state.rollId = null; }
     if (state.revealId) { clearTimeout(state.revealId); state.revealId = null; }
@@ -97,10 +118,10 @@
 
   function screenIntro() {
     var s = el('div', 'g g--center');
-    s.appendChild(el('p', 'g__eyebrow', 'Un compliment. Une image. Une punchline.'));
-    s.appendChild(el('h3', 'g__title', 'Construisez votre punchline compliment.'));
-    s.appendChild(el('p', 'g__text', 'Le principe du battle, retourné : on ne cherche pas à démolir, on cherche à flatter.'));
-    s.appendChild(el('p', 'g__hint', 'Je tire la personne au sort — la qualité et l’image, c’est vous qui les trouvez.'));
+    s.appendChild(el('p', 'g__eyebrow', 'En trois étapes'));
+    s.appendChild(el('h3', 'g__title', 'Le battle de rap à l’envers : on ne démolit pas, on valorise.'));
+    s.appendChild(el('p', 'g__tip', 'Une punchline compliment, c’est : « Zidane est brillant comme le soleil. »'));
+    s.appendChild(el('p', 'g__hint', 'Je tire la personne au sort. La qualité et l’image, c’est vous.'));
 
     var go = el('button', 'g__btn', 'Commencer');
     go.type = 'button';
@@ -114,8 +135,8 @@
     state.personne = pick(PEOPLE, null) || PEOPLE[0];
 
     var s = el('div', 'g g--center');
-    s.appendChild(el('p', 'g__eyebrow', 'Étape 1'));
-    s.appendChild(el('h3', 'g__title', 'À qui allez-vous faire ce compliment ?'));
+    s.appendChild(el('p', 'g__eyebrow', 'Étape 1 sur 3'));
+    s.appendChild(el('h3', 'g__title', 'Je tire au sort la personne à complimenter.'));
 
     var slot = el('p', 'g__slot', PEOPLE[0].t);
     s.appendChild(slot);
@@ -158,9 +179,9 @@
   function champ(config) {
     var s = el('div', 'g');
     s.appendChild(el('p', 'g__eyebrow', config.etape));
+    if (config.phrase) s.appendChild(fragment(config.phrase));
     s.appendChild(el('h3', 'g__title', config.titre));
     s.appendChild(el('p', 'g__text', config.aide));
-    if (config.indice) s.appendChild(el('p', 'g__hint', config.indice));
 
     var form = el('form', 'g__form g__form--stack');
     form.setAttribute('autocomplete', 'off');
@@ -211,10 +232,10 @@
     var personne = state.personne;
     var feminin = personne && personne.f;
     return champ({
-      etape: 'Étape 2 · ' + (personne ? personne.t : ''),
-      titre: 'Quelle qualité lui donneriez-vous ?',
-      aide: 'Un adjectif mélioratif — donc positif — celui qui ' + (feminin ? 'la' : 'le') + ' décrit le mieux.',
-      indice: 'On flatte, on ne démolit pas : cherchez ce qu’' + (feminin ? 'elle' : 'il') + ' a de meilleur.',
+      etape: 'Étape 2 sur 3',
+      phrase: [personne ? personne.t : '', 'est', null],
+      titre: 'Quelle est sa plus grande qualité ?',
+      aide: 'Un adjectif positif, un seul : celui qui ' + (feminin ? 'la' : 'le') + ' décrit le mieux.',
       label: 'La qualité',
       id: 'battle-qualite',
       placeholder: feminin ? EXEMPLES_F : EXEMPLES_M,
@@ -229,10 +250,11 @@
 
   function screenImage() {
     return champ({
-      etape: 'Étape 3 · ' + state.qualite,
-      titre: "Qu'est-ce qui est " + state.qualite + ' ?',
-      aide: 'Cherchez une chose que tout le monde connaît et qui possède cette qualité.',
-      indice: 'C’est elle qui rendra le compliment imparable.',
+      etape: 'Étape 3 sur 3',
+      phrase: [state.personne ? state.personne.t : '', 'est',
+               { t: minuscule(state.qualite), fill: true }, 'comme', null],
+      titre: "Qu'est-ce qui est " + minuscule(state.qualite) + ' ?',
+      aide: 'Une chose que tout le monde connaît.',
       label: "L'image",
       id: 'battle-image',
       placeholder: 'Ex. le soleil…',
@@ -273,7 +295,7 @@
     var suite = el('div', 'g__after');
     suite.hidden = true;
     suite.appendChild(el('p', 'g__text g__text--strong', 'Vous venez de construire une punchline.'));
-    suite.appendChild(el('p', 'g__text', 'La technique tient en trois temps : partir d’une qualité positive, chercher une image que tout le monde comprend, puis les relier par une comparaison. C’est tout, et ça marche à chaque fois.'));
+    suite.appendChild(el('p', 'g__text', 'La recette : une qualité, une image que tout le monde comprend, et « comme » entre les deux.'));
     suite.appendChild(el('p', 'g__text g__text--strong', 'Imaginez maintenant un groupe entier en train d’en fabriquer.'));
 
     var cta = el('a', 'g__btn g__btn--cta', 'Découvrir le battle de compliments');

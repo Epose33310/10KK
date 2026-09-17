@@ -28,10 +28,18 @@
      Outils
      ---------------------------------------------------------------------- */
 
+  /* Typographie française : une espace fine insécable avant ? ! : ; et à
+     l'intérieur des guillemets, sinon la ponctuation passe seule à la ligne. */
+  function typo(texte) {
+    return String(texte)
+      .replace(/ ([?!:;»])/g, '\u202f$1')
+      .replace(/« /g, '\u00ab\u202f');
+  }
+
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
-    if (text !== undefined && text !== null) node.textContent = String(text);
+    if (text !== undefined && text !== null) node.textContent = typo(text);
     return node;
   }
 
@@ -88,9 +96,9 @@
 
   function screenIntro() {
     var s = el('div', 'g g--center');
-    s.appendChild(el('p', 'g__eyebrow', 'Défi de rimes'));
+    s.appendChild(el('p', 'g__eyebrow', 'Contre la montre'));
     s.appendChild(el('h3', 'g__title', 'Combien de rimes en 60 secondes ?'));
-    s.appendChild(el('p', 'g__text', 'Je vous donne un mot. Trouvez une rime, validez, le mot suivant arrive. Une mauvaise réponse ne coûte aucun point : elle coûte du temps.'));
+    s.appendChild(el('p', 'g__text', 'Je donne un mot, vous trouvez une rime, j’enchaîne. Une erreur ne coûte aucun point — seulement des secondes.'));
 
     var tip = el('p', 'g__tip', 'On cherche le dernier son, pas les mêmes lettres. « soleil » rime avec « merveille ».');
     s.appendChild(tip);
