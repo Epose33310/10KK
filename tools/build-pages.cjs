@@ -24,7 +24,7 @@ const toHome = (html) =>
 const assetVersion = (index.match(/style\.css\?v=(\d+)/) || [, '1'])[1];
 
 const header = toHome(between('<a class="skip-link"', '<main id="main">'));
-const footer = toHome(index.slice(index.indexOf('<!-- ================= PARCOURS — fenêtre')));
+const footer = toHome(index.slice(index.indexOf('<!-- ================= MODULE 9 — PIED DE PAGE NOIR')));
 
 // Cette question revient dans chaque dossier : elle est identique partout.
 const FAQ_PASS = ['Vos interventions sont-elles éligibles au pass Culture ?',

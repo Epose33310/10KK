@@ -15,7 +15,7 @@ const toHome = (h) => h.replace(/href="#(?!top\b|main\b)([a-z0-9-]+)"/g, 'href="
 const v = (index.match(/style\.css\?v=(\d+)/) || [, '1'])[1];
 
 const header = toHome(index.slice(index.indexOf('<a class="skip-link"'), index.indexOf('<main id="main">')));
-const footer = toHome(index.slice(index.indexOf('<!-- ================= PARCOURS — fenêtre')))
+const footer = toHome(index.slice(index.indexOf('<!-- ================= MODULE 9 — PIED DE PAGE NOIR')))
   .replace(/app\.js\?v=\d+/, `app.js?v=${v}`);
 
 /* Les douze témoignages viennent de l'accueil : une seule source de vérité. */

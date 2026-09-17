@@ -892,13 +892,6 @@ input, textarea, select { font: inherit; color: inherit; }
   width: 52px; height: 4px; border-radius: 99px; background: var(--yellow);
 }
 
-.footer button {
-  padding: 0; border: 0; background: transparent;
-  color: #e6e3df; font-size: 16px; font-weight: 400; text-align: left;
-  font-family: inherit; line-height: inherit;
-}
-.footer button:hover { color: var(--white); }
-
 /* --------------------------------------------------------------------------
    FAQ
    -------------------------------------------------------------------------- */
@@ -1024,38 +1017,46 @@ input, textarea, select { font: inherit; color: inherit; }
 .footer {
   background: var(--footer);
   color: var(--white);
-  padding-block: clamp(48px, 10vw, 80px) 40px;
+  padding-block: clamp(44px, 7vw, 68px) clamp(28px, 4vw, 36px);
 }
 .footer__logo {
   font-family: var(--font-logo);
-  font-size: clamp(56px, 13vw, 88px);
-  line-height: 0.95;
+  font-size: clamp(28px, 4.6vw, 38px);
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: -0.01em;
   color: var(--white);
 }
-.footer__copy { margin-top: 6px; font-size: 16px; color: #d9d6d2; }
+/* Les liens du pied de page sont volontairement en retrait : sur fond noir,
+   un gris moyen suffit à les rendre lisibles sans qu'ils tirent l'œil. */
+.footer a { color: #a3a09c; overflow-wrap: anywhere; transition: color var(--dur-fast) var(--ease); }
+.footer a:hover, .footer a:focus-visible { color: var(--white); }
 
-.footer__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px 24px; margin-top: 56px; }
-/* Sans min-width:0 une colonne ne peut pas descendre sous la largeur de son
-   plus long mot — l'adresse e-mail faisait déborder la page en 320 px. */
-.footer__grid > div, .footer__legal > a { min-width: 0; }
-.footer a { overflow-wrap: anywhere; }
-.footer h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 22px; }
-.footer ul { display: grid; gap: 14px; }
-.footer a { color: #e6e3df; font-size: 16px; }
-.footer a:hover { color: var(--white); }
+.footer__mail { display: inline-block; margin-top: 10px; font-size: 14px; }
 
-.socials { display: flex; gap: 24px; margin-top: 52px; }
-.socials a { display: grid; place-items: center; width: 28px; height: 28px; }
-.socials svg { width: 22px; height: 22px; fill: var(--white); }
-
-.footer__legal {
-  margin-top: 52px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-  font-size: 15px;
+.footer__nav {
+  display: flex; flex-wrap: wrap; gap: 12px 26px;
+  margin-top: clamp(30px, 4.2vw, 40px);
+  padding-top: clamp(22px, 3vw, 28px);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
 }
-.footer__legal a { color: #d9d6d2; }
+.footer__nav a { font-size: 14px; }
+
+.footer__bas {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px;
+  margin-top: clamp(24px, 3.4vw, 32px);
+  padding-top: clamp(18px, 2.6vw, 24px);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+.footer__copy { font-size: 13px; color: #7e7b77; }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer__legal a { font-size: 13px; color: #7e7b77; }
+
+/* Les deux réseaux se calent à droite dès qu'il reste de la place. */
+.socials { display: flex; gap: 18px; margin-left: auto; }
+.socials a { display: grid; place-items: center; width: 24px; height: 24px; }
+.socials svg { width: 18px; height: 18px; fill: #a3a09c; transition: fill var(--dur-fast) var(--ease); }
+.socials a:hover svg, .socials a:focus-visible svg { fill: var(--white); }
 
 /* --------------------------------------------------------------------------
    Révélations au scroll
@@ -1139,8 +1140,6 @@ input, textarea, select { font: inherit; color: inherit; }
   .contact { grid-template-columns: 0.94fr 1.06fr; align-items: center; }
   .field-row { grid-template-columns: 1fr 1fr; }
 
-  .footer__grid { grid-template-columns: repeat(4, 1fr); }
-  .footer__legal { grid-template-columns: repeat(4, 1fr); }
 
 }
 
