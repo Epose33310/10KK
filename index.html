@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Esope — Ateliers slam, rap et éloquence pour les structures</title>
-<meta name="description" content="Champion de France de Slam, Esope intervient dans les établissements scolaires, les structures jeunesse et de santé, partout en France. Ateliers slam, rap, éloquence et battle de compliments. Agréé Éducation nationale, éligible pass Culture.">
+<title>Ateliers slam, rap et éloquence dans toute la France — Esope</title>
+<meta name="description" content="Ateliers slam, rap, éloquence et battle de compliments pour collèges, lycées, structures jeunesse et médico-sociales, partout en France. Animés par Esope, champion de France de Slam. Agréé Éducation nationale, éligible pass Culture.">
+<meta name="author" content="Esope">
 <meta name="theme-color" content="#fdc837">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Esope — Ateliers slam">
+<meta property="og:title" content="Ateliers slam, rap et éloquence dans toute la France — Esope">
 <meta property="og:description" content="Champion de France de Slam. Ateliers slam, rap et éloquence dans les établissements scolaires et les structures jeunesse, partout en France.">
 <meta property="og:locale" content="fr_FR">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=19">
+<link rel="stylesheet" href="assets/css/style.css?v=20">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Person","@id":"#esope","name":"Esope","jobTitle":"Slameur, intervenant artistique et pédagogique","description":"Champion de France de Slam. Anime depuis 2016 des ateliers slam, rap, éloquence et battle de compliments dans les établissements scolaires et les structures accueillant du public.","email":"slampoetrip@gmail.com","knowsLanguage":"fr","areaServed":"FR"},
+{"@type":"Service","name":"Ateliers slam, rap et éloquence","serviceType":"Atelier artistique et pédagogique","provider":{"@id":"#esope"},"areaServed":{"@type":"Country","name":"France"},"audience":{"@type":"Audience","audienceType":"Établissements scolaires, structures jeunesse, structures de santé et médico-sociales, animateurs et éducateurs"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Les ateliers","itemListElement":[
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers slam","url":"atelier-slam.html"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers rap","url":"atelier-rap.html"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers éloquence","url":"atelier-eloquence.html"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers battle de compliments","url":"atelier-battle.html"}}]}}
+]}</script>
 </head>
 <body>
 
@@ -67,11 +76,10 @@
       <button class="header__link" type="button" data-agenda>Agenda</button>
       <a class="header__link" href="#temoignages">Témoignages</a>
       <a class="header__link" href="#esope">Esope</a>
-      <a class="header__link" href="#faq">FAQ</a>
     </nav>
 
     <div class="header__cta">
-      <a class="btn btn--ink btn--pill header__cta-desk" href="#contact">Réserve ton atelier</a>
+      <a class="btn btn--ink btn--pill header__cta-desk" href="#contact">Je construis un projet</a>
       <a class="btn btn--dossier btn--pill header__cta-mob" href="assets/docs/dossier-esope.pdf" download>
         <span class="cta-long">Télécharger le dossier</span>
         <span class="cta-short">Le dossier</span>
@@ -100,8 +108,7 @@
     <button type="button" data-agenda>Agenda</button>
     <a href="#temoignages">Témoignages</a>
     <a href="#esope">Esope</a>
-    <a href="#faq">FAQ</a>
-    <a class="btn btn--ink btn--pill btn--block" href="#contact">Réserve ton atelier</a>
+    <a class="btn btn--ink btn--pill btn--block" href="#contact">Je construis un projet</a>
   </div>
 </header>
 
@@ -116,9 +123,9 @@
       </svg></span>,</span> Rap &amp; Éloquence dans toute la France</h1>
 
   <p class="hero__note" data-reveal>
-    Slam, rap, battle, poésie, éloquence — Esope est un expert pluridisciplinaire aux domaines
-    de prédilection variés. Pédagogue reconnu, il a donné plus de 300 ateliers dans la France
-    entière.
+    Slam, rap, battle, poésie, éloquence — <strong>Esope</strong> est un artiste pluridisciplinaire
+    aux domaines de prédilection variés. Pédagogue reconnu, il a donné plus de 300 ateliers dans
+    la France entière.
   </p>
 
   <div class="btn-row btn-row--center" data-reveal>
@@ -130,7 +137,10 @@
     <figure class="photoset__item photoset__item--left tear-a duo duo--turquoise">
       <img src="assets/img/atelier-2.jpg" alt="" loading="lazy" width="900" height="820">
     </figure>
-    <figure class="photoset__item photoset__item--main tear-b">
+    <!-- Emplacement vidéo. Déposez le fichier dans assets/video/ puis lancez
+         `node tools/sync-video.cjs` : la photo ci-dessous est remplacée par la
+         vidéo, en boucle et sans son. Voir assets/video/README.md. -->
+    <figure class="photoset__item photoset__item--main tear-b" data-video-slot>
       <img src="assets/img/atelier-1.jpg" alt="Esope en atelier slam dans une classe" width="1100" height="1300">
     </figure>
     <figure class="photoset__item photoset__item--right tear-c duo duo--pink">
@@ -166,7 +176,7 @@
 </section>
 
 <!-- ================= TITRE ENTOURÉ ================= -->
-<section class="section--tight wrap center" id="ateliers">
+<section class="wrap center" id="ateliers" style="padding-block:clamp(28px,5vw,44px) clamp(20px,3.5vw,28px)">
   <h2 class="h2" data-reveal>
     Mes interventions
     <span class="circled" data-circled>pédagogiques
@@ -175,11 +185,6 @@
       </svg>
     </span>
   </h2>
-  <p class="lead mute measure" data-reveal style="margin-top:20px">
-    L'aboutissement de chacune de mes actions est la performance scénique. Car dans le slam,
-    on écrit pour dire. Que ce soit du côté des participants ou de celui du public, le partage
-    à l'oral est un pur moment de poésie vivante.
-  </p>
 </section>
 
 <!-- ================= CARTES ATELIERS ================= -->
@@ -210,13 +215,13 @@
       <div class="product__text">
         <h3 class="h3">Ateliers slam</h3>
         <p class="body-lg mute">Les ateliers slam visent à réconcilier les jeunes avec la langue
-          française par le biais d'un art actuel et accessible. Les élèves y sont sensibilisés à la
-          force des mots et à l'importance de les transmettre. Pour vous, enseignant, c'est un
+          française par le biais d'un art actuel et accessible. Les élèves y sont <strong>sensibilisés à la
+          force des mots et à l'importance de les transmettre</strong>. Pour vous, enseignant, c'est un
           support réel pour introduire la partie du programme sur la poésie.</p>
         <ul class="product__meta">
-          <li>Primaire à université</li>
-          <li>10 h en séances de 2 h</li>
-          <li>Scène en fin de parcours</li>
+          <li>Tout public</li>
+          <li>Projet de 8 h en moyenne</li>
+          <li>Scène slam en fin de parcours</li>
         </ul>
         <div><a class="btn btn--ink product__link" href="atelier-slam.html">En savoir plus <span class="arrow" aria-hidden="true">→</span></a></div>
       </div>
@@ -246,13 +251,13 @@
       <div class="product__text">
         <h3 class="h3">Ateliers éloquence</h3>
         <p class="body-lg mute">Outre le travail sur la prise de parole en public, la gestion du
-          stress et la posture, l'atelier éloquence présente l'intérêt d'encourager les participants
-          à se dépasser humainement à travers des objectifs communs. Les thématiques sont travaillées
+          stress et la posture, l'atelier éloquence présente l'intérêt <strong>d'encourager les participants
+          à se dépasser humainement à travers des objectifs communs</strong>. Les thématiques sont travaillées
           en atelier, puis restituées devant une tribune.</p>
         <ul class="product__meta">
-          <li>Lycée, université, adultes</li>
-          <li>3 h à 6 séances</li>
-          <li>Joute devant un jury</li>
+          <li>Tout public. Idéal +15 ans</li>
+          <li>Projet de 6 h en moyenne</li>
+          <li>Discours en public ou concours</li>
         </ul>
         <div><a class="btn btn--ink product__link" href="atelier-eloquence.html">En savoir plus <span class="arrow" aria-hidden="true">→</span></a></div>
       </div>
@@ -279,13 +284,13 @@
       <div class="product__text">
         <h3 class="h3">Ateliers rap</h3>
         <p class="body-lg mute">De la rédaction d'un texte à l'enregistrement d'une chanson et la
-          réalisation d'un clip vidéo, les ateliers rap permettent aux jeunes d'être en immersion
-          artistique à travers des objectifs très concrets. Le résultat est tangible : ils repartent
+          réalisation d'un clip vidéo, les ateliers rap permettent aux jeunes <strong>d'être en immersion
+          artistique à travers des objectifs très concrets</strong>. Le résultat est tangible : ils repartent
           avec quelque chose qui existe.</p>
         <ul class="product__meta">
-          <li>Dès le collège</li>
-          <li>10 h à 20 h</li>
-          <li>Maquette audio ou clip</li>
+          <li>Tout public. Idéal +15 ans</li>
+          <li>Projet de 10 h en moyenne</li>
+          <li>Scène rap ou diffusion du clip</li>
         </ul>
         <div><a class="btn btn--ink product__link" href="atelier-rap.html">En savoir plus <span class="arrow" aria-hidden="true">→</span></a></div>
       </div>
@@ -316,12 +321,12 @@
         <h3 class="h3">Battle de compliments</h3>
         <p class="body-lg mute">Une discipline insolite qui met le verbe à l'honneur dans un exercice
           rhétorique positif. Le principe est simple : deux artistes se rencontrent sur scène pour
-          partager une joute verbale flatteuse. Redoutable pour souder un groupe et détourner les
-          codes de la moquerie.</p>
+          partager une joute verbale flatteuse. <strong>Redoutable pour souder un groupe et détourner les
+          codes de la moquerie</strong>.</p>
         <ul class="product__meta">
-          <li>Dès 10 ans</li>
-          <li>2 h, format court</li>
-          <li>Battle devant le groupe</li>
+          <li>Tout public</li>
+          <li>Projet de 10 h en moyenne</li>
+          <li>Scène de battle en fin de parcours</li>
         </ul>
         <div><a class="btn btn--ink product__link" href="atelier-battle.html">En savoir plus <span class="arrow" aria-hidden="true">→</span></a></div>
       </div>
@@ -460,46 +465,6 @@
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
-<section class="section section--close wrap" id="faq">
-  <div class="center measure" data-reveal style="margin-bottom:clamp(24px,5vw,40px)">
-    <h2 class="h2">Réponses aux questions les plus posées</h2>
-  </div>
-
-  <div class="faq" data-stagger>
-    <div class="faq__item">
-      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-1">
-        Un atelier slam, c'est quoi ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
-      <div class="faq__a" id="faq-1"><div><p>Animé par un slameur professionnel, un atelier slam est une séance portée sur l'écriture, la poésie et l'éloquence. L'objectif est d'écrire un texte afin de le déclamer sur scène. Les ateliers mettent donc l'accent sur le fond et la forme de la poésie, de façon ludique.</p></div></div>
-    </div>
-    <div class="faq__item">
-      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2">
-        Pourquoi faire du slam ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
-      <div class="faq__a" id="faq-2"><div><p>Les ateliers slam, rap, poésie et éloquence visent à réconcilier les jeunes avec la langue française par le biais d'un art actuel et accessible. Bien que dirigés avec discipline, ils laissent une grande place à la liberté artistique de l'élève, tout en utilisant de manière ludique les codes de l'écriture poétique. Pour les enseignants, l'atelier est un réel support pour introduire la partie du programme sur la poésie.</p></div></div>
-    </div>
-    <div class="faq__item">
-      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3">
-        À quoi ressemble la première séance ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
-      <div class="faq__a" id="faq-3"><div><p>Je présente le mouvement slam, les règles de l'atelier d'écriture et ses valeurs : l'écoute, le courage, les applaudissements pour tous, le respect de l'autre. Je réalise une démonstration en live, pour un aperçu de la diversité culturelle et stylistique de cet art. Viennent ensuite des jeux collectifs à voix haute, créés spécifiquement pour le projet et portant sur un thème ou une technique d'écriture. Puis, sous la forme d'une masterclass interactive, je passe en revue quelques notions de poésie — rimes, métrique, figures de style — tous les outils servant la rythmique orale comme la forme écrite.</p></div></div>
-    </div>
-    <div class="faq__item">
-      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4">
-        Combien d'heures pour un projet ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
-      <div class="faq__a" id="faq-4"><div><p>Les ateliers slam et les interventions éloquence nécessitent de l'intensité. Un programme d'initiation s'étend généralement sur 10 h d'ateliers, au rythme de 2 h par séance. Dix heures passent vite, mais j'ai constaté que les élèves sont davantage productifs avec un tel délai. Cela dit, chaque projet est réfléchi au cas par cas : il m'arrive de mener 20 h avec une classe puis 4 h avec une autre.</p></div></div>
-    </div>
-    <div class="faq__item">
-      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5">
-        Vos ateliers sont-ils adaptés à tous les publics ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
-      <div class="faq__a" id="faq-5"><div><p>Mon expérience d'intervenant culturel fait qu'aujourd'hui je propose des interventions dans toute la France et à tous types de publics : primaire, collège, lycée, université, association, et même particuliers en quête de savoir-faire artistique.</p></div></div>
-    </div>
-    <div class="faq__item">
-      <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-6">
-        Vos interventions sont-elles éligibles au pass Culture ?<span class="faq__icon" aria-hidden="true">+</span></button></h3>
-      <div class="faq__a" id="faq-6"><div><p>Oui. Il vous suffit de me contacter afin de discuter de votre projet : l'offre sera disponible sur la plateforme quelques heures après.</p></div></div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= CONTACT ================= -->
 <section class="section section--close wrap" id="contact">
   <div class="contact">
@@ -569,10 +534,10 @@
 <!-- ================= CTA FINAL ================= -->
 <section class="section section--close wrap center">
   <div class="measure" data-reveal>
-    <h2 class="h2">Donnez à vos élèves l'envie des mots</h2>
-    <p class="lead mute" style="margin-top:24px">Plus de 300 ateliers menés et 5 000 participants
-      rencontrés, dans toute la France. Décrivez-moi votre contexte, je réponds sous 48 h avec une
-      proposition adaptée.</p>
+    <h2 class="h2">Des interventions artistiques et pédagogiques conçues pour faire écrire,
+      prendre la parole, créer du lien et oser</h2>
+    <p class="lead mute" style="margin-top:24px">Expliquez-nous vos objectifs et votre public :
+      nous imaginons avec vous le format le plus adapté pour votre projet.</p>
     <div class="btn-row btn-row--center" style="margin-top:32px">
       <a class="btn btn--yellow" href="#contact">Construire votre projet</a>
       <a class="btn btn--link" href="assets/docs/dossier-esope.pdf" download>Télécharger le dossier <span class="arrow" aria-hidden="true">↓</span></a>
@@ -590,12 +555,12 @@
 
     <div class="footer__grid">
       <div>
-        <h3>Ateliers</h3>
+        <h3>Les ateliers</h3>
         <ul>
-          <li><a href="atelier-slam.html">Slam</a></li>
-          <li><a href="atelier-battle.html">Battle de compliments</a></li>
-          <li><a href="atelier-eloquence.html">Éloquence</a></li>
-          <li><a href="atelier-rap.html">Rap</a></li>
+          <li><a href="atelier-slam.html">Ateliers slam</a></li>
+          <li><a href="atelier-rap.html">Ateliers rap</a></li>
+          <li><a href="atelier-eloquence.html">Ateliers éloquence</a></li>
+          <li><a href="atelier-battle.html">Ateliers battle de compliments</a></li>
         </ul>
       </div>
       <div>
@@ -615,7 +580,7 @@
           <li><a href="assets/docs/fiche-projet.pdf" download>Fiche projet (PDF)</a></li>
           <li><a href="demo.html">Démo en ligne</a></li>
           <li><button type="button" data-agenda>Agenda</button></li>
-          <li><a href="#faq">Questions</a></li>
+          <li><a href="atelier-slam.html#faq">Questions fréquentes</a></li>
         </ul>
       </div>
       <div>
@@ -636,7 +601,7 @@
     <div class="footer__legal">
       <a href="#contact">Mentions légales</a>
       <a href="#contact">Confidentialité</a>
-      <a href="#faq">Questions fréquentes</a>
+      <a href="atelier-slam.html#faq">Questions fréquentes</a>
       <a href="#contact">Nous contacter</a>
     </div>
   </div>
@@ -805,6 +770,6 @@
   </div>
 </dialog>
 
-<script src="assets/js/app.js?v=19" defer></script>
+<script src="assets/js/app.js?v=20" defer></script>
 </body>
 </html>

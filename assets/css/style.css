@@ -175,6 +175,7 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 
 .mute { color: var(--ink-soft); }
+.mute strong, .hero__note strong { color: var(--ink); font-weight: 700; }
 
 /* --------------------------------------------------------------------------
    Layout
@@ -443,6 +444,8 @@ input, textarea, select { font: inherit; color: inherit; }
 .duo--magenta { background: var(--magenta); }
 
 /* Placement du trio */
+.photoset__video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 .photoset__item--left { left: 0; top: 26%; width: 42%; height: 48%; transform: rotate(-1.2deg); }
 .photoset__item--main { left: 26%; top: 0; width: 48%; height: 84%; }
 .photoset__item--right { right: 0; top: 5%; width: 36%; height: 64%; transform: rotate(1.4deg); }
@@ -1449,7 +1452,7 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .stats { display: grid; gap: clamp(48px, 11vw, 72px); text-align: center; }
 .stat__value {
-  font-size: clamp(64px, 16vw, 112px);
+  font-size: clamp(78px, 21vw, 112px);
   line-height: 1;
   letter-spacing: -0.045em;
   font-weight: 600;
@@ -1607,6 +1610,25 @@ input, textarea, select { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .tryout, .tryout .arrow { transition: none; }
   .tryout:hover, .tryout:active { transform: none; box-shadow: 7px 7px 0 var(--ink); }
+}
+
+/* Respiration entre deux blocs de texte sur les pages atelier : une photo
+   pleine largeur, bord d'encre, qui pose le regard. */
+.shot {
+  display: block;
+  margin-block: clamp(8px, 2vw, 20px);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--card);
+}
+.shot img {
+  width: 100%; height: 100%;
+  aspect-ratio: 1600 / 760;
+  object-fit: cover;
+}
+@media (max-width: 620px) {
+  .shot img { aspect-ratio: 4 / 3; }
 }
 
 .related { display: grid; gap: 12px; }
