@@ -257,7 +257,7 @@ for (const p of pages) {
   // Une respiration entre deux blocs de texte : la photo pose le regard.
   const shot = (i) => `
 <div class="wrap">
-  <figure class="shot" data-reveal>
+  <figure class="shot" style="--bande:var(--${p.color})" data-reveal>
     <img src="assets/img/${p.shots[i][0]}" alt="${p.shots[i][1]}" loading="lazy" width="1600" height="760">
   </figure>
 </div>`;

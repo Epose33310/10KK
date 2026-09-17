@@ -1562,20 +1562,30 @@ input, textarea, select { font: inherit; color: inherit; }
   .tryout:hover, .tryout:active { transform: none; box-shadow: 7px 7px 0 var(--ink); }
 }
 
-/* Respiration entre deux blocs de texte sur les pages atelier : une photo
-   pleine largeur, bord d'encre, qui pose le regard. */
+/* Respiration entre deux blocs de texte sur les pages atelier. Les photos
+   arrivent dans tous les formats : plutôt que de les recadrer, on les pose
+   entières sur l'aplat de l'atelier, comme les vidéos. */
 .shot {
-  display: block;
+  display: flex;
+  justify-content: center;
+  /* Le cadre épouse la photo au lieu de l'étaler sur toute la largeur :
+     les formats verticaux ne flottent plus au milieu d'un aplat vide. */
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   margin-block: clamp(8px, 2vw, 20px);
+  padding: clamp(14px, 2.4vw, 26px);
   border: 2px solid var(--ink);
   border-radius: var(--r-card);
-  overflow: hidden;
-  background: var(--card);
+  background: var(--bande, var(--card));
 }
 .shot img {
-  width: 100%; height: 100%;
-  aspect-ratio: 1600 / 760;
-  object-fit: cover;
+  width: auto; height: auto;
+  max-width: 100%;
+  max-height: clamp(300px, 46vh, 480px);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  display: block;
 }
 /* Les vidéos d'atelier sont tournées au téléphone, en vertical : plutôt que
    de les recadrer en bandeau, on les pose debout sur l'aplat de l'atelier. */
@@ -1597,25 +1607,17 @@ input, textarea, select { font: inherit; color: inherit; }
   }
 }
 
-.shot--video {
-  display: flex;
-  justify-content: center;
-  max-width: 560px;
-  margin-inline: auto;
-  padding: clamp(16px, 3vw, 26px);
-  background: var(--bande, var(--card));
-}
+.shot--video { max-width: 560px; margin-inline: auto; }
 .shot--video video, .shot--video img {
   width: auto;
   height: clamp(360px, 60vh, 620px);
+  max-height: none;
   aspect-ratio: 9 / 16;
   object-fit: cover;
-  border: 2px solid var(--ink);
   border-radius: 14px;
   background: var(--ink);
 }
 @media (max-width: 620px) {
-  .shot img { aspect-ratio: 4 / 3; }
   .shot--video video, .shot--video img { height: min(72vh, 520px); }
 }
 
