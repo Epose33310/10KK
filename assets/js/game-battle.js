@@ -58,6 +58,16 @@
       .trim();
   }
 
+  /* Les claviers de téléphone mettent une majuscule au premier mot saisi.
+     Au milieu d'une phrase, elle n'a rien à y faire. */
+  function minuscule(texte) {
+    var t = String(texte || '');
+    if (!t) return t;
+    var premier = t.split(/\s/)[0];
+    if (premier.length > 1 && premier === premier.toUpperCase()) return t;  // sigle, on n'y touche pas
+    return t.charAt(0).toLowerCase() + t.slice(1);
+  }
+
   /* La comparaison s'écrit toujours « X est Y comme Z ». */
   function composer() {
     var personne = state.personne && state.personne.t;
@@ -65,7 +75,7 @@
     // Le joueur écrit souvent « comme le soleil » : on évite le doublon.
     var img = state.image.replace(/^comme\s+/i, '').trim();
     if (!img) return '';
-    var phrase = [personne, 'est', state.qualite, 'comme', img].join(' ');
+    var phrase = [personne, 'est', minuscule(state.qualite), 'comme', minuscule(img)].join(' ');
     return phrase.replace(/\s{2,}/g, ' ').trim() + '.';
   }
 
@@ -165,6 +175,7 @@
     input.className = 'g__input';
     input.placeholder = config.placeholder;
     input.enterKeyHint = 'next';
+    input.setAttribute('autocapitalize', 'none');
     input.maxLength = 60;
     form.appendChild(input);
 

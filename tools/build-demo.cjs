@@ -58,11 +58,11 @@ const EMBLEMS = {
 const GAMES = [
   { key: 'slam', num: '01', tag: 'Slam',
     title: 'Écrire une métaphore',
-    sub: 'Un verbe, un sujet que je tire au sort. À vous d\'écrire la suite.',
+    sub: 'Un verbe, un sujet tiré au sort et la poésie se crée.',
     soon: "Un exercice d'association : deux mots que rien ne rapproche, et une phrase qui les relie." },
   { key: 'battle', num: '02', tag: 'Battle de compliments',
     title: 'Faire des punchlines',
-    sub: 'Une qualité, une image, et le compliment devient imparable.',
+    sub: 'Je tire au sort quelqu\'un et vous lui envoyez une punchline.',
     soon: "Une qualité, une image connue de tous, et la punchline se construit toute seule." },
   { key: 'eloquence', num: '03', tag: 'Éloquence',
     title: "S'essayer au discours",
@@ -70,7 +70,7 @@ const GAMES = [
     soon: "Une prise de parole minutée, avec la contrainte qui oblige à structurer." },
   { key: 'rap', num: '04', tag: 'Rap',
     title: 'Trouver des rimes',
-    sub: 'Un mot que je vous donne, 60 secondes. Combien de rimes trouvez-vous ?',
+    sub: 'Combien de rimes pouvez-vous trouver en 60 secondes ?',
     soon: "Un mot à faire rimer, un compte à rebours, et la liste qui s'allonge." },
 ];
 
@@ -128,7 +128,10 @@ ${header}<main id="main">
 
 <section class="wrap" style="padding-block:clamp(24px,5vw,40px) clamp(20px,4vw,28px)">
   <a class="crumb" href="index.html"><span class="arrow" aria-hidden="true">←</span> Retour à l'accueil</a>
-  <h1 class="h2" style="max-width:20ch">4 exercices qu'Esope peut faire en atelier, à essayer chez vous.</h1>
+  <div class="center" style="margin-top:clamp(18px,3vw,26px)">
+    <h1 class="h2" style="max-width:22ch;margin-inline:auto">4 exercices qu'Esope peut faire en atelier</h1>
+    <p class="lead mute" style="margin-top:16px">Essayez maintenant !</p>
+  </div>
 </section>
 
 <section class="section section--close wrap">

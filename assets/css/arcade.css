@@ -130,7 +130,8 @@
    Le pied de l'affiche
    -------------------------------------------------------------------------- */
 
-.cab__body { display: block; position: relative; z-index: 1; margin-top: auto; }
+.cab__body {
+  text-align: center; display: block; position: relative; z-index: 1; margin-top: auto; }
 
 .cab__title {
   /* Ce sont des <span> dans un <button> : sans display:block, tout s'enchaîne

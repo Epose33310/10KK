@@ -85,7 +85,7 @@ const pages = [
       ["L'atelier prépare-t-il au grand oral ?",
        "Directement. La structuration d'un propos, la gestion du temps, le regard, le souffle et la reprise après une hésitation sont exactement ce que l'épreuve évalue. Les passages sont minutés et, sur demande, filmés : voir sa propre prestation fait plus avancer qu'un long conseil."],
       ["Et les élèves paralysés par le trac ?",
-       "On en parle explicitement dès la première heure. Un trac nommé est un trac qui rétrécit ; un trac tu devient un blocage. Les passages commencent très courts et en binôme, avant d'aller vers le groupe : la progression est conçue pour que personne ne se retrouve exposé trop tôt."],
+       "On en parle ouvertement dès la première heure : mettre des mots sur ce qu'on ressent avant de passer, ça le fait déjà reculer, alors que le garder pour soi, c'est le laisser s'installer. Les passages commencent très courts et en binôme, avant d'aller vers le groupe : la progression est conçue pour que personne ne se retrouve exposé trop tôt."],
       ["Faut-il un jury extérieur pour la restitution ?",
        "Ce n'est pas obligatoire, mais ça change tout. Un jury composé d'adultes de l'établissement, de parents ou de partenaires donne un enjeu réel au passage. À défaut, la restitution se fait devant le groupe, et je tiens le rôle de la tribune à convaincre."],
       ["Quelle différence avec un atelier de théâtre ?",
@@ -100,7 +100,7 @@ const pages = [
     facts: [['Public', 'Tout public. Idéal +15 ans'], ['Format type', 'Projet de 6 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', 'Discours en public ou concours']],
     intro: "La parole est capitale dans l'expression publique, et elle s'apprend. Cet atelier s'adosse toujours à une échéance concrète : un grand oral, un concours, une soutenance, une prise de parole devant l'établissement.",
     steps: [
-      ['Nommer le trac', "On en parle explicitement dès la première heure. Un trac nommé est un trac qui rétrécit ; un trac tu devient un blocage."],
+      ['Nommer le trac', "On en parle ouvertement dès la première heure. Mettre des mots sur ce qu'on ressent avant de passer, ça le fait déjà reculer — alors que le garder pour soi, c'est le laisser s'installer."],
       ['Construire un argumentaire', "Structurer une pensée, choisir ses mots, hiérarchiser ses arguments, anticiper la contradiction. Le fond avant la forme."],
       ['Travailler le corps et le souffle', "Ancrage, posture, respiration, regard. Où respirer, où couper, où ne rien dire du tout : le silence est un argument."],
       ['Joutes chronométrées', "Des passages courts et minutés, en binôme puis devant le groupe. Filmés sur demande, pour que l'élève se voie."],

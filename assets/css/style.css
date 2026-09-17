@@ -475,7 +475,7 @@ input, textarea, select { font: inherit; color: inherit; }
 /* Photo seule, pour les blocs en deux colonnes */
 .photo-single {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 4.6;
 }
 .photo-single__shape {
   position: absolute;
@@ -489,7 +489,7 @@ input, textarea, select { font: inherit; color: inherit; }
   position: absolute;
   margin: 0;
   right: 0; bottom: 0;
-  width: 88%; height: 88%;
+  width: 94%; height: 96%;
   overflow: hidden;
 }
 .photo-single figure img { width: 100%; height: 100%; object-fit: cover; }
@@ -686,7 +686,7 @@ input, textarea, select { font: inherit; color: inherit; }
   scroll-snap-align: center;
   border-radius: var(--r-card);
   padding: clamp(28px, 6vw, 44px);
-  min-height: 460px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -698,11 +698,12 @@ input, textarea, select { font: inherit; color: inherit; }
 .quote--magenta { background: var(--magenta); }
 .quote--green { background: var(--green); }
 
+/* Sans les gribouillis, la citation peut occuper toute la carte. */
 .quote__text {
   position: relative; z-index: 1;
-  font-size: clamp(22px, 5.2vw, 30px);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: clamp(26px, 6.4vw, 40px);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
   font-weight: 500;
 }
 .quote__who { position: relative; z-index: 1; margin-top: 32px; }
@@ -1127,9 +1128,12 @@ input, textarea, select { font: inherit; color: inherit; }
 
   .split { grid-template-columns: 1.05fr 1fr; gap: 64px; }
   .split--flip > *:first-child { order: 2; }
+  /* Le portrait d'Esope tient la plus grande colonne : c'est lui qui porte
+     la section. */
+  #esope .split { grid-template-columns: 1fr 1.18fr; gap: 56px; }
 
   /* Sur grand écran les photos occupent nettement plus de surface */
-  .photo-single { aspect-ratio: 5 / 5.4; }
+  .photo-single { aspect-ratio: 5 / 5.8; }
 
   .product { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
   .product__text { order: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -1148,14 +1152,14 @@ input, textarea, select { font: inherit; color: inherit; }
     border-left: 0; border-right: 2px solid var(--ink);
   }
 
-  .quote { flex-basis: 42%; min-height: 520px; }
+  .quote { flex-basis: 42%; min-height: 480px; }
 
   .express { grid-template-columns: 1.2fr 0.8fr; }
   .dials { grid-template-columns: repeat(3, 1fr); }
 
   .event { grid-template-columns: 88px 1fr; }
 
-  .contact { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+  .contact { grid-template-columns: 0.94fr 1.06fr; align-items: center; }
   .field-row { grid-template-columns: 1fr 1fr; }
 
   .footer__grid { grid-template-columns: repeat(4, 1fr); }

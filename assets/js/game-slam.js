@@ -111,12 +111,23 @@
     return majuscule(sujet.t) + ' ' + forme;
   }
 
+
+  /* Les claviers de téléphone mettent une majuscule au premier mot saisi.
+     Au milieu d'une phrase, elle n'a rien à y faire. */
+  function minuscule(texte) {
+    var s = String(texte || '');
+    if (!s) return s;
+    var premier = s.split(/\s/)[0];
+    if (premier.length > 1 && premier === premier.toUpperCase()) return s;  // sigle, on n'y touche pas
+    return s.charAt(0).toLowerCase() + s.slice(1);
+  }
+
   /** Assemble l'amorce et la suite écrite, en nettoyant la ponctuation. */
   function composer(debut, suite) {
-    var fin = String(suite || '')
+    var fin = minuscule(String(suite || '')
       .replace(/^[\s.…]+/, '')        // le joueur recopie souvent les points
       .replace(/\s+/g, ' ')
-      .trim();
+      .trim());
     if (!debut) return '';
     if (!fin) return debut + '.';
 
@@ -274,6 +285,7 @@
     input.rows = 3;
     input.placeholder = 'Continuez la phrase…';
     input.enterKeyHint = 'done';
+    input.setAttribute('autocapitalize', 'none');
     input.maxLength = 140;
     form.appendChild(input);
 
