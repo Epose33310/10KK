@@ -87,7 +87,7 @@ const ARTICLES = [
       `<b>L'inventaire.</b> Chacun observe un autre participant et note dix détails concrets : une façon de marcher, une manie, une couleur de veste. Pas d'adjectifs vagues, du précis.`,
       `<b>La montée en image.</b> On reprend un de ces détails et on le transforme en comparaison, puis en métaphore. « Tu ris fort » devient « ton rire, c'est le voisin qui perce un mur à sept heures du matin ».`,
       `<b>Le rythme.</b> On tape le texte à la main sur la table pour trouver où ça tombe juste. Une punchline qui n'a pas de rythme ne fait pas rire, même si elle est bien écrite.`,
-      `<b>La mise en bouche.</b> Chacun dit son texte à une seule personne, puis à trois, puis au groupe. On ne passe jamais directement de la feuille à la scène.`,
+      `<b>La mise en voix.</b> Chacun dit son texte à une seule personne, puis à trois, puis au groupe. On ne passe jamais directement de la feuille à la scène.`,
     ]],
     ['p', `La seconde séance a été consacrée à la confrontation. On tire les duos au sort, on répète, on coupe. C'est presque toujours à ce moment-là que les textes gagnent : obligé de passer après quelqu'un, on comprend tout de suite ce qui fonctionne et ce qui traîne.`],
 
@@ -100,7 +100,7 @@ const ARTICLES = [
     ['img', 'trois'],
 
     ['h2', 'Le moment marquant'],
-    ['p', `Un garçon arrivé à la deuxième heure de la première séance, resté debout près de la porte, n'a rien écrit pendant quarante minutes. Je ne l'ai pas poussé. Au moment de la mise en bouche, il a demandé s'il pouvait « juste essayer un truc » — et il a sorti quatre lignes qu'il avait manifestement tenues dans sa tête tout ce temps. Elles étaient meilleures que beaucoup de textes couchés sur le papier. Sur scène, à la Fête de l'avenir, c'est lui qui a déclenché la plus grosse réaction du public.`],
+    ['p', `Un garçon arrivé à la deuxième heure de la première séance, resté debout près de la porte, n'a rien écrit pendant quarante minutes. Je ne l'ai pas poussé. Au moment de la mise en voix, il a demandé s'il pouvait « juste essayer un truc » — et il a sorti quatre lignes qu'il avait manifestement tenues dans sa tête tout ce temps. Elles étaient meilleures que beaucoup de textes couchés sur le papier. Sur scène, à la Fête de l'avenir, c'est lui qui a déclenché la plus grosse réaction du public.`],
 
     ['expert', {
       titre: 'Deux questions qu’on me pose souvent sur ce format',
@@ -505,7 +505,7 @@ writeFileSync(join(root, 'projets.html'), page({
     <div class="page-hero__inner">
       <h1>Les derniers projets</h1>
       <p>Le journal de bord des interventions : ce qu'on a écrit, comment le groupe s'en est
-        emparé, et ce qu'il en reste une fois la scène démontée.</p>
+        emparé, et ce qu'il en reste une fois la scène de restitution terminée.</p>
       <div class="btn-row">
         <a class="btn btn--ink" href="index.html#contact">Construire mon projet</a>
         <a class="btn btn--link" href="temoignages.html">Témoignages &amp; médias <span class="arrow" aria-hidden="true">→</span></a>

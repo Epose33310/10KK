@@ -302,6 +302,12 @@ input, textarea, select { font: inherit; color: inherit; }
   box-shadow: inset 0 0 0 2px var(--ink);
 }
 .btn--dossier:hover { background: var(--ink); color: var(--yellow); }
+/* Le tiroir mobile prolonge le même jaune juste en dessous : une fois ouvert,
+   le bouton passerait en jaune sur jaune. Il repasse au blanc le temps que le
+   tiroir reste déployé, et redevient jaune dès qu'on le referme. */
+#header:has(.drawer.is-open) .header__cta-mob.btn--dossier {
+  background: #fff;
+}
 .header__cta-desk { display: none; }
 @media (min-width: 900px) {
   .header__cta-desk { display: inline-flex; }
