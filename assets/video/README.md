@@ -63,7 +63,7 @@ node tools/build-pages.cjs     # les vidéos des quatre pages d'atelier
 | `atelier-slam.html` | `atelier-slam.mp4` + `.webm` | 2,0 / 2,4 Mo |
 | `atelier-eloquence.html` | `atelier-eloquence.mp4` + `.webm` | 1,1 / 0,9 Mo |
 | `atelier-rap.html` | `atelier-rap.mp4` + `.webm` | 0,7 / 0,9 Mo |
-| `atelier-battle.html` | rejoue `atelier-esope.*` | — |
+| `atelier-battle.html` | rejoue `atelier-esope.*` en attendant sa propre vidéo | — |
 
 Les sources envoyées (`Ateliers Battle.mp4`, `Ateliers Slam 2.mp4`,
 `Esope Flex.MOV`, `atelier éloquenceh.mov`) ont été converties :
@@ -79,3 +79,6 @@ Pour remplacer une vidéo : déposez le nouveau fichier ici, puis
 ```
 node tools/sync-video.cjs && node tools/build-pages.cjs
 ```
+
+`build-pages.cjs` détecte tout seul `atelier-<page>.mp4` : déposer le fichier
+suffit à brancher la page, il n'y a rien à modifier dans les données.

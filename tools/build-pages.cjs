@@ -239,7 +239,13 @@ for (const p of pages) {
   /* Emplacement vidéo : dès qu'un fichier est déposé dans assets/video/, il
      remplace l'affiche. Tant qu'il n'y est pas, aucune requête en 404. */
   // L'affiche suit toujours la page ; le fichier vidéo peut être partagé.
-  const cle = p.video || p.demo[0];
+  // Une page joue sa propre vidéo dès que le fichier existe ; `video:` n'est
+  // qu'un repli, le temps qu'elle soit tournée. Déposer atelier-<page>.mp4
+  // suffit donc à la brancher, sans toucher à ces données.
+  const propre = p.demo[0];
+  const cle = existsSync(join(root, 'assets', 'video', `atelier-${propre}.mp4`))
+    ? propre
+    : (p.video || propre);
   const mp4 = existsSync(join(root, 'assets', 'video', `atelier-${cle}.mp4`));
   const webm = existsSync(join(root, 'assets', 'video', `atelier-${cle}.webm`));
   const affiche = `assets/img/video-${p.demo[0]}.jpg`;
