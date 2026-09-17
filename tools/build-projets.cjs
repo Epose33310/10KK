@@ -47,8 +47,262 @@ const teinteDe = (a) => a.teinte || COULEUR[a.atelier] || 'yellow';
    Les récits, du plus récent au plus ancien (champ « ordre »).
    ------------------------------------------------------------------------- */
 const ARTICLES = [
-
 /* ====================================================================== 1 */
+{
+  slug: 'ateliers-slam-battle-compliments-college-parentis-en-born',
+  ordre: 140,
+  atelier: 'slam',
+  teinte: 'periwinkle',
+  h1: 'Battle de compliments et slam en demi-groupe au collège de Parentis-en-Born',
+  seo: 'Ateliers slam et battle de compliments au collège de Parentis-en-Born',
+  meta: "Quatre ans d'ateliers slam et battle de compliments au collège de Parentis-en-Born : les 5e en battle, les 4e en slam, une restitution en demi-groupe au CDI.",
+  chapo: "Au collège de Parentis-en-Born, les 5e écrivent un battle de compliments et les 4e un texte slam. Une restitution en demi-groupe au CDI, et une intervention reconduite chaque année depuis quatre ans.",
+  lieu: 'Collège de Parentis-en-Born (Landes)',
+  publics: 'Classes de 5e (battle de compliments) et de 4e (slam)',
+  format: 'Restitution en demi-groupe au CDI, intervention annuelle depuis 4 ans',
+  motCle: 'ateliers slam et battle de compliments en collège',
+  secondes: ['atelier slam Landes', 'restitution demi-groupe collège'],
+  images: {
+    principale: { src: 'atelier-slam-college-parentis-en-born.jpg',
+      alt: 'Un intervenant slam sur scène sous un projecteur jaune, face à un public de collégiens',
+      legende: 'Une intervention reconduite chaque année : le collège de Parentis-en-Born en est à sa quatrième édition.' },
+    deux: { src: 'cercle-echange-atelier-ecriture.jpg',
+      alt: 'Un groupe d’élèves assis en cercle avec leur intervenant pendant un atelier d’écriture' },
+    trois: { src: 'micro-slam-eclat-jaune.jpg',
+      alt: 'Un microphone éclairé de jaune, prêt pour une prise de parole',
+      legende: 'Au CDI, chaque demi-groupe a son tour de micro — et son propre public.' },
+  },
+  corps: [
+    ['p', `Depuis quatre ans, je retourne chaque année au <b>collège de Parentis-en-Born</b>, dans les Landes, pour mener des <b>ateliers slam et battle de compliments</b> avec deux niveaux à la fois. Les 5e travaillent le battle de compliments, les 4e le slam, et les deux groupes se retrouvent en fin de parcours pour une restitution au CDI — chacun dans son demi-groupe.`],
+
+    ['h2', 'Le contexte : deux niveaux, deux formats, une même énergie'],
+    ['p', `Le collège avait un besoin précis : proposer une activité d'écriture et d'oralité à deux niveaux simultanément, sans que l'un empiète sur le temps de l'autre. La réponse a été de séparer les formats : le <a href="atelier-battle.html">battle de compliments</a> pour les 5e, qui répond bien à un premier contact avec la prise de parole, et le <a href="atelier-slam.html">slam</a> pour les 4e, qui permet d'aller plus loin dans l'écriture personnelle. Revenir chaque année m'a aussi permis d'ajuster le dispositif au fil du temps — je connais désormais le CDI, les habitudes de l'équipe, et ce qui fonctionne le mieux avec chaque niveau.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le déroulement en demi-groupe'],
+    ['p', `Travailler en demi-groupe change beaucoup de choses. Avec la moitié d'une classe, chaque élève a plus de temps de parole, plus de retours individuels, et une restitution qui reste à taille humaine. Le CDI, avec ses rayonnages et son calme habituel, devient un lieu de scène inattendu — plus intime qu'un gymnase ou un amphithéâtre, ce qui convient bien à des formats qui reposent sur l'écoute autant que sur la performance.`],
+    ['ul', [
+      `<b>5e — battle de compliments.</b> On part d'un tour d'observation entre élèves, puis d'un travail de comparaison et de rythme, avant la confrontation en duos.`,
+      `<b>4e — slam.</b> Le texte se construit sur plusieurs séances, avec un temps de réécriture avant la mise en voix.`,
+      `<b>La restitution.</b> Chaque demi-groupe présente devant l'autre moitié de sa classe et quelques adultes du collège — un format resserré, jamais un grand raout.`,
+    ]],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Le battle de compliments retravaille l'observation, la comparaison et le rythme de la punchline. Le slam, avec plus de temps devant lui, permet d'aller vers la construction d'un texte entier, des images plus élaborées et la respiration. Revenir chaque année sur les deux dispositifs m'a permis de les affiner l'un par rapport à l'autre : je sais désormais quels exercices du battle préparent bien le terrain pour le slam l'année suivante, quand les 5e passent en 4e.`],
+
+    ['h2', 'Ce que les élèves ont travaillé'],
+    ['p', `Ce format permet de travailler la prise de parole en petit comité, la capacité à recevoir un retour du groupe, et pour les 4e, une écriture plus construite. Les demi-groupes ont aussi été amenés à s'écouter davantage : quand la salle est plus petite, chaque intervention pèse plus, et les élèves s'en rendent compte vite.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `Chaque année, il y a un moment où d'anciens élèves — devenus 4e après être passés par le battle en 5e — retrouvent les plus jeunes au CDI et leur donnent, sans que je le demande, des conseils sur la meilleure façon de tenir le micro. Cette transmission d'un niveau à l'autre, je ne l'avais pas prévue au départ ; elle s'est installée d'elle-même, au fil des quatre années.`],
+
+    ['img', 'trois'],
+
+    ['expert', {
+      titre: 'Mener deux ateliers différents avec deux niveaux, ce qu’il faut savoir',
+      qr: [
+        ['Peut-on organiser deux formats différents dans le même établissement, la même semaine ?',
+         `Oui, c'est même souvent une bonne solution quand un établissement a deux niveaux à occuper avec des besoins différents. Le battle de compliments et le slam se complètent bien : le premier ouvre la prise de parole, le second va plus loin dans l'écriture. Je cale les deux plannings ensemble pour que l'intervention reste cohérente sur la semaine.`],
+        ['Une restitution au CDI, est-ce viable techniquement ?',
+         `Tout à fait, à condition d'accepter un format sans sonorisation lourde. Le CDI a l'avantage d'être calme et à taille humaine, ce qui convient très bien à un texte dit sans micro. C'est un lieu que je recommande pour une restitution en demi-groupe, moins pour un rassemblement de plusieurs classes.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Quatre ans d'ateliers au même collège, ce n'est pas une routine : c'est un dispositif qui s'affine chaque année, entre les 5e qui découvrent le battle de compliments et les 4e qui approfondissent le slam. Si votre établissement a plusieurs niveaux à occuper avec des formats différents, <a href="index.html#contact">on peut construire un dispositif sur mesure</a>, comme celui-ci.`],
+  ],
+},
+
+/* ====================================================================== 2 */
+{
+  slug: 'scene-slam-ouverte-rocher-de-palmer-nouveau-festival',
+  ordre: 130,
+  atelier: 'slam',
+  teinte: 'green',
+  h1: 'Une scène slam ouverte au Rocher de Palmer, pendant le Nouveau Festival',
+  seo: 'Scène slam ouverte au Rocher de Palmer — animation du Nouveau Festival',
+  meta: "Animer une scène slam ouverte au Rocher de Palmer pendant le Nouveau Festival : d'anciens élèves qui reviennent, des textes repris, et des inconnus qui montent sur scène pour la première fois.",
+  chapo: "Au Rocher de Palmer, pendant le Nouveau Festival, j'ai animé une scène slam ouverte à tout le monde. D'anciens lycéens croisés en atelier dans la région sont venus reprendre leurs textes, d'autres ont découvert la scène pour la première fois.",
+  lieu: 'Rocher de Palmer',
+  publics: 'Public ouvert : anciens participants d’ateliers, spectateurs, nouveaux venus',
+  format: 'Animation d’une scène slam ouverte, dans le cadre du Nouveau Festival',
+  motCle: 'scène slam ouverte',
+  secondes: ['animation scène ouverte slam', 'scène ouverte poésie'],
+  images: {
+    principale: { src: 'scene-ouverte-slam-festival.jpg',
+      alt: 'Un performeur bras ouverts sur une scène de festival, face à un public nombreux',
+      legende: 'Une scène ouverte à tous, sans liste ni sélection : il suffisait d’avoir envie de monter.' },
+    deux: { src: 'scene-slam-public-festival.jpg',
+      alt: 'Un slameur debout sur scène, bras levé, sous des projecteurs jaunes, face à une foule dense' },
+    trois: { src: 'micro-scene-ouverte-slam.jpg',
+      alt: 'Un microphone sur pied, prêt pour une prise de parole',
+      legende: 'Le même micro pour tout le monde : un ancien élève, un inconnu, ou un habitué de la scène.' },
+  },
+  corps: [
+    ['p', `Le <b>Rocher de Palmer</b> m'a confié l'animation d'une <b>scène slam ouverte</b> pendant le Nouveau Festival. Une scène ouverte, ça veut dire une chose simple : n'importe qui peut monter dire un texte, sans audition ni sélection. Ce jour-là, le public a mêlé des visages que je connaissais bien et d'autres que je découvrais.`],
+
+    ['h2', 'Le contexte : animer, pas seulement écrire'],
+    ['p', `Ce projet est différent des <a href="atelier-slam.html">ateliers slam</a> que je mène habituellement en milieu scolaire. Ici, pas de classe à accompagner sur plusieurs séances : mon rôle était d'animer une scène, de créer un climat où prendre la parole devient possible pour n'importe qui dans le public, et de tenir le rythme de la soirée. C'est un exercice qui demande une autre forme d'attention — moins la pédagogie d'un atelier, plus la présence d'un maître de cérémonie.`],
+
+    ['h2', 'Le déroulement de la scène ouverte'],
+    ['p', `Une scène ouverte se construit en direct. J'ouvre en général par un texte ou un mot d'accueil, puis je lance des appels au public par vagues, en gardant un œil sur le rythme : ne pas laisser de blanc trop long, ne pas enchaîner deux textes trop proches en intensité, garder de la place pour les hésitants qui se décident au dernier moment.`],
+    ['ul', [
+      `<b>Les habitués.</b> Certains sont venus avec un texte déjà prêt, écrit avant de venir.`,
+      `<b>Les anciens élèves.</b> Plusieurs lycéens croisés en atelier dans la région sont montés reprendre d'anciens textes, parfois retravaillés depuis.`,
+      `<b>Les nouveaux visages.</b> Des spectateurs venus sans intention de monter ont fini par prendre le micro, portés par l'ambiance du reste de la salle.`,
+    ]],
+
+    ['h2', 'Ce que ce format permet'],
+    ['p', `Une scène ouverte n'apprend pas une technique au sens strict, mais elle offre un espace pour oser, pour tester un texte devant un vrai public, et pour observer ce que d'autres font de la même contrainte — dire un texte, debout, au micro. Pour les anciens élèves présents, c'est aussi l'occasion de mesurer le chemin parcouru depuis l'atelier.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `Voir revenir des lycéens que j'avais eus en atelier, parfois plusieurs années plus tôt, et les voir remonter sur scène avec un texte qu'ils avaient écrit à l'époque — retravaillé, parfois presque méconnaissable — c'est exactement ce que je cherche à provoquer avec ces interventions : que le texte continue à vivre après l'atelier, sans moi.`],
+
+    ['img', 'trois'],
+
+    ['expert', {
+      titre: 'Organiser une scène slam ouverte dans un lieu culturel',
+      qr: [
+        ['Une scène ouverte demande-t-elle une préparation particulière du lieu ?',
+         `Assez peu techniquement : un micro, une sonorisation correcte et un espace scénique suffisent. Le vrai travail est humain — accueillir chaque personne qui se présente, créer un climat où monter sur scène paraît possible, et tenir un rythme de soirée qui ne s'essouffle pas.`],
+        ['Ce format s’adresse-t-il aux médiathèques et lieux culturels autant qu’aux festivals ?',
+         `Tout à fait. Une scène ouverte peut très bien exister à l'échelle d'une médiathèque ou d'un centre culturel, avec un public plus restreint. Le principe reste identique : un micro ouvert à qui veut le prendre, et une animation qui accompagne sans jamais imposer.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Une scène slam ouverte ne se prépare pas comme un atelier, mais elle en prolonge l'esprit : donner à n'importe qui l'occasion de dire un texte, devant un public. Si votre structure organise un événement culturel et cherche une animation slam ouverte à tous, <a href="index.html#contact">on peut en discuter le format</a>.`],
+  ],
+},
+
+/* ====================================================================== 3 */
+{
+  slug: 'atelier-slam-egalite-filles-garcons-college-lege-cap-ferret',
+  ordre: 120,
+  atelier: 'slam',
+  h1: 'Un atelier slam sur l’égalité filles-garçons au collège de Lège-Cap-Ferret',
+  seo: 'Atelier slam égalité filles-garçons — collège de Lège-Cap-Ferret',
+  meta: "Un atelier slam sur l'égalité filles-garçons pour deux classes de 4e, et une heure de découverte pour tous les 5e, au collège de Lège-Cap-Ferret. Restitution sur scène, en pleine cour, lors de la fête du collège.",
+  chapo: "Deux classes de 4e écrivent sur l'égalité filles-garçons, et tous les 5e découvrent le slam le temps d'une heure. Au collège de Lège-Cap-Ferret, la restitution se joue sur scène, en pleine cour, lors de la fête du collège.",
+  lieu: 'Collège de Lège-Cap-Ferret (Gironde)',
+  publics: 'Deux classes de 4e (thème imposé) et toutes les classes de 5e (découverte)',
+  format: 'Projet thématique + initiation d’1 h, restitution sur scène en plein air',
+  motCle: 'atelier slam égalité filles-garçons',
+  secondes: ['atelier slam Bassin d’Arcachon', 'initiation slam collège'],
+  images: {
+    principale: { src: 'atelier-slam-egalite-college-lege-cap-ferret.jpg',
+      alt: 'Un intervenant slam bras ouverts devant une classe, en pleine explication',
+      legende: 'Cela fait quatre à cinq ans que ce projet se reconduit au collège de Lège-Cap-Ferret.' },
+    deux: { src: 'eleves-participent-initiation-slam.jpg',
+      alt: 'Des élèves lèvent la main pendant une séance de découverte du slam' },
+    trois: { src: 'intervenant-slam-devant-classe-college.jpg',
+      alt: 'Un intervenant en casquette s’adresse à une classe devant le tableau',
+      legende: 'Avant la scène en plein air, un temps de répétition en classe pour choisir qui monte.' },
+  },
+  corps: [
+    ['p', `Depuis quatre ou cinq ans, je reviens chaque année au <b>collège de Lège-Cap-Ferret</b> pour deux projets bien différents. Deux classes de 4e mènent un <b>atelier slam sur l'égalité filles-garçons</b>, un thème imposé par l'établissement, pendant que toutes les classes de 5e reçoivent une heure de découverte du slam, sans thème, simplement pour l'initiation.`],
+
+    ['h2', 'Le contexte : un thème engagé, et une porte d’entrée pour tous'],
+    ['p', `L'égalité filles-garçons est un sujet que l'Éducation nationale porte activement, et le collège avait envie d'un format qui dépasse le débat oral classique. Le <a href="atelier-slam.html">slam</a> permet de traiter un sujet de société sans tomber dans la leçon : chaque élève y apporte sa propre expérience, ce qui évite les généralités et les positions toutes faites. En parallèle, les 5e bénéficient d'une heure de découverte pure, sans enjeu thématique — une manière de familiariser tout un niveau avec l'exercice avant, éventuellement, de le retrouver l'année suivante sur un projet plus long.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le déroulement du projet'],
+    ['p', `Pour les 4e, le travail démarre par une collecte de situations vécues ou observées — à la maison, dans la cour, dans les médias — avant de les transformer en images et en vers. Le thème étant sensible, je veille à ce que chaque texte parte d'un vécu précis plutôt que d'une opinion générale, ce qui évite les textes moralisateurs et produit une écriture plus juste. Pour les 5e, l'heure de découverte suit un format condensé : jeux oraux, une première écriture rapide, une mise en voix collective. L'objectif n'est pas la performance, mais le contact.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Sur le projet des 4e, on retrouve un travail approfondi de l'image et de la construction, nécessaire pour traiter un sujet aussi vaste sans rester en surface. Sur l'heure de découverte des 5e, l'accent porte sur l'oralité immédiate : dire quelque chose, debout, devant les autres, sans viser un texte abouti.`],
+
+    ['h2', 'Ce que les élèves ont travaillé'],
+    ['p', `Les élèves de 4e ont été amenés à formuler un point de vue personnel sur un sujet de société, ce qui suppose à la fois de la réflexion et du courage — certains textes touchent à des situations vécues dans leur propre entourage. Les 5e, eux, ont surtout expérimenté la prise de parole devant leurs camarades, souvent pour la première fois dans ce cadre.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `La restitution a lieu lors de la fête du collège, sur une scène installée en plein milieu de la cour. Je choisis moi-même la poignée d'élèves qui montent, en tenant compte à la fois de la qualité du texte et de l'envie de chacun — certains textes très forts restent parfois non dits parce que leur auteur préfère ne pas monter, et je respecte toujours ce choix. Voir un texte sur l'égalité filles-garçons résonner dans une cour de collège en pleine fête, entre les stands et les familles, donne au sujet une présence qu'aucune salle de classe ne peut offrir.`],
+
+    ['img', 'trois'],
+
+    ['expert', {
+      titre: 'Traiter un sujet de société en atelier slam',
+      qr: [
+        ['Comment éviter qu’un atelier sur un thème comme l’égalité filles-garçons ne tourne au débat ou à la leçon de morale ?',
+         `En partant systématiquement du vécu plutôt que de l'opinion. Je demande aux élèves une scène précise, un souvenir, un détail observé — jamais une position générale. C'est ce qui distingue un texte slam d'une dissertation : il montre plutôt qu'il ne démontre.`],
+        ['Une heure de découverte a-t-elle un intérêt sans projet derrière ?',
+         `Oui, à condition de ne rien attendre d'autre qu'un premier contact. Une heure permet de désamorcer les appréhensions et de donner à tout un niveau la même expérience de base. C'est souvent ce qui prépare le terrain pour qu'une partie de ces élèves s'engage plus tard dans un projet plus long, comme cela arrive régulièrement d'une année sur l'autre à Lège-Cap-Ferret.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Faire cohabiter un projet thématique engagé et une simple heure de découverte, dans le même établissement et la même semaine, montre qu'un collège peut adapter le format du slam à des objectifs très différents. Si vous portez un projet sur un thème de société ou souhaitez simplement faire découvrir le slam à un niveau entier, <a href="index.html#contact">parlons du format qui conviendra le mieux</a>.`],
+  ],
+},
+
+/* ====================================================================== 4 */
+{
+  slug: 'atelier-slam-college-brantome-cours-de-musique',
+  ordre: 110,
+  atelier: 'slam',
+  teinte: 'yellow',
+  h1: 'Un atelier slam intégré au cours de musique, au collège Brantôme',
+  seo: 'Atelier slam en cours de musique — collège Brantôme',
+  meta: "Huit heures d'atelier slam en cours de musique avec des 5e du collège Brantôme, sans thème imposé : quatre heures d'écriture, quatre heures d'oralité, et une scène finale dans la salle de classe.",
+  chapo: "Au collège Brantôme, l'atelier slam a pris place directement dans le cours de musique. Quatre heures d'écriture, quatre heures d'oralité, et une scène finale dans la salle, sans thème imposé.",
+  lieu: 'Collège Brantôme',
+  publics: 'Classes de 5e, dans le cadre du cours de musique',
+  format: '8 h d’atelier (écriture puis oralité), restitution dans la salle de classe',
+  motCle: 'atelier slam en cours de musique',
+  secondes: ['atelier slam collège 5e', 'atelier slam sans thème'],
+  images: {
+    principale: { src: 'atelier-slam-college-brantome-cours-musique.jpg',
+      alt: 'Un intervenant en casquette anime un atelier slam devant une classe de collège',
+      legende: 'Le slam pris en charge par le cours de musique : une autre porte d’entrée que le français.' },
+    deux: { src: 'main-ecriture-atelier-slam.jpg',
+      alt: 'Une main écrit au stylo pendant un atelier d’écriture, gros plan' },
+    trois: { src: 'tabouret-scene-slam-classe.jpg',
+      alt: 'Un tabouret seul, éclairé, sur une scène minimaliste',
+      legende: 'Pas besoin d’une grande salle : un tabouret et un coin de classe suffisent à faire une scène.' },
+  },
+  corps: [
+    ['p', `Le <b>collège Brantôme</b> a choisi d'intégrer l'<b>atelier slam</b> directement au cours de musique, avec des classes de 5e. Pas de thème imposé : huit heures au total, réparties en quatre heures d'écriture et quatre heures d'oralité, jusqu'à une scène slam finale organisée dans la salle de classe elle-même.`],
+
+    ['h2', 'Le contexte : le slam comme matière musicale'],
+    ['p', `Le slam est le plus souvent rattaché au cours de français, où il croise naturellement la poésie et l'argumentation. L'intégrer au cours de musique change la focale : on y entend davantage le rythme, le phrasé, la musicalité de la langue parlée, qui sont pourtant déjà au cœur de la pratique. Sans thème imposé, chaque élève choisit son sujet, ce qui demande un accompagnement plus individualisé dès le départ — il n'y a pas de porte d'entrée commune à proposer à toute la classe.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le déroulement de l’atelier'],
+    ['p', `Les quatre premières heures sont consacrées à l'écriture : trouver un sujet personnel, le travailler en images, construire le texte. Sans thème commun, une partie de ce temps sert justement à aider chaque élève à trouver le sien — certains partent d'une observation quotidienne, d'autres d'un ressenti plus intime. Les quatre heures suivantes basculent sur l'oralité : rythme, respiration, articulation, et surtout l'appropriation du texte à voix haute, avec une attention particulière portée au lien entre le texte et la musicalité qu'on lui donne — un pont naturel avec le reste du cours de musique.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `L'absence de thème impose de travailler tôt la recherche de sujet, une étape qu'on peut parfois écourter quand un thème est donné. Le reste suit une progression classique : image, rythme, structure du texte, puis un travail de voix plus poussé qu'à l'accoutumée, porté par le cadre du cours de musique — accents toniques, variations de débit, silences.`],
+
+    ['h2', 'Ce que les élèves ont travaillé'],
+    ['p', `Cet atelier permet de travailler la formulation d'une idée personnelle sans consigne de départ — un exercice plus exigeant qu'il n'y paraît — ainsi qu'une forme d'oralité musicale, à la croisée du texte et du rythme. Plusieurs élèves ont pris conscience, par ce biais, que leur intérêt pour la musique et leur rapport aux mots pouvaient se rejoindre.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `La scène finale n'a pas eu lieu dans une salle dédiée, ni sur une estrade : juste un coin dégagé de la salle de classe habituelle, avec les tables repoussées. Ce cadre minimal, très éloigné d'une vraie scène, n'a pourtant rien retiré à l'intensité du moment — plusieurs élèves ont dit leur texte avec une concentration que je ne leur avais pas vue pendant les séances de travail.`],
+
+    ['img', 'trois'],
+
+    ['expert', {
+      titre: 'Le slam en cours de musique, ce que ça change',
+      qr: [
+        ['Pourquoi proposer un atelier slam dans le cadre du cours de musique plutôt que du français ?',
+         `Les deux fonctionnent très bien, mais le cours de musique met davantage l'accent sur le rythme, le phrasé et la musicalité du texte dit, quand le français insiste plutôt sur l'écriture et l'argumentation. Le choix dépend surtout de ce que l'équipe pédagogique veut mettre en avant.`],
+        ['Un atelier sans thème imposé est-il plus difficile à mener ?',
+         `Il demande un accompagnement plus individualisé, surtout en début de parcours : sans thème commun, chaque élève doit d'abord trouver son sujet, ce qui prend du temps. En contrepartie, les textes sont souvent plus personnels et plus habités, parce que le sujet n'a jamais été imposé de l'extérieur.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Faire atterrir le slam dans un cours de musique, sans thème et sans grande scène, montre qu'un atelier n'a pas besoin d'un cadre spectaculaire pour produire des textes habités. Si votre établissement veut explorer le slam depuis une matière autre que le français, <a href="index.html#contact">construisons ensemble le format qui convient</a>.`],
+  ],
+},
+
+
+/* ====================================================================== 5 */
 {
   slug: 'atelier-battle-de-compliments-structure-jeunesse-bassens',
   ordre: 100,
@@ -117,7 +371,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 2 */
+/* ====================================================================== 6 */
 {
   slug: 'atelier-ecriture-maison-des-adolescents-bordeaux',
   teinte: 'yellow',
@@ -181,7 +435,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 3 */
+/* ====================================================================== 7 */
 {
   slug: 'atelier-slam-college-arveyres-solidarite',
   ordre: 80,
@@ -252,7 +506,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 4 */
+/* ====================================================================== 8 */
 {
   slug: 'atelier-rap-ueaj-bordeaux',
   ordre: 70,
@@ -319,7 +573,7 @@ const ARTICLES = [
   ],
 },
 
-/* ====================================================================== 5 */
+/* ====================================================================== 9 */
 {
   slug: 'atelier-slam-printemps-des-poetes-albi-blaye-les-mines',
   teinte: 'green',
