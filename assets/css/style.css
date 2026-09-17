@@ -590,31 +590,47 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .product__panel {
   position: relative;
-  padding: clamp(28px, 6vw, 56px);
-  min-height: 260px;
+  padding: clamp(14px, 2.4vw, 22px);
+  min-height: 240px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
   overflow: hidden;
   border-bottom: 2px solid var(--ink);
 }
 
+/* La photo occupe le panneau ; l'aplat de couleur reste visible en cadre,
+   c'est lui qui garde la signature de chaque atelier. */
+.product__photo {
+  position: relative; z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+/* Le numéro se pose sur le coin de la photo : une pastille d'encre, lisible
+   quelle que soit l'image en dessous. */
 .product__n {
-  position: absolute;
-  left: clamp(12px, 3vw, 22px); top: clamp(14px, 2vw, 18px);
+  position: absolute; z-index: 2;
+  left: calc(clamp(14px, 2.4vw, 22px) + 12px);
+  top: calc(clamp(14px, 2.4vw, 22px) + 12px);
+  padding: 4px 13px 5px;
+  border: 2px solid var(--ink); border-radius: 10px;
+  background: var(--ink); color: var(--paper);
   font-family: var(--font-logo);
-  font-size: clamp(64px, 14vw, 124px);
-  line-height: 1;
-  color: var(--ink); opacity: 0.14;
+  font-size: clamp(22px, 3.4vw, 30px);
+  line-height: 1.1;
   pointer-events: none;
 }
 
-/* Chorégraphie au défilement, là où le navigateur sait la faire : la maquette
+/* Chorégraphie au défilement, là où le navigateur sait la faire : la photo
    se pose, le numéro dérive. Aucun script, et rien du tout ailleurs. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .product .mock {
-      animation: mock-pose linear both;
+    .product__photo {
+      animation: photo-pose linear both;
       animation-timeline: view();
       animation-range: entry 8% cover 42%;
     }
@@ -625,69 +641,18 @@ input, textarea, select { font: inherit; color: inherit; }
     }
   }
 }
-@keyframes mock-pose {
-  from { opacity: 0.45; transform: translateY(28px) scale(0.93); }
+@keyframes photo-pose {
+  from { opacity: 0.55; transform: translateY(22px) scale(0.96); }
   to { opacity: 1; transform: none; }
 }
 @keyframes n-derive {
-  from { transform: translateY(16px); }
-  to { transform: translateY(-16px); }
+  from { transform: translateY(8px); }
+  to { transform: translateY(-8px); }
 }
 .product__panel--turquoise { background: var(--turquoise); }
 .product__panel--magenta { background: var(--magenta); }
 .product__panel--green { background: var(--green); }
 .product__panel--periwinkle { background: var(--periwinkle); }
-
-/* --------------------------------------------------------------------------
-   Maquette d'interface dans les panneaux
-   -------------------------------------------------------------------------- */
-
-.mock {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 720px;
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  background: var(--white);
-  border: 6px solid #e9e7e4;
-  border-radius: 14px;
-  overflow: hidden;
-  font-size: 7px;
-  line-height: 1.35;
-}
-
-.mock__side { background: var(--ink); color: #b9b6b2; padding: 10px 8px; }
-.mock__side b { display: block; color: var(--white); font-size: 8px; margin-bottom: 8px; }
-.mock__side i { display: block; padding: 4px 5px; border-radius: 4px; font-style: normal; }
-.mock__side i.on { background: #34322f; color: var(--white); }
-
-.mock__main { padding: 10px; display: grid; gap: 7px; }
-.mock__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.mock__head b { font-size: 9px; }
-.mock__tag {
-  padding: 2px 6px; border-radius: 4px;
-  background: var(--ink); color: var(--white); font-size: 6px;
-}
-.mock__bars { display: grid; gap: 4px; }
-.mock__bars i { display: block; height: 4px; border-radius: 2px; background: #e6e4e1; }
-.mock__bars i:nth-child(2) { width: 78%; }
-.mock__bars i:nth-child(3) { width: 90%; }
-.mock__bars i:nth-child(4) { width: 62%; }
-.mock__block {
-  border: 1px solid #eceae7; border-radius: 6px; padding: 7px;
-  display: grid; gap: 5px;
-}
-.mock__row { display: flex; align-items: center; gap: 5px; }
-.mock__dot { width: 12px; height: 12px; border-radius: 50%; background: #e6e4e1; flex: 0 0 auto; }
-.mock__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
-.mock__grid span {
-  aspect-ratio: 1; border-radius: 3px; background: #f2f0ed;
-  display: grid; place-items: center; font-size: 5px; color: var(--ink-mute);
-}
-.mock__grid span.on { background: var(--ink); color: var(--white); }
-.mock__wave { display: flex; align-items: flex-end; gap: 2px; height: 26px; }
-.mock__wave i { flex: 1; background: #dedbd7; border-radius: 1px; }
 
 /* --------------------------------------------------------------------------
    Carrousel de témoignages
@@ -1161,6 +1126,7 @@ input, textarea, select { font: inherit; color: inherit; }
     order: 2; min-height: 440px;
     border-bottom: 0; border-left: 2px solid var(--ink);
   }
+  .product__photo { aspect-ratio: auto; height: 100%; }
   /* Une carte sur deux inverse les moitiés : le regard zigzague en descendant. */
   .product--flip .product__text { order: 2; }
   .product--flip .product__panel {

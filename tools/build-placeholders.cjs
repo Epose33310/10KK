@@ -30,6 +30,12 @@ const IMAGES = [
   ['page-battle-1.jpg', 'battle', "L'écriture des punchlines", 'large'],
   ['page-battle-2.jpg', 'battle', 'Le face-à-face sur scène', 'large'],
   ['page-battle-3.jpg', 'battle', 'Le public qui encourage', 'large'],
+  // Photos de la page d'accueil : panneaux d'atelier et portrait.
+  ['photo-slam.jpg', 'slam', "Amphithéâtre — Esope au micro devant la classe", 'accueil'],
+  ['photo-eloquence.jpg', 'eloquence', "Salle de classe — le groupe debout", 'accueil'],
+  ['photo-rap.jpg', 'rap', "Sur scène — deux participantes face au public", 'accueil'],
+  ['photo-battle.jpg', 'battle', "Dans la cour — trois jeunes en performance", 'accueil'],
+  ['portrait-esope.jpg', 'slam', "Portrait d'Esope, micro à la main", 'portrait'],
   // Affiches des emplacements vidéo : visibles tant que la vidéo n'est pas déposée.
   ['video-slam.jpg', 'slam', 'Vidéo — atelier slam', 'video'],
   ['video-rap.jpg', 'rap', 'Vidéo — atelier rap', 'video'],
@@ -37,7 +43,7 @@ const IMAGES = [
   ['video-battle.jpg', 'battle', 'Vidéo — battle de compliments', 'video'],
 ];
 
-const TAILLES = { large: [1600, 760], video: [1600, 900] };
+const TAILLES = { large: [1600, 760], video: [1600, 900], accueil: [1400, 1050], portrait: [1200, 1500] };
 
 const gabarit = (fichier, couleur, legende, L, H, video) => `<!doctype html>
 <meta charset="utf-8">

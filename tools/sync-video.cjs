@@ -8,13 +8,23 @@
  * affiche. Sinon il revient à la photo seule : aucune requête en 404 tant
  * que le fichier n'est pas là.
  */
-const { readFileSync, writeFileSync, existsSync } = require('node:fs');
+const { readFileSync, writeFileSync, existsSync, readdirSync } = require('node:fs');
 const { join } = require('node:path');
 
 const root = join(__dirname, '..');
 const video = join(root, 'assets', 'video');
-const mp4 = existsSync(join(video, 'atelier-esope.mp4'));
-const webm = existsSync(join(video, 'atelier-esope.webm'));
+/* On accepte le nom attendu, ou n'importe quel autre .mp4 déposé dans le
+   dossier qui ne soit pas la vidéo d'une page d'atelier : pas besoin de
+   renommer son fichier avant de le déposer. */
+const ATELIERS = ['slam', 'rap', 'eloquence', 'battle'].map((k) => `atelier-${k}.mp4`);
+const trouve = (ext) => {
+  const attendu = `atelier-esope.${ext}`;
+  if (existsSync(join(video, attendu))) return attendu;
+  return readdirSync(video).find((f) =>
+    f.toLowerCase().endsWith('.' + ext) && !ATELIERS.includes(f)) || null;
+};
+const mp4 = trouve('mp4');
+const webm = trouve('webm');
 
 const AFFICHE = 'assets/img/atelier-1.jpg';
 const ALT = 'Esope en atelier slam dans une classe';
@@ -27,8 +37,8 @@ const lecteur = `
       <video class="photoset__video" poster="${AFFICHE}"
              autoplay muted loop playsinline preload="metadata"
              aria-label="${ALT}" width="1100" height="1300">${
-  webm ? `\n        <source src="assets/video/atelier-esope.webm" type="video/webm">` : ''}
-        <source src="assets/video/atelier-esope.mp4" type="video/mp4">
+  webm ? `\n        <source src="assets/video/${encodeURI(webm)}" type="video/webm">` : ''}
+        <source src="assets/video/${encodeURI(mp4)}" type="video/mp4">
       </video>
     `;
 
@@ -44,5 +54,5 @@ if (!motif.test(html)) {
 const sortie = html.replace(motif, (_, ouvre, ferme) => ouvre + (mp4 ? lecteur : photo) + ferme);
 writeFileSync(chemin, sortie);
 console.log(mp4
-  ? '→ vidéo posée' + (webm ? ' (mp4 + webm)' : ' (mp4 seul — un webm allégerait)')
+  ? `→ vidéo posée : ${mp4}` + (webm ? ` + ${webm}` : ' (un webm allégerait)')
   : '→ pas de vidéo dans assets/video/ : la photo reste en place');
