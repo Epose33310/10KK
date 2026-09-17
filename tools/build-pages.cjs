@@ -192,20 +192,20 @@ ${header}<main id="main">
 </section>
 
 <section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Les objectifs travaillés</h2>
-  </div>
-  <div class="goals" data-stagger>${goals}
-  </div>
-</section>
-
-<section class="section section--close wrap">
   <a class="tryout band--${p.color}" href="demo.html#demo-${p.demo[0]}" data-reveal>
     <span class="tryout__label">Démo en ligne · gratuite</span>
     <span class="tryout__title">Essayez l'exercice : ${p.demo[1]}</span>
     <span class="tryout__text">${p.demo[2]}</span>
     <span class="tryout__cta">Lancer la démo <span class="arrow" aria-hidden="true">→</span></span>
   </a>
+</section>
+
+<section class="section section--close wrap">
+  <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
+    <h2 class="h2">Les objectifs travaillés</h2>
+  </div>
+  <div class="goals" data-stagger>${goals}
+  </div>
 </section>
 
 <section class="section section--close wrap">

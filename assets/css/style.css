@@ -43,8 +43,8 @@
   --card: #f4f3f1;
   --white: #ffffff;
   --ink: #1a1a1a;
-  --ink-soft: #444240;
-  --ink-mute: #6f6c68;
+  --ink-soft: #2f2d2b;
+  --ink-mute: #56534f;
   --footer: #1b1a18;
   --line: #e2e0dc;
 
@@ -549,26 +549,97 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .split { display: grid; gap: clamp(32px, 6vw, 56px); align-items: center; }
 
-.products { display: grid; gap: clamp(24px, 5vw, 40px); }
+.products { display: grid; gap: clamp(26px, 5vw, 48px); }
 
+/* Carte entièrement cliquable : le lien « En savoir plus » étend sa zone
+   sensible à tout le bloc, sans dupliquer de lien pour les lecteurs d'écran. */
 .product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--ink);
   border-radius: var(--r-card);
   overflow: hidden;
   background: var(--card);
+  box-shadow: 8px 8px 0 var(--ink);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
+.product:hover, .product:focus-within {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.product__link::after { content: ''; position: absolute; inset: 0; z-index: 2; }
+/* Le « scale » du bouton pressé ferait du lien le bloc conteneur de son propre
+   ::after : la zone sensible se replierait sur le bouton entre l'appui et le
+   relâchement, et le clic n'aboutirait pas. C'est la carte qui s'enfonce. */
+.product__link:active { transform: none; }
+.product:active { transform: translate(7px, 7px); box-shadow: 0 0 0 var(--ink); }
+.product__link .arrow { transition: transform var(--dur-fast) var(--ease); }
+.product:hover .product__link .arrow { transform: translateX(5px); }
 
 .product__text { padding: clamp(28px, 7vw, 56px); }
 .product__text h3 { margin-bottom: 20px; }
 .product__text p { max-width: 54ch; }
 .product__text .btn { margin-top: 28px; }
 
+/* Les repères qu'une équipe cherche d'abord : public, volume, restitution. */
+.product__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.product__meta li {
+  padding: 6px 13px;
+  border: 2px solid var(--ink); border-radius: 99px;
+  background: var(--paper);
+  font-size: 12.5px; font-weight: 700; letter-spacing: -0.01em;
+}
+@media (min-width: 620px) {
+  .product__meta li { padding: 7px 15px; font-size: 13.5px; }
+}
+
 .product__panel {
   position: relative;
-  padding: clamp(24px, 6vw, 56px);
-  min-height: 240px;
+  padding: clamp(28px, 6vw, 56px);
+  min-height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-bottom: 2px solid var(--ink);
+}
+
+.product__n {
+  position: absolute;
+  left: clamp(12px, 3vw, 22px); top: clamp(14px, 2vw, 18px);
+  font-family: var(--font-logo);
+  font-size: clamp(64px, 14vw, 124px);
+  line-height: 1;
+  color: var(--ink); opacity: 0.14;
+  pointer-events: none;
+}
+
+/* Chorégraphie au défilement, là où le navigateur sait la faire : la maquette
+   se pose, le numéro dérive. Aucun script, et rien du tout ailleurs. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .product .mock {
+      animation: mock-pose linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 42%;
+    }
+    .product__n {
+      animation: n-derive linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+@keyframes mock-pose {
+  from { opacity: 0.45; transform: translateY(28px) scale(0.93); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes n-derive {
+  from { transform: translateY(16px); }
+  to { transform: translateY(-16px); }
 }
 .product__panel--turquoise { background: var(--turquoise); }
 .product__panel--magenta { background: var(--magenta); }
@@ -812,12 +883,6 @@ input, textarea, select { font: inherit; color: inherit; }
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-.sheet__body > .body-lg:first-child {
-  font-size: clamp(19px, 4.4vw, 23px);
-  line-height: 1.4;
-  letter-spacing: -0.015em;
-  font-weight: 500;
-}
 /* Repère de section dans la fenêtre : un filet jaune plutôt qu'un titre nu. */
 .sheet__body .h4 {
   position: relative;
@@ -936,7 +1001,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .contact__text {
   margin-top: 16px;
   font-size: clamp(16px, 2vw, 17px); line-height: 1.55;
-  color: rgba(26, 26, 26, 0.78);
+  color: rgba(26, 26, 26, 0.88);
 }
 
 .contact__mail {
@@ -1099,9 +1164,17 @@ input, textarea, select { font: inherit; color: inherit; }
   .photo-single { aspect-ratio: 5 / 5.4; }
 
   .product { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .product__text { display: flex; flex-direction: column; justify-content: center; }
+  .product__text { order: 1; display: flex; flex-direction: column; justify-content: center; }
+  .product__panel {
+    order: 2; min-height: 440px;
+    border-bottom: 0; border-left: 2px solid var(--ink);
+  }
+  /* Une carte sur deux inverse les moitiés : le regard zigzague en descendant. */
   .product--flip .product__text { order: 2; }
-  .product__panel { min-height: 420px; }
+  .product--flip .product__panel {
+    order: 1;
+    border-left: 0; border-right: 2px solid var(--ink);
+  }
 
   .quote { flex-basis: 42%; min-height: 520px; }
 
@@ -1269,7 +1342,7 @@ input, textarea, select { font: inherit; color: inherit; }
 .manifeste__item span:not(.manifeste__n) {
   display: block; margin-top: 6px;
   font-size: 15px; line-height: 1.55;
-  color: rgba(26, 26, 26, 0.78);
+  color: rgba(26, 26, 26, 0.86);
 }
 
 @media (min-width: 720px) {
@@ -1520,7 +1593,7 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .tryout__text {
   display: block; margin-top: 14px; max-width: 56ch;
-  font-size: clamp(16px, 2vw, 17px); line-height: 1.55; opacity: 0.82;
+  font-size: clamp(16px, 2vw, 17px); line-height: 1.55; opacity: 0.9;
 }
 .tryout__cta {
   display: inline-flex; align-items: center; gap: 10px;
