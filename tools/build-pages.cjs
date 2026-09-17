@@ -147,6 +147,7 @@ const pages = [
   },
   {
     file: 'atelier-battle.html',
+    video: 'esope',
     seoTitle: "Ateliers battle de compliments : écrire des punchlines — Esope",
     shots: [["page-battle-1.jpg", "L'écriture des punchlines pendant un atelier battle de compliments"], ["page-battle-2.jpg", "Un face-à-face sur scène lors d'un battle de compliments"], ["page-battle-3.jpg", "Le public qui encourage pendant un battle de compliments"]],
     faq: [
@@ -237,20 +238,21 @@ for (const p of pages) {
 
   /* Emplacement vidéo : dès qu'un fichier est déposé dans assets/video/, il
      remplace l'affiche. Tant qu'il n'y est pas, aucune requête en 404. */
-  const cle = p.demo[0];
+  // L'affiche suit toujours la page ; le fichier vidéo peut être partagé.
+  const cle = p.video || p.demo[0];
   const mp4 = existsSync(join(root, 'assets', 'video', `atelier-${cle}.mp4`));
   const webm = existsSync(join(root, 'assets', 'video', `atelier-${cle}.webm`));
-  const affiche = `assets/img/video-${cle}.jpg`;
+  const affiche = `assets/img/video-${p.demo[0]}.jpg`;
   const altVideo = `${p.title} en vidéo`;
   const film = `
 <div class="wrap">
-  <figure class="shot shot--video" data-reveal>${mp4 ? `
+  <figure class="shot shot--video" style="--bande:var(--${p.color})" data-reveal>${mp4 ? `
     <video poster="${affiche}" autoplay muted loop playsinline preload="metadata"
-           aria-label="${altVideo}" width="1600" height="900">${webm ? `
+           aria-label="${altVideo}" width="720" height="1280">${webm ? `
       <source src="assets/video/atelier-${cle}.webm" type="video/webm">` : ''}
       <source src="assets/video/atelier-${cle}.mp4" type="video/mp4">
     </video>` : `
-    <img src="${affiche}" alt="${altVideo}" loading="lazy" width="1600" height="900">`}
+    <img src="${affiche}" alt="${altVideo}" loading="lazy" width="720" height="1280">`}
   </figure>
 </div>`;
 

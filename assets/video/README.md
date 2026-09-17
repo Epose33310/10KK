@@ -52,3 +52,30 @@ pas là, c'est l'affiche `assets/img/video-<atelier>.jpg` qui s'affiche.
 node tools/sync-video.cjs      # la vidéo de la page d'accueil
 node tools/build-pages.cjs     # les vidéos des quatre pages d'atelier
 ```
+
+---
+
+# État actuel (vidéos en place)
+
+| Emplacement | Fichier | Poids |
+| --- | --- | --- |
+| Accueil (hero, vertical) | `atelier-esope.mp4` + `.webm` | 2,6 / 2,1 Mo |
+| `atelier-slam.html` | `atelier-slam.mp4` + `.webm` | 2,0 / 2,4 Mo |
+| `atelier-eloquence.html` | `atelier-eloquence.mp4` + `.webm` | 1,1 / 0,9 Mo |
+| `atelier-rap.html` | `atelier-rap.mp4` + `.webm` | 0,7 / 0,9 Mo |
+| `atelier-battle.html` | rejoue `atelier-esope.*` | — |
+
+Les sources envoyées (`Ateliers Battle.mp4`, `Ateliers Slam 2.mp4`,
+`Esope Flex.MOV`, `atelier éloquenceh.mov`) ont été converties :
+
+- piste audio retirée,
+- `.mov` → `.mp4` H.264, plus un `.webm` VP9 en secours (certains navigateurs
+  Chromium sont livrés sans décodeur H.264),
+- largeur ramenée à 720 px, 30 images/seconde, `faststart` activé,
+- affiches (`assets/img/video-*.jpg`) extraites d'une image de chaque vidéo.
+
+Pour remplacer une vidéo : déposez le nouveau fichier ici, puis
+
+```
+node tools/sync-video.cjs && node tools/build-pages.cjs
+```

@@ -451,6 +451,12 @@ input, textarea, select { font: inherit; color: inherit; }
 .photoset__item--main { left: 26%; top: 0; width: 48%; height: 84%; }
 .photoset__item--right { right: 0; top: 5%; width: 36%; height: 64%; transform: rotate(1.4deg); }
 
+@media (max-width: 899px) {
+  .photoset { aspect-ratio: 9 / 13; max-width: 320px; }
+  .photoset__item--left, .photoset__item--right, .photoset .photoset__banner { display: none; }
+  .photoset__item--main { inset: 0; width: 100%; height: 100%; }
+}
+
 /* Bandeau déchiré en avant-plan */
 .photoset__banner {
   position: absolute;
@@ -1118,6 +1124,9 @@ input, textarea, select { font: inherit; color: inherit; }
 
   /* Sur grand écran les photos occupent nettement plus de surface */
   .photoset { max-width: none; aspect-ratio: 16 / 9; }
+  .photoset__item--main { left: 35%; top: 0; width: 30%; height: 96%; }
+  .photoset__item--left { left: 0; top: 20%; width: 33%; height: 56%; }
+  .photoset__item--right { right: 0; top: 6%; width: 31%; height: 66%; }
   .photo-single { aspect-ratio: 5 / 5.4; }
 
   .product { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
@@ -1586,11 +1595,28 @@ input, textarea, select { font: inherit; color: inherit; }
   aspect-ratio: 1600 / 760;
   object-fit: cover;
 }
-.shot video { width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
-.shot--video img { aspect-ratio: 16 / 9; }
+/* Les vidéos d'atelier sont tournées au téléphone, en vertical : plutôt que
+   de les recadrer en bandeau, on les pose debout sur l'aplat de l'atelier. */
+.shot--video {
+  display: flex;
+  justify-content: center;
+  max-width: 560px;
+  margin-inline: auto;
+  padding: clamp(16px, 3vw, 26px);
+  background: var(--bande, var(--card));
+}
+.shot--video video, .shot--video img {
+  width: auto;
+  height: clamp(360px, 60vh, 620px);
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  background: var(--ink);
+}
 @media (max-width: 620px) {
   .shot img { aspect-ratio: 4 / 3; }
-  .shot--video img, .shot video { aspect-ratio: 16 / 9; }
+  .shot--video video, .shot--video img { height: min(72vh, 520px); }
 }
 
 .related { display: grid; gap: 12px; }
