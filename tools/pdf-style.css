@@ -1,181 +1,372 @@
+/* ==========================================================================
+   Dossier de diffusion — Esope
+   Même direction artistique que le site : jaune et encre, Anton pour les
+   chiffres et le logo, Inter Tight pour tout le reste, bords d'encre de 2 px,
+   ombres portées dures, papier déchiré.
+   ========================================================================== */
+
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --yellow: #fdc837; --paper: #fdfdfc; --card: #f4f3f1; --ink: #1a1a1a;
-  --ink-soft: #444240; --ink-mute: #6f6c68; --line: #e2e0dc;
-  --turquoise: #55e7dd; --magenta: #ff98ff; --periwinkle: #96b4fc; --green: #88e2b3;
+  --yellow: #fdc837;
+  --yellow-dark: #f0b81f;
+  --paper: #fdfdfc;
+  --card: #f4f3f1;
+  --ink: #1a1a1a;
+  --ink-soft: #2f2d2b;
+  --ink-mute: #56534f;
+  --line: #e2e0dc;
+  --turquoise: #55e7dd;
+  --magenta: #ff98ff;
+  --periwinkle: #96b4fc;
+  --green: #88e2b3;
 }
+
 @font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-400.woff2') format('woff2'); font-weight:400 }
 @font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-500.woff2') format('woff2'); font-weight:500 }
 @font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-600.woff2') format('woff2'); font-weight:600 }
 @font-face { font-family:'Inter Tight'; src:url('../assets/fonts/inter-tight-700.woff2') format('woff2'); font-weight:700 }
 @font-face { font-family:'Anton'; src:url('../assets/fonts/anton.woff2') format('woff2'); font-weight:400 }
 
-body { font-family:'Inter Tight',sans-serif; color:var(--ink); background:var(--paper); font-size:9.8pt; line-height:1.45; -webkit-print-color-adjust:exact; print-color-adjust:exact }
-/* Chaque page porte une couleur d'accent : elle tient l'onglet de tranche,
-   le bandeau sous la barre jaune et le numéro de page. */
-.page { --accent: var(--yellow);
-  width:210mm; min-height:297mm; page-break-after:always; position:relative; overflow:hidden; display:flex; flex-direction:column }
-.page[data-col="turquoise"] { --accent: var(--turquoise) }
-.page[data-col="magenta"]   { --accent: var(--magenta) }
-.page[data-col="periwinkle"]{ --accent: var(--periwinkle) }
-.page[data-col="green"]     { --accent: var(--green) }
-.page:last-child { page-break-after:auto }
-.pad { position:relative; z-index:1; padding:12.5mm 16mm 10mm }
+body {
+  font-family: 'Inter Tight', sans-serif;
+  color: var(--ink); background: var(--paper);
+  font-size: 9.9pt; line-height: 1.5;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
 
-/* Onglet de tranche : le nom de la section, debout dans la marge de droite.
-   Il ne croise jamais le texte, qui s'arrête 16 mm avant le bord. */
+/* --------------------------------------------------------------------------
+   La page
+   -------------------------------------------------------------------------- */
+
+.page {
+  --accent: var(--yellow);
+  position: relative; overflow: hidden;
+  width: 210mm; min-height: 297mm;
+  display: flex; flex-direction: column;
+  page-break-after: always;
+}
+.page:last-child { page-break-after: auto }
+.page[data-col="turquoise"]  { --accent: var(--turquoise) }
+.page[data-col="magenta"]    { --accent: var(--magenta) }
+.page[data-col="periwinkle"] { --accent: var(--periwinkle) }
+.page[data-col="green"]      { --accent: var(--green) }
+
+.pad { position: relative; z-index: 1; padding: 12mm 16mm 10mm; flex: 1; display: flex; flex-direction: column }
+
+/* Bandeau de tête ---------------------------------------------------------- */
+
+.bar {
+  position: relative; z-index: 2;
+  background: var(--yellow);
+  padding: 5.5mm 16mm;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.bar::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2.4mm; height: 2.4mm; background: var(--accent) }
+.bar span:last-child { font-size: 8.5pt; font-weight: 600; letter-spacing: .01em }
+
+.logo {
+  font-family: 'Anton', sans-serif; font-size: 19pt;
+  text-transform: uppercase; letter-spacing: -.01em; line-height: 1;
+  flex: 0 0 auto; white-space: nowrap;
+}
+
+/* Pied de page ------------------------------------------------------------- */
+
+.foot {
+  margin-top: auto; padding-top: 3.5mm;
+  border-top: 1px solid var(--line);
+  display: flex; align-items: flex-end; justify-content: space-between;
+  font-size: 8pt; color: var(--ink-mute);
+}
+.folio {
+  font-family: 'Anton', sans-serif; font-size: 20pt; line-height: .8;
+  color: var(--ink); letter-spacing: -.02em;
+  border-bottom: 1.5mm solid var(--accent); padding-bottom: .5mm;
+}
+
+/* Onglet de tranche -------------------------------------------------------- */
+
 .tab {
-  position:absolute; z-index:2; top:52%; right:4mm;
-  transform:translateY(-50%);
-  writing-mode:vertical-rl; rotate:180deg;
-  font-family:'Anton',sans-serif; font-size:8.5pt;
-  text-transform:uppercase; letter-spacing:.2em;
-  color:var(--ink-mute); white-space:nowrap;
-  display:flex; align-items:center; gap:3.5mm;
+  position: absolute; z-index: 2; top: 52%; right: 4mm;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl; rotate: 180deg;
+  font-family: 'Anton', sans-serif; font-size: 8pt;
+  text-transform: uppercase; letter-spacing: .2em;
+  color: var(--ink-mute); white-space: nowrap;
+  display: flex; align-items: center; gap: 3.5mm;
 }
 .tab::before, .tab::after {
-  content:''; flex:0 0 auto; width:2.2mm; height:2.2mm; border-radius:50%;
-  background:var(--accent);
+  content: ''; flex: 0 0 auto; width: 2.2mm; height: 2.2mm; border-radius: 50%;
+  background: var(--accent);
 }
 
-.bar { position:relative; background:var(--yellow); padding:6mm 16mm; display:flex; align-items:center; justify-content:space-between }
-/* Un filet de couleur sous la barre : c'est lui qui donne son rythme au
-   feuilletage, une page se reconnaît avant même d'être lue. */
-.bar::after { content:''; position:absolute; left:0; right:0; bottom:-2.6mm; height:2.6mm; background:var(--accent) }
-/* sans flex:0 0 auto le logo se fait comprimer par le libellé de droite */
-.logo { font-family:'Anton',sans-serif; font-size:22pt; text-transform:uppercase; letter-spacing:-.01em; line-height:1; flex:0 0 auto; white-space:nowrap }
-.bar span { font-size:9pt; font-weight:600 }
+/* --------------------------------------------------------------------------
+   Typographie
+   -------------------------------------------------------------------------- */
 
-h1 { font-size:34pt; line-height:1.02; letter-spacing:-.035em; font-weight:600 }
-h2 { font-size:17.5pt; line-height:1.08; letter-spacing:-.03em; font-weight:600; margin-bottom:4mm }
-h3 { font-size:11.5pt; line-height:1.15; letter-spacing:-.02em; font-weight:600; margin-bottom:1.8mm }
-p { margin-bottom:3mm }
-.lead { font-size:11.5pt; line-height:1.4 }
-/* L'accroche devient une pastille : un point de couleur dans une page qui,
-   sinon, commence toujours par du gris. */
+h1 { font-size: 33pt; line-height: 1; letter-spacing: -.04em; font-weight: 700 }
+h2 { font-size: 23pt; line-height: 1.03; letter-spacing: -.035em; font-weight: 700 }
+h3 { font-size: 11.5pt; line-height: 1.15; letter-spacing: -.02em; font-weight: 700; margin-bottom: 1.6mm }
+p  { margin-bottom: 2.8mm }
+p:last-child { margin-bottom: 0 }
+
+.lead { font-size: 11.5pt; line-height: 1.42 }
+.mute { color: var(--ink-soft) }
+.tight { max-width: 152mm }
+
+/* L'accroche de section : une pastille d'encre à texte jaune. */
 .eyebrow {
-  /* .pad est un conteneur flex : un enfant en inline-block y redevient block
-     et la pastille s'étirerait sur toute la largeur. */
-  display:inline-block; align-self:flex-start; margin-bottom:3mm;
-  padding:1.3mm 3.2mm; border-radius:99px;
-  background:var(--ink); color:var(--yellow);
-  font-size:7pt; letter-spacing:.14em; text-transform:uppercase; font-weight:700;
+  display: inline-block; align-self: flex-start; margin-bottom: 3mm;
+  padding: 1.3mm 3.4mm; border-radius: 99px;
+  background: var(--ink); color: var(--yellow);
+  font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
 }
-.mute { color:var(--ink-soft) }
+.eyebrow--clair { background: var(--accent); color: var(--ink) }
 
-.cover { background:var(--yellow); flex:1; display:flex; flex-direction:column; padding:18mm 16mm; position:relative; overflow:hidden }
-.cover h1 { font-size:40pt }
-.cover .logo { font-size:34pt }
-.cover .title { margin-top:auto; position:relative; z-index:1 }
-.cover .meta { font-size:10pt; font-weight:500; margin-top:9mm; position:relative; z-index:1 }
-
-/* formes papier déchiré, comme sur le site */
-.cover .shape { position:absolute; z-index:0 }
-.shape--a { top:22mm; left:-14mm; width:96mm; height:64mm; background:var(--turquoise);
-  clip-path:polygon(2% 6%,28% 0,56% 5%,84% 1%,100% 8%,96% 40%,100% 72%,94% 100%,66% 95%,38% 100%,12% 94%,0 98%,3% 66%,0 34%) }
-.shape--b { top:52mm; right:-10mm; width:78mm; height:88mm; background:var(--magenta);
-  clip-path:polygon(6% 0,34% 5%,62% 0,90% 6%,100% 3%,97% 30%,100% 58%,98% 86%,100% 100%,72% 96%,44% 100%,16% 95%,0 99%,3% 70%,0 42%,4% 16%) }
-.shape--c { top:96mm; left:34mm; width:70mm; height:46mm; background:var(--periwinkle);
-  clip-path:polygon(0 14%,24% 4%,52% 0,78% 6%,100% 2%,94% 58%,88% 100%,60% 95%,32% 99%,10% 92%) }
-
-.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:5mm }
-.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:5mm }
-.card { background:var(--card); border-radius:4mm; padding:5mm }
-.card--turquoise { background:var(--turquoise) } .card--magenta { background:var(--magenta) }
-.card--periwinkle { background:var(--periwinkle) } .card--green { background:var(--green) }
-.card--ink { background:var(--ink); color:#fff } .card--ink h3 { color:var(--yellow) } .card--ink p { color:#ddd9d5 }
-.card--yellow { background:var(--yellow) }
-.card p:last-child { margin-bottom:0 }
-
-ul { list-style:none } li { display:flex; gap:3mm; margin-bottom:2.2mm; font-size:9.8pt }
-li::before { content:''; flex:0 0 auto; margin-top:1.6mm; width:2.5mm; height:2.5mm; border-radius:.8mm; background:var(--yellow) }
-.card--yellow li::before, .card--turquoise li::before { background:var(--ink) }
-
-.foot { margin-top:auto; padding-top:3.5mm; border-top:1px solid var(--line); display:flex; align-items:flex-end; justify-content:space-between; font-size:8.5pt; color:var(--ink-mute) }
-/* Le numéro de page en gros chiffre : on se repère au feuilletage. */
-.folio {
-  font-family:'Anton',sans-serif; font-size:21pt; line-height:.8;
-  color:var(--ink); letter-spacing:-.02em;
-  border-bottom:1.6mm solid var(--accent); padding-bottom:.6mm;
+/* Un mot souligné au feutre, comme sur le site. */
+.souligne {
+  background: linear-gradient(to top, var(--accent) 0 32%, transparent 32%);
+  padding: 0 .5mm;
 }
-.quote { font-size:15pt; line-height:1.25; letter-spacing:-.02em; font-weight:600 }
-.tag { display:inline-block; background:var(--ink); color:#fff; border-radius:99px; padding:1.5mm 4mm; font-size:8.5pt; font-weight:600; margin:0 2mm 2mm 0 }
 
-/* Liens cliquables : visibles à l'écran, lisibles une fois imprimés. */
+/* --------------------------------------------------------------------------
+   Couverture
+   -------------------------------------------------------------------------- */
+
+.cover { position: relative; flex: 1; display: flex; flex-direction: column; background: var(--yellow) }
+
+/* La photo occupe le haut de la page, bord à bord, et se termine sur une
+   déchirure de papier — le même geste que les aplats du site. */
+.cover__shot { position: relative; height: 180mm; overflow: hidden; background: var(--ink) }
+.cover__shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; display: block }
+.cover__tear {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 12mm;
+  background: var(--yellow);
+  clip-path: polygon(0 62%, 7% 48%, 15% 66%, 24% 44%, 33% 62%, 42% 40%, 51% 60%,
+                     60% 42%, 69% 64%, 78% 44%, 87% 62%, 95% 46%, 100% 60%,
+                     100% 100%, 0 100%);
+}
+.cover__mark {
+  position: absolute; left: 16mm; top: 12mm; z-index: 2;
+  font-family: 'Anton', sans-serif; font-size: 34pt; line-height: 1;
+  text-transform: uppercase; letter-spacing: -.01em; color: var(--paper);
+  text-shadow: 0 2mm 8mm rgba(0,0,0,.45);
+}
+.cover__badge {
+  position: absolute; right: 16mm; top: 13mm; z-index: 2;
+  background: var(--yellow); color: var(--ink);
+  padding: 2mm 4.5mm; border-radius: 99px;
+  font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+}
+
+/* Le titre se cale au milieu du jaune restant : sans cela, tout remontait
+   sous la déchirure et laissait un grand vide au-dessus du bandeau. */
+.cover__body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 6mm 16mm }
+.cover__body h1 { max-width: 170mm }
+.cover__lead { font-size: 12pt; line-height: 1.38; margin-top: 5mm; max-width: 158mm; font-weight: 500 }
+
+.cover__band {
+  margin-top: auto; background: var(--ink); color: var(--paper);
+  padding: 5.5mm 16mm;
+  display: grid; grid-template-columns: 1.15fr 1fr .85fr; gap: 7mm;
+}
+.cover__band b { display: block; color: var(--yellow); font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.2mm }
+.cover__band span { font-size: 9.5pt; line-height: 1.35 }
+
+/* --------------------------------------------------------------------------
+   Page pleine photo — la respiration du dossier
+   -------------------------------------------------------------------------- */
+
+.plein { position: relative; flex: 1; overflow: hidden; background: var(--ink) }
+.plein > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.plein__voile { position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,12,12,.94) 4%, rgba(12,12,12,.55) 40%, rgba(12,12,12,.12) 100%) }
+.plein__texte { position: absolute; left: 16mm; right: 16mm; bottom: 16mm; color: var(--paper) }
+.plein__texte .citation { font-size: 25pt; line-height: 1.1; letter-spacing: -.035em; font-weight: 700; max-width: 154mm }
+.plein__texte .source { margin-top: 4mm; font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--yellow) }
+
+/* --------------------------------------------------------------------------
+   Chiffres
+   -------------------------------------------------------------------------- */
+
+.chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; margin-top: 6mm }
+.chiffre { border-top: 2px solid var(--ink); padding-top: 3mm }
+.chiffre b {
+  display: block; font-family: 'Anton', sans-serif;
+  font-size: 40pt; line-height: .86; letter-spacing: -.02em;
+}
+.chiffre span { display: block; margin-top: 2mm; font-size: 9pt; line-height: 1.35; color: var(--ink-soft) }
+
+/* --------------------------------------------------------------------------
+   Cartes
+   -------------------------------------------------------------------------- */
+
+.card { background: var(--card); border-radius: 4mm; padding: 5.5mm 6mm }
+.card--yellow { background: var(--yellow) }
+.card--turquoise { background: var(--turquoise) }
+.card--magenta { background: var(--magenta) }
+.card--periwinkle { background: var(--periwinkle) }
+.card--green { background: var(--green) }
+.card--ink { background: var(--ink); color: #fff }
+.card--ink h3 { color: var(--yellow) }
+.card--ink p { color: #ddd9d5 }
+.card--bord { border: 2px solid var(--ink); box-shadow: 3mm 3mm 0 var(--ink) }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm }
+
+ul { list-style: none }
+li { display: flex; gap: 2.8mm; margin-bottom: 2mm; font-size: 9.6pt; line-height: 1.42 }
+li:last-child { margin-bottom: 0 }
+li::before {
+  content: ''; flex: 0 0 auto; margin-top: 1.6mm;
+  width: 2.4mm; height: 2.4mm; border-radius: .7mm; background: var(--yellow);
+}
+.card--yellow li::before, .card--turquoise li::before,
+.card--green li::before, .card--periwinkle li::before,
+.card--magenta li::before { background: var(--ink) }
+.card--ink li { color: #ddd9d5 }
+
+/* --------------------------------------------------------------------------
+   Les quatre ateliers — quatre panneaux de couleur avec leur photo
+   -------------------------------------------------------------------------- */
+
+.ateliers { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm; margin-top: 5mm }
+.atelier {
+  position: relative; overflow: hidden;
+  border-radius: 4mm; border: 2px solid var(--ink);
+  box-shadow: 2mm 2mm 0 var(--ink);
+  display: flex; flex-direction: column;
+}
+.atelier img { width: 100%; height: 34mm; object-fit: cover; display: block; border-bottom: 2px solid var(--ink) }
+.atelier__corps { flex: 1; padding: 4mm 4.5mm; display: flex; flex-direction: column }
+.atelier--turquoise .atelier__corps { background: var(--turquoise) }
+.atelier--periwinkle .atelier__corps { background: var(--periwinkle) }
+.atelier--green .atelier__corps { background: var(--green) }
+.atelier--magenta .atelier__corps { background: var(--magenta) }
+.atelier h3 { font-size: 13pt; margin-bottom: 1.4mm }
+.atelier p { font-size: 9.2pt; line-height: 1.4; color: rgba(26,26,26,.82) }
+.atelier__pied {
+  margin-top: auto; padding-top: 3mm;
+  border-top: 1.2px solid rgba(26,26,26,.28);
+  display: flex; justify-content: space-between; gap: 3mm;
+  font-size: 8.4pt; font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Fiches en ligne
+   -------------------------------------------------------------------------- */
+
+.rowcard {
+  position: relative; overflow: hidden;
+  background: var(--card); border-radius: 4mm;
+  padding: 5mm 6mm 5mm 7.5mm; margin-bottom: 4.2mm;
+}
+.rowcard:last-child { margin-bottom: 0 }
+.rowcard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2.2mm; background: var(--yellow) }
+.rowcard:nth-of-type(2)::before { background: var(--turquoise) }
+.rowcard:nth-of-type(3)::before { background: var(--magenta) }
+.rowcard:nth-of-type(4)::before { background: var(--periwinkle) }
+.rowcard:nth-of-type(5)::before { background: var(--green) }
+.rowcard h3 { margin-bottom: 1.2mm }
+.rowcard p { font-size: 9.4pt; line-height: 1.45; color: var(--ink-soft) }
+
+/* --------------------------------------------------------------------------
+   Le déroulé — quatre séances numérotées
+   -------------------------------------------------------------------------- */
+
+.etapes { display: grid; gap: 3.5mm; margin-top: 5mm }
+.etape { display: grid; grid-template-columns: 17mm 1fr; gap: 5mm; align-items: start }
+.etape__n {
+  font-family: 'Anton', sans-serif; font-size: 27pt; line-height: .82;
+  color: var(--ink); letter-spacing: -.03em;
+  border-bottom: 1.4mm solid var(--accent); padding-bottom: 1mm;
+}
+.etape h3 { margin-bottom: 1.4mm }
+.etape p { font-size: 9.4pt; line-height: 1.45; color: var(--ink-soft) }
+
+/* --------------------------------------------------------------------------
+   Photos
+   -------------------------------------------------------------------------- */
+
+.photo { margin: 0; display: flex; flex-direction: column; gap: 1.6mm }
+.photo img { display: block; width: 100%; border-radius: 3mm; object-fit: cover; background: var(--card) }
+.photo figcaption { font-size: 7.8pt; line-height: 1.3; color: var(--ink-mute) }
+
+.avec-photo { display: grid; grid-template-columns: 1fr 62mm; gap: 6mm; align-items: center }
+.avec-photo img { aspect-ratio: 4 / 3 }
+.rowcard.avec-photo { grid-template-columns: 1fr 54mm }
+
+.triptyque { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm }
+.triptyque img { aspect-ratio: 3 / 4 }
+
+/* Bande photo pleine largeur, à ras des marges de la page. */
+.bande {
+  position: relative; width: 210mm; margin-inline: -16mm;
+  height: 46mm; overflow: hidden;
+}
+.bande img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block }
+/* Un dégradé sous la légende : sans lui, elle disparaît dès que la photo
+   s'éclaircit à cet endroit. */
+.bande::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 22mm;
+  background: linear-gradient(to top, rgba(12,12,12,.82), rgba(12,12,12,0));
+}
+.bande figcaption {
+  position: absolute; z-index: 1; left: 16mm; right: 16mm; bottom: 4mm;
+  color: var(--paper); font-size: 8.4pt; font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Tableau
+   -------------------------------------------------------------------------- */
+
+table.t {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  font-size: 9.2pt; border-radius: 3mm; overflow: hidden;
+}
+table.t th { text-align: left; padding: 2.6mm 3.5mm; font-weight: 700; background: var(--ink); color: #fff }
+table.t td { padding: 2.9mm 3.5mm; vertical-align: top }
+
+/* --------------------------------------------------------------------------
+   Revue de presse
+   -------------------------------------------------------------------------- */
+
 a { color: inherit; text-decoration: none }
 .link { font-weight: 600; border-bottom: .6mm solid var(--yellow); padding-bottom: .3mm }
-.press { display: grid; gap: 3mm }
-/* Sept titres de presse tiennent sur une page A4 en deux colonnes ; en une
-   seule, la page débordait de 37 mm. */
-.press--2 { grid-template-columns: 1fr 1fr; gap: 3mm 3.5mm; align-items: stretch }
-.press--2 .press-item { display: flex; flex-direction: column; padding: 3.5mm 4mm }
-.press--2 .press-item .url { margin-top: auto; padding-top: 1.5mm }
-/* nombre impair d'articles : le dernier prend toute la largeur plutôt que
-   de laisser une demi-ligne vide. */
-.press--2 .press-item:last-child:nth-child(odd) { grid-column: 1 / -1 }
-.press-item { background: var(--card); border-radius: 3mm; padding: 4mm 4.5mm }
-.press-item b { display: block; font-size: 10.5pt; font-weight: 600; letter-spacing: -.01em }
-.press-item span { display: block; margin-top: 1mm; font-size: 9pt; color: var(--ink-mute) }
-.press-item .url { font-size: 8.5pt; word-break: break-all; color: var(--ink-soft) }
 
-/* Les fiches grises reçoivent un liseré : la couleur tourne d'une fiche à
-   l'autre, ce qui découpe la page à l'œil sans ajouter une ligne de texte. */
-.rowcard { position:relative; overflow:hidden; background: var(--card); border-radius: 4mm; padding: 4.5mm 5.5mm 4.5mm 7mm; margin-bottom: 3.5mm }
-.rowcard::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2.2mm; background:var(--yellow) }
-.rowcard:nth-of-type(2)::before { background:var(--turquoise) }
-.rowcard:nth-of-type(3)::before { background:var(--magenta) }
-.rowcard:nth-of-type(4)::before { background:var(--periwinkle) }
-.rowcard:nth-of-type(5)::before { background:var(--green) }
-/* Sur les fiches déjà en aplat, le liseré ferait doublon. */
-.rowcard--turquoise::before, .rowcard--green::before,
-.rowcard--periwinkle::before, .rowcard--magenta::before { display:none }
-.rowcard--turquoise, .rowcard--green, .rowcard--periwinkle, .rowcard--magenta { padding-left:5.5mm }
-.rowcard:last-child { margin-bottom: 0 }
-.rowcard h3 { margin-bottom: 1.5mm }
-.rowcard p { margin-bottom: 0; font-size: 9.5pt; color: var(--ink-soft) }
-.rowcard--turquoise { background: var(--turquoise) } .rowcard--green { background: var(--green) }
-.rowcard--periwinkle { background: var(--periwinkle) } .rowcard--magenta { background: var(--magenta) }
-.rowcard--turquoise p, .rowcard--green p, .rowcard--periwinkle p, .rowcard--magenta p { color: rgba(26,26,26,.82) }
+.press { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 4mm; align-items: stretch }
+.press-item {
+  display: flex; flex-direction: column;
+  background: var(--card); border-radius: 3mm; padding: 4.5mm 5mm;
+}
+.press-item b { display: block; font-size: 10.2pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.16 }
+.press-item span { display: block; margin-top: 1mm; font-size: 8.8pt; color: var(--ink-mute); line-height: 1.38 }
+.press-item .url { margin-top: auto; padding-top: 1.5mm; font-size: 8.2pt; color: var(--ink-soft) }
+.press-item:last-child:nth-child(odd) { grid-column: 1 / -1 }
 
-table.t { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9pt;
-  border-radius: 3mm; overflow: hidden }
-table.t th { text-align: left; padding: 2.5mm 3.5mm; font-weight: 600; background: var(--ink); color: #fff }
-table.t td { padding: 3mm 3.5mm; vertical-align: top }
+/* --------------------------------------------------------------------------
+   Dernière page
+   -------------------------------------------------------------------------- */
 
-/* --- Photos ----------------------------------------------------------
-   Les images vivent dans assets/img : le dossier PDF réutilise exactement
-   celles du site, pour que les deux racontent la même chose. */
-.photo { margin: 0; display: flex; flex-direction: column; gap: 1.8mm }
-.photo img { display: block; width: 100%; border-radius: 3mm; object-fit: cover; background: var(--card) }
-.photo figcaption { font-size: 8pt; line-height: 1.32; color: var(--ink-mute) }
-
-/* Une vignette par atelier, sous le tableau des quatre ateliers. */
-.vignettes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3.5mm }
-.vignettes img { aspect-ratio: 4 / 3 }
-.vignettes figcaption { font-size: 8.5pt; font-weight: 600; color: var(--ink) }
-.vignettes figcaption::before { content: ''; display: inline-block; width: 2.5mm; height: 2.5mm;
-  border-radius: .8mm; margin-right: 1.6mm; background: var(--yellow) }
-.v--turquoise figcaption::before { background: var(--turquoise) }
-.v--periwinkle figcaption::before { background: var(--periwinkle) }
-.v--green figcaption::before { background: var(--green) }
-.v--magenta figcaption::before { background: var(--magenta) }
-
-/* Bloc de texte à gauche, photo à droite : gagne de la hauteur par rapport
-   à une bande pleine largeur, qui serait trop écrasée sur ces pages. */
-.avec-photo { display: grid; grid-template-columns: 1fr 58mm; gap: 6mm; align-items: center }
-.avec-photo img { aspect-ratio: 4 / 3 }
-.rowcard.avec-photo { grid-template-columns: 1fr 45mm }
-
-/* Trois carrés, pour le parcours d'artiste. */
-.triptyque { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm }
-.triptyque img { aspect-ratio: 1 / 1 }
-
-/* Couverture : le portrait occupe le haut de la colonne de droite, encadré
-   de magenta comme les aplats de papier déchiré du reste de la page ; le
-   titre reste en bas à gauche, là où l'œil le cherche. */
-.cover__photo { position: absolute; z-index: 1; top: 30mm; right: 16mm; width: 82mm;
-  margin: 0; background: var(--magenta); padding: 4mm; border-radius: 4mm }
-.cover__photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
-  object-position: 50% 32%; border-radius: 2mm }
-.cover .title { max-width: 152mm }
+.final { position: relative; flex: 1; display: flex; flex-direction: column; background: var(--ink); color: var(--paper) }
+.final__shot { position: relative; height: 150mm; overflow: hidden }
+.final__shot img { width: 100%; height: 100%; object-fit: cover; display: block }
+.final__corps { flex: 1; padding: 12mm 16mm 10mm; display: flex; flex-direction: column; justify-content: center }
+.final h2 { color: var(--paper); max-width: 160mm }
+.final p { color: #d8d4d0 }
+/* .final p l'emportait sur .eyebrow : la pastille se retrouvait en jaune
+   sur jaune. */
+.final .eyebrow { color: var(--ink) }
+.final .mail {
+  margin-top: 6mm; display: inline-block; align-self: flex-start;
+  background: var(--yellow); color: var(--ink);
+  padding: 4mm 7mm; border-radius: 99px;
+  font-size: 13pt; font-weight: 700; letter-spacing: -.02em;
+}
+.final__pied {
+  margin-top: auto; padding-top: 6mm; border-top: 1px solid rgba(255,255,255,.18);
+  display: flex; justify-content: space-between; gap: 6mm;
+  font-size: 8.6pt; color: #b9b5b1;
+}
