@@ -449,13 +449,15 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 
 @media (min-width: 900px) {
-  .reel__frame { max-width: min(100%, calc(min(78vh, 720px) * 9 / 16)); }
+  /* La vidéo prend toute la hauteur que la fenêtre veut bien lui laisser :
+     c'est elle qui borne la largeur, un plan vertical grandissant vite. */
+  .reel__frame { max-width: min(100%, calc(min(96vh, 980px) * 9 / 16)); }
 
   /* Sur grand écran, le titre tient la colonne de gauche et la vidéo celle
      de droite : le bloc d'ouverture se lit d'un seul regard. */
   .hero { padding-bottom: clamp(24px, 4vw, 48px); }
   .hero__grid {
-    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
     align-items: center;
     gap: clamp(40px, 5vw, 72px);
   }
@@ -1885,8 +1887,9 @@ input, textarea, select { font: inherit; color: inherit; }
   border-top: 1.5px solid rgba(26, 26, 26, 0.22);
 }
 .palm:last-child { border-bottom: 1.5px solid rgba(26, 26, 26, 0.22); }
-.palm b { font-size: clamp(17px, 2vw, 20px); letter-spacing: -0.02em; }
-.palm span { font-size: 15px; color: rgba(26, 26, 26, 0.72); }
+/* Une ligne de palmarès se lit d'un bloc : même graisse d'un bout à l'autre.
+   Seul le paragraphe de bas de bloc reste en texte courant. */
+.palm b, .palm span { font-size: clamp(17px, 2vw, 20px); font-weight: 700; letter-spacing: -0.02em; }
 
 /* Les douze témoignages, en mosaïque plutôt qu'en carrousel : sur une page
    qui leur est consacrée, on veut pouvoir tous les lire. */

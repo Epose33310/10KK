@@ -166,10 +166,10 @@ const pages = [
     demo: ['battle', "faire une punchline", "Une qualité, une image, deux mots pour les relier, et le compliment devient imparable. Deux minutes, directement dans votre navigateur — sans inscription."],
     color: 'magenta',
     title: 'Battle de compliments',
-    baseline: "Le battle de rue, retourné : deux artistes s'affrontent à coups d'éloges devant un public qui encourage.",
+    baseline: "Le battle de rap, retourné : deux artistes s'affrontent à coups d'éloges devant un public qui encourage.",
     meta: "Atelier battle de compliments : écrire des punchlines valorisantes, travailler le verbe et la verve, puis se lancer en face-à-face sur scène. Redoutable pour souder un groupe et détourner les codes de la moquerie.",
     facts: [['Public', 'Tout public'], ['Format type', 'Projet de 10 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', "Scène de battle + battle d'Esope contre un·e collègue"]],
-    intro: "Une discipline insolite qui met le verbe à l'honneur dans un exercice rhétorique positif. Le principe est simple, la mécanique redoutable : elle emprunte aux codes de la vanne et de la punchline pour les retourner en éloge. Et contrairement à ce qu'on imagine, rien ne s'improvise — les textes s'écrivent, se retravaillent et se resserrent avant de passer devant les autres.",
+    intro: "Une discipline insolite qui met le verbe à l'honneur dans un exercice rhétorique positif. Le principe est simple, la mécanique redoutable : elle emprunte aux codes de la vanne et de la punchline pour les retourner en éloge. Et contrairement à ce qu'on imagine, rien ne s'improvise — les textes s'écrivent et se retravaillent avant de passer devant les autres.",
     steps: [
       ['Poser les règles', "Deux adversaires, un temps donné, un public qui encourage. Les mêmes codes que le battle de rap, avec une seule inversion : on ne cherche pas à démolir, on cherche à flatter."],
       ['Travailler le mot fort', "Le verbe, la verve, l'image qui frappe. On cherche l'adjectif juste plutôt que l'adjectif fort — et on apprend surtout à peser ses mots : un compliment mal ajusté tombe à plat aussi sûrement qu'une vanne ratée."],

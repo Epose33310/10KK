@@ -176,31 +176,6 @@ ${header}<main id="main">
   </div>
 </section>
 
-<section class="section section--close wrap">
-  <div class="stats" data-stagger>
-    <div class="stat">
-      <span class="stat__rule" aria-hidden="true"></span>
-      <div class="stat__value"><span data-count="${PRESSE.length}">0</span></div>
-      <p class="stat__label">Articles de presse</p>
-    </div>
-    <div class="stat">
-      <span class="stat__rule" aria-hidden="true"></span>
-      <div class="stat__value"><span data-count="${STRUCTURES.length}">0</span></div>
-      <p class="stat__label">Structures qui ont relayé</p>
-    </div>
-    <div class="stat">
-      <span class="stat__rule" aria-hidden="true"></span>
-      <div class="stat__value">+<span data-count="300">0</span></div>
-      <p class="stat__label">Ateliers menés</p>
-    </div>
-    <div class="stat">
-      <span class="stat__rule" aria-hidden="true"></span>
-      <div class="stat__value">+<span data-count="5000" data-format="space">0</span></div>
-      <p class="stat__label">Participants rencontrés</p>
-    </div>
-  </div>
-</section>
-
 <section class="section section--close wrap" id="presse">
   <div data-reveal style="margin-bottom:clamp(26px,5vw,40px)">
     <p class="eyebrow">Revue de presse</p>
