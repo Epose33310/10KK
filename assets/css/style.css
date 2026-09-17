@@ -585,7 +585,7 @@ input, textarea, select { font: inherit; color: inherit; }
   padding: clamp(14px, 2.4vw, 22px);
   min-height: 240px;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   overflow: hidden;
   border-bottom: 2px solid var(--ink);
 }
@@ -595,6 +595,9 @@ input, textarea, select { font: inherit; color: inherit; }
 .product__photo {
   position: relative; z-index: 1;
   width: 100%;
+  /* Sans `height: auto`, l'attribut height de la balise fait autorité et le
+     rapport ci-dessous est ignoré : la photo s'étirait à 1050 px de haut. */
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border: 2px solid var(--ink);
@@ -1117,7 +1120,10 @@ input, textarea, select { font: inherit; color: inherit; }
     order: 2; min-height: 440px;
     border-bottom: 0; border-left: 2px solid var(--ink);
   }
-  .product__photo { aspect-ratio: auto; height: 100%; }
+  /* En deux colonnes, la photo remplit la moitié du bloc ; le rapport 4/3
+     reste une hauteur minimale pour qu'elle ne s'écrase pas. */
+  .product__panel { align-items: stretch; }
+  .product__photo { aspect-ratio: auto; height: 100%; min-height: 0; }
   /* Une carte sur deux inverse les moitiés : le regard zigzague en descendant. */
   .product--flip .product__text { order: 2; }
   .product--flip .product__panel {
