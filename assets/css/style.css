@@ -1940,8 +1940,14 @@ input, textarea, select { font: inherit; color: inherit; }
    L'affiche est visible, la vidéo ne part qu'au clic, avec le son.
    -------------------------------------------------------------------------- */
 
-.films { display: grid; gap: clamp(18px, 2.6vw, 26px); }
-@media (min-width: 760px) { .films { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* auto-fit plutôt qu'un nombre fixe de colonnes : la grille s'ajuste au
+   nombre de films, sans laisser de colonne vide. */
+.films {
+  display: grid; gap: clamp(18px, 2.6vw, 26px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+/* Un film tout seul ne s'étale pas sur toute la largeur de la page. */
+.films:has(> .filmcard:only-child) { max-width: 760px; margin-inline: auto; }
 
 .filmcard {
   position: relative;
