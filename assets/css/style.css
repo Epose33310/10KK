@@ -1020,17 +1020,20 @@ input, textarea, select { font: inherit; color: inherit; }
   padding-block: clamp(44px, 7vw, 68px) clamp(28px, 4vw, 36px);
 }
 .footer__logo {
+  display: inline-block;
   font-family: var(--font-logo);
   font-size: clamp(28px, 4.6vw, 38px);
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: var(--white);
 }
 /* Les liens du pied de page sont volontairement en retrait : sur fond noir,
    un gris moyen suffit à les rendre lisibles sans qu'ils tirent l'œil. */
 .footer a { color: #a3a09c; overflow-wrap: anywhere; transition: color var(--dur-fast) var(--ease); }
 .footer a:hover, .footer a:focus-visible { color: var(--white); }
+/* Le logo reste blanc : ".footer a" (classe + balise) est plus spécifique que
+   ".footer__logo" seule, donc il faut reprendre la balise ici aussi. */
+.footer a.footer__logo, .footer a.footer__logo:hover, .footer a.footer__logo:focus-visible { color: var(--white); }
 
 .footer__mail { display: inline-block; margin-top: 10px; font-size: 14px; }
 
@@ -2151,6 +2154,9 @@ input, textarea, select { font: inherit; color: inherit; }
   transition: color var(--dur-fast) var(--ease);
 }
 .voirplus:hover, .voirplus:focus-visible { color: var(--ink); }
+/* display:flex est une règle d'auteur : sans ceci, elle l'emporterait sur le
+   [hidden] du navigateur et le bouton resterait affiché une fois épuisé. */
+.voirplus[hidden] { display: none; }
 .voirplus__chevron {
   width: 7px; height: 7px;
   border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
