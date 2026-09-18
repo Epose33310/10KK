@@ -2072,18 +2072,40 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 
 /* Le filtre au-dessus de la grille : neutre et discret, pour ne pas
-   concurrencer les couleurs des cartes juste en dessous. */
-.filtres { display: flex; flex-wrap: wrap; gap: 10px; }
+   concurrencer les couleurs des cartes juste en dessous. Sur mobile, une
+   ligne unique qui défile plutôt que des pastilles qui retombent à la
+   ligne — plus net, et « Battle de compliments » n'a pas besoin de la
+   largeur de l'écran pour exister. */
+.filtres {
+  display: flex; flex-wrap: nowrap; gap: 8px;
+  overflow-x: auto; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 2px var(--gutter) 6px;
+  /* Un fondu discret côté droit annonce qu'il reste des filtres à faire
+     glisser, sans avoir besoin d'une flèche ou d'un texte. */
+  mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+}
+.filtres::-webkit-scrollbar { display: none; }
 .filtre {
-  padding: 9px 18px;
+  flex: 0 0 auto;
+  padding: 8px 16px;
   border: 1.5px solid var(--line); border-radius: 99px;
   background: transparent;
-  font-size: 14px; font-weight: 600; color: var(--ink-mute);
+  font-size: 13px; font-weight: 600; color: var(--ink-mute); white-space: nowrap;
   transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
     background var(--dur-fast) var(--ease);
 }
 .filtre:hover { border-color: var(--ink); color: var(--ink); }
 .filtre.is-actif { background: var(--ink); border-color: var(--ink); color: var(--white); }
+
+@media (min-width: 720px) {
+  .filtres {
+    flex-wrap: wrap; overflow-x: visible; gap: 10px;
+    margin-inline: 0; padding: 0; mask-image: none;
+  }
+  .filtre { padding: 9px 18px; font-size: 14px; }
+}
 
 /* --------------------------------------------------------------------------
    La page d'un projet
