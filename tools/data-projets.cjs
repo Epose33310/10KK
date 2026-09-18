@@ -19,6 +19,75 @@
  */
 module.exports = [
 {
+  slug: 'atelier-slam-ferme-merlet-ceid',
+  ordre: 210,
+  atelier: 'slam',
+  tags: ['slam'],
+  secteur: ['sante'],
+  h1: 'Quatre ans de slam à la Ferme Merlet, un CEID',
+  seo: 'Atelier slam en CEID — Ferme Merlet et scène ouverte à L’Accordeur',
+  meta: "Un atelier ponctuel de deux heures a donné naissance à un partenariat de quatre ans avec la Ferme Merlet, un CEID : un parcours de 20 h reconduit chaque année, et une scène slam ouverte à L'Accordeur devenue un rendez-vous régional.",
+  chapo: "Tout est parti d'un atelier de deux heures à L'Accordeur. Quatre ans plus tard, la Ferme Merlet, un CEID, reconduit chaque année un parcours de 20 h, et la restitution est devenue une scène slam ouverte qui attire de plus en plus de monde.",
+  lieu: 'Ferme Merlet (CEID) et L’Accordeur, Saint-Denis-de-Pile (Gironde)',
+  publics: 'Adultes accompagnés par un CEID',
+  format: 'Parcours de 20 h reconduit chaque année depuis 4 ans, restitution en scène slam ouverte',
+  motCle: 'atelier slam CEID',
+  secondes: ['atelier slam structure médico-sociale', 'scène slam ouverte Saint-Denis-de-Pile'],
+  // Aucune illustration disponible pour l'instant : les photos seront ajoutées
+  // dès réception, avec les blocs ['img', 'deux'] / ['img', 'trois'] dans le
+  // corps ci-dessous.
+  images: {},
+  corps: [
+    ['p', `Ce projet a commencé par un atelier <b>slam</b> de deux heures, à <b>L'Accordeur</b>, avec des résidents de la <b>Ferme Merlet</b>, un CEID. Quatre ans plus tard, la structure me confie chaque année un parcours de 20 h directement sur place, et la restitution qui clôturait cet atelier ponctuel est devenue une scène slam ouverte à tous, qui attire aujourd'hui un public de plus en plus large.`],
+
+    ['h2', 'Le contexte : un atelier ponctuel qui a fait mouche'],
+    ['p', `Rien ne prévoyait, au départ, que cet atelier dure plus d'une après-midi. Le public a particulièrement accroché au <a href="atelier-slam.html">slam</a> et au format, et la Ferme Merlet a fini par commander un parcours de 20 h directement dans ses murs. Le public est adulte, sensible et très attachant — un public qui n'a souvent pas eu l'occasion de mettre des mots sur son propre parcours, encore moins de les dire debout devant les autres.`],
+
+    ['h2', 'Le déroulement : un projet qui s’est installé dans la durée'],
+    ['p', `Le parcours s'est progressivement installé dans le temps, jusqu'à donner naissance à plusieurs sous-projets et expériences autour du slam.`],
+    ['ul', [
+      `<b>Une soirée slam à Bordeaux</b>, où certains participants sont montés sur scène en dehors du cadre de la structure.`,
+      `<b>Un tournoi de slam en Bretagne</b>, qui a fait voyager le projet bien au-delà de la Gironde.`,
+      `<b>Un Happening Slam dans la salle BOMA</b>, un format différent pour continuer à faire vivre le collectif.`,
+      `<b>Une scène slam ouverte à L'Accordeur</b>, à Saint-Denis-de-Pile — le prolongement le plus important, sur lequel je reviens plus bas.`,
+    ]],
+    ['p', `Ces ateliers sont très orientés vers l'expression personnelle. On y travaille notamment autour de la vie, du passé, de l'entourage et des problématiques liées aux addictions. Le slam sert ici de véritable outil pour mettre des mots sur son expérience et reprendre confiance dans sa capacité à écrire et à prendre la parole.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['ul', [
+      `Les techniques d'écriture et les rimes.`,
+      `Les images et les métaphores.`,
+      `La manière de parler de soi à travers l'écriture.`,
+      `L'éloquence et la prise de parole.`,
+      `La gestion du stress et la confiance en soi.`,
+      `L'acceptation du regard des autres sur ce que l'on écrit.`,
+    ]],
+    ['p', `L'un des aspects importants du projet est que tout le monde joue le jeu, y compris l'équipe encadrante. Cela permet de créer un véritable espace de confiance et de cohésion : personne, dans la salle, n'est simplement là pour observer.`],
+
+    ['h2', 'Ce que les participants ont travaillé'],
+    ['p', `Au-delà de l'écriture et de la scène, le rendez-vous régulier créé par les ateliers est lui-même important : il permet de retrouver les participants, de maintenir un lien, de créer une dynamique collective et de redonner progressivement confiance dans sa propre parole, mais aussi dans celle des autres.`],
+
+    ['h2', 'Le moment marquant : une restitution devenue scène ouverte'],
+    ['p', `L'un des prolongements les plus importants de ce partenariat est la restitution organisée à <b>L'Accordeur</b>, à Saint-Denis-de-Pile. Elle a progressivement dépassé le cadre d'une simple présentation de fin d'atelier pour devenir une véritable scène slam ouverte à tous. Elle attire aujourd'hui de plus en plus de monde et est devenue un rendez-vous important du slam dans la région.`],
+
+    ['expert', {
+      titre: 'Un atelier ponctuel devenu partenariat de plusieurs années, ce que ça montre',
+      qr: [
+        ['Comment un atelier de deux heures devient-il un partenariat de quatre ans ?',
+         `En laissant le temps faire son travail plutôt qu'en le planifiant à l'avance. L'atelier ponctuel a suffi à montrer ce que le format pouvait apporter à ce public ; le reste — le parcours de 20 h, puis les sous-projets, puis la scène ouverte — s'est construit d'une saison sur l'autre, au rythme de la structure et des participants.`],
+        [`Pourquoi est-il important que l'équipe encadrante participe aussi à l'atelier ?`,
+         `Parce que ça change la nature de l'espace. Quand l'encadrant écrit et passe au micro comme les autres, personne dans la salle n'est simplement là pour observer ou évaluer. C'est ce qui permet à un public sensible d'aller plus loin dans l'expression personnelle, sur des sujets qui touchent parfois directement à son parcours de vie.`],
+        ['Comment une restitution finit-elle par devenir une scène ouverte à tout un territoire ?',
+         `En gardant la porte ouverte d'une année sur l'autre plutôt qu'en refermant le projet sur son propre public. À L'Accordeur, la restitution s'est progressivement adressée à un cercle plus large que les seuls participants de l'atelier, jusqu'à devenir un rendez-vous slam à part entière pour la région.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `L'intérêt de ce projet tient dans son chemin : un atelier ponctuel de deux heures a donné naissance à un partenariat de plusieurs années, puis à tout un écosystème autour du slam, jusqu'à créer une scène ouverte qui attire aujourd'hui un public de plus en plus large. Si votre structure de santé ou médico-sociale envisage un premier atelier, même court, <a href="index.html#contact">on peut en discuter le format</a>.`],
+  ],
+},
+
+{
   slug: 'atelier-battle-de-compliments-lycees-angouleme',
   ordre: 200,
   atelier: 'battle',
