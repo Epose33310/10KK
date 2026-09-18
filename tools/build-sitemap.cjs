@@ -15,10 +15,9 @@ const { join } = require('node:path');
 const root = join(__dirname, '..');
 const SITE = 'https://slamesope.fr/';
 
-/* Les pages hors sitemap : pour l'instant, esope.html — page de test en
-   « noindex », pas encore reliée au reste du site (voir tools/build-esope.cjs).
-   La retirer d'ici une fois la page validée et ses liens branchés. */
-const EXCLUES = new Set(['esope.html']);
+/* Les pages hors sitemap : rien pour l'instant, mais l'entrée est là pour les
+   pages de service (remerciement de formulaire, mentions…) à venir. */
+const EXCLUES = new Set([]);
 
 /* L'accueil d'abord, puis les ateliers, puis le reste. Une page absente de
    cette liste prend 0.6 : elle est référencée sans être poussée. */
