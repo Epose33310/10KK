@@ -1039,6 +1039,7 @@ input, textarea, select { font: inherit; color: inherit; }
 /* Le logo est en Anton, interligne 1 : sans une marge franche, l'adresse
    vient se coller sous les capitales. */
 .footer__mail { display: inline-block; margin-top: clamp(16px, 1.8vw, 22px); font-size: 14px; }
+.footer__note { margin-top: 8px; font-size: 13px; color: #7e7b77; }
 
 /* Accordéon du footer, à la Apple : des rubriques repliées par défaut,
    discrètes, qui laissent le pied de page court tant qu'on n'y touche pas. */
