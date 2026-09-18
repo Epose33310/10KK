@@ -1719,6 +1719,11 @@ input, textarea, select { font: inherit; color: inherit; }
     max-height: none;
     object-fit: cover;
   }
+  /* Face à la démo, la photo ne décide plus de la hauteur de la rangée : une
+     source en portrait y étirait la démo à 708 px, contre 400 sur les autres
+     ateliers. Le rapport est imposé, object-fit recadre — la paire garde la
+     même allure quel que soit le format de la photo fournie. */
+  .paire--photo-avant > .shot { aspect-ratio: 4 / 3; }
 }
 
 /* Sur téléphone, seule la photo qui ouvre la FAQ garde l'aplat de son
