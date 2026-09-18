@@ -63,9 +63,9 @@
             </div>
             <div class="mega__col mega__col--2">
               <p class="mega__label">Tous les publics</p>
-              <a class="mega__item" href="#contact"><span><b>Éducation nationale</b><small>Primaire, collège, lycée, université.</small></span></a>
-              <a class="mega__item" href="#contact"><span><b>Structures jeunesse</b><small>Associations, MJC, dispositifs éducatifs.</small></span></a>
-              <a class="mega__item" href="#contact"><span><b>Santé et médico-social</b><small>Hôpitaux, EHPAD, IME, foyers d'accueil.</small></span></a>
+              <a class="mega__item" href="public-education-nationale.html"><span><b>Éducation nationale</b><small>Primaire, collège, lycée, université.</small></span></a>
+              <a class="mega__item" href="public-structures-jeunesse.html"><span><b>Structures jeunesse</b><small>Associations, MJC, dispositifs éducatifs.</small></span></a>
+              <a class="mega__item" href="public-sante-medico-social.html"><span><b>Santé et médico-social</b><small>Hôpitaux, EHPAD, IME, foyers d'accueil.</small></span></a>
 
               <a class="mega__doc" href="assets/docs/dossier-esope.pdf" download>
                 <span class="doc__icon" aria-hidden="true"><span>PDF</span></span>
@@ -111,6 +111,16 @@
         <a href="atelier-battle.html">Battle de compliments</a>
         <a href="atelier-eloquence.html">Ateliers éloquence</a>
         <a href="atelier-rap.html">Ateliers rap</a>
+      </div></div>
+    </div>
+    <div class="drawer__group">
+      <button id="drawerPublics" type="button" aria-expanded="false" aria-controls="drawerSubPublics">
+        Tous les publics <span class="caret" aria-hidden="true"></span>
+      </button>
+      <div class="drawer__sub" id="drawerSubPublics"><div>
+        <a href="public-education-nationale.html">Éducation nationale</a>
+        <a href="public-structures-jeunesse.html">Structures jeunesse</a>
+        <a href="public-sante-medico-social.html">Santé et médico-social</a>
       </div></div>
     </div>
     <a href="#esope">Esope</a>
@@ -277,7 +287,7 @@
 
   <div class="wrap" style="padding-inline:0">
     <div class="carousel" id="carousel" tabindex="0" aria-label="Témoignages, faites défiler horizontalement">
-      <article class="quote quote--turquoise">
+      <article class="quote quote--turquoise" data-public="education">
         <p class="quote__text">« Ce qui m’a frappée, c’est le silence. Vingt-huit élèves de troisième, penchés sur leur feuille pendant quarante minutes, sans un bruit. Je n’avais jamais obtenu ça en cours. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeure de français</p>
@@ -285,7 +295,7 @@
         </div>
       </article>
 
-      <article class="quote quote--periwinkle">
+      <article class="quote quote--periwinkle" data-public="education">
         <p class="quote__text">« Un élève qui ne parlait à personne depuis la rentrée est passé au micro. La classe l’a applaudi debout. Il a pleuré, et nous aussi. Depuis, il lève la main. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeur principal</p>
@@ -293,7 +303,7 @@
         </div>
       </article>
 
-      <article class="quote quote--yellow">
+      <article class="quote quote--yellow" data-public="jeunesse">
         <p class="quote__text">« Le groupe ne se supportait pas en début d’année. Après trois séances, ils s’écoutaient lire leurs textes. Ce n’est pas de la magie : Esope pose un cadre et il ne lâche rien. »</p>
         <div class="quote__who">
           <p class="quote__name">Coordinatrice jeunesse</p>
@@ -301,7 +311,7 @@
         </div>
       </article>
 
-      <article class="quote quote--magenta">
+      <article class="quote quote--magenta" data-public="jeunesse">
         <p class="quote__text">« Ils sont arrivés en disant « nous on n’écrit pas ». Ils sont repartis avec un texte chacun, et deux d’entre eux ont demandé s’ils pouvaient continuer pendant les vacances. »</p>
         <div class="quote__who">
           <p class="quote__name">Animateur référent</p>
@@ -309,7 +319,7 @@
         </div>
       </article>
 
-      <article class="quote quote--green">
+      <article class="quote quote--green" data-public="jeunesse">
         <p class="quote__text">« Nos jeunes ont enregistré un titre et tourné un clip. Le jour de la projection, ils ont fait venir leurs familles. Pour plusieurs d’entre eux, c’était la première fois qu’ils montraient quelque chose dont ils étaient fiers. »</p>
         <div class="quote__who">
           <p class="quote__name">Directrice de structure jeunesse</p>
@@ -317,7 +327,7 @@
         </div>
       </article>
 
-      <article class="quote quote--turquoise">
+      <article class="quote quote--turquoise" data-public="sante">
         <p class="quote__text">« En service pédopsychiatrie, on mesure les choses autrement. Deux adolescentes qui n’avaient pas pris la parole en groupe depuis des mois ont lu leur texte à voix haute. L’équipe soignante en parle encore. »</p>
         <div class="quote__who">
           <p class="quote__name">Cadre de santé</p>
@@ -325,7 +335,7 @@
         </div>
       </article>
 
-      <article class="quote quote--periwinkle">
+      <article class="quote quote--periwinkle" data-public="education">
         <p class="quote__text">« Quatrième année qu'on le fait revenir. Je pourrais citer de tête cinq ou six élèves pour qui ça a été un basculement — et deux qui écrivent encore aujourd'hui, bien après nous avoir quittés. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeure de lettres</p>
@@ -333,7 +343,7 @@
         </div>
       </article>
 
-      <article class="quote quote--magenta">
+      <article class="quote quote--magenta" data-public="education">
         <p class="quote__text">« On a fait passer les six classes de quatrième. Se faire complimenter devant tout son niveau, et devoir l'assumer debout : certains n'avaient jamais été applaudis de leur scolarité. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeur d'histoire-géographie</p>
@@ -341,7 +351,7 @@
         </div>
       </article>
 
-      <article class="quote quote--green">
+      <article class="quote quote--green" data-public="education">
         <p class="quote__text">« Plusieurs de nos élèves sont en France depuis moins d'un an. Ils ont écrit en français et l'ont dit debout devant les autres classes. Ce jour-là, la langue a cessé d'être une matière à rattraper. »</p>
         <div class="quote__who">
           <p class="quote__name">Enseignante en dispositif UPE2A</p>
@@ -349,7 +359,7 @@
         </div>
       </article>
 
-      <article class="quote quote--yellow">
+      <article class="quote quote--yellow" data-public="education">
         <p class="quote__text">« Le chapitre poésie, chaque année, c'était le moment où je perdais la moitié de la classe. Là, ils ont réclamé la séance suivante. J'ai gardé leurs textes affichés jusqu'à la fin de l'année. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeur des écoles</p>
@@ -357,7 +367,7 @@
         </div>
       </article>
 
-      <article class="quote quote--turquoise">
+      <article class="quote quote--turquoise" data-public="education">
         <p class="quote__text">« Sur seize élèves passés au grand oral, quinze nous ont dit y avoir repensé au moment d'entrer dans la salle. Le travail sur le souffle et sur les silences, c'est ce qu'ils citent en premier. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeure référente du grand oral</p>
@@ -373,7 +383,7 @@
         </div>
       </article>
 
-      <article class="quote quote--yellow">
+      <article class="quote quote--yellow" data-public="education">
         <p class="quote__text">« Il ne parle pas à tous les élèves de la même façon. Un garçon qui n'écrit jamais une ligne en cours est reparti avec un texte entier — Esope avait juste trouvé comment l'accrocher, sans jamais forcer la main. »</p>
         <div class="quote__who">
           <p class="quote__name">Professeure principale</p>
@@ -381,7 +391,7 @@
         </div>
       </article>
 
-      <article class="quote quote--turquoise">
+      <article class="quote quote--turquoise" data-public="jeunesse">
         <p class="quote__text">« En quatre heures d'écriture, ils sont passés de deux ou trois mesures balbutiantes à des couplets qui tenaient debout, avec de vraies rimes. Au moment d'enregistrer, ils ont repris une prise une dizaine de fois pour un mot mal placé — une exigence qu'on ne leur voyait jamais en cours. Le clip tourné dans nos locaux, ils se le repassent encore entre eux. »</p>
         <div class="quote__who">
           <p class="quote__name">Éducateur socioculturel</p>

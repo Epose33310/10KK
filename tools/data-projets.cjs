@@ -12,6 +12,10 @@
  *             filtre du carnet et au choix des récits liés sur les pages
  *             d'atelier. Un récit qui mêle deux ateliers (ex. Parentis-en-Born,
  *             slam et battle) porte les deux.
+ *   secteur   un ou plusieurs parmi education | jeunesse | sante — sert au
+ *             choix des récits liés sur les pages publics (build-publics.cjs).
+ *             Absent quand le récit ne correspond à aucun des trois (public
+ *             adulte hors structure, scène ouverte grand public).
  */
 module.exports = [
 {
@@ -19,6 +23,7 @@ module.exports = [
   ordre: 200,
   atelier: 'battle',
   tags: ['battle'],
+  secteur: ['education'],
   h1: 'Un battle de compliments entre deux lycées, à Angoulême',
   seo: 'Atelier battle de compliments en lycée — Angoulême',
   meta: "Vingt heures de battle de compliments avec deux lycées d'Angoulême, jusqu'à une restitution en amphithéâtre devant le rectorat, ponctuée de deux battles professionnels en live.",
@@ -83,6 +88,7 @@ module.exports = [
   ordre: 190,
   atelier: 'eloquence',
   tags: ['eloquence'],
+  secteur: ['jeunesse'],
   h1: 'Un renfort de trois heures avant un concours d’éloquence, à Lunel',
   seo: 'Atelier éloquence avant concours — espace Castel, Lunel',
   meta: "Trois heures d'éloquence en renfort avant un concours, à l'espace Castel de Lunel : des textes déjà écrits à retravailler pour l'impact, et un passage individuel pour chacun des 12-17 ans du groupe.",
@@ -207,6 +213,7 @@ module.exports = [
   ordre: 170,
   atelier: 'rap',
   tags: ['rap'],
+  secteur: ['jeunesse'],
   h1: 'Un stage de rap pour le projet OPUS, au Rocher de Palmer',
   seo: 'Atelier rap et masterclass — projet OPUS au Rocher de Palmer, Cenon',
   meta: "Un stage de rap de quatre heures pour de jeunes passionnés des métiers de la musique, dans le cadre du projet OPUS au Rocher de Palmer, à Cenon : conseils individuels et échange collectif sur le métier.",
@@ -264,6 +271,7 @@ module.exports = [
   ordre: 160,
   atelier: 'battle',
   tags: ['battle'],
+  secteur: ['education'],
   h1: 'Une semaine de battle de compliments dans un collège de Beaucaire',
   seo: 'Atelier battle de compliments intensif — collège de Beaucaire',
   meta: "Douze heures de battle de compliments en une semaine, avec deux classes d'un collège de Beaucaire : un format immersif jusqu'à une restitution dans le hall, acclamée par des centaines d'élèves.",
@@ -321,6 +329,7 @@ module.exports = [
   ordre: 150,
   atelier: 'rap',
   tags: ['rap'],
+  secteur: ['jeunesse'],
   teinte: 'yellow',
   h1: 'Rap & Pizza : un atelier rap à l’Accordeur, à Saint-Denis-de-Pile',
   seo: 'Atelier rap « Rap & Pizza » — L’Accordeur, Saint-Denis-de-Pile',
@@ -379,6 +388,7 @@ module.exports = [
   ordre: 140,
   atelier: 'slam',
   tags: ['slam', 'battle'],
+  secteur: ['education'],
   teinte: 'periwinkle',
   h1: 'Battle de compliments et slam en demi-groupe au collège de Parentis-en-Born',
   seo: 'Ateliers slam et battle de compliments au collège de Parentis-en-Born',
@@ -512,6 +522,7 @@ module.exports = [
   ordre: 120,
   atelier: 'slam',
   tags: ['slam'],
+  secteur: ['education'],
   h1: 'Un atelier slam sur l’égalité filles-garçons au collège de Lège-Cap-Ferret',
   seo: 'Atelier slam égalité filles-garçons — collège de Lège-Cap-Ferret',
   meta: "Un atelier slam sur l'égalité filles-garçons pour deux classes de 4e, et une heure de découverte pour tous les 5e, au collège de Lège-Cap-Ferret. Restitution sur scène, en pleine cour, lors de la fête du collège.",
@@ -574,6 +585,7 @@ module.exports = [
   ordre: 110,
   atelier: 'slam',
   tags: ['slam'],
+  secteur: ['education'],
   teinte: 'yellow',
   h1: 'Un atelier slam intégré au cours de musique, au collège Brantôme',
   seo: 'Atelier slam en cours de musique — collège Brantôme',
@@ -638,6 +650,7 @@ module.exports = [
   ordre: 100,
   atelier: 'battle',
   tags: ['battle'],
+  secteur: ['jeunesse'],
   h1: 'Un battle de compliments avec les jeunes de Bassens',
   seo: 'Atelier battle de compliments en structure jeunesse — Bassens',
   meta: "Huit heures d'atelier battle de compliments avec des jeunes volontaires de Bassens, jusqu'à la scène de la Fête de l'avenir. Le déroulé, les techniques, ce qu'on en retire.",
@@ -709,6 +722,7 @@ module.exports = [
   ordre: 90,
   atelier: 'battle',
   tags: ['battle'],
+  secteur: ['sante'],
   h1: 'Deux heures d’écriture à la Maison des adolescents de Bordeaux',
   seo: 'Atelier d’écriture à la Maison des adolescents — Bordeaux Peyberland',
   meta: "Un atelier d'écriture de deux heures à la Maison des adolescents de Bordeaux Peyberland, avec des jeunes suivis par la Mission locale. Groupe différent à chaque séance : comment on écrit quand même.",
@@ -773,6 +787,7 @@ module.exports = [
   ordre: 80,
   atelier: 'slam',
   tags: ['slam'],
+  secteur: ['education'],
   h1: 'Un projet slam sur la solidarité avec tous les 4e du collège d’Arveyres',
   seo: 'Atelier slam en collège : un projet sur la solidarité à Arveyres',
   meta: "Plus de vingt heures d'atelier slam avec tous les niveaux de 4e du collège d'Arveyres, sur le thème de la solidarité, jusqu'à une restitution dans le gymnase devant l'établissement entier.",
@@ -845,6 +860,7 @@ module.exports = [
   ordre: 70,
   atelier: 'rap',
   tags: ['rap'],
+  secteur: ['jeunesse'],
   h1: 'Atelier rap à l’UEAJ de Bordeaux : écrire son passé, écrire son avenir',
   seo: 'Atelier rap à Bordeaux : deux heures avec un petit groupe à l’UEAJ',
   meta: "Deux heures d'atelier rap à l'UEAJ de Bordeaux, avec quatre ou cinq jeunes. Écrire sur son passé et son avenir quand on pratique déjà, sans l'avoir dit à personne.",
@@ -914,6 +930,7 @@ module.exports = [
   ordre: 60,
   atelier: 'slam',
   tags: ['slam'],
+  secteur: ['education'],
   h1: 'Printemps des poètes : deux collèges, une scène commune',
   seo: 'Atelier slam et Printemps des poètes : deux collèges du Tarn sur scène',
   meta: "Quatre classes, deux collèges du Tarn, une restitution commune en amphithéâtre devant plus de 200 personnes. Comment se monte un projet slam dans le cadre du Printemps des poètes.",

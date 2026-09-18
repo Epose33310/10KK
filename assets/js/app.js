@@ -87,7 +87,7 @@
 
   var burger = $('#burger');
   var drawer = $('#drawer');
-  var drawerAteliers = $('#drawerAteliers');
+  var drawerToggles = drawer ? $$('.drawer__group > button[aria-controls]', drawer) : [];
 
   function closeDrawer() {
     if (!burger || !drawer) return;
@@ -120,12 +120,12 @@
     }, { passive: true });
   }
 
-  if (drawerAteliers) {
-    drawerAteliers.addEventListener('click', function () {
-      var open = drawerAteliers.getAttribute('aria-expanded') === 'true';
-      drawerAteliers.setAttribute('aria-expanded', open ? 'false' : 'true');
+  drawerToggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
     });
-  }
+  });
 
   /* ----------------------------------------------------------------------
      Révélations au scroll
