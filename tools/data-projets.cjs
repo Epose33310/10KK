@@ -19,6 +19,69 @@
  */
 module.exports = [
 {
+  slug: 'atelier-slam-college-fenelon-beziers',
+  ordre: 220,
+  atelier: 'slam',
+  tags: ['slam', 'eloquence'],
+  secteur: ['education'],
+  h1: 'Un atelier slam pour les 3e du collège privé Fénelon, à Béziers',
+  seo: 'Atelier slam en collège privé — Fénelon, Béziers',
+  meta: "Pour la semaine du Printemps des poètes, le collège privé Fénelon, à Béziers, a fait appel à un atelier slam de quatre heures pour ses classes de 3e : jeux sur les rimes, écriture, puis partage des textes.",
+  chapo: "Le collège privé Fénelon, à Béziers, a choisi l'atelier slam pour clore sa semaine du Printemps des poètes avec ses classes de 3e. Un profil d'établissement assez rare parmi mes interventions : les collèges privés me contactent peu souvent.",
+  lieu: 'Collège Fénelon, Béziers (Hérault)',
+  publics: 'Élèves de 3e',
+  format: 'Demi-journée de 4 h, dans le cadre du Printemps des poètes',
+  motCle: 'atelier slam collège privé',
+  secondes: ['atelier slam Béziers', 'atelier slam prise de parole troisième'],
+  images: {
+    principale: { src: 'prise-de-parole-micro-eloquence.jpg',
+      alt: 'Une bouche grande ouverte tout près d’un microphone, entourée d’éclats jaunes',
+      legende: 'Le slam fait le pont entre l’écriture et la prise de parole — exactement ce que visait cette demi-journée.' },
+    deux: { src: 'carnet-ecriture-slam-eleves.jpg',
+      alt: 'Un carnet d’atelier slam ouvert, portant les mots écrire, ressentir, oser, partager',
+      legende: 'Jouer, écrire, oser, partager : la progression tenait en quatre heures plutôt qu’en plusieurs séances.' },
+    trois: { src: 'eleves-mains-levees-restitution.jpg',
+      alt: 'Des élèves lèvent la main dans une salle de classe, pleins d’énergie' },
+  },
+  corps: [
+    ['p', `Le <b>collège Fénelon</b>, à <b>Béziers</b>, a invité un <b>slammeur professionnel</b> pour clore sa semaine du Printemps des poètes avec ses classes de 3e. Quatre heures d'atelier, en demi-journée, pour jouer avec les rimes avant d'écrire et de partager son propre texte.`],
+
+    ['h2', 'Le contexte : une semaine de poésie, et un profil d’établissement rare'],
+    ['p', `La semaine du Printemps des poètes s'ajoutait à une séquence sur la poésie déjà engagée en cours de français : le collège cherchait un point d'orgue qui sorte du cadre habituel de la salle de classe. Le <a href="atelier-slam.html">slam</a> a permis de créer un espace d'expression libre où les élèves de 3e ont pu mettre des mots sur leurs émotions, leurs histoires personnelles et leurs sentiments — un exercice différent de la dissertation ou du commentaire de texte.`],
+    ['p', `Un détail qui compte pour moi : c'est plus rare qu'un établissement privé fasse appel à ce type d'atelier. La grande majorité de mes interventions viennent d'établissements publics, de structures jeunesse ou de dispositifs académiques ; voir un collège privé s'emparer du sujet, avec la même exigence, change un peu la donne.`],
+
+    ['img', 'deux'],
+
+    ['h2', 'Le déroulement de la demi-journée'],
+    ['p', `Les quatre heures ont suivi une progression que je retrouve sur la plupart de mes ateliers slam, condensée ici sur une seule séance. Les élèves ont d'abord joué avec les rimes et les allitérations à l'oral, sans feuille ni stylo — une manière d'entendre sa propre voix dans la salle avant d'écrire quoi que ce soit. Accompagnés pas à pas, ils sont ensuite passés à l'écriture de leur propre texte, avant de le partager devant le reste de la classe.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Le travail a porté sur les mêmes fondamentaux que sur un format plus long — rimes, allitérations, image personnelle — mais concentré sur une seule demi-journée, ce qui suppose d'aller vite sur chaque étape sans jamais la sauter. La bascule de l'oral collectif vers l'écriture individuelle, puis vers la prise de parole devant la classe, reste le fil conducteur de tout atelier slam, quel que soit le volume horaire.`],
+
+    ['h2', 'Ce que les élèves ont travaillé'],
+    ['p', `Cette demi-journée a permis de travailler le rapport à l'écriture — beaucoup d'élèves de 3e n'associent plus l'écriture qu'à l'exercice noté — et la gestion de la prise de parole en public, dans un cadre où l'hésitation ne compte pas contre eux. Exprimer une émotion ou une histoire personnelle devant la classe, pour la première fois pour certains, demande un courage que l'exercice scolaire classique ne sollicite pas de la même façon.`],
+
+    ['img', 'trois'],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `Les professeurs qui encadraient la séquence ont résumé la demi-journée en une phrase, une fois les textes partagés : « l'émotion était au rendez-vous ». C'est exactement ce que je recherche avec ce format condensé — que le peu de temps disponible n'empêche pas les élèves d'aller au bout de quelque chose de sincère.`],
+
+    ['expert', {
+      titre: 'Un atelier slam en demi-journée dans un établissement privé',
+      qr: [
+        ['Une demi-journée de quatre heures suffit-elle pour un atelier slam complet ?',
+         `Oui, à condition d'accepter un format condensé : les jeux oraux, l'écriture et le partage tiennent dans le temps imparti, mais chaque étape va plus vite que sur un format de 8 ou 10 h. C'est un bon format pour une occasion précise, comme ici la semaine du Printemps des poètes, plutôt que pour un projet qui vise une restitution ambitieuse.`],
+        ['Les établissements privés font-ils souvent appel à ce type d’atelier ?',
+         `Moins souvent que les établissements publics ou les structures jeunesse, dans mon expérience. La demande vient le plus souvent d'un enseignant ou d'une équipe qui cherche un format précis pour un moment particulier de l'année, comme une semaine à thème — c'est exactement le cas du collège Fénelon.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Cette demi-journée a confirmé qu'un format court, bien calé sur un temps fort de l'établissement comme le Printemps des poètes, peut suffire à faire vivre un vrai moment d'écriture et de prise de parole. Si votre établissement — public ou privé — prépare une semaine à thème ou cherche un format ponctuel, <a href="index.html#contact">parlons du format qui conviendrait</a>.`],
+  ],
+},
+
+{
   slug: 'atelier-slam-ferme-merlet-ceid',
   ordre: 210,
   atelier: 'slam',
