@@ -457,13 +457,18 @@ input, textarea, select { font: inherit; color: inherit; }
   .reel__frame { max-width: min(100%, 420px); }
 }
 
-/* Sur téléphone la vidéo sort de la gouttière : bord à bord, sans cadre découpé,
-   dans son format d'origine. */
+/* Sur téléphone la vidéo sort de la gouttière et prend toute la largeur. Borner
+   la largeur d'après la hauteur d'écran, comme on le faisait, laissait jusqu'à
+   53 px de vide de chaque côté sur un écran court. C'est donc la hauteur qui est
+   bornée : le cadre garde ses 100vw, et object-fit recadre la vidéo — un rognage
+   qui se voit moins que deux bandes vides. */
 @media (max-width: 899px) {
   .reel__frame {
     width: 100vw;
     margin-inline: calc(50% - 50vw);
-    max-width: min(100vw, calc((100svh - 190px) * 9 / 16));
+    max-width: 100vw;
+    aspect-ratio: 3 / 5;
+    max-height: calc(100svh - 190px);
     border-radius: 0;
   }
 }
