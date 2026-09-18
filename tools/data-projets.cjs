@@ -19,6 +19,64 @@
  */
 module.exports = [
 {
+  slug: 'atelier-rap-clip-cfa-mallemort',
+  ordre: 250,
+  atelier: 'rap',
+  tags: ['rap'],
+  secteur: ['education'],
+  h1: 'Du texte au clip : cinq jours de rap avec des apprentis du bâtiment, à Mallemort',
+  seo: 'Atelier rap et clip vidéo — CFA du bâtiment, Mallemort',
+  meta: "Cinq jours pour écrire un rap, l'enregistrer en studio et tourner son clip : le défi relevé par une quinzaine d'apprentis du bâtiment, au CFA ECIR de Mallemort, avec Esope et le studio Owl Records.",
+  chapo: "À Mallemort, une quinzaine d'apprentis du CFA ECIR ont eu cinq jours pour écrire un rap, l'enregistrer en studio et en tourner le clip — un projet mené avec le studio Owl Records, né d'un appel à projet du CCCA-BTP sur la citoyenneté.",
+  lieu: 'CFA ECIR, Mallemort (Bouches-du-Rhône)',
+  publics: 'Une quinzaine d’apprentis volontaires (15-16 ans)',
+  format: '5 jours : écriture, enregistrement en studio, tournage du clip',
+  motCle: 'atelier rap clip vidéo CFA Mallemort',
+  secondes: ['atelier rap studio enregistrement', 'atelier rap apprentis citoyenneté'],
+  images: {
+    principale: { src: 'ecriture-couplet-micro-atelier-rap-mallemort.jpg',
+      alt: 'Illustration au trait d’un jeune de profil, une feuille et un micro à la main',
+      legende: 'Du texte au clip : ce projet est allé jusqu’au bout du parcours, en cinq jours.' },
+    deux: { src: 'petit-groupe-ecriture-couplet-rap-cfa.jpg',
+      alt: 'Illustration au trait d’un petit groupe assis en cercle, en pleine discussion d’écriture' },
+    trois: { src: 'micro-studio-enregistrement-clip-rap.jpg',
+      alt: 'Illustration au trait d’un micro sur pied, en gros plan et en clair-obscur' },
+  },
+  corps: [
+    ['p', `Écrire un texte de <b>rap</b>, l'enregistrer en studio, puis en tourner le <b>clip</b> : c'est le défi que se sont lancé une quinzaine d'apprentis du CFA ECIR, à <b>Mallemort</b>, en cinq jours. Un format complet, du texte à l'image, mené avec mon ami Tyger et son studio d'enregistrement Owl Records.`],
+
+    ['h2', 'Le contexte : un appel à projet sur la citoyenneté'],
+    ['p', `Le projet est né d'un appel à projet du CCCA-BTP (Comité de concertation et de coordination de l'apprentissage du bâtiment et des travaux publics), auquel l'ECIR — école de la construction, des infrastructures et des réseaux — a répondu. L'idée de départ portait sur la citoyenneté : santé, gestion du budget, inégalités, injustices, discriminations. Des ateliers et rencontres avaient déjà permis d'explorer ces thèmes l'année précédente. « Après avoir réfléchi, il est apparu qu'ils souhaitaient tous faire un rap, voire même un clip », résume Marie Jouffrit, adjointe à la direction chargée de la pédagogie et de l'éducation de l'établissement. C'est cette envie, exprimée par les apprentis eux-mêmes, qui a fait naître le projet.`],
+
+    ['h2', 'Le déroulement des cinq jours'],
+    ['p', `Cinq jours pour aller du texte au clip, ça ne laisse de temps mort à aucune étape. Les premières séances ont été consacrées à l'écriture : rimes, figures de style, construction d'un couplet — chacun garde son propre texte, sa propre voix, intégrée ensuite dans un morceau collectif d'environ sept à huit minutes. Passé ce cap, direction le studio Owl Records de Tyger pour l'enregistrement, puis le tournage du clip : scénario, plans, tenues, tout est passé entre les mains des apprentis avant le montage.`],
+    ['img', 'deux'],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Le travail d'écriture a suivi une progression classique du rap — rimes, figures de style, construction du couplet — mais avec un principe non négociable : chacun écrit son propre texte. Je ne suis pas là pour leur dire quoi écrire ou quoi dire, ils restent totalement libres du fond ; mon rôle se limite aux techniques et aux conseils.`],
+
+    ['h2', 'Ce que les apprentis ont travaillé'],
+    ['p', `Au-delà de l'écriture, ce projet a mis les apprentis aux commandes de la partie audiovisuelle : scénario du clip, choix des plans, des tenues. Tyger et moi nous sommes occupés du montage et de la réalisation, mais chaque décision créative en amont venait d'eux. L'objectif : que chacun s'approprie vraiment le projet, du premier couplet jusqu'au clip fini.`],
+    ['img', 'trois'],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `Les retours des apprentis, une fois le projet lancé, ont confirmé l'intérêt du format. « C'est passionnant, ça nous permet de changer un peu des cours, c'est vraiment sympa que le CFA nous propose cette activité », confiait Kélyan Figuière, 16 ans, en deuxième année de mécanique. Son camarade de classe Jordan Lemaire, 17 ans, ajoutait : « Ce rap, il défend plusieurs causes, donc ça nous plaît beaucoup. » Deux réactions qui résument bien ce que je recherche avec ce genre de projet : que le fond citoyen ne soit jamais un prétexte, mais parte réellement d'eux.`],
+
+    ['expert', {
+      titre: 'Un atelier rap avec studio et tournage de clip, ce que ça implique',
+      qr: [
+        ["Travailler avec un studio professionnel, qu'est-ce que ça change par rapport à un atelier rap classique ?",
+         `Ça ajoute une étape et une exigence : le texte ne s'arrête plus à une restitution en salle, il doit tenir une fois enregistré et mis en musique. Sur ce projet, le studio Owl Records de mon ami Tyger a permis d'aller jusqu'au bout du format que promet le rap — du texte au clip — plutôt que de s'arrêter à l'écriture.`],
+        ["Un rap sur des sujets de citoyenneté (santé, inégalités, discriminations), est-ce que ça fonctionne avec des apprentis de 15-16 ans ?",
+         `Très bien, à condition que les thèmes viennent d'eux plutôt que d'une consigne imposée. Ici, les apprentis avaient déjà travaillé ces sujets en amont ; le rap est arrivé comme leur propre choix de format pour en parler, pas comme un exercice plaqué dessus.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Ce projet a confirmé qu'un format complet — écriture, studio, clip — change la nature de l'engagement des apprentis : le texte devient un vrai objet fini, pas un exercice sans suite. Si votre CFA, votre établissement ou votre structure prépare un projet de ce type, avec ou sans studio d'enregistrement, <a href="index.html#contact">parlons du format qui conviendrait</a>.`],
+  ],
+},
+{
   slug: 'atelier-eloquence-lycee-bertran-de-born-perigueux',
   ordre: 230,
   atelier: 'eloquence',
