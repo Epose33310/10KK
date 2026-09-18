@@ -12,7 +12,7 @@
 <meta property="og:description" content="Ateliers slam, rap, éloquence et battle de compliments en primaire, collège, lycée et université. Agréé Éducation nationale, éligible pass Culture via ADAGE, interventions calées sur l'emploi du temps et le programme.">
 <meta property="og:locale" content="fr_FR">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=64">
+<link rel="stylesheet" href="assets/css/style.css?v=65">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://slamesope.fr/"},{"@type":"ListItem","position":2,"name":"Des interventions qui tiennent dans un emploi du temps et un programme","item":"https://slamesope.fr/public-education-nationale.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Une intervention s’articule-t-elle avec un programme précis (français, EMC, musique) ?","acceptedAnswer":{"@type":"Answer","text":"Oui, systématiquement. Le slam recoupe la poésie et l'argumentation, l'éloquence prépare le grand oral et toute épreuve orale, le battle de compliments sert souvent de support en EMC ou en médiation, et le rap peut s'intégrer au cours de musique. Je cale le contenu avec l'enseignant plutôt que d'arriver avec un déroulé figé."}},{"@type":"Question","name":"Peut-on intervenir sur une classe entière de 30 élèves ?","acceptedAnswer":{"@type":"Answer","text":"Oui, c'est le format le plus courant. Certains établissements préfèrent un travail en demi-groupe pour un accompagnement plus individualisé — les deux fonctionnent, selon le volume horaire et l'objectif visé."}},{"@type":"Question","name":"Faut-il que l'enseignant reste présent pendant l'atelier ?","acceptedAnswer":{"@type":"Answer","text":"Ce n'est pas obligatoire mais souvent utile, en particulier pour la gestion du groupe et le lien avec le programme. Beaucoup d'enseignants profitent de l'atelier pour observer leurs élèves autrement — plusieurs m'ont dit avoir découvert un élève en difficulté à l'écrit scolaire, très à l'aise au micro."}},{"@type":"Question","name":"Comment se passe une demande de devis ou de dossier ?","acceptedAnswer":{"@type":"Answer","text":"Vous me décrivez votre contexte — niveau, volume souhaité, thème éventuel — et je réponds avec une proposition adaptée et un devis. Le dossier de diffusion, téléchargeable en PDF, détaille les formats et les tarifs pour préparer une demande de financement."}},{"@type":"Question","name":"Vos interventions sont-elles éligibles au pass Culture ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Il vous suffit de me contacter pour discuter de votre projet : l'offre est disponible sur la plateforme ADAGE quelques heures après notre échange. Je suis également agréé par l'Éducation nationale."}}]}]}</script>
 </head>
 <body>
@@ -361,20 +361,48 @@
     <a class="footer__logo" href="index.html">Esope</a>
     <a class="footer__mail" href="mailto:slampoetrip@gmail.com">slampoetrip@gmail.com</a>
 
-    <nav class="footer__nav" aria-label="Pied de page">
-      <a href="atelier-slam.html">Ateliers slam</a>
-      <a href="atelier-rap.html">Ateliers rap</a>
-      <a href="atelier-eloquence.html">Ateliers éloquence</a>
-      <a href="atelier-battle.html">Battle de compliments</a>
-      <a href="public-education-nationale.html">Éducation nationale</a>
-      <a href="public-structures-jeunesse.html">Structures jeunesse</a>
-      <a href="public-sante-medico-social.html">Santé et médico-social</a>
-      <a href="demo.html">Démo en ligne</a>
-      <a href="temoignages.html">Témoignages &amp; médias</a>
-      <a href="projets.html">Les derniers projets</a>
-      <a href="atelier-slam.html#faq">Questions fréquentes</a>
-      <a href="assets/docs/dossier-esope.pdf" download>Dossier de diffusion</a>
-    </nav>
+    <div class="footer__acc" aria-label="Pied de page">
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerAteliers">
+          Les ateliers <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerAteliers"><div>
+          <a href="atelier-slam.html">Ateliers slam</a>
+          <a href="atelier-rap.html">Ateliers rap</a>
+          <a href="atelier-eloquence.html">Ateliers éloquence</a>
+          <a href="atelier-battle.html">Battle de compliments</a>
+        </div></div>
+      </div>
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerPublics">
+          Les publics <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerPublics"><div>
+          <a href="public-education-nationale.html">Éducation nationale</a>
+          <a href="public-structures-jeunesse.html">Structures jeunesse</a>
+          <a href="public-sante-medico-social.html">Santé et médico-social</a>
+        </div></div>
+      </div>
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerTemoignages">
+          Témoignages &amp; projets <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerTemoignages"><div>
+          <a href="temoignages.html">Témoignages &amp; médias</a>
+          <a href="projets.html">Les derniers projets</a>
+        </div></div>
+      </div>
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerRessources">
+          Ressources <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerRessources"><div>
+          <a href="demo.html">Démo en ligne</a>
+          <a href="atelier-slam.html#faq">Questions fréquentes</a>
+          <a href="assets/docs/dossier-esope.pdf" download>Dossier de diffusion</a>
+        </div></div>
+      </div>
+    </div>
 
     <div class="footer__bas">
       <p class="footer__copy">© <span id="year">2026</span> Esope — Ateliers slam</p>
@@ -507,6 +535,6 @@
 </dialog>
 
 
-<script src="assets/js/app.js?v=64" defer></script>
+<script src="assets/js/app.js?v=65" defer></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <meta property="og:locale" content="fr_FR">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=64">
+<link rel="stylesheet" href="assets/css/style.css?v=65">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Person","@id":"#esope","name":"Esope","jobTitle":"Slameur, intervenant artistique et pédagogique","description":"Champion de France de Slam. Anime depuis 2016 des ateliers slam, rap, éloquence et battle de compliments dans les établissements scolaires et les structures accueillant du public.","email":"slampoetrip@gmail.com","knowsLanguage":"fr","areaServed":"FR"},
 {"@type":"Service","name":"Ateliers slam, rap et éloquence","serviceType":"Atelier artistique et pédagogique","provider":{"@id":"#esope"},"areaServed":{"@type":"Country","name":"France"},"audience":{"@type":"Audience","audienceType":"Établissements scolaires, structures jeunesse, structures de santé et médico-sociales, animateurs et éducateurs"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Les ateliers","itemListElement":[
@@ -543,20 +543,48 @@
     <a class="footer__logo" href="index.html">Esope</a>
     <a class="footer__mail" href="mailto:slampoetrip@gmail.com">slampoetrip@gmail.com</a>
 
-    <nav class="footer__nav" aria-label="Pied de page">
-      <a href="atelier-slam.html">Ateliers slam</a>
-      <a href="atelier-rap.html">Ateliers rap</a>
-      <a href="atelier-eloquence.html">Ateliers éloquence</a>
-      <a href="atelier-battle.html">Battle de compliments</a>
-      <a href="public-education-nationale.html">Éducation nationale</a>
-      <a href="public-structures-jeunesse.html">Structures jeunesse</a>
-      <a href="public-sante-medico-social.html">Santé et médico-social</a>
-      <a href="demo.html">Démo en ligne</a>
-      <a href="temoignages.html">Témoignages &amp; médias</a>
-      <a href="projets.html">Les derniers projets</a>
-      <a href="atelier-slam.html#faq">Questions fréquentes</a>
-      <a href="assets/docs/dossier-esope.pdf" download>Dossier de diffusion</a>
-    </nav>
+    <div class="footer__acc" aria-label="Pied de page">
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerAteliers">
+          Les ateliers <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerAteliers"><div>
+          <a href="atelier-slam.html">Ateliers slam</a>
+          <a href="atelier-rap.html">Ateliers rap</a>
+          <a href="atelier-eloquence.html">Ateliers éloquence</a>
+          <a href="atelier-battle.html">Battle de compliments</a>
+        </div></div>
+      </div>
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerPublics">
+          Les publics <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerPublics"><div>
+          <a href="public-education-nationale.html">Éducation nationale</a>
+          <a href="public-structures-jeunesse.html">Structures jeunesse</a>
+          <a href="public-sante-medico-social.html">Santé et médico-social</a>
+        </div></div>
+      </div>
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerTemoignages">
+          Témoignages &amp; projets <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerTemoignages"><div>
+          <a href="temoignages.html">Témoignages &amp; médias</a>
+          <a href="projets.html">Les derniers projets</a>
+        </div></div>
+      </div>
+      <div class="footer__acc-group">
+        <button type="button" aria-expanded="false" aria-controls="footerRessources">
+          Ressources <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="footer__acc-panel" id="footerRessources"><div>
+          <a href="demo.html">Démo en ligne</a>
+          <a href="atelier-slam.html#faq">Questions fréquentes</a>
+          <a href="assets/docs/dossier-esope.pdf" download>Dossier de diffusion</a>
+        </div></div>
+      </div>
+    </div>
 
     <div class="footer__bas">
       <p class="footer__copy">© <span id="year">2026</span> Esope — Ateliers slam</p>
@@ -689,6 +717,6 @@
 </dialog>
 
 
-<script src="assets/js/app.js?v=64" defer></script>
+<script src="assets/js/app.js?v=65" defer></script>
 </body>
 </html>

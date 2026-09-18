@@ -1040,13 +1040,26 @@ input, textarea, select { font: inherit; color: inherit; }
    vient se coller sous les capitales. */
 .footer__mail { display: inline-block; margin-top: clamp(16px, 1.8vw, 22px); font-size: 14px; }
 
-.footer__nav {
-  display: flex; flex-wrap: wrap; gap: 12px 26px;
+/* Accordéon du footer, à la Apple : des rubriques repliées par défaut,
+   discrètes, qui laissent le pied de page court tant qu'on n'y touche pas. */
+.footer__acc {
   margin-top: clamp(30px, 4.2vw, 40px);
-  padding-top: clamp(22px, 3vw, 28px);
   border-top: 1px solid rgba(255, 255, 255, 0.13);
 }
-.footer__nav a { font-size: 14px; }
+.footer__acc-group { border-bottom: 1px solid rgba(255, 255, 255, 0.13); }
+.footer__acc-group > button {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 16px 0; border: 0; background: transparent;
+  font-family: inherit; font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  text-align: left; color: var(--white); cursor: pointer;
+}
+.footer__acc-group > button .caret { color: rgba(255, 255, 255, 0.5); flex-shrink: 0; }
+.footer__acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) var(--ease); }
+.footer__acc-group > button[aria-expanded='true'] + .footer__acc-panel { grid-template-rows: 1fr; }
+.footer__acc-panel > div { overflow: hidden; }
+.footer__acc-panel a { display: block; padding: 9px 0; font-size: 14px; }
+.footer__acc-panel a:first-child { padding-top: 2px; }
+.footer__acc-panel a:last-child { padding-bottom: 18px; }
 
 .footer__bas {
   display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px;

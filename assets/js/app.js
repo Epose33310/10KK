@@ -87,7 +87,6 @@
 
   var burger = $('#burger');
   var drawer = $('#drawer');
-  var drawerToggles = drawer ? $$('.drawer__group > button[aria-controls]', drawer) : [];
 
   function closeDrawer() {
     if (!burger || !drawer) return;
@@ -120,12 +119,17 @@
     }, { passive: true });
   }
 
-  drawerToggles.forEach(function (toggle) {
-    toggle.addEventListener('click', function () {
-      var open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+  /* ----------------------------------------------------------------------
+     Groupes dépliables : sous-menu du tiroir mobile, accordéon du footer
+     ---------------------------------------------------------------------- */
+
+  $$('.drawer__group > button[aria-controls], .footer__acc-group > button[aria-controls]')
+    .forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
     });
-  });
 
   /* ----------------------------------------------------------------------
      Révélations au scroll
