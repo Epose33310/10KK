@@ -197,20 +197,33 @@
       appliquer();
     });
 
+    var activerFiltre = function (bouton) {
+      boutonsFiltre.forEach(function (b) {
+        b.classList.remove('is-actif');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      bouton.classList.add('is-actif');
+      bouton.setAttribute('aria-pressed', 'true');
+      filtreActif = bouton.getAttribute('data-filtre');
+      visibles = lot();
+    };
+
     boutonsFiltre.forEach(function (bouton) {
       bouton.addEventListener('click', function () {
         if (bouton.getAttribute('data-filtre') === filtreActif) return;
-        boutonsFiltre.forEach(function (b) {
-          b.classList.remove('is-actif');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        bouton.classList.add('is-actif');
-        bouton.setAttribute('aria-pressed', 'true');
-        filtreActif = bouton.getAttribute('data-filtre');
-        visibles = lot();
+        activerFiltre(bouton);
         appliquer();
       });
     });
+
+    // Un lien externe (footer, page publics…) peut pointer directement vers
+    // un filtre précis : ?atelier=slam active le bon bouton dès l'arrivée,
+    // sans qu'on ait à cliquer une deuxième fois une fois sur la page.
+    var filtreDemande = new URLSearchParams(location.search).get('atelier');
+    var boutonDemande = filtreDemande && boutonsFiltre.filter(function (b) {
+      return b.getAttribute('data-filtre') === filtreDemande;
+    })[0];
+    if (boutonDemande) activerFiltre(boutonDemande);
 
     appliquer();
   }
