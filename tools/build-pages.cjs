@@ -29,6 +29,7 @@ const footer = toHome(index.slice(index.indexOf('<!-- ================= MODULE 9
 // Les récits du carnet : on y pioche les récits d'un atelier donné, à afficher
 // juste après la FAQ (voir related() plus bas, et son appel dans la boucle).
 const PROJETS = require('./data-projets.cjs');
+const PUBLICS = require('./data-publics.cjs');
 const ech = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Cette question revient dans chaque dossier : elle est identique partout.
@@ -208,6 +209,16 @@ const TITRE_RECITS = {
   eloquence: "Des ateliers d'éloquence, racontés",
   battle: 'Des battles de compliments, racontés',
 };
+
+// L'autre sens de la même donnée que sur les pages publics : là-bas, « les
+// ateliers qui conviennent à ce public » ; ici, « les publics à qui cet
+// atelier convient » — un seul texte par couple atelier/public, dans
+// data-publics.cjs, jamais retapé à la main dans les deux sens.
+const publics = (tag) => PUBLICS.map((pub) => `
+      <a class="related__item band--${pub.color}" href="${pub.file}">
+        <span><b>${pub.titre}</b><small>${pub.ateliers[tag]}</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>`).join('');
 
 for (const p of pages) {
   const goals = p.goals.map((k) => {
@@ -416,6 +427,14 @@ ${recits.length ? `
     <h2 class="h2">Les autres interventions</h2>
   </div>
   <div class="related" data-stagger>${related(p.file)}
+  </div>
+</section>
+
+<section class="section section--close wrap">
+  <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
+    <h2 class="h2">Les publics à qui cet atelier correspond le mieux</h2>
+  </div>
+  <div class="related" data-stagger>${publics(p.demo[0])}
   </div>
 </section>
 

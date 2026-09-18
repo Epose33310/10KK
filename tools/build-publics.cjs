@@ -24,6 +24,7 @@ const header = toHome(between('<a class="skip-link"', '<main id="main">'));
 const footer = toHome(index.slice(index.indexOf('<!-- ================= MODULE 9 — PIED DE PAGE NOIR')));
 
 const PROJETS = require('./data-projets.cjs');
+const PUBLICS = require('./data-publics.cjs');
 const ech = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Les témoignages du carrousel de l'accueil, filtrés par secteur grâce à
@@ -73,12 +74,6 @@ const pages = [
     defTitre: 'Vos réalités, je les connais',
     defTexte: "Une salle de classe n'est pas un studio, un emploi du temps ne se négocie pas au dernier moment, et une classe de trente élèves n'a rien à voir avec un groupe de dix volontaires. J'interviens en co-animation avec l'enseignant ou seul selon vos habitudes, je m'adapte à une salle de classe comme à un gymnase, et je cale toujours le déroulé avec l'équipe pédagogique en amont plutôt que d'arriver avec un contenu fermé.",
     concretTexte: "Chaque intervention se construit avec vous : volume horaire, nombre de séances, thème imposé ou non, restitution visée. Je suis agréé par l'Éducation nationale et mes interventions sont éligibles au pass Culture, disponibles sur ADAGE quelques heures après notre échange. Je me déplace dans toute la France.",
-    ateliers: {
-      slam: "Support direct du chapitre poésie : rimes, figures de style, prise de parole, dans l'ordre qui sert le texte plutôt que le manuel.",
-      rap: "Un format qui embarque les élèves les plus éloignés de l'écrit, jusqu'à un titre enregistré qu'on peut faire écouter en classe.",
-      eloquence: 'Prépare directement le grand oral et les épreuves orales certificatives : argumentaire, voix, gestion du trac.',
-      battle: "Le format le plus demandé en médiation et cohésion de classe, en début d'année ou après un conflit.",
-    },
     faq: [
       ['Une intervention s’articule-t-elle avec un programme précis (français, EMC, musique) ?',
        "Oui, systématiquement. Le slam recoupe la poésie et l'argumentation, l'éloquence prépare le grand oral et toute épreuve orale, le battle de compliments sert souvent de support en EMC ou en médiation, et le rap peut s'intégrer au cours de musique. Je cale le contenu avec l'enseignant plutôt que d'arriver avec un déroulé figé."],
@@ -118,12 +113,6 @@ const pages = [
     defTitre: 'Votre réalité, je la connais',
     defTexte: "Un groupe qui change d'une séance à l'autre, des jeunes qui arrivent au compte-gouttes, une salle qui sert à autre chose la moitié du temps : je ne construis jamais une séance qui suppose la présence de tout le monde depuis le début. Chaque temps fort — jeu oral, écriture, mise en voix — est pensé pour qu'on puisse le rejoindre en cours de route, sans avoir raté l'essentiel.",
     concretTexte: "Le format se cale sur votre fonctionnement : une séance isolée pour tester, un cycle de quelques semaines, ou un parcours à l'année comme j'en mène avec certaines structures depuis plusieurs saisons. On peut aussi évoquer ensemble, au moment du devis, les dispositifs de financement mobilisables par votre structure.",
-    ateliers: {
-      slam: "Un espace d'expression libre, sans note ni évaluation, pour des jeunes qui viennent par envie plutôt que par obligation.",
-      rap: "Le format qui parle immédiatement à des jeunes déjà familiers du genre — jusqu'à un titre et un clip qui existent après l'atelier.",
-      eloquence: "Utile en amont d'un concours, d'une prise de parole publique ou d'une restitution associative.",
-      battle: "Un excellent outil d'accroche avec un groupe mouvant ou qui ne se connaît pas encore.",
-    },
     faq: [
       ['Le format fonctionne-t-il si le groupe change d’une séance à l’autre ?',
        "Oui, c'est même une situation que je rencontre régulièrement. Chaque séance s'organise comme une unité complète — une entrée, une production, une prise de parole — plutôt que comme la suite obligée de la précédente. Ce qui se transmet d'une fois sur l'autre, c'est la réputation de l'atelier dans la structure, pas un contenu qu'il faudrait avoir suivi depuis le début."],
@@ -163,12 +152,6 @@ const pages = [
     defTitre: 'Votre réalité, je la connais',
     defTexte: "Un participant qui ne veut pas écrire aujourd'hui, un autre qui quitte la salle en cours de séance, un groupe dont la composition change d'une fois sur l'autre : je construis chaque séance en tenant compte de cette réalité, jamais sur l'hypothèse que tout ira comme prévu. L'important reste l'espace créé — pour parler de soi, de son parcours, de son entourage — plus que ce qui en sort à la fin.",
     concretTexte: "Le format se pense avec l'équipe encadrante en amont : durée de séance, taille du groupe, thèmes à privilégier ou à éviter. La restitution, quand elle a lieu, reste le plus souvent interne, devant l'équipe et les proches, mais peut aussi s'ouvrir davantage si le groupe et la structure le souhaitent, au fil du temps.",
-    ateliers: {
-      slam: "Le format le plus installé dans ce secteur : un espace d'écriture personnelle, sur la vie, le passé, l'entourage, au rythme du groupe.",
-      rap: "Peut convenir à un public déjà familier du genre, en petit groupe et avec un cadre très resserré.",
-      eloquence: "À réserver à des groupes déjà à l'aise avec la prise de parole individuelle — rarement le premier format proposé ici.",
-      battle: "Également solide dans ce secteur : on écrit pour l'autre, dans un principe qui valorise plutôt qu'il ne juge.",
-    },
     faq: [
       ['Ce format est-il adapté à un public en situation de handicap ou de souffrance psychique ?',
        "Il peut s'adapter, à condition de le construire avec l'équipe encadrante en amont — c'est elle qui connaît le groupe. Le battle de compliments, en particulier, convient bien à ce secteur : un principe qui valorise l'autre plutôt qu'il ne le juge, et qui se prête bien à l'accompagnement d'un référent."],
@@ -186,11 +169,15 @@ const pages = [
   },
 ];
 
-const AUTRES_PUBLICS = {
-  education: { titre: 'Éducation nationale', note: 'Primaire, collège, lycée, université.' },
-  jeunesse: { titre: 'Structures jeunesse', note: 'Associations, MJC, dispositifs éducatifs.' },
-  sante: { titre: 'Santé et médico-social', note: "Hôpitaux, EHPAD, IME, foyers d'accueil." },
-};
+// Le texte « pourquoi cet atelier convient à ce public » vit une seule fois,
+// dans data-publics.cjs — build-pages.cjs s'en sert dans l'autre sens (les
+// publics à qui un atelier convient, depuis la page de l'atelier).
+for (const p of pages) {
+  p.ateliers = PUBLICS.find((x) => x.secteur === p.secteur).ateliers;
+}
+
+const AUTRES_PUBLICS = Object.fromEntries(
+  PUBLICS.map((x) => [x.secteur, { titre: x.titre, note: x.note }]));
 
 const TITRE_RECITS = {
   education: 'Sur le terrain, en établissement scolaire',
