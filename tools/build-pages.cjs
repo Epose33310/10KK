@@ -424,17 +424,17 @@ ${recits.length ? `
 
 <section class="section section--close wrap">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Les autres interventions</h2>
+    <h2 class="h2">Les publics à qui cet atelier correspond le mieux</h2>
   </div>
-  <div class="related" data-stagger>${related(p.file)}
+  <div class="related" data-stagger>${publics(p.demo[0])}
   </div>
 </section>
 
 <section class="section section--close wrap">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Les publics à qui cet atelier correspond le mieux</h2>
+    <h2 class="h2">Les autres interventions</h2>
   </div>
-  <div class="related" data-stagger>${publics(p.demo[0])}
+  <div class="related" data-stagger>${related(p.file)}
   </div>
 </section>
 
