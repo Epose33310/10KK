@@ -710,11 +710,10 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .quote {
   position: relative;
-  flex: 0 0 86%;
+  flex: 0 0 68%;
   scroll-snap-align: center;
   border-radius: var(--r-card);
-  padding: clamp(28px, 6vw, 44px);
-  min-height: 420px;
+  padding: clamp(16px, 4vw, 20px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -729,21 +728,21 @@ input, textarea, select { font: inherit; color: inherit; }
 /* Sans les gribouillis, la citation peut occuper toute la carte. */
 .quote__text {
   position: relative; z-index: 1;
-  font-size: clamp(26px, 6.4vw, 40px);
-  line-height: 1.14;
-  letter-spacing: -0.025em;
+  font-size: clamp(14px, 3.8vw, 16px);
+  line-height: 1.28;
+  letter-spacing: -0.02em;
   font-weight: 500;
 }
-.quote__who { position: relative; z-index: 1; margin-top: 32px; }
+.quote__who { position: relative; z-index: 1; margin-top: 10px; }
 .quote__avatar {
-  width: 56px; height: 56px; border-radius: 50%;
+  width: 40px; height: 40px; border-radius: 50%;
   background: rgba(26, 26, 26, 0.18);
   display: grid; place-items: center;
-  font-weight: 600; font-size: 18px; color: var(--ink);
-  margin-bottom: 14px;
+  font-weight: 600; font-size: 14px; color: var(--ink);
+  margin-bottom: 8px;
 }
-.quote__name { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
-.quote__role { font-size: 16px; color: var(--ink-soft); margin-top: 2px; }
+.quote__name { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+.quote__role { font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
 
 .dots { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 28px; }
 .dots button {
@@ -1138,7 +1137,11 @@ input, textarea, select { font: inherit; color: inherit; }
     border-left: 0; border-right: 2px solid var(--ink);
   }
 
-  .quote { flex-basis: 42%; min-height: 480px; }
+  .quote { flex-basis: 26%; min-height: 0; padding: 20px; }
+  .quote__text { font-size: 15px; line-height: 1.28; }
+  .quote__who { margin-top: 12px; }
+  .quote__name { font-size: 15px; }
+  .quote__role { font-size: 13px; }
 
   .express { grid-template-columns: 1.2fr 0.8fr; }
   .dials { grid-template-columns: repeat(3, 1fr); }
@@ -1698,6 +1701,12 @@ input, textarea, select { font: inherit; color: inherit; }
     order: 2;
     position: sticky;
     top: calc(var(--header-h) + 28px);
+  }
+  /* La vidéo restait sensiblement plus courte que le bloc des étapes à côté
+     d'elle : elle grandit pour mieux tenir la comparaison, sans dépasser une
+     hauteur d'écran raisonnable. */
+  .parcours .shot--video video, .parcours .shot--video img {
+    height: clamp(420px, 74vh, 820px);
   }
 }
 
