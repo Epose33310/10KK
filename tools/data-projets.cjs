@@ -33,15 +33,23 @@ module.exports = [
   format: 'Parcours de 20 h reconduit chaque année depuis 4 ans, restitution en scène slam ouverte',
   motCle: 'atelier slam CEID',
   secondes: ['atelier slam structure médico-sociale', 'scène slam ouverte Saint-Denis-de-Pile'],
-  // Aucune illustration disponible pour l'instant : les photos seront ajoutées
-  // dès réception, avec les blocs ['img', 'deux'] / ['img', 'trois'] dans le
-  // corps ci-dessous.
-  images: {},
+  images: {
+    principale: { src: 'scene-slam-ouverte-accordeur.jpg',
+      alt: 'Illustration au trait d’un performeur en contre-jour au micro, face à un public',
+      legende: 'La restitution à L’Accordeur, devenue au fil des années une scène slam ouverte à tous.' },
+    deux: { src: 'profil-pensif-atelier-slam-ceid.jpg',
+      alt: 'Illustration au trait d’un profil pensif, poing fermé contre le menton' },
+    trois: { src: 'cohesion-groupe-atelier-slam-ceid.jpg',
+      alt: 'Illustration au trait de trois personnes assises au bord de l’eau, face à un clocher au loin',
+      legende: 'Les sous-projets nés de l’atelier ont aussi pris la forme de simples moments passés ensemble.' },
+  },
   corps: [
     ['p', `Ce projet a commencé par un atelier <b>slam</b> de deux heures, à <b>L'Accordeur</b>, avec des résidents de la <b>Ferme Merlet</b>, un CEID. Quatre ans plus tard, la structure me confie chaque année un parcours de 20 h directement sur place, et la restitution qui clôturait cet atelier ponctuel est devenue une scène slam ouverte à tous, qui attire aujourd'hui un public de plus en plus large.`],
 
     ['h2', 'Le contexte : un atelier ponctuel qui a fait mouche'],
     ['p', `Rien ne prévoyait, au départ, que cet atelier dure plus d'une après-midi. Le public a particulièrement accroché au <a href="atelier-slam.html">slam</a> et au format, et la Ferme Merlet a fini par commander un parcours de 20 h directement dans ses murs. Le public est adulte, sensible et très attachant — un public qui n'a souvent pas eu l'occasion de mettre des mots sur son propre parcours, encore moins de les dire debout devant les autres.`],
+
+    ['img', 'deux'],
 
     ['h2', 'Le déroulement : un projet qui s’est installé dans la durée'],
     ['p', `Le parcours s'est progressivement installé dans le temps, jusqu'à donner naissance à plusieurs sous-projets et expériences autour du slam.`],
@@ -52,6 +60,8 @@ module.exports = [
       `<b>Une scène slam ouverte à L'Accordeur</b>, à Saint-Denis-de-Pile — le prolongement le plus important, sur lequel je reviens plus bas.`,
     ]],
     ['p', `Ces ateliers sont très orientés vers l'expression personnelle. On y travaille notamment autour de la vie, du passé, de l'entourage et des problématiques liées aux addictions. Le slam sert ici de véritable outil pour mettre des mots sur son expérience et reprendre confiance dans sa capacité à écrire et à prendre la parole.`],
+
+    ['img', 'trois'],
 
     ['h2', 'Les techniques travaillées'],
     ['ul', [
