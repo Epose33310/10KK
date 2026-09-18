@@ -1605,6 +1605,23 @@ input, textarea, select { font: inherit; color: inherit; }
 .goal b { display: block; font-size: clamp(20px, 4vw, 23px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
 .goal span { color: var(--ink-soft); font-size: 16px; line-height: 1.55; }
 
+/* Au survol à la souris, la case entière passe au jaune, au même rythme que
+   le soulèvement pour que les deux effets n'aient pas l'air de se suivre. Le
+   filet de gauche, jaune lui aussi, passe à l'encre : sans quoi il se
+   dissoudrait dans le fond. Les gris du texte se resserrent, le jaune les
+   affadissant. Réservé aux pointeurs fins — sur un écran tactile, l'état de
+   survol resterait collé après le toucher. */
+@media (hover: hover) and (pointer: fine) {
+  .goal { transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease); }
+  .goal::before,
+  .goal em,
+  .goal span { transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease); }
+  .goal:hover { background: var(--yellow); }
+  .goal:hover::before { background: var(--ink); }
+  .goal:hover em,
+  .goal:hover span { color: var(--ink); }
+}
+
 /* Bloc « essayer la démo » des pages atelier : même grammaire que les bornes
    de la page démo — bord d'encre et ombre dure qui se resserre au survol. */
 .tryout {
