@@ -196,12 +196,16 @@ tries.forEach((a, i) => {
   const faqs = a.corps.filter((b) => b[0] === 'expert')
     .reduce((acc, b) => acc.concat(b[1].qr), []);
 
+  // Le stock des trente-six illustrations Blog est épuisé : un récit peut
+  // désormais n'en porter aucune. L'emplacement reste alors simplement vide.
+  const imgPrincipale = a.images && a.images.principale;
+
   const jsonld = [{
     '@context': 'https://schema.org', '@type': 'BlogPosting',
     headline: a.h1, description: a.chapo, inLanguage: 'fr',
     url: SITE + 'projet-' + a.slug + '.html',
     mainEntityOfPage: { '@type': 'WebPage', '@id': SITE + 'projet-' + a.slug + '.html' },
-    image: SITE + 'assets/img/blog/' + a.images.principale.src,
+    ...(imgPrincipale ? { image: SITE + 'assets/img/blog/' + imgPrincipale.src } : {}),
     keywords: [a.motCle].concat(a.secondes || []).join(', '),
     author: { '@type': 'Person', name: 'Esope' },
     creator: { '@type': 'Person', name: 'Esope' },
@@ -228,7 +232,7 @@ tries.forEach((a, i) => {
     titre: a.seo,
     desc: a.meta,
     canonical: 'projet-' + a.slug + '.html',
-    ogImage: a.images.principale.src,
+    ogImage: imgPrincipale ? imgPrincipale.src : undefined,
     jsonld: JSON.stringify(jsonld),
     corps: `
 <nav class="fil wrap" aria-label="Fil d'Ariane">
@@ -248,7 +252,7 @@ tries.forEach((a, i) => {
     </dl>
     <p class="article__signature">Auteur : Esope · Intervenants slam : Esope</p>
   </header>
-${figure(a.images.principale, true)}
+${figure(imgPrincipale, true)}
 
   <div class="article__corps">${corpsHtml}
   </div>

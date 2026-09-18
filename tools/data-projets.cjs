@@ -14,6 +14,105 @@
  *             slam et battle) porte les deux.
  */
 module.exports = [
+{
+  slug: 'atelier-battle-de-compliments-lycees-angouleme',
+  ordre: 200,
+  atelier: 'battle',
+  tags: ['battle'],
+  h1: 'Un battle de compliments entre deux lycées, à Angoulême',
+  seo: 'Atelier battle de compliments en lycée — Angoulême',
+  meta: "Vingt heures de battle de compliments avec deux lycées d'Angoulême, jusqu'à une restitution en amphithéâtre devant le rectorat, ponctuée de deux battles professionnels en live.",
+  chapo: "Le lycée Jean-Rostand et le lycée professionnel Jean-Albert-Grégoire, à Angoulême, ont mené le même projet de battle de compliments. Vingt heures d'atelier, quatre déplacements, et une restitution en amphithéâtre devant le rectorat.",
+  lieu: 'Lycée Jean-Rostand et lycée professionnel Jean-Albert-Grégoire, Angoulême (Charente)',
+  publics: 'Lycéens des deux établissements',
+  format: '20 h d’atelier sur 4 déplacements, restitution en amphithéâtre',
+  motCle: 'atelier battle de compliments lycée',
+  secondes: ['battle de compliments Angoulême', 'atelier slam lycée professionnel'],
+  images: {},
+  corps: [
+    ['p', `Le <b>lycée Jean-Rostand</b> et le <b>lycée professionnel Jean-Albert-Grégoire</b>, tous deux à <b>Angoulême</b>, ont construit ensemble un projet de <a href="atelier-battle.html">battle de compliments</a> sur vingt heures. Quatre déplacements, une restitution en amphithéâtre devant le rectorat, et deux battles professionnels donnés en live grâce au financement obtenu par les établissements.`],
+
+    ['h2', 'Le contexte : deux établissements, un même projet'],
+    ['p', `Vingt heures, c'est un volume qui change la nature du travail : on ne se contente plus de découvrir le format, on va au bout de l'écriture. Le financement obtenu par les deux lycées a permis d'inviter deux artistes professionnels du battle de compliments à se produire en live lors de la restitution — un luxe que je ne peux pas proposer sur des formats plus courts, et qui a changé la portée de l'événement.`],
+
+    ['h2', 'Le déroulement du projet'],
+    ['p', `Quatre déplacements ont suffi à couvrir les vingt heures, ce qui a demandé de concentrer chaque venue sur un objectif précis plutôt que d'éparpiller le travail. Le fil conducteur a été l'amplification : partir d'une qualité simple chez l'autre et la faire grossir jusqu'à l'image qui frappe. Comparaisons et métaphores ont occupé une grande partie du temps, avec des techniques d'écriture que j'ai développées au fil des années et qui me sont propres.`],
+    ['p', `Les élèves des deux lycées ont particulièrement embarqué sur le travail des rimes. Il y avait, de leur côté, une vraie volonté de ne pas se contenter de rimes pauvres : on a donc poussé plus loin que d'habitude sur les rimes riches, ce qui a demandé plus de réécriture mais a nettement élevé le niveau des textes.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `L'amplification, la comparaison et la métaphore ont structuré l'essentiel du travail d'écriture, complétées par une exigence de rimes plus poussée que sur un format plus court. Sur vingt heures, il devient possible de revenir plusieurs fois sur un même texte pour le pousser plus loin, ce qui n'est pas toujours réalisable sur la moitié du volume.`],
+
+    ['h2', 'Ce que les lycéens ont travaillé'],
+    ['p', `Le projet a permis de travailler l'écriture en profondeur — construction d'une image, exigence sur la rime — mais aussi la prise de parole devant un public nombreux et une autorité extérieure à l'établissement. Voir des professionnels du battle de compliments se produire juste avant ou après leur propre passage a aussi donné aux lycéens une mesure concrète de ce vers quoi l'exercice peut mener.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `La restitution s'est tenue dans l'amphithéâtre du lycée Jean-Rostand, une salle qui s'est retrouvée noire de monde. Le rectorat était présent, ce qui a donné à l'événement un poids institutionnel rare pour ce genre de projet. Voir deux battles de compliments professionnels se dérouler en live, financés par le projet lui-même, a offert aux lycéens une référence directe : ce qu'ils venaient de faire, dans une version plus aboutie encore.`],
+
+    ['expert', {
+      titre: 'Un projet de vingt heures sur deux établissements, ce que ça change',
+      qr: [
+        ['Pourquoi répartir vingt heures sur seulement quatre déplacements ?',
+         `Concentrer les heures sur peu de venues garde chaque déplacement dense et productif, plutôt que de multiplier les demi-journées éparpillées dans l'année. C'est aussi plus simple à organiser pour deux établissements qui doivent se coordonner sur les mêmes dates.`],
+        ['Faire venir des artistes professionnels lors de la restitution, est-ce à la portée de tous les budgets ?',
+         `Ça dépend directement du financement obtenu, souvent via des dispositifs académiques ou des partenariats locaux. Ce n'est pas systématique, mais quand c'est possible, ça change complètement la portée de l'événement : les élèves voient immédiatement où l'exercice peut mener au plus haut niveau.`],
+        ['Deux établissements différents peuvent-ils mener le même projet en parallèle ?',
+         `Oui, et c'est même une bonne façon de mutualiser une restitution ambitieuse. Chaque établissement garde son groupe et son volume d'heures, mais la scène finale commune donne à l'ensemble une ampleur qu'un seul lycée n'aurait pas forcément visée seul.`],
+      ],
+    }],
+
+    ['h2', 'Ce que ce projet a permis d’explorer'],
+    ['p', `Vingt heures, quatre déplacements, deux établissements et une restitution renforcée par la présence de professionnels : ce projet montre ce qu'un battle de compliments peut devenir quand le temps et les moyens suivent. Si votre lycée envisage un projet de cette ampleur, seul ou avec un établissement voisin, <a href="index.html#contact">construisons-le ensemble</a>.`],
+  ],
+},
+
+{
+  slug: 'atelier-eloquence-concours-lunel',
+  ordre: 190,
+  atelier: 'eloquence',
+  tags: ['eloquence'],
+  h1: 'Un renfort de trois heures avant un concours d’éloquence, à Lunel',
+  seo: 'Atelier éloquence avant concours — espace Castel, Lunel',
+  meta: "Trois heures d'éloquence en renfort avant un concours, à l'espace Castel de Lunel : des textes déjà écrits à retravailler pour l'impact, et un passage individuel pour chacun des 12-17 ans du groupe.",
+  chapo: "À l'espace Castel de Lunel, je suis intervenu en renfort, trois heures seulement, juste avant qu'un groupe de 12-17 ans ne présente son concours d'éloquence. Les textes étaient déjà écrits ; restait à les rendre plus percutants.",
+  lieu: 'Espace Castel, Lunel (Hérault)',
+  publics: 'Jeunes de 12 à 17 ans, préparant un concours d’éloquence',
+  format: 'Renfort de 3 h, dernier intervenant avant le concours',
+  motCle: 'atelier éloquence concours',
+  secondes: ['préparation concours éloquence', 'atelier éloquence égalité femmes-hommes'],
+  images: {},
+  corps: [
+    ['p', `L'<b>espace Castel</b>, à <b>Lunel</b>, m'a sollicité en renfort, pour trois heures seulement, dans le cadre d'un concours d'éloquence qui approchait. Le groupe, des jeunes de 12 à 17 ans, avait déjà croisé plusieurs intervenants au fil du temps ; j'étais, je crois, le dernier sur leur agenda.`],
+
+    ['h2', 'Le contexte : intervenir en bout de chaîne'],
+    ['p', `Un renfort de trois heures, positionné juste avant l'échéance, n'a rien à voir avec un <a href="atelier-eloquence.html">atelier d'éloquence</a> mené depuis le début. Les textes existaient déjà, construits autour de l'une des deux thématiques imposées par le concours — l'égalité femmes-hommes ou l'égalité des chances. Mon rôle n'était pas d'accompagner l'écriture, mais de resserrer ce qui existait : rendre chaque texte plus punchy, plus impactant, dans le temps qu'il restait avant le passage réel.`],
+
+    ['h2', 'Le déroulement de la séance'],
+    ['p', `Le format a suivi les exercices d'éloquence classiques — placement de voix, regard, gestion du silence, structuration du propos — mais appliqués individuellement à des textes déjà écrits plutôt qu'à une écriture de zéro. Chaque participant est passé un par un, et j'ai pris le parti d'un fonctionnement collectif : un conseil donné à quelqu'un devenait une consigne pour tout le groupe, à charge pour chacun de vérifier si elle s'appliquait aussi à son propre texte.`],
+
+    ['h2', 'Les techniques travaillées'],
+    ['p', `Le travail a porté sur l'impact du texte plus que sur sa construction : couper une phrase qui alourdit, remplacer un mot faible par un mot fort, marquer une rupture avant la chute. Sur le plan de l'oralité, les mêmes fondamentaux qu'en éloquence classique — respiration, regard, appuis — mais concentrés sur les points faibles précis de chaque passage, puisque le temps ne permettait pas de tout reprendre.`],
+
+    ['h2', 'Ce que les participants ont travaillé'],
+    ['p', `La séance a permis de travailler la capacité à recevoir une correction et à l'appliquer dans l'instant, juste avant une échéance réelle — un exercice différent de la préparation longue, plus proche de la répétition générale. Chacun a aussi été amené à écouter les conseils donnés aux autres et à se demander si son propre texte souffrait du même défaut, ce qui a resserré le travail collectif malgré des passages individuels.`],
+
+    ['h2', 'Le moment marquant'],
+    ['p', `Voir un groupe qui avait déjà travaillé avec plusieurs intervenants rester concentré sur une consigne transversale — appliquer à son propre texte ce qui venait d'être dit à quelqu'un d'autre — a confirmé qu'un renfort court, bien ciblé, peut encore faire progresser un texte que d'autres ont déjà accompagné.`],
+
+    ['expert', {
+      titre: 'Intervenir en renfort avant un concours, ce que ça implique',
+      qr: [
+        ['Un renfort de trois heures a-t-il vraiment un intérêt si le texte est déjà écrit ?',
+         `Oui, à condition de viser un objectif précis : l'impact plutôt que la construction. Trois heures ne suffisent pas à réécrire un texte, mais elles suffisent à en couper les longueurs, à muscler une chute ou à corriger un placement de voix — ce qui fait souvent toute la différence le jour du passage.`],
+        ['Comment s’articuler avec les intervenants précédents sur un même groupe ?',
+         `En se concentrant sur ce qui reste à faire plutôt que sur ce qui a déjà été vu. Je pars toujours de ce que le groupe sait déjà pour ne pas répéter un travail fait ailleurs, et je cible les points faibles qui persistent malgré les interventions précédentes.`],
+      ],
+    }],
+
+    ['h2', 'Ce que cette séance a permis d’explorer'],
+    ['p', `Trois heures, en bout de parcours, peuvent encore transformer un texte déjà écrit si elles ciblent juste. Si votre structure prépare un concours ou une échéance d'éloquence et cherche un renfort ponctuel avant le jour J, <a href="index.html#contact">parlons du format qui conviendrait</a>.`],
+  ],
+},
+
 /* ====================================================================== 1 */
 {
   slug: 'atelier-slam-adultes-etauliers-queskonfabrik',
