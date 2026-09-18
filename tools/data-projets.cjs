@@ -28,12 +28,23 @@ module.exports = [
   format: '20 h d’atelier sur 4 déplacements, restitution en amphithéâtre',
   motCle: 'atelier battle de compliments lycée',
   secondes: ['battle de compliments Angoulême', 'atelier slam lycée professionnel'],
-  images: {},
+  images: {
+    principale: { src: 'restitution-battle-amphitheatre-angouleme.jpg',
+      alt: 'Un performeur sur scène sous deux projecteurs, face à un public nombreux dans une salle plongée dans le noir',
+      legende: 'L’amphithéâtre du lycée Jean-Rostand, noir de monde, le soir de la restitution.' },
+    deux: { src: 'battle-de-compliments-poignee-de-main.jpg',
+      alt: 'Deux mains qui se serrent en une prise ferme, entourées d’éclats jaunes',
+      legende: 'Le principe du battle de compliments en une image : s’affronter pour se valoriser.' },
+    trois: { src: 'avant-de-monter-sur-scene.jpg',
+      alt: 'Des chaussures montantes vues de près, debout au bord d’une scène' },
+  },
   corps: [
     ['p', `Le <b>lycée Jean-Rostand</b> et le <b>lycée professionnel Jean-Albert-Grégoire</b>, tous deux à <b>Angoulême</b>, ont construit ensemble un projet de <a href="atelier-battle.html">battle de compliments</a> sur vingt heures. Quatre déplacements, une restitution en amphithéâtre devant le rectorat, et deux battles professionnels donnés en live grâce au financement obtenu par les établissements.`],
 
     ['h2', 'Le contexte : deux établissements, un même projet'],
     ['p', `Vingt heures, c'est un volume qui change la nature du travail : on ne se contente plus de découvrir le format, on va au bout de l'écriture. Le financement obtenu par les deux lycées a permis d'inviter deux artistes professionnels du battle de compliments à se produire en live lors de la restitution — un luxe que je ne peux pas proposer sur des formats plus courts, et qui a changé la portée de l'événement.`],
+
+    ['img', 'deux'],
 
     ['h2', 'Le déroulement du projet'],
     ['p', `Quatre déplacements ont suffi à couvrir les vingt heures, ce qui a demandé de concentrer chaque venue sur un objectif précis plutôt que d'éparpiller le travail. Le fil conducteur a été l'amplification : partir d'une qualité simple chez l'autre et la faire grossir jusqu'à l'image qui frappe. Comparaisons et métaphores ont occupé une grande partie du temps, avec des techniques d'écriture que j'ai développées au fil des années et qui me sont propres.`],
@@ -44,6 +55,8 @@ module.exports = [
 
     ['h2', 'Ce que les lycéens ont travaillé'],
     ['p', `Le projet a permis de travailler l'écriture en profondeur — construction d'une image, exigence sur la rime — mais aussi la prise de parole devant un public nombreux et une autorité extérieure à l'établissement. Voir des professionnels du battle de compliments se produire juste avant ou après leur propre passage a aussi donné aux lycéens une mesure concrète de ce vers quoi l'exercice peut mener.`],
+
+    ['img', 'trois'],
 
     ['h2', 'Le moment marquant'],
     ['p', `La restitution s'est tenue dans l'amphithéâtre du lycée Jean-Rostand, une salle qui s'est retrouvée noire de monde. Le rectorat était présent, ce qui a donné à l'événement un poids institutionnel rare pour ce genre de projet. Voir deux battles de compliments professionnels se dérouler en live, financés par le projet lui-même, a offert aux lycéens une référence directe : ce qu'ils venaient de faire, dans une version plus aboutie encore.`],
@@ -79,7 +92,15 @@ module.exports = [
   format: 'Renfort de 3 h, dernier intervenant avant le concours',
   motCle: 'atelier éloquence concours',
   secondes: ['préparation concours éloquence', 'atelier éloquence égalité femmes-hommes'],
-  images: {},
+  images: {
+    principale: { src: 'prise-de-parole-micro-eloquence.jpg',
+      alt: 'Une bouche grande ouverte tout près d’un microphone, entourée d’éclats jaunes',
+      legende: 'Trois heures pour que chaque texte gagne en impact avant le passage réel.' },
+    deux: { src: 'carnet-un-mot-une-idee-un-declic.jpg',
+      alt: 'Un carnet ouvert sur lequel est écrit : un mot, une idée, un déclic' },
+    trois: { src: 'profil-en-preparation-eloquence.jpg',
+      alt: 'Un profil pensif, de dos, dans une posture de concentration avant de passer' },
+  },
   corps: [
     ['p', `L'<b>espace Castel</b>, à <b>Lunel</b>, m'a sollicité en renfort, pour trois heures seulement, dans le cadre d'un concours d'éloquence qui approchait. Le groupe, des jeunes de 12 à 17 ans, avait déjà croisé plusieurs intervenants au fil du temps ; j'étais, je crois, le dernier sur leur agenda.`],
 
@@ -92,8 +113,12 @@ module.exports = [
     ['h2', 'Les techniques travaillées'],
     ['p', `Le travail a porté sur l'impact du texte plus que sur sa construction : couper une phrase qui alourdit, remplacer un mot faible par un mot fort, marquer une rupture avant la chute. Sur le plan de l'oralité, les mêmes fondamentaux qu'en éloquence classique — respiration, regard, appuis — mais concentrés sur les points faibles précis de chaque passage, puisque le temps ne permettait pas de tout reprendre.`],
 
+    ['img', 'deux'],
+
     ['h2', 'Ce que les participants ont travaillé'],
     ['p', `La séance a permis de travailler la capacité à recevoir une correction et à l'appliquer dans l'instant, juste avant une échéance réelle — un exercice différent de la préparation longue, plus proche de la répétition générale. Chacun a aussi été amené à écouter les conseils donnés aux autres et à se demander si son propre texte souffrait du même défaut, ce qui a resserré le travail collectif malgré des passages individuels.`],
+
+    ['img', 'trois'],
 
     ['h2', 'Le moment marquant'],
     ['p', `Voir un groupe qui avait déjà travaillé avec plusieurs intervenants rester concentré sur une consigne transversale — appliquer à son propre texte ce qui venait d'être dit à quelqu'un d'autre — a confirmé qu'un renfort court, bien ciblé, peut encore faire progresser un texte que d'autres ont déjà accompagné.`],
