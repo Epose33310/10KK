@@ -61,6 +61,10 @@ const PRESSE = [
     titre: 'Focus : collectif Ta Mère La Mieux',
     chapo: 'Le portrait du collectif à l’origine des battles de compliments.',
     url: 'https://letype.fr/focus-collectif-ta-mere-la-mieux/' },
+  { media: 'Sud Ouest', teinte: 'periwinkle', atelier: 'Slam', lieu: 'Orthez',
+    titre: 'Le slam guide les lycéens vers l’art de la poésie',
+    chapo: 'Le slam comme porte d’entrée vers l’écriture poétique, avec des lycéens.',
+    url: 'https://www.sudouest.fr/premium/dans-vos-departements/orthez-le-slam-guide-les-lyceens-vers-l-art-de-la-poesie-4789670.php' },
 ];
 
 const STRUCTURES = [
@@ -126,7 +130,7 @@ const jsonld = JSON.stringify({
   })),
 });
 
-const meta = 'Revue de presse et témoignages : sept articles parus dans la presse régionale, cinq structures qui ont relayé les ateliers, et les retours des enseignants et coordinateurs qui ont fait intervenir Esope.';
+const meta = 'Revue de presse et témoignages : huit articles parus dans la presse régionale, cinq structures qui ont relayé les ateliers, et les retours des enseignants et coordinateurs qui ont fait intervenir Esope.';
 
 const html = `<!doctype html>
 <html lang="fr">
@@ -166,17 +170,6 @@ ${header}<main id="main">
     <h1 class="h2">La presse en parle</h1>
   </div>
   <div class="presses" data-stagger>${PRESSE.map(carte).join('')}
-      <div class="filmcard">
-        <button class="filmcard__btn" type="button"
-                data-video="assets/video/esope-battle.mp4"
-                data-webm="assets/video/esope-battle.webm"
-                data-titre="Un battle de compliments d’Esope">
-          <img class="filmcard__poster" src="assets/img/film-battle.jpg" alt="" loading="lazy" width="1000" height="562">
-          <span class="filmcard__veil" aria-hidden="true"></span>
-          <span class="filmcard__disc" aria-hidden="true"></span>
-          <span class="filmcard__label">Un battle de compliments d’Esope</span>
-        </button>
-      </div>
   </div>
 </section>
 

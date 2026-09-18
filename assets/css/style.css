@@ -2023,16 +2023,11 @@ input, textarea, select { font: inherit; color: inherit; }
   border: 0; background: none; cursor: pointer;
   position: relative;
 }
-/* Dans la grille de presse, le film comble la colonne laissée libre par les
-   sept articles : il prend toute la hauteur de la rangée et la même ombre. */
-.presses > .filmcard { height: 100%; box-shadow: 8px 8px 0 var(--ink); }
-.presses > .filmcard .filmcard__btn { height: 100%; }
-.presses > .filmcard .filmcard__poster { aspect-ratio: auto; height: 100%; }
-/* Sur deux colonnes, les sept articles tombent juste : le film y prendrait
-   une rangée pour lui seul, alors il l'occupe en entier. */
+/* Huit articles dont le premier sur deux colonnes : la grille tombe juste sur
+   trois colonnes, mais laisse une demi-rangée sur deux. Le dernier article
+   l'occupe alors en entier plutôt que de laisser le vide. */
 @media (min-width: 720px) and (max-width: 1039px) {
-  .presses > .filmcard { grid-column: span 2; }
-  .presses > .filmcard .filmcard__poster { aspect-ratio: 16 / 9; height: auto; }
+  .presse:last-child { grid-column: span 2; }
 }
 .filmcard__poster {
   display: block; width: 100%; height: 100%;
