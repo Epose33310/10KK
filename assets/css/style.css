@@ -1896,17 +1896,34 @@ input, textarea, select { font: inherit; color: inherit; }
    Seul le paragraphe de bas de bloc reste en texte courant. */
 .palm b, .palm span { font-size: clamp(17px, 2vw, 20px); font-weight: 700; letter-spacing: -0.02em; }
 
-/* Les douze témoignages, en mosaïque plutôt qu'en carrousel : sur une page
-   qui leur est consacrée, on veut pouvoir tous les lire. */
-.mosaique { display: grid; gap: clamp(16px, 2.2vw, 24px); }
-@media (min-width: 700px) { .mosaique { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Les témoignages, sur leur propre page. Sur mobile, un défilement horizontal
+   au doigt, comme le carrousel de l'accueil — une grille à une colonne les
+   aurait empilés les uns sous les autres, bien moins intuitif à parcourir.
+   À partir de 700px, la largeur permet de les poser en mosaïque pour tous
+   les lire d'un coup d'œil. */
+.mosaique {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+}
+.mosaique::-webkit-scrollbar { display: none; }
+@media (min-width: 700px) {
+  .mosaique {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible; scroll-snap-type: none;
+    margin-inline: 0; padding-inline: 0;
+  }
+}
 @media (min-width: 1100px) { .mosaique { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .mosaique > .quote {
-  flex: initial;
-  min-height: 0;
   padding: clamp(24px, 2.9vw, 32px);
   border: 2px solid var(--ink);
 }
+@media (min-width: 700px) { .mosaique > .quote { flex: initial; min-height: 0; } }
 .mosaique .quote__text { font-size: clamp(19px, 2.1vw, 25px); line-height: 1.2; }
 .mosaique .quote__who { margin-top: clamp(20px, 3vw, 28px); }
 .mosaique .quote__name { font-size: 17px; }
