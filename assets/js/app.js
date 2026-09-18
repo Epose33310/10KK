@@ -153,11 +153,12 @@
   }
 
   /* ----------------------------------------------------------------------
-     « Voir plus » sur le carnet « Les derniers projets »
+     Filtre et « Voir plus » sur le carnet « Les derniers projets »
      Les cartes s'affichent toutes de suite, sans attendre un défilement ;
      seul leur nombre est limité au départ pour ne pas charger toute la
      liste d'un coup si elle grossit. Le lot dépend de la largeur d'écran,
-     pour toujours révéler des rangées complètes.
+     pour toujours révéler des rangées complètes. Le filtre choisi remet le
+     compteur à zéro : on ne garde pas le lot du filtre précédent.
      ---------------------------------------------------------------------- */
 
   var grilleProjets = $('.projets[data-paginate]');
@@ -165,18 +166,46 @@
 
   if (grilleProjets && boutonVoirPlus) {
     var cartesProjets = $$('.projet', grilleProjets);
+    var boutonsFiltre = $$('.filtre', $('[data-filtres]') || document);
     var largeEcran = window.matchMedia('(min-width: 1040px)');
     var lot = function () { return largeEcran.matches ? 9 : 8; };
+    var filtreActif = 'tous';
     var visibles = lot();
 
+    var correspond = function (carte) {
+      if (filtreActif === 'tous') return true;
+      return (carte.getAttribute('data-tags') || '').split(' ').indexOf(filtreActif) !== -1;
+    };
+
     var appliquer = function () {
-      cartesProjets.forEach(function (carte, i) { carte.hidden = i >= visibles; });
-      boutonVoirPlus.hidden = visibles >= cartesProjets.length;
+      var retenues = cartesProjets.filter(correspond);
+      var vues = 0;
+      cartesProjets.forEach(function (carte) {
+        if (!correspond(carte)) { carte.hidden = true; return; }
+        vues += 1;
+        carte.hidden = vues > visibles;
+      });
+      boutonVoirPlus.hidden = visibles >= retenues.length;
     };
 
     boutonVoirPlus.addEventListener('click', function () {
       visibles += lot();
       appliquer();
+    });
+
+    boutonsFiltre.forEach(function (bouton) {
+      bouton.addEventListener('click', function () {
+        if (bouton.getAttribute('data-filtre') === filtreActif) return;
+        boutonsFiltre.forEach(function (b) {
+          b.classList.remove('is-actif');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        bouton.classList.add('is-actif');
+        bouton.setAttribute('aria-pressed', 'true');
+        filtreActif = bouton.getAttribute('data-filtre');
+        visibles = lot();
+        appliquer();
+      });
     });
 
     appliquer();

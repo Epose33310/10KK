@@ -26,6 +26,11 @@ const assetVersion = (index.match(/style\.css\?v=(\d+)/) || [, '1'])[1];
 const header = toHome(between('<a class="skip-link"', '<main id="main">'));
 const footer = toHome(index.slice(index.indexOf('<!-- ================= MODULE 9 — PIED DE PAGE NOIR')));
 
+// Les récits du carnet : on y pioche les récits d'un atelier donné, à afficher
+// juste après la FAQ (voir related() plus bas, et son appel dans la boucle).
+const PROJETS = require('./data-projets.cjs');
+const ech = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
 // Cette question revient dans chaque dossier : elle est identique partout.
 const FAQ_PASS = ['Vos interventions sont-elles éligibles au pass Culture ?',
   "Oui. Il vous suffit de me contacter pour discuter de votre projet : l'offre est disponible sur la plateforme ADAGE quelques heures après notre échange. Je suis également agréé par l'Éducation nationale."];
@@ -72,7 +77,7 @@ const pages = [
       ['Monter sur scène', "L'aboutissement de chaque parcours. Devant la classe, l'établissement ou les familles. Les applaudissements prennent une grande place : l'élève doit être conscient de la mission accomplie."],
     ],
     goals: ['ecriture', 'oralite', 'partage', 'confiance'],
-    definition: ["Le slam", "En anglais, « slam » signifie claquer. Un slam de poésie est une restitution orale et scénique, sans musique, nourrie de textes poétiques. Né dans les bars de Chicago dans les années 1980, ce courant de la poésie contemporaine allie écriture, interprétation et gestuelle. C'est l'art littéraire et oratoire le plus complet qui soit : figures de style, storytelling, schémas de rimes, mémorisation, gestion du stress, prise de parole, musicalité."],
+    definition: ["Le slam, c’est quoi ?", "En anglais, « slam » signifie claquer. Un slam de poésie est une restitution orale et scénique, sans musique, nourrie de textes poétiques. Né dans les bars de Chicago dans les années 1980, ce courant de la poésie contemporaine allie écriture, interprétation et gestuelle. C'est l'art littéraire et oratoire le plus complet qui soit : figures de style, storytelling, schémas de rimes, mémorisation, gestion du stress, prise de parole, musicalité."],
     school: "Pour l'enseignant, l'atelier slam est un support réel pour introduire la partie du programme consacrée à la poésie. Les notions sont abordées par la pratique, dans l'ordre qui sert le texte de l'élève plutôt que celui du manuel.",
   },
   {
@@ -107,7 +112,7 @@ const pages = [
       ['Restitution devant un jury', "Les thématiques travaillées en atelier sont restituées individuellement devant une tribune à convaincre, comme dans les concours."],
     ],
     goals: ['eloquence', 'oralite', 'confiance', 'partage'],
-    definition: ["L'éloquence", "L'éloquence regroupe plusieurs aspects : se faire entendre, l'ancrage du corps, une parole structurée, le choix des mots. C'est à travers le reportage « À voix haute » du programme Eloquentia que les concours d'éloquence se sont popularisés. Des thématiques sont travaillées en atelier, puis restituées individuellement devant une tribune et un jury à convaincre."],
+    definition: ["L'éloquence, c’est quoi ?", "L'éloquence regroupe plusieurs aspects : se faire entendre, l'ancrage du corps, une parole structurée, le choix des mots. C'est à travers le reportage « À voix haute » du programme Eloquentia que les concours d'éloquence se sont popularisés. Des thématiques sont travaillées en atelier, puis restituées individuellement devant une tribune et un jury à convaincre."],
     school: "L'atelier prépare directement le grand oral et toute épreuve orale certificative. Outre la technique, il encourage les participants à se dépasser humainement à travers des objectifs communs — ce qui déborde largement l'examen.",
   },
   {
@@ -142,7 +147,7 @@ const pages = [
       ['Réaliser un clip', "Sur demande et selon le volume horaire : tournage et montage, pour que le projet sorte de la salle."],
     ],
     goals: ['ecriture', 'oralite', 'confiance', 'partage'],
-    definition: ["Le rap", "Le rap est l'une des cinq disciplines du hip-hop. Sur des paroles scandées sur une musique rythmée, les maîtres de cérémonie abordent, chacun dans son style et son flow, des sujets tour à tour engagés, drôles ou légers. Né dans le Bronx dans les années 70, popularisé en Europe à la fin des années 1980, il est devenu en France le courant musical le plus populaire."],
+    definition: ["Le rap, c’est quoi ?", "Le rap est l'une des cinq disciplines du hip-hop. Sur des paroles scandées sur une musique rythmée, les maîtres de cérémonie abordent, chacun dans son style et son flow, des sujets tour à tour engagés, drôles ou légers. Né dans le Bronx dans les années 70, popularisé en Europe à la fin des années 1980, il est devenu en France le courant musical le plus populaire."],
     school: "L'atelier rap fait entrer par la porte du son des compétences d'écriture exigeantes. Pour une équipe éducative, c'est souvent le format qui mobilise les élèves les plus éloignés de l'écrit.",
   },
   {
@@ -178,7 +183,7 @@ const pages = [
       ['Finir par un vrai battle', "Je clôture le parcours par un battle contre un·e collègue, devant le groupe. Voir des professionnels se prêter à l'exercice qu'on vient de vivre change le regard qu'on porte sur son propre passage."],
     ],
     goals: ['eloquence', 'confiance', 'partage', 'oralite'],
-    definition: ["Le battle", "Le battle est un héritage direct de la culture hip-hop, où deux MC s'affrontent verbalement devant un public. Le battle de compliments en conserve la forme — le face-à-face, le rythme, l'énergie collective — en inversant l'intention. Les textes sont écrits et travaillés en amont : on y affine le verbe, la verve et le mot fort, et on apprend à peser ses mots."],
+    definition: ["Le battle de compliments, c’est quoi ?", "Le battle est un héritage direct de la culture hip-hop, où deux MC s'affrontent verbalement devant un public. Le battle de compliments en conserve la forme — le face-à-face, le rythme, l'énergie collective — en inversant l'intention. Les textes sont écrits et travaillés en amont : on y affine le verbe, la verve et le mot fort, et on apprend à peser ses mots."],
     school: "C'est le format le plus demandé en médiation et en cohésion de groupe. Il désamorce les moqueries en en détournant les codes, et fonctionne particulièrement bien en début d'année ou à la suite d'un conflit de classe. Le travail d'écriture qu'il demande en fait aussi un vrai support de français.",
   },
 ];
@@ -188,6 +193,21 @@ const related = (current) => pages.filter((p) => p.file !== current).map((p) => 
         <span><b>${p.title}</b><small>${p.baseline.split('.')[0]}.</small></span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>`).join('');
+
+// Les récits du carnet qui portent le tag de cet atelier, du plus récent au
+// plus ancien. Un récit qui mêle deux ateliers (slam et battle, par exemple)
+// apparaît naturellement sur les deux pages.
+const recitsDe = (tag) => PROJETS
+  .filter((a) => a.tags.includes(tag))
+  .sort((a, b) => b.ordre - a.ordre)
+  .slice(0, 4);
+
+const TITRE_RECITS = {
+  slam: 'Des ateliers slam, racontés',
+  rap: 'Des ateliers rap, racontés',
+  eloquence: "Des ateliers d'éloquence, racontés",
+  battle: 'Des battles de compliments, racontés',
+};
 
 for (const p of pages) {
   const goals = p.goals.map((k) => {
@@ -212,6 +232,16 @@ for (const p of pages) {
           ${q}<span class="faq__icon" aria-hidden="true">+</span></button></h3>
         <div class="faq__a" id="${slug}-faq-${i + 1}"><div><p>${r}</p></div></div>
       </div>`).join('');
+
+  const recits = recitsDe(p.demo[0]);
+  const recitsHtml = recits.map((a) => `
+      <a class="recit" href="projet-${a.slug}.html">
+        <span class="recit__corps">
+          <span class="recit__titre">${ech(a.h1)}</span>
+          <span class="recit__chapo">${ech(a.chapo)}</span>
+        </span>
+        <span class="recit__cta">Lire le récit <span class="arrow" aria-hidden="true">→</span></span>
+      </a>`).join('');
 
   // Données structurées : la FAQ peut remonter telle quelle dans les résultats.
   const jsonld = JSON.stringify({
@@ -371,6 +401,15 @@ ${shot(2)}
     </div>
   </div>
 </section>
+${recits.length ? `
+<section class="section section--close wrap">
+  <div data-reveal style="margin-bottom:clamp(20px,3.4vw,28px)">
+    <p class="eyebrow">Sur le terrain</p>
+    <h2 class="h2">${TITRE_RECITS[p.demo[0]]}</h2>
+  </div>
+  <div class="recits" data-stagger>${recitsHtml}
+  </div>
+</section>` : ''}
 
 <section class="section section--close wrap">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">

@@ -1859,6 +1859,26 @@ input, textarea, select { font: inherit; color: inherit; }
 .relais .arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
 .relais:hover .arrow { transform: translate(3px, -3px); }
 
+/* Récits liés, en bas de la FAQ d'une page d'atelier. Une liste écrite plutôt
+   que des cartes illustrées : le carnet a déjà ses vignettes, cette page n'a
+   pas besoin de les répéter. Repris du dessin des lignes « Mais encore...». */
+.recits { margin-top: clamp(16px, 2.4vw, 22px); border-top: 1.5px solid var(--line); }
+.recit {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 6px 24px;
+  padding-block: clamp(18px, 2.6vw, 24px);
+  border-bottom: 1.5px solid var(--line);
+  color: var(--ink); text-decoration: none;
+  transition: background var(--dur-fast) var(--ease);
+}
+.recit:hover, .recit:focus-visible { background: rgba(26, 26, 26, 0.04); }
+.recit__corps { display: flex; flex-direction: column; gap: 6px; max-width: 620px; }
+.recit__titre { font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; }
+.recit__chapo { font-size: 14px; line-height: 1.5; color: var(--ink-mute); }
+.recit__cta { flex: 0 0 auto; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.recit__cta .arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
+.recit:hover .recit__cta .arrow { transform: translateX(4px); }
+
 /* Palmarès */
 .def--yellow { background: var(--yellow); }
 /* Tout est centré, boutons compris : la carte se lit comme une adresse. Sans
@@ -2042,6 +2062,28 @@ input, textarea, select { font: inherit; color: inherit; }
 .projet__cta { font-size: 15px; font-weight: 700; }
 .projet__cta .arrow { display: inline-block; transition: transform var(--dur-fast) var(--ease); }
 .projet:hover .projet__cta .arrow { transform: translateX(4px); }
+
+.projet__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.projet__tag {
+  padding: 4px 11px;
+  border: 1.5px solid currentColor; border-radius: 99px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  opacity: 0.78;
+}
+
+/* Le filtre au-dessus de la grille : neutre et discret, pour ne pas
+   concurrencer les couleurs des cartes juste en dessous. */
+.filtres { display: flex; flex-wrap: wrap; gap: 10px; }
+.filtre {
+  padding: 9px 18px;
+  border: 1.5px solid var(--line); border-radius: 99px;
+  background: transparent;
+  font-size: 14px; font-weight: 600; color: var(--ink-mute);
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+.filtre:hover { border-color: var(--ink); color: var(--ink); }
+.filtre.is-actif { background: var(--ink); border-color: var(--ink); color: var(--white); }
 
 /* --------------------------------------------------------------------------
    La page d'un projet
