@@ -661,6 +661,22 @@
         data.get('message')
       ].join('\n');
 
+      /* D'où vient la demande, lu dans l'adresse de la page et jamais stocké :
+         c'est ce qui permettra de savoir quelle annonce a réellement produit
+         un atelier, sans poser le moindre cookie. */
+      var params = new URLSearchParams(location.search);
+      var origine = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term']
+        .map(function (cle) {
+          var valeur = params.get(cle);
+          return valeur ? cle + ' = ' + valeur : null;
+        })
+        .filter(Boolean);
+      if (origine.length) {
+        body += '\n\n--\nOrigine de la visite :\n' + origine.join('\n');
+      }
+
+      mesurer('Demande envoyée', { atelier: String(data.get('format') || 'non précisé') });
+
       if (formStatus) {
         formStatus.hidden = false;
         formStatus.textContent = 'Votre messagerie s’ouvre avec la demande pré-remplie. Si rien ne se passe, écrivez à slampoetrip@gmail.com.';
@@ -733,6 +749,34 @@
       minuterie = setTimeout(ajusterCitations, 150);
     });
   }
+
+  /* ----------------------------------------------------------------------
+     Mesure d'audience
+
+     mesurer() ne fait rien tant qu'aucun outil n'est chargé : le site
+     fonctionne à l'identique sans lui, et changer d'outil ne touche pas à ce
+     fichier. Rien n'est écrit sur l'appareil du visiteur — ni cookie, ni
+     stockage — c'est ce qui dispense le site de bannière de consentement.
+
+     Seuls les gestes qui annoncent une demande sont comptés : le dossier
+     téléchargé, la démo lancée, l'adresse cliquée, le formulaire envoyé. Pas
+     de suivi de parcours individuel.
+     ---------------------------------------------------------------------- */
+
+  function mesurer(nom, details) {
+    if (typeof window.plausible === 'function') {
+      window.plausible(nom, details ? { props: details } : undefined);
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var lien = e.target.closest ? e.target.closest('a') : null;
+    if (!lien) return;
+    var href = lien.getAttribute('href') || '';
+    if (/\.pdf($|[?#])/.test(href)) mesurer('Dossier téléchargé');
+    else if (href.indexOf('mailto:') === 0) mesurer('Adresse cliquée');
+    else if (/(^|\/)demo\.html/.test(href)) mesurer('Démo lancée');
+  });
 
   /* ----------------------------------------------------------------------
      Année courante
