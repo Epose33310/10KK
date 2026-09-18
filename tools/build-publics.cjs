@@ -143,43 +143,43 @@ const pages = [
     color: 'green',
     watermark: 'Santé',
     seoTitle: 'Ateliers d’écriture et d’oralité en santé et médico-social — Esope',
-    meta: "Ateliers slam et battle de compliments adaptés aux structures de santé et médico-sociales : hôpitaux, IME, EHPAD, foyers d'accueil. Petits groupes, rythme adapté, aucune obligation de résultat.",
+    meta: "Ateliers slam et battle de compliments adaptés aux structures de santé et médico-sociales : hôpitaux, IME, EHPAD, foyers d'accueil. Expression personnelle, petits groupes, rythme adapté à chaque public.",
     title: 'Une parole qui se construit au rythme du groupe',
-    baseline: "Ni performance ni obligation de résultat : un cadre sécurisant, des petits groupes, et un rythme qui s'ajuste à ce que chacun peut donner ce jour-là.",
+    baseline: "Un espace d'expression personnelle avant tout : on y parle de sa vie, de son parcours, de son entourage, avec des techniques d'écriture et de prise de parole qui redonnent confiance.",
     facts: [
       ['Groupe', 'Petit groupe, 4 à 12 personnes'],
+      ['Thèmes', 'Vie, parcours personnel, entourage'],
+      ['Encadrement', "Un référent de l'équipe présent, et souvent partie prenante"],
       ['Rythme', 'Séance isolée ou cycle, ajustable en cours de route'],
-      ['Encadrement', "Un référent de l'équipe présent, en général"],
-      ['Cadre', 'Aucune obligation de passage ni de résultat'],
     ],
-    intro: "Un groupe en hôpital de jour, en IME, en EHPAD ou en foyer d'accueil ne se pilote pas comme une classe : la fatigue, la journée, l'état de chacun peuvent changer le programme d'une heure sur l'autre. C'est dans ce type de structures que j'interviens depuis plusieurs années — notamment à <a href=\"projet-atelier-slam-ferme-merlet-ceid.html\">la Ferme Merlet, un CEID</a>, où un atelier ponctuel de deux heures est devenu un parcours annuel de 20 h, puis toute une scène slam ouverte qui dépasse aujourd'hui largement le cadre de la structure. Le principe reste le même partout : un rythme plus lent, des groupes plus restreints, et un cadre qui ne demande jamais de résultat.",
+    intro: "Un groupe en hôpital de jour, en IME, en EHPAD ou en foyer d'accueil ne se pilote pas comme une classe : la fatigue, la journée, l'état de chacun peuvent changer le programme d'une heure sur l'autre. Ce que je propose dans ce secteur reste avant tout un espace d'expression personnelle : on y écrit sur sa vie, son parcours, son entourage, avec des techniques d'écriture et d'oralité qui aident à mettre des mots sur une expérience et à reprendre confiance dans sa capacité à écrire et à prendre la parole.",
     goalsTitre: 'Ce que je mets en place avec ce public',
     goals: [
-      ['Aucune obligation de passage', "Écrire suffit. Dire son texte à voix haute reste toujours un choix, jamais une étape obligée du parcours."],
-      ["Un rythme qui s'ajuste", "Une séance peut se raccourcir, se scinder ou changer de forme en cours de route selon l'énergie du groupe ce jour-là."],
-      ['Un compliment plutôt qu’un jugement', "Le battle de compliments retourne le principe de la confrontation : on reçoit du groupe de la reconnaissance, jamais une évaluation."],
-      ['Une équipe présente et associée', "Un référent de l'équipe soignante ou éducative reste dans la salle, et parfois y participe : à la Ferme Merlet, l'équipe encadrante écrit et passe au micro comme les autres, ce qui crée un vrai espace de confiance."],
+      ["L'expression personnelle avant tout", "On écrit sur sa vie, son passé, son entourage. Le slam sert d'outil pour mettre des mots sur une expérience, pas de prétexte à une performance."],
+      ['Des techniques concrètes', "Rimes, images, métaphores, structure d'un texte, éloquence, gestion du stress, confiance en soi : les mêmes outils qu'ailleurs, au rythme du groupe."],
+      ['Une équipe qui joue le jeu', "Un référent de l'équipe reste dans la salle, et parfois y participe activement — écrire et passer au micro comme les autres crée un vrai espace de confiance et de cohésion."],
+      ['Un rendez-vous qui compte en lui-même', "Au-delà des textes, la régularité des séances crée du lien, une dynamique collective, et une confiance qui se construit dans la durée."],
     ],
     defTitre: 'Votre réalité, je la connais',
-    defTexte: "Un participant qui ne veut pas écrire aujourd'hui, un autre qui quitte la salle en cours de séance, un groupe dont la composition change d'une fois sur l'autre : rien de tout cela ne fait échouer un atelier, à condition de l'avoir anticipé. Je ne construis jamais une séance sur l'hypothèse que tout le monde ira jusqu'au bout — et un partenariat dans ce secteur ne se construit pas non plus en une séance : il arrive qu'un atelier ponctuel donne, avec le temps, un rendez-vous annuel.",
-    concretTexte: "Le format se pense avec l'équipe encadrante en amont : durée de séance plus courte que d'ordinaire, groupe réduit, objectif révisable en cours de parcours. Beaucoup de partenariats commencent par une séance test avant d'envisager un parcours plus long — c'est aussi bien ainsi. La restitution, quand elle a lieu, reste interne par défaut, devant l'équipe et les proches plutôt que devant un public large, sauf si le groupe et la structure souhaitent, avec le temps, aller plus loin.",
+    defTexte: "Un participant qui ne veut pas écrire aujourd'hui, un autre qui quitte la salle en cours de séance, un groupe dont la composition change d'une fois sur l'autre : je construis chaque séance en tenant compte de cette réalité, jamais sur l'hypothèse que tout ira comme prévu. L'important reste l'espace créé — pour parler de soi, de son parcours, de son entourage — plus que ce qui en sort à la fin.",
+    concretTexte: "Le format se pense avec l'équipe encadrante en amont : durée de séance, taille du groupe, thèmes à privilégier ou à éviter. La restitution, quand elle a lieu, reste le plus souvent interne, devant l'équipe et les proches, mais peut aussi s'ouvrir davantage si le groupe et la structure le souhaitent, au fil du temps.",
     ateliers: {
-      slam: "Le format le plus installé dans ce secteur : un espace d'écriture personnelle, sur la vie, le passé, l'entourage, qui a par exemple donné lieu à un partenariat de plusieurs années avec un CEID.",
+      slam: "Le format le plus installé dans ce secteur : un espace d'écriture personnelle, sur la vie, le passé, l'entourage, au rythme du groupe.",
       rap: "Peut convenir à un public déjà familier du genre, en petit groupe et avec un cadre très resserré.",
       eloquence: "À réserver à des groupes déjà à l'aise avec la prise de parole individuelle — rarement le premier format proposé ici.",
-      battle: "Également solide dans ce secteur : on écrit pour l'autre, on reçoit un compliment, jamais un jugement — utile avec un groupe qui a besoin d'une accroche immédiate.",
+      battle: "Également solide dans ce secteur : on écrit pour l'autre, dans un principe qui valorise plutôt qu'il ne juge.",
     },
     faq: [
       ['Ce format est-il adapté à un public en situation de handicap ou de souffrance psychique ?',
-       "Il peut s'adapter, à condition de le construire avec l'équipe encadrante en amont — c'est elle qui connaît le groupe. Le battle de compliments, en particulier, convient bien à ce secteur : aucune obligation de résultat, un référent de l'équipe présent, et un principe qui ne peut pas mal tourner puisqu'il s'agit de valoriser l'autre."],
-      ['Un participant qui refuse de parler peut-il rester dans le groupe ?',
-       "Oui, sans aucune difficulté. Écrire suffit ; dire son texte à voix haute reste un choix. Personne n'est mis à l'écart pour ça, et rien n'empêche de changer d'avis en cours de séance."],
+       "Il peut s'adapter, à condition de le construire avec l'équipe encadrante en amont — c'est elle qui connaît le groupe. Le battle de compliments, en particulier, convient bien à ce secteur : un principe qui valorise l'autre plutôt qu'il ne le juge, et qui se prête bien à l'accompagnement d'un référent."],
+      ['Sur quels thèmes travaille-t-on avec ce public ?',
+       "Le plus souvent sur l'expression personnelle : la vie, le passé, l'entourage, parfois des sujets plus sensibles selon le groupe. Le slam sert d'outil pour mettre des mots sur une expérience plutôt que d'exercice de style."],
       ["Faut-il prévoir un référent de l'équipe pendant toute la séance ?",
-       "C'est recommandé, autant pour la sécurité du groupe que pour le lien avec ce qui se passe en dehors de l'atelier. Je m'occupe du contenu artistique ; le cadre institutionnel reste celui de votre équipe."],
+       "C'est recommandé, autant pour la sécurité du groupe que pour le lien avec ce qui se passe en dehors de l'atelier. Je m'occupe du contenu artistique ; le cadre institutionnel reste celui de votre équipe — et quand elle participe elle-même à l'atelier, ça change beaucoup la confiance du groupe."],
       ['Quelle durée prévoir pour une première séance ?',
        "Je pars en général sur un format court — autour de deux heures — pour une première séance, quitte à l'allonger ensuite si le groupe le porte bien. Mieux vaut une séance courte et réussie qu'un format trop ambitieux dès le départ."],
       ['Un atelier ponctuel peut-il devenir un partenariat plus long ?',
-       "Oui, et c'est même arrivé plusieurs fois : un atelier de deux heures avec un CEID est devenu un parcours annuel de 20 h, puis <a href=\"projet-atelier-slam-ferme-merlet-ceid.html\">toute une scène slam ouverte</a>. Rien n'oblige à s'engager sur la durée dès le départ — beaucoup de partenariats commencent par un format court, quitte à grandir ensuite d'une saison sur l'autre."],
+       "Oui, c'est même assez courant dans ce secteur : un format court permet de tester ce que l'atelier apporte au groupe, avant d'envisager, si la structure le souhaite, un parcours plus long ou reconduit d'une année sur l'autre."],
       ['Comment financer ce type d’intervention ?',
        "Cela dépend des dispositifs propres à votre secteur — budget animation, fondations, partenariats. Décrivez-moi votre projet : on regarde ensemble ce qui est réaliste pour votre structure."],
     ],
@@ -346,7 +346,7 @@ ${header}<main id="main">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
     <h2 class="h2">Les ateliers qui leur correspondent le mieux</h2>
   </div>
-  <div class="related" data-stagger>${ateliers}
+  <div class="related related--pair" data-stagger>${ateliers}
   </div>
 </section>
 

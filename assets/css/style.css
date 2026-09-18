@@ -1751,10 +1751,11 @@ input, textarea, select { font: inherit; color: inherit; }
   .steps { max-width: 860px; }
   .principles { grid-template-columns: repeat(2, 1fr); }
   .related { grid-template-columns: repeat(3, 1fr); }
+  .related--pair { grid-template-columns: repeat(2, 1fr); }
   .related__item:hover { transform: translateY(-5px); }
 }
 @media (min-width: 620px) and (max-width: 899px) {
-  .facts, .goals { grid-template-columns: repeat(2, 1fr); }
+  .facts, .goals, .related--pair { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ==========================================================================
