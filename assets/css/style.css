@@ -181,6 +181,17 @@ input, textarea, select { font: inherit; color: inherit; }
 .mute { color: var(--ink-soft); }
 .mute strong, .hero__note strong { color: var(--ink); font-weight: 700; }
 
+/* Le chapeau en tête des pages d'atelier et de public. Sur grand écran il se
+   centre : la ligne est assez courte pour que l'axe tienne le regard. Sur
+   mobile il reste aligné à gauche — centrer hacherait la lecture — et les
+   quelques mots en gras donnent au pavé des points d'appui, inutiles une fois
+   le texte centré. */
+.lede { margin-top: clamp(28px, 5vw, 40px); max-width: 760px; }
+@media (min-width: 720px) {
+  .lede { margin-inline: auto; text-align: center; }
+  .lede b { font-weight: inherit; }
+}
+
 /* --------------------------------------------------------------------------
    Layout
    -------------------------------------------------------------------------- */

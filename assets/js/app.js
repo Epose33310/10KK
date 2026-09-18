@@ -672,6 +672,69 @@
   }
 
   /* ----------------------------------------------------------------------
+     Témoignages : la citation occupe toute sa carte
+
+     Les cartes d'une même rangée prennent toutes la hauteur de la plus
+     haute : une citation courte laissait donc jusqu'à 40 % de carte vide
+     sous elle. On agrandit chaque citation jusqu'à la place disponible,
+     sans jamais la dépasser — la carte la plus haute garde sa taille de
+     départ, la rangée ne grandit pas, et le calcul ne s'emballe pas.
+
+     Les hauteurs se lisent toutes avant la première retouche : une mesure
+     prise en cours de route verrait la rangée déjà déformée. offsetHeight
+     plutôt que getBoundingClientRect, que les transformations d'apparition
+     fausseraient.
+     ---------------------------------------------------------------------- */
+
+  var citations = $$('.quote__text');
+
+  function ajusterCitations() {
+    if (!citations.length) return;
+
+    citations.forEach(function (texte) { texte.style.fontSize = ''; });
+
+    var mesures = citations.map(function (texte) {
+      var carte = texte.closest('.quote');
+      if (!carte) return null;
+      var qui = $('.quote__who', carte);
+      var boite = window.getComputedStyle(carte);
+      var dispo = carte.clientHeight -
+        parseFloat(boite.paddingTop) - parseFloat(boite.paddingBottom);
+      if (qui) dispo -= qui.offsetHeight + parseFloat(window.getComputedStyle(qui).marginTop);
+      return {
+        texte: texte,
+        dispo: dispo,
+        base: parseFloat(window.getComputedStyle(texte).fontSize),
+        haut: texte.offsetHeight
+      };
+    });
+
+    mesures.forEach(function (m) {
+      /* Une citation qui remplit déjà sa carte n'a rien à gagner. */
+      if (!m || m.dispo <= 0 || m.haut >= m.dispo) return;
+
+      var bas = m.base, haut = m.base * 1.8, i, essai;
+      for (i = 0; i < 8; i++) {
+        essai = (bas + haut) / 2;
+        m.texte.style.fontSize = essai + 'px';
+        if (m.texte.offsetHeight <= m.dispo) bas = essai; else haut = essai;
+      }
+      m.texte.style.fontSize = (Math.floor(bas * 10) / 10) + 'px';
+    });
+  }
+
+  if (citations.length) {
+    ajusterCitations();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajusterCitations);
+
+    var minuterie;
+    window.addEventListener('resize', function () {
+      clearTimeout(minuterie);
+      minuterie = setTimeout(ajusterCitations, 150);
+    });
+  }
+
+  /* ----------------------------------------------------------------------
      Année courante
      ---------------------------------------------------------------------- */
 

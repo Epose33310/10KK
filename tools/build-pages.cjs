@@ -68,7 +68,7 @@ const pages = [
     baseline: "Réconcilier les jeunes avec la langue française par un art actuel et accessible. Les élèves écrivent, puis montent sur scène.",
     meta: "Atelier slam en milieu scolaire et structures jeunesse : écriture poétique, mise en voix, restitution scénique. Agréé Éducation nationale, éligible pass Culture.",
     facts: [['Public', 'Tout public'], ['Format type', 'Projet de 8 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', "Scène slam en fin de parcours + slam d'Esope"]],
-    intro: "Dans le slam, on écrit pour dire. C'est la discipline mère de mes interventions : celle qui structure toutes les autres, et celle qui transforme le plus visiblement le rapport d'un élève à sa propre parole.",
+    intro: "Dans le slam, <b>on écrit pour dire</b>. C'est la <b>discipline mère</b> de mes interventions : celle qui structure toutes les autres, et celle qui transforme le plus visiblement <b>le rapport d'un élève à sa propre parole</b>.",
     steps: [
       ['Poser le cadre', "Je présente le mouvement slam, les règles de l'atelier et ses valeurs : l'écoute, le courage, les applaudissements pour tous, le respect de l'autre. Puis une démonstration en live, pour montrer plutôt qu'expliquer."],
       ['Jouer avec la langue', "Des jeux collectifs à voix haute, créés spécifiquement pour le projet, portant chacun sur un thème ou une technique d'écriture. Personne n'écrit avant d'avoir entendu sa propre voix dans la salle."],
@@ -104,7 +104,7 @@ const pages = [
     baseline: "Argumenter, tenir sa voix, occuper le silence. La prise de parole appliquée à une échéance réelle.",
     meta: "Atelier éloquence : construction d'argumentaire, joutes oratoires, gestion du stress, préparation au grand oral. Pour lycées, universités et structures jeunesse.",
     facts: [['Public', 'Tout public. Idéal +15 ans'], ['Format type', 'Projet de 6 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', 'Discours en public ou concours']],
-    intro: "La parole est capitale dans l'expression publique, et elle s'apprend. Cet atelier s'adosse toujours à une échéance concrète : un grand oral, un concours, une soutenance, une prise de parole devant l'établissement.",
+    intro: "La parole est capitale dans l'expression publique, et <b>elle s'apprend</b>. Cet atelier s'adosse toujours à une <b>échéance concrète</b> : un grand oral, un concours, une soutenance, une prise de parole devant l'établissement.",
     steps: [
       ['Nommer le trac', "On en parle ouvertement dès la première heure. Mettre des mots sur ce qu'on ressent avant de passer, ça le fait déjà reculer — alors que le garder pour soi, c'est le laisser s'installer."],
       ['Construire un argumentaire', "Structurer une pensée, choisir ses mots, hiérarchiser ses arguments, anticiper la contradiction. Le fond avant la forme."],
@@ -139,7 +139,7 @@ const pages = [
     baseline: "De la rédaction d'un texte à l'enregistrement et au clip. Une immersion artistique aux objectifs très concrets.",
     meta: "Atelier rap : écriture en rimes, placement sur instrumental, flow, enregistrement d'une maquette et réalisation d'un clip. Pour collèges, lycées et structures jeunesse.",
     facts: [['Public', 'Tout public. Idéal +15 ans'], ['Format type', 'Projet de 10 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', 'Scène rap ou diffusion du clip']],
-    intro: "C'est l'atelier qui attrape les groupes que le mot « poésie » fait fuir. Même exigence d'écriture, même travail d'oralité — mais avec un résultat tangible à la fin : un titre qui existe, qu'on peut faire écouter.",
+    intro: "C'est l'atelier qui attrape <b>les groupes que le mot « poésie » fait fuir</b>. Même exigence d'écriture, même travail d'oralité — mais avec un <b>résultat tangible</b> à la fin : un titre qui existe, qu'on peut faire écouter.",
     steps: [
       ['Choisir une instru', "Le tempo et l'ambiance orientent l'écriture. Le choix collectif engage le groupe dès la première heure."],
       ['Écrire en mesures', "Rimes, schémas, mesures, jeux de mots. La contrainte rythmique est une pédagogie en soi : elle rend le comptage des syllabes désirable."],
@@ -175,7 +175,7 @@ const pages = [
     baseline: "Le battle de rap, retourné : deux artistes s'affrontent à coups d'éloges devant un public qui encourage.",
     meta: "Atelier battle de compliments : écrire des punchlines valorisantes, travailler le verbe et la verve, puis se lancer en face-à-face sur scène. Redoutable pour souder un groupe et détourner les codes de la moquerie.",
     facts: [['Public', 'Tout public'], ['Format type', 'Projet de 10 h en moyenne'], ['Jauge', '30 personnes maximum'], ['Restitution', "Scène de battle + battle d'Esope contre un·e collègue"]],
-    intro: "Une discipline insolite qui met le verbe à l'honneur dans un exercice rhétorique positif. Le principe est simple, la mécanique redoutable : elle emprunte aux codes de la vanne et de la punchline pour les retourner en éloge. Et contrairement à ce qu'on imagine, rien ne s'improvise — les textes s'écrivent et se retravaillent avant de passer devant les autres.",
+    intro: "Une discipline insolite qui met le verbe à l'honneur dans un <b>exercice rhétorique positif</b>. Le principe est simple, la mécanique redoutable : elle emprunte aux codes de la vanne et de la punchline <b>pour les retourner en éloge</b>. Et contrairement à ce qu'on imagine, <b>rien ne s'improvise</b> — les textes s'écrivent et se retravaillent avant de passer devant les autres.",
     steps: [
       ['Poser les règles', "Deux adversaires, un temps donné, un public qui encourage. Les mêmes codes que le battle de rap, avec une seule inversion : on ne cherche pas à démolir, on cherche à flatter."],
       ['Travailler le mot fort', "Le verbe, la verve, l'image qui frappe. On cherche l'adjectif juste plutôt que l'adjectif fort — et on apprend surtout à peser ses mots : un compliment mal ajusté tombe à plat aussi sûrement qu'une vanne ratée."],
@@ -350,7 +350,7 @@ ${header}<main id="main">
 <section class="section section--close wrap">
   <div class="facts" data-stagger>${facts}
   </div>
-  <p class="body-lg mute" style="margin-top:clamp(28px,5vw,40px);max-width:760px" data-reveal>${p.intro}</p>
+  <p class="body-lg mute lede" data-reveal>${p.intro}</p>
 </section>
 
 <section class="section section--close wrap">

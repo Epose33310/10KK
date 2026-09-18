@@ -63,7 +63,7 @@ const pages = [
       ['Format', 'Créneau de cours, demi-journée ou projet filé sur l’année'],
       ['Jauge', 'Classe entière (30) ou demi-groupe'],
     ],
-    intro: "Une classe a un emploi du temps qui ne se négocie pas au dernier moment, un programme à couvrir, une salle qui n'est pas toujours faite pour la scène, et parfois trente élèves à mobiliser en même temps. J'interviens dans ce cadre depuis 2016 : mes ateliers slam, rap, éloquence et battle de compliments se calent sur un créneau de cours, une demi-journée banalisée ou un projet filé sur plusieurs séances, et s'articulent avec le programme plutôt que de s'y ajouter — poésie et rhétorique en français, oral en histoire-géographie ou EMC, préparation du grand oral en lycée.",
+    intro: "Une classe a un <b>emploi du temps qui ne se négocie pas</b> au dernier moment, un programme à couvrir, une salle qui n'est pas toujours faite pour la scène, et parfois trente élèves à mobiliser en même temps. J'interviens dans ce cadre <b>depuis 2016</b> : mes ateliers slam, rap, éloquence et battle de compliments se calent sur un créneau de cours, une demi-journée banalisée ou un projet filé sur plusieurs séances, et <b>s'articulent avec le programme plutôt que de s'y ajouter</b> — poésie et rhétorique en français, oral en histoire-géographie ou EMC, préparation du grand oral en lycée.",
     goalsTitre: 'Ce que ces ateliers travaillent, en classe',
     goals: [
       ['Le programme, par la pratique', "Rimes, figures de style, rhétorique, schémas de rimes : les notions du chapitre poésie ou de l'épreuve du grand oral sont abordées en écrivant, pas en les récitant."],
@@ -102,7 +102,7 @@ const pages = [
       ['Format', 'Séance isolée, cycle court ou parcours à l’année'],
       ['Restitution', "Scène ouverte, événement de quartier, temps fort associatif"],
     ],
-    intro: "Dans une structure jeunesse, personne n'est obligé d'être là — et c'est justement ce qui change tout. Un jeune qui pousse la porte d'une MJC, d'un centre social ou d'un dispositif éducatif un mercredi après-midi n'a rien à y gagner s'il s'ennuie : il faut le convaincre de rester dans les dix premières minutes. J'anime depuis 2016 des ateliers slam, rap, éloquence et battle de compliments dans ce type de structures, avec des groupes parfois fixes, parfois mouvants d'une séance à l'autre, en horaires périscolaires, le mercredi ou pendant les vacances.",
+    intro: "Dans une structure jeunesse, <b>personne n'est obligé d'être là</b> — et c'est justement ce qui change tout. Un jeune qui pousse la porte d'une MJC, d'un centre social ou d'un dispositif éducatif un mercredi après-midi n'a rien à y gagner s'il s'ennuie : il faut <b>le convaincre de rester dans les dix premières minutes</b>. J'anime <b>depuis 2016</b> des ateliers slam, rap, éloquence et battle de compliments dans ce type de structures, avec des groupes parfois fixes, parfois mouvants d'une séance à l'autre, en horaires périscolaires, le mercredi ou pendant les vacances.",
     goalsTitre: 'Ce que ces ateliers apportent à votre public',
     goals: [
       ['Accrocher vite', "Le format s'appuie sur des jeux oraux collectifs dès les dix premières minutes : ceux qui arrivent en cours de séance rejoignent le groupe sans se sentir en retard."],
@@ -141,7 +141,7 @@ const pages = [
       ['Encadrement', "Un référent de l'équipe présent, et souvent partie prenante"],
       ['Rythme', 'Séance isolée ou cycle, ajustable en cours de route'],
     ],
-    intro: "Un groupe en hôpital de jour, en IME, en EHPAD ou en foyer d'accueil ne se pilote pas comme une classe : la fatigue, la journée, l'état de chacun peuvent changer le programme d'une heure sur l'autre. Ce que je propose dans ce secteur reste avant tout un espace d'expression personnelle : on y écrit sur sa vie, son parcours, son entourage, avec des techniques d'écriture et d'oralité qui aident à mettre des mots sur une expérience et à reprendre confiance dans sa capacité à écrire et à prendre la parole.",
+    intro: "Un groupe en hôpital de jour, en IME, en EHPAD ou en foyer d'accueil <b>ne se pilote pas comme une classe</b> : la fatigue, la journée, l'état de chacun peuvent changer le programme d'une heure sur l'autre. Ce que je propose dans ce secteur reste avant tout un <b>espace d'expression personnelle</b> : on y écrit sur sa vie, son parcours, son entourage, avec des techniques d'écriture et d'oralité qui aident à <b>mettre des mots sur une expérience</b> et à reprendre confiance dans sa capacité à écrire et à prendre la parole.",
     goalsTitre: 'Ce que je mets en place avec ce public',
     goals: [
       ["L'expression personnelle avant tout", "On écrit sur sa vie, son passé, son entourage. Le slam sert d'outil pour mettre des mots sur une expérience, pas de prétexte à une performance."],
@@ -302,7 +302,7 @@ ${header}<main id="main">
 <section class="section section--close wrap">
   <div class="facts" data-stagger>${facts}
   </div>
-  <p class="body-lg mute" style="margin-top:clamp(28px,5vw,40px);max-width:760px" data-reveal>${p.intro}</p>
+  <p class="body-lg mute lede" data-reveal>${p.intro}</p>
 </section>
 
 <section class="section section--close wrap">
@@ -366,7 +366,7 @@ ${recits.length ? `
 
 <section class="section section--close wrap">
   <div data-reveal style="margin-bottom:clamp(24px,5vw,36px)">
-    <h2 class="h2">Vous accompagnez un autre type de public ?</h2>
+    <h2 class="h2">Vous accompagnez un autre public ?</h2>
   </div>
   <div class="related" data-stagger>${autres}
   </div>
