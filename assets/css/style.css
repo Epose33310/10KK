@@ -1918,7 +1918,6 @@ input, textarea, select { font: inherit; color: inherit; }
     margin-inline: 0; padding-inline: 0;
   }
 }
-@media (min-width: 1100px) { .mosaique { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .mosaique > .quote {
   padding: clamp(24px, 2.9vw, 32px);
   border: 2px solid var(--ink);
@@ -1928,6 +1927,16 @@ input, textarea, select { font: inherit; color: inherit; }
 .mosaique .quote__who { margin-top: clamp(20px, 3vw, 28px); }
 .mosaique .quote__name { font-size: 17px; }
 .mosaique .quote__role { font-size: 14px; }
+
+/* Sur ordinateur, quatre témoignages par ligne plutôt que trois : les cartes
+   se resserrent (texte et espaces réduits) pour rester confortables à cette
+   largeur, sans toucher au format tablette ni mobile. */
+@media (min-width: 1100px) {
+  .mosaique { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .mosaique > .quote { padding: 22px; }
+  .mosaique .quote__text { font-size: 17px; line-height: 1.32; }
+  .mosaique .quote__who { margin-top: 18px; }
+}
 
 /* --------------------------------------------------------------------------
    Carte de téléchargement dans le méga-menu
