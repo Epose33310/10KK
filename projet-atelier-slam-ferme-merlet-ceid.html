@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://slamesope.fr/assets/img/blog/scene-slam-ouverte-accordeur.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=75">
+<link rel="stylesheet" href="assets/css/style.css?v=76">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BlogPosting","headline":"Quatre ans de slam à la Ferme Merlet (CEID), à Saint-Denis-de-Pile","description":"Tout est parti d'un atelier de deux heures à L'Accordeur. Quatre ans plus tard, la Ferme Merlet, un CEID, reconduit chaque année un parcours de 20 h, et la restitution est devenue une scène slam ouverte qui attire de plus en plus de monde.","inLanguage":"fr","url":"https://slamesope.fr/projet-atelier-slam-ferme-merlet-ceid.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://slamesope.fr/projet-atelier-slam-ferme-merlet-ceid.html"},"image":"https://slamesope.fr/assets/img/blog/scene-slam-ouverte-accordeur.jpg","keywords":"atelier slam CEID, atelier slam structure médico-sociale, scène slam ouverte Saint-Denis-de-Pile","author":{"@type":"Person","name":"Esope"},"creator":{"@type":"Person","name":"Esope"},"publisher":{"@type":"Person","name":"Esope"},"contentLocation":{"@type":"Place","name":"Ferme Merlet (CEID) et L’Accordeur, Saint-Denis-de-Pile (Gironde)"},"isPartOf":{"@type":"Blog","name":"Les derniers projets — Esope","url":"https://slamesope.fr/projets.html"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://slamesope.fr/"},{"@type":"ListItem","position":2,"name":"Les derniers projets","item":"https://slamesope.fr/projets.html"},{"@type":"ListItem","position":3,"name":"Quatre ans de slam à la Ferme Merlet (CEID), à Saint-Denis-de-Pile","item":"https://slamesope.fr/projet-atelier-slam-ferme-merlet-ceid.html"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment un atelier de deux heures devient-il un partenariat de quatre ans ?","acceptedAnswer":{"@type":"Answer","text":"En laissant le temps faire son travail plutôt qu'en le planifiant à l'avance. L'atelier ponctuel a suffi à montrer ce que le format pouvait apporter à ce public ; le reste — le parcours de 20 h, puis les sous-projets, puis la scène ouverte — s'est construit d'une saison sur l'autre, au rythme de la structure et des participants."}},{"@type":"Question","name":"Pourquoi est-il important que l'équipe encadrante participe aussi à l'atelier ?","acceptedAnswer":{"@type":"Answer","text":"Parce que ça change la nature de l'espace. Quand l'encadrant écrit et passe au micro comme les autres, personne dans la salle n'est simplement là pour observer ou évaluer. C'est ce qui permet à un public sensible d'aller plus loin dans l'expression personnelle, sur des sujets qui touchent parfois directement à son parcours de vie."}},{"@type":"Question","name":"Comment une restitution finit-elle par devenir une scène ouverte à tout un territoire ?","acceptedAnswer":{"@type":"Answer","text":"En gardant la porte ouverte d'une année sur l'autre plutôt qu'en refermant le projet sur son propre public. À L'Accordeur, la restitution s'est progressivement adressée à un cercle plus large que les seuls participants de l'atelier, jusqu'à devenir un rendez-vous slam à part entière pour la région."}}]}]</script>
 </head>
 <body>
@@ -320,6 +320,7 @@
         <a href="index.html#contact">Contacter Esope</a>
         <a href="index.html#contact">Mentions légales</a>
         <a href="index.html#contact">Confidentialité</a>
+        <button type="button" id="cookiesRouvrir" hidden>Choix des cookies</button>
       </nav>
 
       <div class="socials">
@@ -416,14 +417,27 @@
 </dialog>
 
 
-<!-- Mesure d'audience. Sans cookie, sans identifiant, sans rien d'écrit sur
-     l'appareil du visiteur et sans transfert hors d'Europe : la mesure entre
-     dans les conditions d'exemption de la CNIL, donc pas de bannière à
-     afficher. Pour changer d'outil, c'est cette seule ligne à remplacer ; le
-     reste du site appelle mesurer() sans savoir qui est derrière. -->
-<script defer data-domain="slamesope.fr" src="https://plausible.io/js/script.js"></script>
-<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
+<!-- Mesure d'audience — Google Analytics.
 
-<script src="assets/js/app.js?v=75" defer></script>
+     L'identifiant se colle ici, dans data-ga, et nulle part ailleurs. Tant
+     qu'il vaut G-XXXXXXXXXX, rien n'est chargé et le bandeau reste caché :
+     pas de demande de consentement pour un traceur qui n'existe pas encore.
+
+     Google pose des cookies, le consentement est donc obligatoire. Rien n'est
+     chargé avant un « Accepter » explicite — ni script, ni cookie, ni requête.
+     Les deux réponses ont le même poids, comme la CNIL l'exige, et le choix se
+     révoque depuis le pied de page. -->
+<div class="cookies" id="cookies" data-ga="G-XXXXXXXXXX"
+     role="dialog" aria-labelledby="cookiesTitre" aria-describedby="cookiesTexte" hidden>
+  <p class="cookies__titre" id="cookiesTitre">Un œil sur les visites</p>
+  <p class="cookies__texte" id="cookiesTexte">J'aimerais savoir quelles pages vous intéressent,
+    pour améliorer le site. Rien de plus, et vous pouvez changer d'avis à tout moment.</p>
+  <div class="cookies__choix">
+    <button class="cookies__btn" type="button" data-cookies="non">Refuser</button>
+    <button class="cookies__btn cookies__btn--oui" type="button" data-cookies="oui">Accepter</button>
+  </div>
+</div>
+
+<script src="assets/js/app.js?v=76" defer></script>
 </body>
 </html>

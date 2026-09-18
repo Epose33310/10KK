@@ -1092,7 +1092,15 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .footer__copy { font-size: 13px; color: #7e7b77; }
 .footer__legal { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.footer__legal a { font-size: 13px; color: #7e7b77; }
+.footer__legal a,
+.footer__legal button { font-size: 13px; color: #7e7b77; }
+/* Le bouton de révocation se fond parmi les liens légaux : même graisse, même
+   teinte, souligné au survol comme eux. */
+.footer__legal button {
+  padding: 0; border: 0; background: none; cursor: pointer;
+  font-family: inherit; letter-spacing: inherit;
+}
+.footer__legal button:hover { text-decoration: underline; }
 
 /* Les deux réseaux se calent à droite dès qu'il reste de la place. */
 .socials { display: flex; gap: 18px; margin-left: auto; }
@@ -2308,4 +2316,66 @@ input, textarea, select { font: inherit; color: inherit; }
   width: 7px; height: 7px;
   border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
   transform: translateY(-2px) rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Bandeau de consentement
+
+   Une carte posée en bas à gauche plutôt qu'un bandeau pleine largeur : elle
+   reprend la grammaire du site — bord d'encre, ombre dure, coins arrondis — et
+   laisse la page lisible derrière elle. Sur téléphone elle s'ancre en bas,
+   dans la gouttière.
+
+   Les deux réponses sont deux boutons de même taille, côte à côte, à un clic
+   chacun : refuser doit être aussi simple qu'accepter.
+   -------------------------------------------------------------------------- */
+.cookies {
+  position: fixed;
+  z-index: 60;
+  left: var(--gutter); bottom: var(--gutter);
+  width: min(360px, calc(100vw - 2 * var(--gutter)));
+  padding: 20px;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: 8px 8px 0 var(--ink);
+  animation: cookies-entree 520ms var(--ease) both;
+}
+.cookies[hidden] { display: none; }
+@keyframes cookies-entree {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookies { animation: none; }
+}
+
+.cookies__titre {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.cookies__texte {
+  margin-top: 6px;
+  font-size: 14px; line-height: 1.5; color: var(--ink-soft);
+}
+.cookies__choix { display: flex; gap: 10px; margin-top: 16px; }
+.cookies__btn {
+  flex: 1 1 0;
+  padding: 11px 14px;
+  font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink); border-radius: 99px;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease);
+}
+.cookies__btn--oui { background: var(--yellow); }
+@media (hover: hover) and (pointer: fine) {
+  .cookies__btn:hover { transform: translateY(-2px); }
+}
+.cookies__btn:active { transform: translateY(1px); }
+.cookies__btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+@media (max-width: 559px) {
+  .cookies { right: var(--gutter); width: auto; padding: 18px; }
 }

@@ -675,7 +675,7 @@
         body += '\n\n--\nOrigine de la visite :\n' + origine.join('\n');
       }
 
-      mesurer('Demande envoyée', { atelier: String(data.get('format') || 'non précisé') });
+      mesurer('demande_envoyee', { atelier: String(data.get('format') || 'non précisé') });
 
       if (formStatus) {
         formStatus.hidden = false;
@@ -763,20 +763,78 @@
      de suivi de parcours individuel.
      ---------------------------------------------------------------------- */
 
+  /* Google Analytics n'accepte que des noms sans accent ni espace : un nom mal
+     formé serait rejeté en silence, sans que rien ne le signale. */
   function mesurer(nom, details) {
-    if (typeof window.plausible === 'function') {
-      window.plausible(nom, details ? { props: details } : undefined);
-    }
+    if (typeof window.gtag === 'function') window.gtag('event', nom, details || {});
   }
 
   document.addEventListener('click', function (e) {
     var lien = e.target.closest ? e.target.closest('a') : null;
     if (!lien) return;
     var href = lien.getAttribute('href') || '';
-    if (/\.pdf($|[?#])/.test(href)) mesurer('Dossier téléchargé');
-    else if (href.indexOf('mailto:') === 0) mesurer('Adresse cliquée');
-    else if (/(^|\/)demo\.html/.test(href)) mesurer('Démo lancée');
+    if (/\.pdf($|[?#])/.test(href)) mesurer('dossier_telecharge');
+    else if (href.indexOf('mailto:') === 0) mesurer('adresse_cliquee');
+    else if (/(^|\/)demo\.html/.test(href)) mesurer('demo_lancee');
   });
+
+  /* ----------------------------------------------------------------------
+     Consentement
+
+     Google dépose des cookies : rien n'est chargé avant un « Accepter »
+     explicite — ni script, ni requête. Le refus est mémorisé pour ne pas
+     redemander à chaque page, et se révoque depuis le pied de page.
+
+     Seule la réponse est stockée, ce qui est permis sans consentement. Le
+     try/catch couvre la navigation privée, où l'écriture peut échouer : dans
+     ce cas la question se reposera, mais rien ne se chargera pour autant.
+     ---------------------------------------------------------------------- */
+
+  var bandeau = $('#cookies');
+  var mesureId = bandeau && bandeau.getAttribute('data-ga');
+  var CLE = 'esope-mesure';
+
+  function reponse(valeur) {
+    try {
+      if (valeur === undefined) return localStorage.getItem(CLE);
+      localStorage.setItem(CLE, valeur);
+    } catch (e) { /* navigation privée : on continue sans mémoriser */ }
+    return null;
+  }
+
+  function chargerMesure() {
+    if (window.gtag) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', mesureId);
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(mesureId);
+    document.head.appendChild(script);
+  }
+
+  /* Tant que l'identifiant n'est pas renseigné, il n'y a rien à consentir :
+     ni bandeau, ni lien de révocation. */
+  if (bandeau && mesureId && mesureId.indexOf('X') === -1) {
+    var rouvrir = $('#cookiesRouvrir');
+    if (rouvrir) {
+      rouvrir.hidden = false;
+      rouvrir.addEventListener('click', function () { bandeau.hidden = false; });
+    }
+
+    if (reponse() === 'oui') chargerMesure();
+    else if (reponse() !== 'non') bandeau.hidden = false;
+
+    $$('[data-cookies]', bandeau).forEach(function (bouton) {
+      bouton.addEventListener('click', function () {
+        var choix = bouton.getAttribute('data-cookies');
+        reponse(choix);
+        bandeau.hidden = true;
+        if (choix === 'oui') chargerMesure();
+      });
+    });
+  }
 
   /* ----------------------------------------------------------------------
      Année courante
