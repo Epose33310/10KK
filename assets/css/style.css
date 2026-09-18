@@ -463,13 +463,16 @@ input, textarea, select { font: inherit; color: inherit; }
    bornée : le cadre garde ses 100vw, et object-fit recadre la vidéo — un rognage
    qui se voit moins que deux bandes vides. */
 @media (max-width: 899px) {
+  /* La vidéo reste dans la gouttière, comme le reste de la page : elle est
+     centrée par construction. Le débordement pleine largeur reposait sur un
+     calc(50% - 50vw) qui mélange la largeur du parent et celle de la fenêtre —
+     juste au pixel sur un navigateur, décalé sur un autre dès que 100vw et la
+     largeur réellement visible divergent. Quelques pixels de moins valent
+     mieux qu'un cadrage qui dépend du navigateur. */
   .reel__frame {
-    /* La moitié de la gouttière : la vidéo déborde nettement du texte sans
-       toucher les bords, où elle paraissait collée à l'écran. */
-    --marge: calc(var(--gutter) / 2);
-    width: calc(100vw - 2 * var(--marge));
-    margin-inline: calc(50% - 50vw + var(--marge));
-    max-width: calc(100vw - 2 * var(--marge));
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
     aspect-ratio: 3 / 5;
     max-height: calc(100svh - 190px);
     border-radius: 0;
