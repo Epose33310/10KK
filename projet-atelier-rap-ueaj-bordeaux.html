@@ -403,25 +403,28 @@
 </dialog>
 
 
-<!-- Mesure d'audience — Google Analytics en direct.
+<!-- Mesure d'audience — conteneur Google Tag Manager.
 
-     L'identifiant se colle ici, dans data-ga, et nulle part ailleurs. Un G-…
-     charge Analytics directement, un GTM-… passerait par Tag Manager. La voie
-     directe évite d'avoir à créer puis publier une balise dans un second
-     outil : l'identifiant suffit, la mesure part.
+     L'identifiant se colle ici, dans data-ga, et nulle part ailleurs. Un GTM-…
+     charge le conteneur, un G-… brancherait Analytics en direct.
 
-     Ce site a plusieurs propriétés Analytics : une seule doit figurer ici,
-     sans quoi chaque visite serait comptée deux fois.
+     Le conteneur étant seul chargé, c'est lui qui porte toute la mesure : sans
+     balise de configuration GA4 publiée à l'intérieur, plus rien ne remonte
+     dans Analytics.
 
-     Le code fourni par Google se charge dès l'ouverture de la page, donc avant
-     toute réponse du visiteur : il n'est pas repris tel quel. Le conteneur
-     n'est injecté qu'après un « Accepter » explicite. Le <noscript> de Google
-     est écarté volontairement — c'est un pixel qui part sans JavaScript, donc
-     impossible à conditionner à un consentement.
+     Google demande de coller son code en haut du <head> et un <iframe> après
+     <body>. Ni l'un ni l'autre ne sont repris : le premier se charge avant que
+     le visiteur ait répondu, le second est un pixel qui part sans JavaScript,
+     donc impossible à conditionner à un refus. Le conteneur est injecté après
+     un « Accepter », ce qui décale son chargement mais ne change rien à son
+     fonctionnement.
+
+     Conséquence à connaître : en mode Aperçu de Tag Manager, il faut accepter
+     le bandeau pour que le conteneur se charge et que la connexion s'établisse.
 
      Les deux réponses ont le même poids, comme la CNIL l'exige, et le choix se
      révoque depuis le pied de page. -->
-<div class="cookies" id="cookies" data-ga="G-ECDDWL190S"
+<div class="cookies" id="cookies" data-ga="GTM-W3GJKFJQ"
      role="dialog" aria-labelledby="cookiesTitre" aria-describedby="cookiesTexte" hidden>
   <p class="cookies__titre" id="cookiesTitre">Pour améliorer mon site</p>
   <p class="cookies__texte" id="cookiesTexte">Et m'aider à mieux présenter mon travail.
