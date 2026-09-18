@@ -464,9 +464,12 @@ input, textarea, select { font: inherit; color: inherit; }
    qui se voit moins que deux bandes vides. */
 @media (max-width: 899px) {
   .reel__frame {
-    width: 100vw;
-    margin-inline: calc(50% - 50vw);
-    max-width: 100vw;
+    /* La moitié de la gouttière : la vidéo déborde nettement du texte sans
+       toucher les bords, où elle paraissait collée à l'écran. */
+    --marge: calc(var(--gutter) / 2);
+    width: calc(100vw - 2 * var(--marge));
+    margin-inline: calc(50% - 50vw + var(--marge));
+    max-width: calc(100vw - 2 * var(--marge));
     aspect-ratio: 3 / 5;
     max-height: calc(100svh - 190px);
     border-radius: 0;
