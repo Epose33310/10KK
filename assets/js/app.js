@@ -763,10 +763,24 @@
      de suivi de parcours individuel.
      ---------------------------------------------------------------------- */
 
-  /* Google Analytics n'accepte que des noms sans accent ni espace : un nom mal
-     formé serait rejeté en silence, sans que rien ne le signale. */
+  /* Google n'accepte que des noms sans accent ni espace : un nom mal formé
+     serait rejeté en silence, sans que rien ne le signale.
+
+     Tant que rien n'est consenti, dataLayer n'existe pas et l'appel ne fait
+     rien. Avec Tag Manager l'événement se dépose dans dataLayer, où les
+     balises du conteneur viennent le chercher ; en Analytics direct il passe
+     par gtag. */
   function mesurer(nom, details) {
-    if (typeof window.gtag === 'function') window.gtag('event', nom, details || {});
+    if (!window.dataLayer) return;
+    if (modeConteneur) {
+      var evenement = { event: nom };
+      for (var cle in details) {
+        if (Object.prototype.hasOwnProperty.call(details, cle)) evenement[cle] = details[cle];
+      }
+      window.dataLayer.push(evenement);
+    } else if (typeof window.gtag === 'function') {
+      window.gtag('event', nom, details || {});
+    }
   }
 
   document.addEventListener('click', function (e) {
@@ -791,7 +805,9 @@
      ---------------------------------------------------------------------- */
 
   var bandeau = $('#cookies');
-  var mesureId = bandeau && bandeau.getAttribute('data-ga');
+  var mesureId = (bandeau && bandeau.getAttribute('data-ga')) || '';
+  var mesureOk = /^(G|GTM)-[A-Z0-9]{6,}$/.test(mesureId);
+  var modeConteneur = mesureId.indexOf('GTM-') === 0;
   var CLE = 'esope-mesure';
 
   function reponse(valeur) {
@@ -803,20 +819,27 @@
   }
 
   function chargerMesure() {
-    if (window.gtag) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', mesureId);
+    if (window.dataLayer) return;
+    window.dataLayer = [];
+    var source;
+    if (modeConteneur) {
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      source = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(mesureId);
+    } else {
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', mesureId);
+      source = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(mesureId);
+    }
     var script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(mesureId);
+    script.src = source;
     document.head.appendChild(script);
   }
 
-  /* Tant que l'identifiant n'est pas renseigné, il n'y a rien à consentir :
-     ni bandeau, ni lien de révocation. */
-  if (bandeau && mesureId && mesureId.indexOf('X') === -1) {
+  /* Sans identifiant valide, il n'y a rien à consentir : ni bandeau, ni lien
+     de révocation. */
+  if (bandeau && mesureOk) {
     var rouvrir = $('#cookiesRouvrir');
     if (rouvrir) {
       rouvrir.hidden = false;

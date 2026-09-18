@@ -14,7 +14,7 @@
 <meta property="og:locale" content="fr_FR">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdc837'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=76">
+<link rel="stylesheet" href="assets/css/style.css?v=77">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Person","@id":"#esope","name":"Esope","jobTitle":"Slameur, intervenant artistique et pédagogique","description":"Champion de France de Slam. Anime depuis 2016 des ateliers slam, rap, éloquence et battle de compliments dans les établissements scolaires et les structures accueillant du public.","email":"slampoetrip@gmail.com","knowsLanguage":"fr","areaServed":"FR"},
 {"@type":"Service","name":"Ateliers slam, rap et éloquence","serviceType":"Atelier artistique et pédagogique","provider":{"@id":"#esope"},"areaServed":{"@type":"Country","name":"France"},"audience":{"@type":"Audience","audienceType":"Établissements scolaires, structures jeunesse, structures de santé et médico-sociales, animateurs et éducateurs"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Les ateliers","itemListElement":[
@@ -694,17 +694,20 @@
 </dialog>
 
 
-<!-- Mesure d'audience — Google Analytics.
+<!-- Mesure d'audience — conteneur Google Tag Manager.
 
-     L'identifiant se colle ici, dans data-ga, et nulle part ailleurs. Tant
-     qu'il vaut G-XXXXXXXXXX, rien n'est chargé et le bandeau reste caché :
-     pas de demande de consentement pour un traceur qui n'existe pas encore.
+     L'identifiant se colle ici, dans data-ga, et nulle part ailleurs. Un
+     GTM-… charge Tag Manager, un G-… brancherait Analytics en direct.
 
-     Google pose des cookies, le consentement est donc obligatoire. Rien n'est
-     chargé avant un « Accepter » explicite — ni script, ni cookie, ni requête.
+     Le code fourni par Google se charge dès l'ouverture de la page, donc avant
+     toute réponse du visiteur : il n'est pas repris tel quel. Le conteneur
+     n'est injecté qu'après un « Accepter » explicite. Le <noscript> de Google
+     est écarté volontairement — c'est un pixel qui part sans JavaScript, donc
+     impossible à conditionner à un consentement.
+
      Les deux réponses ont le même poids, comme la CNIL l'exige, et le choix se
      révoque depuis le pied de page. -->
-<div class="cookies" id="cookies" data-ga="G-XXXXXXXXXX"
+<div class="cookies" id="cookies" data-ga="GTM-W3GJKFJQ"
      role="dialog" aria-labelledby="cookiesTitre" aria-describedby="cookiesTexte" hidden>
   <p class="cookies__titre" id="cookiesTitre">Un œil sur les visites</p>
   <p class="cookies__texte" id="cookiesTexte">J'aimerais savoir quelles pages vous intéressent,
@@ -715,6 +718,6 @@
   </div>
 </div>
 
-<script src="assets/js/app.js?v=76" defer></script>
+<script src="assets/js/app.js?v=77" defer></script>
 </body>
 </html>
