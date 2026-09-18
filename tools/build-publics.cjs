@@ -358,11 +358,13 @@ ${header}<main id="main">
   </div>
 </section>
 ${temoignages ? `
-<section class="section section--close wrap">
-  <div data-reveal style="margin-bottom:clamp(20px,3.4vw,28px)">
+<section class="section section--close">
+  <div class="wrap" data-reveal style="margin-bottom:clamp(20px,3.4vw,28px)">
     <h2 class="h2">${TITRE_TEMOIGNAGES[p.secteur]}</h2>
   </div>
-  <div class="mosaique" data-stagger>${temoignages}
+  <div class="wrap" style="padding-inline:0">
+    <div class="carousel" data-stagger>${temoignages}
+    </div>
   </div>
 </section>` : ''}
 ${recits.length ? `
