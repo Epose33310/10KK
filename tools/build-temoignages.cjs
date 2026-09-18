@@ -18,10 +18,14 @@ const header = toHome(index.slice(index.indexOf('<a class="skip-link"'), index.i
 const footer = toHome(index.slice(index.indexOf('<!-- ================= MODULE 9 — PIED DE PAGE NOIR')))
   .replace(/app\.js\?v=\d+/, `app.js?v=${v}`);
 
-/* Les douze témoignages viennent de l'accueil : une seule source de vérité. */
+/* Les témoignages viennent de l'accueil : une seule source de vérité. La
+   mosaïque les affiche dans l'ordre inverse du carrousel — les deux pages ne
+   présentent jamais le même témoignage en premier. */
 const carousel = index.slice(index.indexOf('<div class="carousel"'), index.indexOf('<div class="dots"'));
 const temoignages = carousel.slice(carousel.indexOf('>') + 1, carousel.lastIndexOf('</div>'))
   .replace(/^\n/, '').replace(/\s+$/, '');
+const temoignagesMosaique = (temoignages.match(/<article class="quote[\s\S]*?<\/article>/g) || [])
+  .reverse().join('\n');
 
 /* --------------------------------------------------------------------------
    La presse. Les intitulés sont ceux des adresses des articles : à recouper
@@ -222,7 +226,7 @@ ${header}<main id="main">
       groupe.</p>
   </div>
   <div class="mosaique">
-${temoignages}
+${temoignagesMosaique}
   </div>
 </section>
 
