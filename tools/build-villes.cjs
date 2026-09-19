@@ -66,12 +66,10 @@ for (const v of VILLES) {
         <span class="recit__cta">Lire le récit <span class="arrow" aria-hidden="true">→</span></span>
       </a>`;
 
-  const facts = [
-    ['Depuis 2016', 'Des ateliers menés en Gironde sans interruption'],
-    [`${locaux.length} projets racontés`, `Sur ${PROJETS.length} récits publiés, ${locaux.length} se sont déroulés en ${v.departement}`],
-    ['Champion Sud-Ouest', 'Avant le titre de champion de France de Slam'],
-    ['Aucun déplacement à financer', `Pour un établissement de ${v.ville} et de sa métropole`],
-  ].map(([k, t]) => `
+  /* Quatre encarts, quatre grappes de mots-clés distinctes : le type
+     d'établissement, le métier, le territoire, le format. Ils sont lus tôt dans
+     la page et servent autant au visiteur pressé qu'au référencement. */
+  const facts = v.facts.map(([k, t]) => `
       <div class="fact"><b>${k}</b><span>${t}</span></div>`).join('');
 
   const lieux = v.lieux.items.map(([nom, quoi]) => `
@@ -281,9 +279,9 @@ ${autour.length ? `
 <section class="section section--close wrap center">
   <div class="measure" data-reveal>
     <h2 class="h2">Un projet à ${v.ville} ou en ${v.departement} ?</h2>
-    <p class="lead mute" style="margin-top:24px">Décrivez-moi votre groupe, votre créneau et la
-      période visée. Je réponds avec une proposition adaptée — et pour un établissement de la
-      métropole, sans frais de déplacement à financer.</p>
+    <p class="lead mute" style="margin-top:24px">Atelier slam en collège, en lycée, en structure
+      jeunesse ou en établissement médico-social : décrivez-moi votre groupe, votre créneau et la
+      période visée. Je réponds avec une proposition adaptée.</p>
     <div class="btn-row btn-row--center" style="margin-top:32px">
       <a class="btn btn--yellow" href="index.html#contact">Construire votre projet</a>
       <a class="btn btn--link" href="projets.html">Voir tous les projets <span class="arrow" aria-hidden="true">→</span></a>

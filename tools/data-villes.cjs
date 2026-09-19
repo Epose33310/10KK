@@ -40,11 +40,24 @@ module.exports = [
     /* L'accroche de haut de page. Le gras ne se voit que sur mobile. */
     intro: "Bordeaux est ma ville. C'est ici que j'ai commencé à écrire, ici que j'ai <b>gagné mon titre de champion Sud-Ouest</b> avant celui de champion de France, et ici que j'ai mené mes premiers ateliers en 2016. Depuis, j'interviens dans toute la France — mais <b>plus de la moitié de mes projets racontés sur ce site se sont déroulés en Gironde</b> : au Rocher de Palmer à Cenon, à la Maison des adolescents de Bordeaux, à l'UEAJ, dans les collèges de la métropole et de la rive droite.",
 
+    /* Chaque encart porte une grappe de mots-clés différente : établissement,
+       métier, territoire, format. Aucun ne répète le même angle. */
+    facts: [
+      ['Collèges et lycées',
+       'Ateliers slam en collège, en lycée et en primaire, à Bordeaux et dans toute la métropole'],
+      ['Intervenant slam depuis 2016',
+       'Champion de France de Slam, agréé Éducation nationale, éligible au pass Culture'],
+      ['Bordeaux et la Gironde',
+       'Cenon, Bassens, Lormont, Carbon-Blanc, Arveyres, Biganos, Lège-Cap-Ferret, Saint-Denis-de-Pile'],
+      ['Faciles à organiser',
+       'Un créneau de cours, une demi-journée banalisée ou un parcours filé sur plusieurs séances'],
+    ],
+
     ancrage: {
-      titre: 'Pourquoi un intervenant local change quelque chose',
+      titre: 'Un intervenant slam installé à Bordeaux',
       paragraphes: [
-        "Un atelier slam ne se joue pas seulement sur la qualité de l'intervenant : il se joue aussi sur la logistique. Être basé à Bordeaux veut dire pas de frais de déplacement à négocier pour un établissement de la métropole, une disponibilité pour un projet filé sur plusieurs séances plutôt qu'un passage unique, et la possibilité de venir repérer une salle avant la restitution.",
-        "Ça veut dire aussi connaître le terrain. Je sais ce que peut accueillir la salle du Rocher de Palmer, comment se passe une restitution dans un hall de collège de la rive droite, et à quel moment de l'année scolaire les équipes de Gironde montent leurs dossiers. Ce sont des détails qui ne se voient pas dans une plaquette, et qui font la différence entre un atelier qui s'ajoute au programme et un atelier qui s'y intègre.",
+        "Un atelier slam ne se joue pas seulement sur la qualité de l'intervenant : il se joue aussi sur l'organisation. Travailler depuis Bordeaux rend les interventions faciles à caler dans la métropole — un projet filé sur plusieurs séances plutôt qu'un passage unique, des dates qui se replacent sans tout reconstruire, et la possibilité de venir repérer une salle avant la restitution.",
+        "Ça veut dire aussi connaître le terrain. Je sais ce que peut accueillir la salle du Rocher de Palmer, comment se passe une restitution dans un hall de collège de la rive droite, et à quel moment de l'année scolaire les équipes de Gironde montent leurs dossiers d'atelier d'écriture. Ce sont des détails qui ne se voient pas dans une plaquette, et qui font la différence entre un atelier qui s'ajoute au programme et un atelier qui s'y intègre — en français autour de la poésie, en EMC autour de l'oral, ou en préparation du grand oral au lycée.",
       ],
     },
 
@@ -64,7 +77,7 @@ module.exports = [
 
     faq: [
       ['Intervenez-vous dans les collèges et lycées de Bordeaux Métropole ?',
-       "Oui, c’est même le cœur de mon activité depuis 2016 : collèges et lycées de Bordeaux, de la rive droite et de toute la Gironde, du primaire au lycée professionnel. Étant basé à Bordeaux, il n’y a pas de frais de déplacement à prévoir pour un établissement de la métropole, ce qui change souvent l’équation budgétaire d’un projet."],
+       "Oui, c’est même le cœur de mon activité depuis 2016 : ateliers slam en collège et en lycée à Bordeaux, sur la rive droite et dans toute la Gironde, du primaire au lycée professionnel. Travaillant depuis Bordeaux, une intervention dans la métropole se cale facilement — y compris un parcours réparti sur plusieurs séances, ce qui est souvent plus difficile à organiser avec un intervenant venu de loin."],
       ['Quel est le tarif d’un atelier slam à Bordeaux ?',
        "Il n’y a pas de tarif au catalogue : le budget dépend du volume d’heures, du nombre de groupes et de la restitution envisagée. Un atelier de quatre heures pour une classe et un parcours de vingt heures avec scène finale n’ont rien à voir. Décrivez-moi votre contexte et je réponds avec une proposition chiffrée. Mes interventions sont éligibles au pass Culture et je suis agréé par l’Éducation nationale."],
       ['Combien de séances faut-il prévoir ?',
