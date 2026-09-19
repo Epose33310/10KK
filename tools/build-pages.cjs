@@ -203,17 +203,26 @@ const recitsDe = (tag) => PROJETS
   .sort((a, b) => b.ordre - a.ordre)
   .slice(0, 4);
 
-/* Les pages de ville ne sont dans aucun menu : ce lien, posé sous les récits de
-   l'atelier concerné, est leur lien entrant le plus fort — il vient d'une page
-   du menu principal et parle déjà du même sujet. */
-const VILLES = require('./data-villes.cjs');
-const villesDe = (atelier) => VILLES
-  .filter((v) => v.file.startsWith(`atelier-${atelier}-`))
-  .map((v) => `
-  <div data-reveal style="margin-top:clamp(20px,3vw,28px)">
-    <a class="btn btn--link" href="${v.file}">Les ateliers slam à ${v.ville}
-      <span class="arrow" aria-hidden="true">→</span></a>
-  </div>`).join('');
+/* Les pages de territoire ne sont dans aucun menu : ces liens, posés sous les
+   récits, sont leurs liens entrants les plus forts — ils viennent de pages du
+   menu principal et parlent déjà du même sujet.
+
+   La page France est citée depuis les quatre ateliers, la page Bordeaux
+   seulement depuis le slam : c'est là qu'elle a du sens. */
+const TERRITOIRES = require('./data-territoires.cjs');
+const lienTerritoire = (file, texte) => `
+    <a class="btn btn--link" href="${file}">${texte}
+      <span class="arrow" aria-hidden="true">→</span></a>`;
+const villesDe = (atelier) => {
+  const liens = [lienTerritoire('ateliers-slam-france.html', 'Où j’interviens en France')];
+  if (atelier === 'slam') {
+    TERRITOIRES.filter((t) => t.niveau === 'ville')
+      .forEach((t) => liens.push(lienTerritoire(t.file, `Les ateliers slam à ${t.ville}`)));
+  }
+  return `
+  <div class="btn-row" data-reveal style="margin-top:clamp(20px,3vw,28px)">${liens.join('')}
+  </div>`;
+};
 
 const TITRE_RECITS = {
   slam: 'Des ateliers slam, racontés',

@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://slamesope.fr/atelier-slam.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -31,10 +31,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://slamesope.fr/ateliers-slam-france.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://slamesope.fr/atelier-slam-bordeaux.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://slamesope.fr/atelier-slam-gironde.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://slamesope.fr/atelier-slam-dordogne.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://slamesope.fr/atelier-slam-herault.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://slamesope.fr/public-education-nationale.html</loc>
@@ -86,13 +110,13 @@
   </url>
   <url>
     <loc>https://slamesope.fr/projet-atelier-battle-de-compliments-structure-jeunesse-bassens.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://slamesope.fr/projet-atelier-ecriture-maison-des-adolescents-bordeaux.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -122,13 +146,13 @@
   </url>
   <url>
     <loc>https://slamesope.fr/projet-atelier-rap-stage-opus-rocher-de-palmer.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://slamesope.fr/projet-atelier-rap-ueaj-bordeaux.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -188,7 +212,7 @@
   </url>
   <url>
     <loc>https://slamesope.fr/projet-scene-slam-ouverte-rocher-de-palmer-nouveau-festival.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

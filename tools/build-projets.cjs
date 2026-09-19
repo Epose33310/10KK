@@ -51,15 +51,22 @@ const teinteDe = (a) => a.teinte || COULEUR[a.atelier] || 'yellow';
    Les récits, du plus récent au plus ancien (champ « ordre »).
    ------------------------------------------------------------------------- */
 const ARTICLES = require('./data-projets.cjs');
-const VILLES = require('./data-villes.cjs');
+const TERRITOIRES = require('./data-territoires.cjs');
 
-/* Le lieu du récit devient un lien vers la page de ville quand il en existe
-   une. C'est de là que cette page tire l'essentiel de ses liens entrants : un
-   lien contextuel depuis un contenu qui parle du même territoire vaut mieux
-   qu'une entrée de menu, et la page de ville reste hors navigation. */
+/* Le lieu du récit devient un lien vers le territoire qui le couvre. C'est de
+   là que ces pages tirent l'essentiel de leurs liens entrants : un lien
+   contextuel depuis un contenu qui parle du même endroit vaut mieux qu'une
+   entrée de menu, et les pages de territoire restent hors navigation.
+
+   On vise le plus précis d'abord — une ville avant son département — sinon
+   chaque récit girondin pointerait vers la Gironde et jamais vers Bordeaux.
+   Faute de mieux, la page France, pour qu'aucun récit ne reste orphelin. */
+const couvre = (t, lieu) => (t.communes || []).some((c) => lieu.includes(c));
 const lienLieu = (lieu) => {
-  const v = VILLES.find((ville) => ville.communes.some((c) => lieu.includes(c)));
-  return v ? `<a href="${v.file}">${ech(lieu)}</a>` : ech(lieu);
+  const t = TERRITOIRES.find((x) => x.niveau === 'ville' && couvre(x, lieu))
+    || TERRITOIRES.find((x) => x.niveau === 'departement' && couvre(x, lieu))
+    || TERRITOIRES.find((x) => x.niveau === 'france');
+  return t ? `<a href="${t.file}">${ech(lieu)}</a>` : ech(lieu);
 };
 
 /* ------------------------------------------------------------------------- */
