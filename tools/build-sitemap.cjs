@@ -27,6 +27,9 @@ const POIDS = {
   'atelier-rap.html': ['atelier-rap.html', '0.8', 'monthly'],
   'atelier-battle.html': ['atelier-battle.html', '0.8', 'monthly'],
   'atelier-eloquence.html': ['atelier-eloquence.html', '0.8', 'monthly'],
+  /* Hors navigation mais poussée : c'est une page de conquête, pas une page de
+     service. Le sitemap et les liens contextuels sont ses seuls chemins. */
+  'atelier-slam-bordeaux.html': ['atelier-slam-bordeaux.html', '0.9', 'monthly'],
   'public-education-nationale.html': ['public-education-nationale.html', '0.8', 'monthly'],
   'public-structures-jeunesse.html': ['public-structures-jeunesse.html', '0.8', 'monthly'],
   'public-sante-medico-social.html': ['public-sante-medico-social.html', '0.8', 'monthly'],

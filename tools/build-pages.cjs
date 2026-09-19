@@ -203,6 +203,18 @@ const recitsDe = (tag) => PROJETS
   .sort((a, b) => b.ordre - a.ordre)
   .slice(0, 4);
 
+/* Les pages de ville ne sont dans aucun menu : ce lien, posé sous les récits de
+   l'atelier concerné, est leur lien entrant le plus fort — il vient d'une page
+   du menu principal et parle déjà du même sujet. */
+const VILLES = require('./data-villes.cjs');
+const villesDe = (atelier) => VILLES
+  .filter((v) => v.file.startsWith(`atelier-${atelier}-`))
+  .map((v) => `
+  <div data-reveal style="margin-top:clamp(20px,3vw,28px)">
+    <a class="btn btn--link" href="${v.file}">Les ateliers slam à ${v.ville}
+      <span class="arrow" aria-hidden="true">→</span></a>
+  </div>`).join('');
+
 const TITRE_RECITS = {
   slam: 'Des ateliers slam, racontés',
   rap: 'Des ateliers rap, racontés',
@@ -419,7 +431,7 @@ ${recits.length ? `
     <h2 class="h2">${TITRE_RECITS[p.demo[0]]}</h2>
   </div>
   <div class="recits" data-stagger>${recitsHtml}
-  </div>
+  </div>${villesDe(p.demo[0])}
 </section>` : ''}
 
 <section class="section section--close wrap">

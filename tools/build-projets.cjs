@@ -51,6 +51,16 @@ const teinteDe = (a) => a.teinte || COULEUR[a.atelier] || 'yellow';
    Les récits, du plus récent au plus ancien (champ « ordre »).
    ------------------------------------------------------------------------- */
 const ARTICLES = require('./data-projets.cjs');
+const VILLES = require('./data-villes.cjs');
+
+/* Le lieu du récit devient un lien vers la page de ville quand il en existe
+   une. C'est de là que cette page tire l'essentiel de ses liens entrants : un
+   lien contextuel depuis un contenu qui parle du même territoire vaut mieux
+   qu'une entrée de menu, et la page de ville reste hors navigation. */
+const lienLieu = (lieu) => {
+  const v = VILLES.find((ville) => ville.communes.some((c) => lieu.includes(c)));
+  return v ? `<a href="${v.file}">${ech(lieu)}</a>` : ech(lieu);
+};
 
 /* ------------------------------------------------------------------------- */
 
@@ -246,7 +256,7 @@ tries.forEach((a, i) => {
     <h1>${ech(a.h1)}</h1>
     <p class="article__chapo">${ech(a.chapo)}</p>
     <dl class="article__meta">
-      <div><dt>Lieu</dt><dd>${ech(a.lieu)}</dd></div>
+      <div><dt>Lieu</dt><dd>${lienLieu(a.lieu)}</dd></div>
       <div><dt>Public</dt><dd>${ech(a.publics)}</dd></div>
       <div><dt>Intervention</dt><dd>${ech(a.format)}</dd></div>
     </dl>
